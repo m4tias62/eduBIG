@@ -1,0 +1,54 @@
+/*
+  Edubig — estilos globales.
+  Los tokens semánticos viven en tailwind.config.ts; este archivo activa
+  Tailwind, carga las fuentes y aplica reset a nivel documento.
+
+  Fuentes:
+   - Work Sans / Roboto: tipografía del design system Edubig.
+   - Material Symbols Outlined: iconografía — misma familia que usa el
+     gob.cl UI Kit en Figma, garantiza fidelidad 1:1 con los mockups.
+*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Work+Sans:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..700,0..1,-50..200");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-superficie-base text-texto-primario font-body text-sm;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+
+  /* Foco accesible por defecto (WCAG 2.4.7) */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-interaccion-foco;
+  }
+
+  /* Material Symbols — configuración por defecto (equivalente a
+     "Rounded outline 400 weight" del gob.cl UI Kit) */
+  .material-symbols-outlined {
+    font-family: "Material Symbols Outlined";
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  }
+}

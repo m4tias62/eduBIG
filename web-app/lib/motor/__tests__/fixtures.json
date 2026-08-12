@@ -1,0 +1,175 @@
+{
+  "carolina": {
+    "descripcion": "Perfil P1 (Carolina) — solo gratuitos, media, 2km duro, prioridad convivencia",
+    "prefs": {
+      "techo_copago": 0,
+      "nivel": "media",
+      "lat_sector": -33.43913,
+      "lon_sector": -70.7411,
+      "tipo_distancia": "duro",
+      "radio_km": 2,
+      "perfil": "convivencia",
+      "quiere_inclusion": false
+    },
+    "total_elegibles": 5,
+    "top10": [
+      {
+        "rbd": 10077,
+        "nombre": "LICEO CENTRO EXPERIMENTAL PUDAHUEL CAREN",
+        "score_final": 0.7020981833091732
+      },
+      {
+        "rbd": 10187,
+        "nombre": "COLEGIO BICENTENARIO MADRE ANA EUGENIA",
+        "score_final": 0.6683109782212243
+      },
+      {
+        "rbd": 25375,
+        "nombre": "ESCUELA ESPECIAL N°1761 MI PEQUEÑO COLIBRI PUDAHUEL",
+        "score_final": 0.6446428571428571
+      },
+      {
+        "rbd": 25397,
+        "nombre": "ESCUELA ESPECIAL PART. ACONCAGUA DE PUDAHEL N",
+        "score_final": 0.6446428571428571
+      },
+      {
+        "rbd": 25079,
+        "nombre": "ESCUELA ESPECIAL PART.JESUS NAZARENO",
+        "score_final": 0.6069269833917819
+      }
+    ]
+  },
+  "herrera": {
+    "descripcion": "Perfil P2 (Herrera) — cualquier copago, básica, distancia flexible, prioridad académico",
+    "prefs": {
+      "techo_copago": 5,
+      "nivel": "basica",
+      "lat_sector": -33.43913,
+      "lon_sector": -70.7411,
+      "tipo_distancia": "flexible",
+      "radio_km": null,
+      "perfil": "academico",
+      "quiere_inclusion": false
+    },
+    "total_elegibles": 55,
+    "top10": [
+      {
+        "rbd": 25922,
+        "nombre": "COLEGIO TERRA AUSTRALIS",
+        "score_final": 0.856432147341679
+      },
+      {
+        "rbd": 10080,
+        "nombre": "ESCUELA TENIENTE HERNAN MERINO CORREA",
+        "score_final": 0.8032337475524304
+      },
+      {
+        "rbd": 25215,
+        "nombre": "COLEGIO POLIV. GERONIMO DE ALDERETE",
+        "score_final": 0.8018071723747968
+      },
+      {
+        "rbd": 26139,
+        "nombre": "ESCUELA BAS. VILLA SAN IGNACIO",
+        "score_final": 0.7592638171140663
+      },
+      {
+        "rbd": 24424,
+        "nombre": "COLEGIO PARTICULAR LA UNION",
+        "score_final": 0.7538675253934385
+      },
+      {
+        "rbd": 24889,
+        "nombre": "LICEO BICENTENARIO MONSENOR ENRIQUE ALVEAR",
+        "score_final": 0.7425876133625104
+      },
+      {
+        "rbd": 25098,
+        "nombre": "ESC. BAS. EJERCITO DE SALVACION",
+        "score_final": 0.7281807927530142
+      },
+      {
+        "rbd": 10102,
+        "nombre": "ESCUELA ALBERT EINSTEIN",
+        "score_final": 0.6835129218294249
+      },
+      {
+        "rbd": 10157,
+        "nombre": "COLEGIO MINISTRO DIEGO PORTALES",
+        "score_final": 0.6646301214612934
+      },
+      {
+        "rbd": 10182,
+        "nombre": "ESCUELA  BASICA  N° 912 ELLEN  COLLEGE",
+        "score_final": 0.6630894831309828
+      }
+    ]
+  },
+  "martin": {
+    "descripcion": "Perfil P3 (Martín) — gratuito, básica, 3km duro, todo por igual + inclusión",
+    "prefs": {
+      "techo_copago": 0,
+      "nivel": "basica",
+      "lat_sector": -33.43913,
+      "lon_sector": -70.7411,
+      "tipo_distancia": "duro",
+      "radio_km": 3,
+      "perfil": "todo_por_igual",
+      "quiere_inclusion": true
+    },
+    "total_elegibles": 42,
+    "top10": [
+      {
+        "rbd": 24424,
+        "nombre": "COLEGIO PARTICULAR LA UNION",
+        "score_final": 0.8523553113553113
+      },
+      {
+        "rbd": 26139,
+        "nombre": "ESCUELA BAS. VILLA SAN IGNACIO",
+        "score_final": 0.8358698236799911
+      },
+      {
+        "rbd": 10080,
+        "nombre": "ESCUELA TENIENTE HERNAN MERINO CORREA",
+        "score_final": 0.830034251592086
+      },
+      {
+        "rbd": 24889,
+        "nombre": "LICEO BICENTENARIO MONSENOR ENRIQUE ALVEAR",
+        "score_final": 0.8135395157088257
+      },
+      {
+        "rbd": 10182,
+        "nombre": "ESCUELA  BASICA  N° 912 ELLEN  COLLEGE",
+        "score_final": 0.7105290574181176
+      },
+      {
+        "rbd": 24412,
+        "nombre": "COLEGIO FINLANDIA",
+        "score_final": 0.7090099592142242
+      },
+      {
+        "rbd": 10100,
+        "nombre": "ESCUELA EL SALITRE",
+        "score_final": 0.6831325921991036
+      },
+      {
+        "rbd": 25098,
+        "nombre": "ESC. BAS. EJERCITO DE SALVACION",
+        "score_final": 0.6677778881397534
+      },
+      {
+        "rbd": 10157,
+        "nombre": "COLEGIO MINISTRO DIEGO PORTALES",
+        "score_final": 0.6661024512252697
+      },
+      {
+        "rbd": 10187,
+        "nombre": "COLEGIO BICENTENARIO MADRE ANA EUGENIA",
+        "score_final": 0.6566828318137852
+      }
+    ]
+  }
+}

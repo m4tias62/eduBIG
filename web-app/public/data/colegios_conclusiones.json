@@ -1,0 +1,2110 @@
+[
+  {
+    "rbd": 10077,
+    "identidad": {
+      "nombre": "Liceo Centro Experimental Pudahuel Caren",
+      "dependencia": "Educación pública (SLEP)",
+      "matricula": "431 estudiantes",
+      "niveles": "Media"
+    },
+    "lo_esencial": {
+      "Seguridad": "1 denuncia en 2025 (2.3 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "A la par de colegios similares en las cuatro dimensiones.",
+      "Académico": "Bajo colegios similares en las dos materias, en todos los cursos evaluados.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares en las cuatro dimensiones.",
+        "detalle": {
+          "Clima escolar": "A la par de colegios similares (2° medio).",
+          "Autoestima académica": "A la par de colegios similares (2° medio).",
+          "Hábitos de vida saludable": "A la par de colegios similares (2° medio).",
+          "Participación y formación ciudadana": "A la par de colegios similares (2° medio)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Bajo colegios similares en las dos materias, en todos los cursos evaluados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "1 denuncia en 2025 (2.3 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 10080,
+    "identidad": {
+      "nombre": "Escuela Teniente Hernan Merino Correa",
+      "dependencia": "Educación pública (SLEP)",
+      "matricula": "322 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "1 denuncia en 2025 (3.1 por cada 1.000 estudiantes) y 1 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "Sobre colegios similares en las cuatro dimensiones.",
+      "Académico": "Por sobre colegios similares en la mayoría de los cursos.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sobre colegios similares en las cuatro dimensiones.",
+        "detalle": {
+          "Clima escolar": "Sobre colegios similares (8° básico).",
+          "Autoestima académica": "Sobre colegios similares (8° básico).",
+          "Hábitos de vida saludable": "Sobre colegios similares (8° básico).",
+          "Participación y formación ciudadana": "Sobre colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Por sobre colegios similares en la mayoría de los cursos.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "1 denuncia en 2025 (3.1 por cada 1.000 estudiantes) y 1 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 10081,
+    "identidad": {
+      "nombre": "Escuela Estrella De Chile",
+      "dependencia": "Educación pública (SLEP)",
+      "matricula": "973 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "4 denuncias en 2025 (4.1 por cada 1.000 estudiantes) y 3 en 2024, ante la Superintendencia.",
+      "Bienestar": "A la par de colegios similares, con brechas en 8° básico.",
+      "Académico": "Bajo colegios similares en la mayoría de los cursos.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares, con brechas en 8° básico.",
+        "detalle": {
+          "Clima escolar": "Bajo colegios similares (8° básico).",
+          "Autoestima académica": "A la par de colegios similares (8° básico).",
+          "Hábitos de vida saludable": "A la par de colegios similares (8° básico).",
+          "Participación y formación ciudadana": "A la par de colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Bajo colegios similares en la mayoría de los cursos.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "4 denuncias en 2025 (4.1 por cada 1.000 estudiantes) y 3 en 2024, ante la Superintendencia."
+      }
+    }
+  },
+  {
+    "rbd": 10085,
+    "identidad": {
+      "nombre": "Escuela Estado De Florida",
+      "dependencia": "Educación pública (SLEP)",
+      "matricula": "591 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "5 denuncias en 2025 (8.5 por cada 1.000 estudiantes) y 2 en 2024, ante la Superintendencia.",
+      "Bienestar": "Bajo colegios similares en las cuatro dimensiones.",
+      "Académico": "Por sobre colegios similares en la mayoría de los cursos.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Bajo colegios similares en las cuatro dimensiones.",
+        "detalle": {
+          "Clima escolar": "Bajo colegios similares (8° básico).",
+          "Autoestima académica": "Bajo colegios similares (8° básico).",
+          "Hábitos de vida saludable": "Bajo colegios similares (8° básico).",
+          "Participación y formación ciudadana": "Bajo colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Por sobre colegios similares en la mayoría de los cursos.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "5 denuncias en 2025 (8.5 por cada 1.000 estudiantes) y 2 en 2024, ante la Superintendencia."
+      }
+    }
+  },
+  {
+    "rbd": 10090,
+    "identidad": {
+      "nombre": "Escuela Alexander Graham Bell",
+      "dependencia": "Educación pública (SLEP)",
+      "matricula": "445 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "2 denuncias en 2025 (4.5 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "A la par de colegios similares, con brechas en 8° básico.",
+      "Académico": "Por sobre colegios similares en la mayoría de los cursos, con brechas en 8° básico.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares, con brechas en 8° básico.",
+        "detalle": {
+          "Clima escolar": "Bajo colegios similares (8° básico).",
+          "Autoestima académica": "A la par de colegios similares (8° básico).",
+          "Hábitos de vida saludable": "Bajo colegios similares (8° básico).",
+          "Participación y formación ciudadana": "A la par de colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Por sobre colegios similares en la mayoría de los cursos, con brechas en 8° básico.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "2 denuncias en 2025 (4.5 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 10100,
+    "identidad": {
+      "nombre": "Escuela El Salitre",
+      "dependencia": "Educación pública (SLEP)",
+      "matricula": "250 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "1 denuncia en 2025 (4.0 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "A la par de colegios similares, con fortalezas en 8° básico.",
+      "Académico": "Bajo colegios similares en las dos materias, en todos los cursos evaluados.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares, con fortalezas en 8° básico.",
+        "detalle": {
+          "Clima escolar": "A la par de colegios similares (8° básico).",
+          "Autoestima académica": "A la par de colegios similares (8° básico).",
+          "Hábitos de vida saludable": "Sobre colegios similares (8° básico).",
+          "Participación y formación ciudadana": "A la par de colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Bajo colegios similares en las dos materias, en todos los cursos evaluados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "1 denuncia en 2025 (4.0 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 10102,
+    "identidad": {
+      "nombre": "Escuela Albert Einstein",
+      "dependencia": "Educación pública (SLEP)",
+      "matricula": "168 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "2 denuncias en 2025 (11.9 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "Sobre colegios similares en las cuatro dimensiones.",
+      "Académico": "Por sobre colegios similares en la mayoría de los cursos.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sobre colegios similares en las cuatro dimensiones.",
+        "detalle": {
+          "Clima escolar": "Sobre colegios similares (8° básico).",
+          "Autoestima académica": "Sobre colegios similares (8° básico).",
+          "Hábitos de vida saludable": "Sobre colegios similares (8° básico).",
+          "Participación y formación ciudadana": "Sobre colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Por sobre colegios similares en la mayoría de los cursos.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "2 denuncias en 2025 (11.9 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 10104,
+    "identidad": {
+      "nombre": "Escuela Monsenor Carlos Oviedo",
+      "dependencia": "Educación pública (SLEP)",
+      "matricula": "317 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "1 denuncia en 2025 (3.2 por cada 1.000 estudiantes) y 2 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "A la par de colegios similares en las cuatro dimensiones.",
+      "Académico": "Bajo colegios similares en la mayoría de los cursos, con fortalezas en 4° básico.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares en las cuatro dimensiones.",
+        "detalle": {
+          "Clima escolar": "A la par de colegios similares (8° básico).",
+          "Autoestima académica": "A la par de colegios similares (8° básico).",
+          "Hábitos de vida saludable": "A la par de colegios similares (8° básico).",
+          "Participación y formación ciudadana": "A la par de colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Bajo colegios similares en la mayoría de los cursos, con fortalezas en 4° básico.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "1 denuncia en 2025 (3.2 por cada 1.000 estudiantes) y 2 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 10113,
+    "identidad": {
+      "nombre": "Escuela Elvira Santa Cruz Ossa",
+      "dependencia": "Educación pública (SLEP)",
+      "matricula": "444 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "2025 sin datos publicados y 2 denuncias en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "A la par de colegios similares, con brechas en 8° básico.",
+      "Académico": "Por sobre colegios similares en la mayoría de los cursos, con brechas puntuales.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares, con brechas en 8° básico.",
+        "detalle": {
+          "Clima escolar": "A la par de colegios similares (8° básico).",
+          "Autoestima académica": "A la par de colegios similares (8° básico).",
+          "Hábitos de vida saludable": "Bajo colegios similares (8° básico).",
+          "Participación y formación ciudadana": "A la par de colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Por sobre colegios similares en la mayoría de los cursos, con brechas puntuales.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "2025 sin datos publicados y 2 denuncias en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 10120,
+    "identidad": {
+      "nombre": "Liceo De Adultos Alberto Galleguillos J.",
+      "dependencia": "Educación pública (SLEP)",
+      "matricula": "354 estudiantes",
+      "niveles": "Niveles no informados"
+    },
+    "lo_esencial": {
+      "Seguridad": "Sin registros de denuncias publicados.",
+      "Bienestar": "Sin datos publicados.",
+      "Académico": "Sin datos publicados.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sin datos publicados.",
+        "detalle": {
+          "Clima escolar": "Sin datos publicados.",
+          "Autoestima académica": "Sin datos publicados.",
+          "Hábitos de vida saludable": "Sin datos publicados.",
+          "Participación y formación ciudadana": "Sin datos publicados."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Sin datos publicados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "Sin registros de denuncias publicados."
+      }
+    }
+  },
+  {
+    "rbd": 10123,
+    "identidad": {
+      "nombre": "Escuela Basica Melvin Jones",
+      "dependencia": "Educación pública (SLEP)",
+      "matricula": "512 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "1 denuncia en 2025 (2.0 por cada 1.000 estudiantes) y 4 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "A la par de colegios similares en las cuatro dimensiones.",
+      "Académico": "Bajo colegios similares en la mayoría de los cursos.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares en las cuatro dimensiones.",
+        "detalle": {
+          "Clima escolar": "A la par de colegios similares (8° básico).",
+          "Autoestima académica": "A la par de colegios similares (8° básico).",
+          "Hábitos de vida saludable": "A la par de colegios similares (8° básico).",
+          "Participación y formación ciudadana": "A la par de colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Bajo colegios similares en la mayoría de los cursos.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "1 denuncia en 2025 (2.0 por cada 1.000 estudiantes) y 4 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 10124,
+    "identidad": {
+      "nombre": "Escuela San Daniel",
+      "dependencia": "Educación pública (SLEP)",
+      "matricula": "294 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "2 denuncias en 2025 (6.8 por cada 1.000 estudiantes) y 1 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "A la par de colegios similares en las cuatro dimensiones.",
+      "Académico": "A la par de colegios similares, con fortalezas puntuales.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares en las cuatro dimensiones.",
+        "detalle": {
+          "Clima escolar": "A la par de colegios similares (8° básico).",
+          "Autoestima académica": "A la par de colegios similares (8° básico).",
+          "Hábitos de vida saludable": "A la par de colegios similares (8° básico).",
+          "Participación y formación ciudadana": "A la par de colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "A la par de colegios similares, con fortalezas puntuales.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "2 denuncias en 2025 (6.8 por cada 1.000 estudiantes) y 1 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 10130,
+    "identidad": {
+      "nombre": "Liceo Ciudad De Brasilia",
+      "dependencia": "Educación pública (SLEP)",
+      "matricula": "487 estudiantes",
+      "niveles": "Básica y Media"
+    },
+    "lo_esencial": {
+      "Seguridad": "2 denuncias en 2025 (4.1 por cada 1.000 estudiantes) y 1 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "A la par de colegios similares, con fortalezas en 2° medio.",
+      "Académico": "Sobre colegios similares en las dos materias, en todos los cursos evaluados.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares, con fortalezas en 2° medio.",
+        "detalle": {
+          "Clima escolar": "A la par de colegios similares (8° básico y 2° medio).",
+          "Autoestima académica": "Sobre colegios similares en 1 de 2 niveles; a la par en 8° básico.",
+          "Hábitos de vida saludable": "A la par de colegios similares (8° básico y 2° medio).",
+          "Participación y formación ciudadana": "Sobre colegios similares en 1 de 2 niveles; a la par en 8° básico."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Sobre colegios similares en las dos materias, en todos los cursos evaluados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "2 denuncias en 2025 (4.1 por cada 1.000 estudiantes) y 1 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 10134,
+    "identidad": {
+      "nombre": "Esc.Comodoro Arturo Merino Benitez",
+      "dependencia": "Educación pública (SLEP)",
+      "matricula": "369 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "1 denuncia en 2025 (2.7 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "Por sobre colegios similares en la mayoría de las dimensiones.",
+      "Académico": "Por sobre colegios similares en la mayoría de los cursos.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Por sobre colegios similares en la mayoría de las dimensiones.",
+        "detalle": {
+          "Clima escolar": "Sobre colegios similares (8° básico).",
+          "Autoestima académica": "Sobre colegios similares (8° básico).",
+          "Hábitos de vida saludable": "A la par de colegios similares (8° básico).",
+          "Participación y formación ciudadana": "Sobre colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Por sobre colegios similares en la mayoría de los cursos.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "1 denuncia en 2025 (2.7 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 10135,
+    "identidad": {
+      "nombre": "Escuela Lo Boza",
+      "dependencia": "Educación pública (SLEP)",
+      "matricula": "252 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "2025 sin datos publicados y 1 denuncia en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "Bajo colegios similares en la mayoría de las dimensiones.",
+      "Académico": "Bajo colegios similares en la mayoría de los cursos, con fortalezas en 4° básico.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Bajo colegios similares en la mayoría de las dimensiones.",
+        "detalle": {
+          "Clima escolar": "Bajo colegios similares (8° básico).",
+          "Autoestima académica": "A la par de colegios similares (8° básico).",
+          "Hábitos de vida saludable": "Bajo colegios similares (8° básico).",
+          "Participación y formación ciudadana": "Bajo colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Bajo colegios similares en la mayoría de los cursos, con fortalezas en 4° básico.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "2025 sin datos publicados y 1 denuncia en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 10152,
+    "identidad": {
+      "nombre": "Escuela Particular Andantino",
+      "dependencia": "Particular subvencionado",
+      "matricula": "391 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "3 denuncias en 2025 (7.7 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "A la par de colegios similares, con fortalezas en 8° básico.",
+      "Académico": "A la par de colegios similares, con brechas en 4° básico.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares, con fortalezas en 8° básico.",
+        "detalle": {
+          "Clima escolar": "A la par de colegios similares (8° básico).",
+          "Autoestima académica": "A la par de colegios similares (8° básico).",
+          "Hábitos de vida saludable": "Sobre colegios similares (8° básico).",
+          "Participación y formación ciudadana": "A la par de colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "A la par de colegios similares, con brechas en 4° básico.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "3 denuncias en 2025 (7.7 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 10157,
+    "identidad": {
+      "nombre": "Colegio Ministro Diego Portales",
+      "dependencia": "Particular subvencionado",
+      "matricula": "653 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "3 denuncias en 2025 (4.6 por cada 1.000 estudiantes) y 1 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "A la par de colegios similares, con fortalezas en 8° básico.",
+      "Académico": "Por sobre colegios similares en la mayoría de los cursos, con brechas en 6° básico.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares, con fortalezas en 8° básico.",
+        "detalle": {
+          "Clima escolar": "A la par de colegios similares (8° básico).",
+          "Autoestima académica": "Sobre colegios similares (8° básico).",
+          "Hábitos de vida saludable": "A la par de colegios similares (8° básico).",
+          "Participación y formación ciudadana": "A la par de colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Por sobre colegios similares en la mayoría de los cursos, con brechas en 6° básico.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "3 denuncias en 2025 (4.6 por cada 1.000 estudiantes) y 1 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 10167,
+    "identidad": {
+      "nombre": "Escuela Basica N°1058 Santa Beatriz",
+      "dependencia": "Particular subvencionado",
+      "matricula": "689 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "6 denuncias en 2025 (8.7 por cada 1.000 estudiantes) y 4 en 2024, ante la Superintendencia.",
+      "Bienestar": "Por sobre colegios similares en la mayoría de las dimensiones.",
+      "Académico": "Por sobre colegios similares en la mayoría de los cursos.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Por sobre colegios similares en la mayoría de las dimensiones.",
+        "detalle": {
+          "Clima escolar": "Sobre colegios similares (8° básico).",
+          "Autoestima académica": "A la par de colegios similares (8° básico).",
+          "Hábitos de vida saludable": "Sobre colegios similares (8° básico).",
+          "Participación y formación ciudadana": "A la par de colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Por sobre colegios similares en la mayoría de los cursos.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "6 denuncias en 2025 (8.7 por cada 1.000 estudiantes) y 4 en 2024, ante la Superintendencia."
+      }
+    }
+  },
+  {
+    "rbd": 10173,
+    "identidad": {
+      "nombre": "Escuela Part. Suns School",
+      "dependencia": "Particular subvencionado",
+      "matricula": "213 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "2 denuncias en 2025 (9.4 por cada 1.000 estudiantes) y 4 en 2024, ante la Superintendencia.",
+      "Bienestar": "A la par de colegios similares en las cuatro dimensiones.",
+      "Académico": "Bajo colegios similares en la mayoría de los cursos, con fortalezas en 6° básico.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares en las cuatro dimensiones.",
+        "detalle": {
+          "Clima escolar": "A la par de colegios similares (8° básico).",
+          "Autoestima académica": "A la par de colegios similares (8° básico).",
+          "Hábitos de vida saludable": "A la par de colegios similares (8° básico).",
+          "Participación y formación ciudadana": "A la par de colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Bajo colegios similares en la mayoría de los cursos, con fortalezas en 6° básico.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "2 denuncias en 2025 (9.4 por cada 1.000 estudiantes) y 4 en 2024, ante la Superintendencia."
+      }
+    }
+  },
+  {
+    "rbd": 10182,
+    "identidad": {
+      "nombre": "Escuela  Basica  N° 912 Ellen  College",
+      "dependencia": "Particular subvencionado",
+      "matricula": "315 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "3 denuncias en 2025 (9.5 por cada 1.000 estudiantes) y 2 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "Por sobre colegios similares en la mayoría de las dimensiones.",
+      "Académico": "Por sobre colegios similares en la mayoría de los cursos.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Por sobre colegios similares en la mayoría de las dimensiones.",
+        "detalle": {
+          "Clima escolar": "Sobre colegios similares (8° básico).",
+          "Autoestima académica": "A la par de colegios similares (8° básico).",
+          "Hábitos de vida saludable": "Sobre colegios similares (8° básico).",
+          "Participación y formación ciudadana": "Sobre colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Por sobre colegios similares en la mayoría de los cursos.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "3 denuncias en 2025 (9.5 por cada 1.000 estudiantes) y 2 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 10187,
+    "identidad": {
+      "nombre": "Colegio Bicentenario Madre Ana Eugenia",
+      "dependencia": "Particular subvencionado",
+      "matricula": "1655 estudiantes",
+      "niveles": "Básica y Media"
+    },
+    "lo_esencial": {
+      "Seguridad": "19 denuncias en 2025 (11.5 por cada 1.000 estudiantes) y 6 en 2024, ante la Superintendencia.",
+      "Bienestar": "Por sobre colegios similares en la mayoría de las dimensiones.",
+      "Académico": "Por sobre colegios similares en la mayoría de los cursos.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Por sobre colegios similares en la mayoría de las dimensiones.",
+        "detalle": {
+          "Clima escolar": "Sobre colegios similares en 1 de 2 niveles; a la par en 8° básico.",
+          "Autoestima académica": "Sobre colegios similares en 1 de 2 niveles; a la par en 8° básico.",
+          "Hábitos de vida saludable": "A la par de colegios similares (8° básico y 2° medio).",
+          "Participación y formación ciudadana": "Sobre colegios similares (8° básico y 2° medio)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Por sobre colegios similares en la mayoría de los cursos.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "19 denuncias en 2025 (11.5 por cada 1.000 estudiantes) y 6 en 2024, ante la Superintendencia."
+      }
+    }
+  },
+  {
+    "rbd": 10191,
+    "identidad": {
+      "nombre": "Escuela Particular La Ciudad Educativa",
+      "dependencia": "Particular subvencionado",
+      "matricula": "85 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "2025 sin datos publicados y 1 denuncia en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "Sobre colegios similares en las cuatro dimensiones.",
+      "Académico": "A la par de colegios similares, con fortalezas en 6° básico.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sobre colegios similares en las cuatro dimensiones.",
+        "detalle": {
+          "Clima escolar": "Sobre colegios similares (8° básico).",
+          "Autoestima académica": "Sobre colegios similares (8° básico).",
+          "Hábitos de vida saludable": "Sobre colegios similares (8° básico).",
+          "Participación y formación ciudadana": "Sobre colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "A la par de colegios similares, con fortalezas en 6° básico.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "2025 sin datos publicados y 1 denuncia en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 12122,
+    "identidad": {
+      "nombre": "Escuela Educadora Gabriela Mistral",
+      "dependencia": "Particular subvencionado",
+      "matricula": "562 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "4 denuncias en 2025 (7.1 por cada 1.000 estudiantes) y 25 en 2024, ante la Superintendencia.",
+      "Bienestar": "Bajo colegios similares en las cuatro dimensiones.",
+      "Académico": "Bajo colegios similares en la mayoría de los cursos, con fortalezas en 6° básico.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Bajo colegios similares en las cuatro dimensiones.",
+        "detalle": {
+          "Clima escolar": "Bajo colegios similares (8° básico).",
+          "Autoestima académica": "Bajo colegios similares (8° básico).",
+          "Hábitos de vida saludable": "Bajo colegios similares (8° básico).",
+          "Participación y formación ciudadana": "Bajo colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Bajo colegios similares en la mayoría de los cursos, con fortalezas en 6° básico.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "4 denuncias en 2025 (7.1 por cada 1.000 estudiantes) y 25 en 2024, ante la Superintendencia."
+      }
+    }
+  },
+  {
+    "rbd": 12242,
+    "identidad": {
+      "nombre": "Colegio Pudahuel",
+      "dependencia": "Particular subvencionado",
+      "matricula": "651 estudiantes",
+      "niveles": "Básica y Media"
+    },
+    "lo_esencial": {
+      "Seguridad": "3 denuncias en 2025 (4.6 por cada 1.000 estudiantes) y 1 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "Bajo colegios similares en la mayoría de las dimensiones.",
+      "Académico": "A la par de colegios similares, con fortalezas en 6° básico y brechas puntuales.",
+      "Costo": "Copago: $10.001 A $25.000."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Bajo colegios similares en la mayoría de las dimensiones.",
+        "detalle": {
+          "Clima escolar": "Bajo colegios similares (8° básico y 2° medio).",
+          "Autoestima académica": "A la par de colegios similares en 1 de 2 niveles; bajo en 2° medio.",
+          "Hábitos de vida saludable": "A la par de colegios similares en 1 de 2 niveles; bajo en 2° medio.",
+          "Participación y formación ciudadana": "A la par de colegios similares en 1 de 2 niveles; bajo en 2° medio."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "A la par de colegios similares, con fortalezas en 6° básico y brechas puntuales.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "3 denuncias en 2025 (4.6 por cada 1.000 estudiantes) y 1 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 12778,
+    "identidad": {
+      "nombre": "Escuelas  Del  Cariño Alborada",
+      "dependencia": "Particular subvencionado",
+      "matricula": "329 estudiantes",
+      "niveles": "Niveles no informados"
+    },
+    "lo_esencial": {
+      "Seguridad": "Sin registros de denuncias publicados.",
+      "Bienestar": "Sin datos publicados.",
+      "Académico": "Sin datos publicados.",
+      "Costo": "Copago: SIN INFORMACION."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sin datos publicados.",
+        "detalle": {
+          "Clima escolar": "Sin datos publicados.",
+          "Autoestima académica": "Sin datos publicados.",
+          "Hábitos de vida saludable": "Sin datos publicados.",
+          "Participación y formación ciudadana": "Sin datos publicados."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Sin datos publicados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "Sin registros de denuncias publicados."
+      }
+    }
+  },
+  {
+    "rbd": 16921,
+    "identidad": {
+      "nombre": "Escuela Especial N°234 `Las Flores`",
+      "dependencia": "Particular subvencionado",
+      "matricula": "180 estudiantes",
+      "niveles": "Niveles no informados"
+    },
+    "lo_esencial": {
+      "Seguridad": "2 denuncias en 2025 (11.1 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "Sin datos publicados.",
+      "Académico": "Sin datos publicados.",
+      "Costo": "Copago: SIN INFORMACION."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sin datos publicados.",
+        "detalle": {
+          "Clima escolar": "Sin datos publicados.",
+          "Autoestima académica": "Sin datos publicados.",
+          "Hábitos de vida saludable": "Sin datos publicados.",
+          "Participación y formación ciudadana": "Sin datos publicados."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Sin datos publicados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "2 denuncias en 2025 (11.1 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 20455,
+    "identidad": {
+      "nombre": "Escuela  Especial  N° 2481  `Santa  Emilia `",
+      "dependencia": "Particular subvencionado",
+      "matricula": "92 estudiantes",
+      "niveles": "Niveles no informados"
+    },
+    "lo_esencial": {
+      "Seguridad": "Sin registros de denuncias publicados.",
+      "Bienestar": "Sin datos publicados.",
+      "Académico": "Sin datos publicados.",
+      "Costo": "Copago: SIN INFORMACION."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sin datos publicados.",
+        "detalle": {
+          "Clima escolar": "Sin datos publicados.",
+          "Autoestima académica": "Sin datos publicados.",
+          "Hábitos de vida saludable": "Sin datos publicados.",
+          "Participación y formación ciudadana": "Sin datos publicados."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Sin datos publicados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "Sin registros de denuncias publicados."
+      }
+    }
+  },
+  {
+    "rbd": 24412,
+    "identidad": {
+      "nombre": "Colegio Finlandia",
+      "dependencia": "Educación pública (SLEP)",
+      "matricula": "358 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "3 denuncias en 2025 (8.4 por cada 1.000 estudiantes) y 1 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "A la par de colegios similares en las cuatro dimensiones.",
+      "Académico": "A la par de colegios similares, con fortalezas en 4° básico y brechas en 8° básico.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares en las cuatro dimensiones.",
+        "detalle": {
+          "Clima escolar": "A la par de colegios similares (8° básico).",
+          "Autoestima académica": "A la par de colegios similares (8° básico).",
+          "Hábitos de vida saludable": "A la par de colegios similares (8° básico).",
+          "Participación y formación ciudadana": "A la par de colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "A la par de colegios similares, con fortalezas en 4° básico y brechas en 8° básico.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "3 denuncias en 2025 (8.4 por cada 1.000 estudiantes) y 1 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 24424,
+    "identidad": {
+      "nombre": "Colegio Particular La Union",
+      "dependencia": "Particular subvencionado",
+      "matricula": "355 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "Sin registros de denuncias publicados.",
+      "Bienestar": "Sobre colegios similares en las cuatro dimensiones.",
+      "Académico": "Por sobre colegios similares en la mayoría de los cursos.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sobre colegios similares en las cuatro dimensiones.",
+        "detalle": {
+          "Clima escolar": "Sobre colegios similares (8° básico).",
+          "Autoestima académica": "Sobre colegios similares (8° básico).",
+          "Hábitos de vida saludable": "Sobre colegios similares (8° básico).",
+          "Participación y formación ciudadana": "Sobre colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Por sobre colegios similares en la mayoría de los cursos.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "Sin registros de denuncias publicados."
+      }
+    }
+  },
+  {
+    "rbd": 24790,
+    "identidad": {
+      "nombre": "Colegio El Prado",
+      "dependencia": "Particular subvencionado",
+      "matricula": "389 estudiantes",
+      "niveles": "Básica y Media"
+    },
+    "lo_esencial": {
+      "Seguridad": "7 denuncias en 2025 (18.0 por cada 1.000 estudiantes) y 8 en 2024, ante la Superintendencia.",
+      "Bienestar": "A la par de colegios similares, con fortalezas en 2° medio.",
+      "Académico": "Bajo colegios similares en la mayoría de los cursos.",
+      "Costo": "Copago: $50.001 A $100.000."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares, con fortalezas en 2° medio.",
+        "detalle": {
+          "Clima escolar": "A la par de colegios similares (8° básico y 2° medio).",
+          "Autoestima académica": "Sobre colegios similares en 1 de 2 niveles; a la par en 8° básico.",
+          "Hábitos de vida saludable": "Sobre colegios similares en 1 de 2 niveles; a la par en 8° básico.",
+          "Participación y formación ciudadana": "Sobre colegios similares en 1 de 2 niveles; a la par en 8° básico."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Bajo colegios similares en la mayoría de los cursos.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "7 denuncias en 2025 (18.0 por cada 1.000 estudiantes) y 8 en 2024, ante la Superintendencia."
+      }
+    }
+  },
+  {
+    "rbd": 24809,
+    "identidad": {
+      "nombre": "Esc. Basica Part.Juanita Fernandez Solar",
+      "dependencia": "Particular subvencionado",
+      "matricula": "848 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "2 denuncias en 2025 (2.4 por cada 1.000 estudiantes) y 1 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "Sobre colegios similares en las cuatro dimensiones.",
+      "Académico": "Por sobre colegios similares en la mayoría de los cursos, con brechas en 4° básico.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sobre colegios similares en las cuatro dimensiones.",
+        "detalle": {
+          "Clima escolar": "Sobre colegios similares (8° básico).",
+          "Autoestima académica": "Sobre colegios similares (8° básico).",
+          "Hábitos de vida saludable": "Sobre colegios similares (8° básico).",
+          "Participación y formación ciudadana": "Sobre colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Por sobre colegios similares en la mayoría de los cursos, con brechas en 4° básico.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "2 denuncias en 2025 (2.4 por cada 1.000 estudiantes) y 1 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 24843,
+    "identidad": {
+      "nombre": "Colegio Poliv. San Luis Beltran",
+      "dependencia": "Particular subvencionado",
+      "matricula": "1152 estudiantes",
+      "niveles": "Básica y Media"
+    },
+    "lo_esencial": {
+      "Seguridad": "6 denuncias en 2025 (5.2 por cada 1.000 estudiantes) y 5 en 2024, ante la Superintendencia.",
+      "Bienestar": "A la par de colegios similares, con fortalezas en 2° medio.",
+      "Académico": "A la par de colegios similares, con fortalezas puntuales y brechas en 8° básico.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares, con fortalezas en 2° medio.",
+        "detalle": {
+          "Clima escolar": "Sobre colegios similares en 1 de 2 niveles; a la par en 8° básico.",
+          "Autoestima académica": "A la par de colegios similares (8° básico y 2° medio).",
+          "Hábitos de vida saludable": "A la par de colegios similares (8° básico y 2° medio).",
+          "Participación y formación ciudadana": "Sobre colegios similares en 1 de 2 niveles; a la par en 8° básico."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "A la par de colegios similares, con fortalezas puntuales y brechas en 8° básico.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "6 denuncias en 2025 (5.2 por cada 1.000 estudiantes) y 5 en 2024, ante la Superintendencia."
+      }
+    }
+  },
+  {
+    "rbd": 24875,
+    "identidad": {
+      "nombre": "Escuela  Especial Part.Pudahuel Norte",
+      "dependencia": "Particular subvencionado",
+      "matricula": "104 estudiantes",
+      "niveles": "Niveles no informados"
+    },
+    "lo_esencial": {
+      "Seguridad": "1 denuncia en 2025 (9.6 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "Sin datos publicados.",
+      "Académico": "Sin datos publicados.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sin datos publicados.",
+        "detalle": {
+          "Clima escolar": "Sin datos publicados.",
+          "Autoestima académica": "Sin datos publicados.",
+          "Hábitos de vida saludable": "Sin datos publicados.",
+          "Participación y formación ciudadana": "Sin datos publicados."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Sin datos publicados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "1 denuncia en 2025 (9.6 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 24889,
+    "identidad": {
+      "nombre": "Liceo Bicentenario Monsenor Enrique Alvear",
+      "dependencia": "Educación pública (SLEP)",
+      "matricula": "1019 estudiantes",
+      "niveles": "Básica y Media"
+    },
+    "lo_esencial": {
+      "Seguridad": "4 denuncias en 2025 (3.9 por cada 1.000 estudiantes) y 2 en 2024, ante la Superintendencia.",
+      "Bienestar": "Por sobre colegios similares en la mayoría de las dimensiones.",
+      "Académico": "Por sobre colegios similares en la mayoría de los cursos.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Por sobre colegios similares en la mayoría de las dimensiones.",
+        "detalle": {
+          "Clima escolar": "Sobre colegios similares en 1 de 2 niveles; a la par en 8° básico.",
+          "Autoestima académica": "Sobre colegios similares en 1 de 2 niveles; a la par en 8° básico.",
+          "Hábitos de vida saludable": "Sobre colegios similares en 1 de 2 niveles; a la par en 8° básico.",
+          "Participación y formación ciudadana": "Sobre colegios similares en 1 de 2 niveles; a la par en 8° básico."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Por sobre colegios similares en la mayoría de los cursos.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "4 denuncias en 2025 (3.9 por cada 1.000 estudiantes) y 2 en 2024, ante la Superintendencia."
+      }
+    }
+  },
+  {
+    "rbd": 24961,
+    "identidad": {
+      "nombre": "Esc.Parvulos Renacer Alborada",
+      "dependencia": "Particular subvencionado",
+      "matricula": "45 estudiantes",
+      "niveles": "Niveles no informados"
+    },
+    "lo_esencial": {
+      "Seguridad": "Sin registros de denuncias publicados.",
+      "Bienestar": "Sin datos publicados.",
+      "Académico": "Sin datos publicados.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sin datos publicados.",
+        "detalle": {
+          "Clima escolar": "Sin datos publicados.",
+          "Autoestima académica": "Sin datos publicados.",
+          "Hábitos de vida saludable": "Sin datos publicados.",
+          "Participación y formación ciudadana": "Sin datos publicados."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Sin datos publicados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "Sin registros de denuncias publicados."
+      }
+    }
+  },
+  {
+    "rbd": 24966,
+    "identidad": {
+      "nombre": "Colegio San Felipe",
+      "dependencia": "Particular subvencionado",
+      "matricula": "430 estudiantes",
+      "niveles": "Básica y Media"
+    },
+    "lo_esencial": {
+      "Seguridad": "2 denuncias en 2025 (4.7 por cada 1.000 estudiantes) y 3 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "Bajo colegios similares en la mayoría de las dimensiones.",
+      "Académico": "Bajo colegios similares en la mayoría de los cursos, con fortalezas puntuales.",
+      "Costo": "Copago: $50.001 A $100.000."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Bajo colegios similares en la mayoría de las dimensiones.",
+        "detalle": {
+          "Clima escolar": "Bajo colegios similares (8° básico y 2° medio).",
+          "Autoestima académica": "A la par de colegios similares (8° básico y 2° medio).",
+          "Hábitos de vida saludable": "Bajo colegios similares (8° básico y 2° medio).",
+          "Participación y formación ciudadana": "A la par de colegios similares en 1 de 2 niveles; bajo en 8° básico."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Bajo colegios similares en la mayoría de los cursos, con fortalezas puntuales.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "2 denuncias en 2025 (4.7 por cada 1.000 estudiantes) y 3 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 25031,
+    "identidad": {
+      "nombre": "Escuela Especial Part. Voces",
+      "dependencia": "Particular subvencionado",
+      "matricula": "102 estudiantes",
+      "niveles": "Niveles no informados"
+    },
+    "lo_esencial": {
+      "Seguridad": "Sin registros de denuncias publicados.",
+      "Bienestar": "Sin datos publicados.",
+      "Académico": "Sin datos publicados.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sin datos publicados.",
+        "detalle": {
+          "Clima escolar": "Sin datos publicados.",
+          "Autoestima académica": "Sin datos publicados.",
+          "Hábitos de vida saludable": "Sin datos publicados.",
+          "Participación y formación ciudadana": "Sin datos publicados."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Sin datos publicados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "Sin registros de denuncias publicados."
+      }
+    }
+  },
+  {
+    "rbd": 25047,
+    "identidad": {
+      "nombre": "Escuela Antilhue De Pudahuel",
+      "dependencia": "Educación pública (SLEP)",
+      "matricula": "797 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "2 denuncias en 2025 (2.5 por cada 1.000 estudiantes) y 4 en 2024, ante la Superintendencia.",
+      "Bienestar": "A la par de colegios similares en las cuatro dimensiones.",
+      "Académico": "A la par de colegios similares, con fortalezas en 4° básico.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares en las cuatro dimensiones.",
+        "detalle": {
+          "Clima escolar": "A la par de colegios similares (8° básico).",
+          "Autoestima académica": "A la par de colegios similares (8° básico).",
+          "Hábitos de vida saludable": "A la par de colegios similares (8° básico).",
+          "Participación y formación ciudadana": "A la par de colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "A la par de colegios similares, con fortalezas en 4° básico.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "2 denuncias en 2025 (2.5 por cada 1.000 estudiantes) y 4 en 2024, ante la Superintendencia."
+      }
+    }
+  },
+  {
+    "rbd": 25079,
+    "identidad": {
+      "nombre": "Escuela Especial Part.Jesus Nazareno",
+      "dependencia": "Particular subvencionado",
+      "matricula": "127 estudiantes",
+      "niveles": "Niveles no informados"
+    },
+    "lo_esencial": {
+      "Seguridad": "1 denuncia en 2025 (7.9 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "Sin datos publicados.",
+      "Académico": "Sin datos publicados.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sin datos publicados.",
+        "detalle": {
+          "Clima escolar": "Sin datos publicados.",
+          "Autoestima académica": "Sin datos publicados.",
+          "Hábitos de vida saludable": "Sin datos publicados.",
+          "Participación y formación ciudadana": "Sin datos publicados."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Sin datos publicados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "1 denuncia en 2025 (7.9 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 25098,
+    "identidad": {
+      "nombre": "Esc. Bas. Ejercito De Salvacion",
+      "dependencia": "Particular subvencionado",
+      "matricula": "216 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "Sin registros de denuncias publicados.",
+      "Bienestar": "Por sobre colegios similares en la mayoría de las dimensiones.",
+      "Académico": "Por sobre colegios similares en la mayoría de los cursos.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Por sobre colegios similares en la mayoría de las dimensiones.",
+        "detalle": {
+          "Clima escolar": "Sobre colegios similares (8° básico).",
+          "Autoestima académica": "Sobre colegios similares (8° básico).",
+          "Hábitos de vida saludable": "A la par de colegios similares (8° básico).",
+          "Participación y formación ciudadana": "A la par de colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Por sobre colegios similares en la mayoría de los cursos.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "Sin registros de denuncias publicados."
+      }
+    }
+  },
+  {
+    "rbd": 25208,
+    "identidad": {
+      "nombre": "Esc. Esp. Ntra Sra. Del Buen Consejo",
+      "dependencia": "Particular subvencionado",
+      "matricula": "111 estudiantes",
+      "niveles": "Niveles no informados"
+    },
+    "lo_esencial": {
+      "Seguridad": "2025 sin datos publicados y 2 denuncias en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "Sin datos publicados.",
+      "Académico": "Sin datos publicados.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sin datos publicados.",
+        "detalle": {
+          "Clima escolar": "Sin datos publicados.",
+          "Autoestima académica": "Sin datos publicados.",
+          "Hábitos de vida saludable": "Sin datos publicados.",
+          "Participación y formación ciudadana": "Sin datos publicados."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Sin datos publicados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "2025 sin datos publicados y 2 denuncias en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 25215,
+    "identidad": {
+      "nombre": "Colegio Poliv. Geronimo De Alderete",
+      "dependencia": "Particular subvencionado",
+      "matricula": "2017 estudiantes",
+      "niveles": "Básica y Media"
+    },
+    "lo_esencial": {
+      "Seguridad": "10 denuncias en 2025 (5.0 por cada 1.000 estudiantes) y 1 en 2024, ante la Superintendencia.",
+      "Bienestar": "A la par de colegios similares, con fortalezas puntuales.",
+      "Académico": "Por sobre colegios similares en la mayoría de los cursos.",
+      "Costo": "Copago: $25.001 A $50.000."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares, con fortalezas puntuales.",
+        "detalle": {
+          "Clima escolar": "Sobre colegios similares en 1 de 2 niveles; a la par en 8° básico.",
+          "Autoestima académica": "Sobre colegios similares en 1 de 2 niveles; a la par en 2° medio.",
+          "Hábitos de vida saludable": "A la par de colegios similares (8° básico y 2° medio).",
+          "Participación y formación ciudadana": "Sobre colegios similares en 1 de 2 niveles; a la par en 8° básico."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Por sobre colegios similares en la mayoría de los cursos.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "10 denuncias en 2025 (5.0 por cada 1.000 estudiantes) y 1 en 2024, ante la Superintendencia."
+      }
+    }
+  },
+  {
+    "rbd": 25315,
+    "identidad": {
+      "nombre": "Escuela Puerto Futuro",
+      "dependencia": "Educación pública (SLEP)",
+      "matricula": "291 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "2 denuncias en 2025 (6.9 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "A la par de colegios similares, con brechas en 8° básico.",
+      "Académico": "A la par de colegios similares, con fortalezas puntuales y brechas en 6° básico.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares, con brechas en 8° básico.",
+        "detalle": {
+          "Clima escolar": "A la par de colegios similares (8° básico).",
+          "Autoestima académica": "A la par de colegios similares (8° básico).",
+          "Hábitos de vida saludable": "Bajo colegios similares (8° básico).",
+          "Participación y formación ciudadana": "Bajo colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "A la par de colegios similares, con fortalezas puntuales y brechas en 6° básico.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "2 denuncias en 2025 (6.9 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 25375,
+    "identidad": {
+      "nombre": "Escuela Especial N°1761 Mi Pequeño Colibri Pudahuel",
+      "dependencia": "Particular subvencionado",
+      "matricula": "138 estudiantes",
+      "niveles": "Niveles no informados"
+    },
+    "lo_esencial": {
+      "Seguridad": "Sin registros de denuncias publicados.",
+      "Bienestar": "Sin datos publicados.",
+      "Académico": "Sin datos publicados.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sin datos publicados.",
+        "detalle": {
+          "Clima escolar": "Sin datos publicados.",
+          "Autoestima académica": "Sin datos publicados.",
+          "Hábitos de vida saludable": "Sin datos publicados.",
+          "Participación y formación ciudadana": "Sin datos publicados."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Sin datos publicados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "Sin registros de denuncias publicados."
+      }
+    }
+  },
+  {
+    "rbd": 25390,
+    "identidad": {
+      "nombre": "Esc.Basica Part. Aconcagua De Pudahuel",
+      "dependencia": "Particular subvencionado",
+      "matricula": "157 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "Sin registros de denuncias publicados.",
+      "Bienestar": "A la par de colegios similares, con brechas en 8° básico.",
+      "Académico": "Bajo colegios similares en la mayoría de los cursos, con fortalezas en 8° básico.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares, con brechas en 8° básico.",
+        "detalle": {
+          "Clima escolar": "A la par de colegios similares (8° básico).",
+          "Autoestima académica": "A la par de colegios similares (8° básico).",
+          "Hábitos de vida saludable": "Bajo colegios similares (8° básico).",
+          "Participación y formación ciudadana": "A la par de colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Bajo colegios similares en la mayoría de los cursos, con fortalezas en 8° básico.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "Sin registros de denuncias publicados."
+      }
+    }
+  },
+  {
+    "rbd": 25397,
+    "identidad": {
+      "nombre": "Escuela Especial Part. Aconcagua De Pudahel N",
+      "dependencia": "Particular subvencionado",
+      "matricula": "103 estudiantes",
+      "niveles": "Niveles no informados"
+    },
+    "lo_esencial": {
+      "Seguridad": "Sin registros de denuncias publicados.",
+      "Bienestar": "Sin datos publicados.",
+      "Académico": "Sin datos publicados.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sin datos publicados.",
+        "detalle": {
+          "Clima escolar": "Sin datos publicados.",
+          "Autoestima académica": "Sin datos publicados.",
+          "Hábitos de vida saludable": "Sin datos publicados.",
+          "Participación y formación ciudadana": "Sin datos publicados."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Sin datos publicados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "Sin registros de denuncias publicados."
+      }
+    }
+  },
+  {
+    "rbd": 25496,
+    "identidad": {
+      "nombre": "Instituto Tecnológico Bicentenario De Excelencia San Mateo",
+      "dependencia": "Particular subvencionado",
+      "matricula": "1305 estudiantes",
+      "niveles": "Media"
+    },
+    "lo_esencial": {
+      "Seguridad": "2 denuncias en 2025 (1.5 por cada 1.000 estudiantes) y 3 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "A la par de colegios similares en las cuatro dimensiones.",
+      "Académico": "Por sobre colegios similares en la mayoría de los cursos.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares en las cuatro dimensiones.",
+        "detalle": {
+          "Clima escolar": "A la par de colegios similares (2° medio).",
+          "Autoestima académica": "A la par de colegios similares (2° medio).",
+          "Hábitos de vida saludable": "A la par de colegios similares (2° medio).",
+          "Participación y formación ciudadana": "A la par de colegios similares (2° medio)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Por sobre colegios similares en la mayoría de los cursos.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "2 denuncias en 2025 (1.5 por cada 1.000 estudiantes) y 3 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 25564,
+    "identidad": {
+      "nombre": "Escuela Especial Part. Talentos",
+      "dependencia": "Particular subvencionado",
+      "matricula": "174 estudiantes",
+      "niveles": "Niveles no informados"
+    },
+    "lo_esencial": {
+      "Seguridad": "Sin registros de denuncias publicados.",
+      "Bienestar": "Sin datos publicados.",
+      "Académico": "Sin datos publicados.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sin datos publicados.",
+        "detalle": {
+          "Clima escolar": "Sin datos publicados.",
+          "Autoestima académica": "Sin datos publicados.",
+          "Hábitos de vida saludable": "Sin datos publicados.",
+          "Participación y formación ciudadana": "Sin datos publicados."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Sin datos publicados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "Sin registros de denuncias publicados."
+      }
+    }
+  },
+  {
+    "rbd": 25576,
+    "identidad": {
+      "nombre": "Escuela Basica Part. San Jorge De Pudahuel",
+      "dependencia": "Particular subvencionado",
+      "matricula": "429 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "1 denuncia en 2025 (2.3 por cada 1.000 estudiantes) y 1 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "Por sobre colegios similares en la mayoría de las dimensiones.",
+      "Académico": "Por sobre colegios similares en la mayoría de los cursos, con brechas en 4° básico.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Por sobre colegios similares en la mayoría de las dimensiones.",
+        "detalle": {
+          "Clima escolar": "A la par de colegios similares (8° básico).",
+          "Autoestima académica": "Sobre colegios similares (8° básico).",
+          "Hábitos de vida saludable": "Sobre colegios similares (8° básico).",
+          "Participación y formación ciudadana": "A la par de colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Por sobre colegios similares en la mayoría de los cursos, con brechas en 4° básico.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "1 denuncia en 2025 (2.3 por cada 1.000 estudiantes) y 1 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 25583,
+    "identidad": {
+      "nombre": "Esc. Esp. Part. Santisima Trinidad De Pudahue",
+      "dependencia": "Particular subvencionado",
+      "matricula": "173 estudiantes",
+      "niveles": "Niveles no informados"
+    },
+    "lo_esencial": {
+      "Seguridad": "Sin registros de denuncias publicados.",
+      "Bienestar": "Sin datos publicados.",
+      "Académico": "Sin datos publicados.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sin datos publicados.",
+        "detalle": {
+          "Clima escolar": "Sin datos publicados.",
+          "Autoestima académica": "Sin datos publicados.",
+          "Hábitos de vida saludable": "Sin datos publicados.",
+          "Participación y formación ciudadana": "Sin datos publicados."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Sin datos publicados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "Sin registros de denuncias publicados."
+      }
+    }
+  },
+  {
+    "rbd": 25719,
+    "identidad": {
+      "nombre": "Esc. De Parvulos Los Ositos De Pudahuel",
+      "dependencia": "Particular subvencionado",
+      "matricula": "47 estudiantes",
+      "niveles": "Niveles no informados"
+    },
+    "lo_esencial": {
+      "Seguridad": "Sin registros de denuncias publicados.",
+      "Bienestar": "Sin datos publicados.",
+      "Académico": "Sin datos publicados.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sin datos publicados.",
+        "detalle": {
+          "Clima escolar": "Sin datos publicados.",
+          "Autoestima académica": "Sin datos publicados.",
+          "Hábitos de vida saludable": "Sin datos publicados.",
+          "Participación y formación ciudadana": "Sin datos publicados."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Sin datos publicados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "Sin registros de denuncias publicados."
+      }
+    }
+  },
+  {
+    "rbd": 25895,
+    "identidad": {
+      "nombre": "Colegio Santiago De Pudahuel",
+      "dependencia": "Particular subvencionado",
+      "matricula": "1016 estudiantes",
+      "niveles": "Básica y Media"
+    },
+    "lo_esencial": {
+      "Seguridad": "1 denuncia en 2025 (1.0 por cada 1.000 estudiantes) y 4 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "A la par de colegios similares, con brechas en 8° básico.",
+      "Académico": "Por sobre colegios similares en la mayoría de los cursos, con brechas puntuales.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares, con brechas en 8° básico.",
+        "detalle": {
+          "Clima escolar": "A la par de colegios similares en 1 de 2 niveles; bajo en 8° básico.",
+          "Autoestima académica": "A la par de colegios similares en 1 de 2 niveles; bajo en 8° básico.",
+          "Hábitos de vida saludable": "A la par de colegios similares (8° básico y 2° medio).",
+          "Participación y formación ciudadana": "A la par de colegios similares (8° básico y 2° medio)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Por sobre colegios similares en la mayoría de los cursos, con brechas puntuales.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "1 denuncia en 2025 (1.0 por cada 1.000 estudiantes) y 4 en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 25922,
+    "identidad": {
+      "nombre": "Colegio Terra Australis",
+      "dependencia": "Particular subvencionado",
+      "matricula": "1560 estudiantes",
+      "niveles": "Básica y Media"
+    },
+    "lo_esencial": {
+      "Seguridad": "5 denuncias en 2025 (3.2 por cada 1.000 estudiantes) y 4 en 2024, ante la Superintendencia.",
+      "Bienestar": "Por sobre colegios similares en la mayoría de las dimensiones.",
+      "Académico": "Sobre colegios similares en las dos materias, en todos los cursos evaluados.",
+      "Costo": "Copago: $50.001 A $100.000."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Por sobre colegios similares en la mayoría de las dimensiones.",
+        "detalle": {
+          "Clima escolar": "Sobre colegios similares en 1 de 2 niveles; a la par en 8° básico.",
+          "Autoestima académica": "Sobre colegios similares (8° básico y 2° medio).",
+          "Hábitos de vida saludable": "A la par de colegios similares (8° básico y 2° medio).",
+          "Participación y formación ciudadana": "Sobre colegios similares (8° básico y 2° medio)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Sobre colegios similares en las dos materias, en todos los cursos evaluados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "5 denuncias en 2025 (3.2 por cada 1.000 estudiantes) y 4 en 2024, ante la Superintendencia."
+      }
+    }
+  },
+  {
+    "rbd": 25965,
+    "identidad": {
+      "nombre": "Escuela Esp. Las Barrancas",
+      "dependencia": "Particular subvencionado",
+      "matricula": "74 estudiantes",
+      "niveles": "Niveles no informados"
+    },
+    "lo_esencial": {
+      "Seguridad": "Sin registros de denuncias publicados.",
+      "Bienestar": "Sin datos publicados.",
+      "Académico": "Sin datos publicados.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sin datos publicados.",
+        "detalle": {
+          "Clima escolar": "Sin datos publicados.",
+          "Autoestima académica": "Sin datos publicados.",
+          "Hábitos de vida saludable": "Sin datos publicados.",
+          "Participación y formación ciudadana": "Sin datos publicados."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Sin datos publicados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "Sin registros de denuncias publicados."
+      }
+    }
+  },
+  {
+    "rbd": 26046,
+    "identidad": {
+      "nombre": "Colegio  Manquecura Ciudad De Los Valles",
+      "dependencia": "Particular pagado",
+      "matricula": "1781 estudiantes",
+      "niveles": "Básica y Media"
+    },
+    "lo_esencial": {
+      "Seguridad": "8 denuncias en 2025 (4.5 por cada 1.000 estudiantes) y 6 en 2024, ante la Superintendencia.",
+      "Bienestar": "A la par de colegios similares, con brechas en 8° básico.",
+      "Académico": "A la par de colegios similares, con fortalezas en 6° básico y brechas en 8° básico.",
+      "Costo": "Copago: MAS DE $100.000."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares, con brechas en 8° básico.",
+        "detalle": {
+          "Clima escolar": "A la par de colegios similares (8° básico y 2° medio).",
+          "Autoestima académica": "A la par de colegios similares (8° básico y 2° medio).",
+          "Hábitos de vida saludable": "A la par de colegios similares (8° básico y 2° medio).",
+          "Participación y formación ciudadana": "A la par de colegios similares en 1 de 2 niveles; bajo en 8° básico."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "A la par de colegios similares, con fortalezas en 6° básico y brechas en 8° básico.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "8 denuncias en 2025 (4.5 por cada 1.000 estudiantes) y 6 en 2024, ante la Superintendencia."
+      }
+    }
+  },
+  {
+    "rbd": 26130,
+    "identidad": {
+      "nombre": "Esc. Bas. Y Esp. Christ School De Pudahuel",
+      "dependencia": "Particular subvencionado",
+      "matricula": "480 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "30 denuncias en 2025 (62.5 por cada 1.000 estudiantes) y 4 en 2024, ante la Superintendencia.",
+      "Bienestar": "A la par de colegios similares, con brechas en 8° básico.",
+      "Académico": "Bajo colegios similares en la mayoría de los cursos, con fortalezas en 4° básico.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares, con brechas en 8° básico.",
+        "detalle": {
+          "Clima escolar": "Bajo colegios similares (8° básico).",
+          "Autoestima académica": "A la par de colegios similares (8° básico).",
+          "Hábitos de vida saludable": "Bajo colegios similares (8° básico).",
+          "Participación y formación ciudadana": "A la par de colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Bajo colegios similares en la mayoría de los cursos, con fortalezas en 4° básico.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "30 denuncias en 2025 (62.5 por cada 1.000 estudiantes) y 4 en 2024, ante la Superintendencia."
+      }
+    }
+  },
+  {
+    "rbd": 26139,
+    "identidad": {
+      "nombre": "Escuela Bas. Villa San Ignacio",
+      "dependencia": "Particular subvencionado",
+      "matricula": "417 estudiantes",
+      "niveles": "Básica"
+    },
+    "lo_esencial": {
+      "Seguridad": "2 denuncias en 2025 (4.8 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "Sobre colegios similares en las cuatro dimensiones.",
+      "Académico": "Sobre colegios similares en las dos materias, en todos los cursos evaluados.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sobre colegios similares en las cuatro dimensiones.",
+        "detalle": {
+          "Clima escolar": "Sobre colegios similares (8° básico).",
+          "Autoestima académica": "Sobre colegios similares (8° básico).",
+          "Hábitos de vida saludable": "Sobre colegios similares (8° básico).",
+          "Participación y formación ciudadana": "Sobre colegios similares (8° básico)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Sobre colegios similares en las dos materias, en todos los cursos evaluados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "2 denuncias en 2025 (4.8 por cada 1.000 estudiantes) y 2024 sin datos publicados, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 26260,
+    "identidad": {
+      "nombre": "Lincoln College Pudahuel",
+      "dependencia": "Particular subvencionado",
+      "matricula": "1714 estudiantes",
+      "niveles": "Básica y Media"
+    },
+    "lo_esencial": {
+      "Seguridad": "13 denuncias en 2025 (7.6 por cada 1.000 estudiantes) y 8 en 2024, ante la Superintendencia.",
+      "Bienestar": "A la par de colegios similares en las cuatro dimensiones.",
+      "Académico": "Bajo colegios similares en la mayoría de los cursos.",
+      "Costo": "Copago: $50.001 A $100.000."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares en las cuatro dimensiones.",
+        "detalle": {
+          "Clima escolar": "A la par de colegios similares (8° básico y 2° medio).",
+          "Autoestima académica": "A la par de colegios similares (8° básico y 2° medio).",
+          "Hábitos de vida saludable": "A la par de colegios similares (8° básico y 2° medio).",
+          "Participación y formación ciudadana": "A la par de colegios similares (8° básico y 2° medio)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Bajo colegios similares en la mayoría de los cursos.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "13 denuncias en 2025 (7.6 por cada 1.000 estudiantes) y 8 en 2024, ante la Superintendencia."
+      }
+    }
+  },
+  {
+    "rbd": 26365,
+    "identidad": {
+      "nombre": "Colegio Bicentenario San Alberto Hurtado De Pudahuel",
+      "dependencia": "Particular subvencionado",
+      "matricula": "1645 estudiantes",
+      "niveles": "Básica y Media"
+    },
+    "lo_esencial": {
+      "Seguridad": "13 denuncias en 2025 (7.9 por cada 1.000 estudiantes) y 7 en 2024, ante la Superintendencia.",
+      "Bienestar": "A la par de colegios similares en las cuatro dimensiones.",
+      "Académico": "Por sobre colegios similares en la mayoría de los cursos, con brechas en 6° básico.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "A la par de colegios similares en las cuatro dimensiones.",
+        "detalle": {
+          "Clima escolar": "A la par de colegios similares (8° básico y 2° medio).",
+          "Autoestima académica": "A la par de colegios similares (8° básico y 2° medio).",
+          "Hábitos de vida saludable": "A la par de colegios similares (8° básico y 2° medio).",
+          "Participación y formación ciudadana": "A la par de colegios similares (8° básico y 2° medio)."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Por sobre colegios similares en la mayoría de los cursos, con brechas en 6° básico.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "13 denuncias en 2025 (7.9 por cada 1.000 estudiantes) y 7 en 2024, ante la Superintendencia."
+      }
+    }
+  },
+  {
+    "rbd": 31166,
+    "identidad": {
+      "nombre": "Esc. Esp. De Lenguaje Camino De Vida",
+      "dependencia": "Particular subvencionado",
+      "matricula": "25 estudiantes",
+      "niveles": "Niveles no informados"
+    },
+    "lo_esencial": {
+      "Seguridad": "Sin registros de denuncias publicados.",
+      "Bienestar": "Sin datos publicados.",
+      "Académico": "Sin datos publicados.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sin datos publicados.",
+        "detalle": {
+          "Clima escolar": "Sin datos publicados.",
+          "Autoestima académica": "Sin datos publicados.",
+          "Hábitos de vida saludable": "Sin datos publicados.",
+          "Participación y formación ciudadana": "Sin datos publicados."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Sin datos publicados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "Sin registros de denuncias publicados."
+      }
+    }
+  },
+  {
+    "rbd": 31424,
+    "identidad": {
+      "nombre": "Escuela De Lenguaje Amuillan",
+      "dependencia": "Particular subvencionado",
+      "matricula": "78 estudiantes",
+      "niveles": "Niveles no informados"
+    },
+    "lo_esencial": {
+      "Seguridad": "2025 sin datos publicados y 1 denuncia en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela.",
+      "Bienestar": "Sin datos publicados.",
+      "Académico": "Sin datos publicados.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sin datos publicados.",
+        "detalle": {
+          "Clima escolar": "Sin datos publicados.",
+          "Autoestima académica": "Sin datos publicados.",
+          "Hábitos de vida saludable": "Sin datos publicados.",
+          "Participación y formación ciudadana": "Sin datos publicados."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Sin datos publicados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "2025 sin datos publicados y 1 denuncia en 2024, ante la Superintendencia. En colegios con pocos casos, una o dos denuncias mueven mucho la tasa: conviene leerla con cautela."
+      }
+    }
+  },
+  {
+    "rbd": 31429,
+    "identidad": {
+      "nombre": "Colegio Hospítalario Casabierta  Coaniquem",
+      "dependencia": "Particular subvencionado",
+      "matricula": "1 estudiantes",
+      "niveles": "Niveles no informados"
+    },
+    "lo_esencial": {
+      "Seguridad": "Sin registros de denuncias publicados.",
+      "Bienestar": "Sin datos publicados.",
+      "Académico": "Sin datos publicados.",
+      "Costo": "Gratuito, sin copago."
+    },
+    "modulos": {
+      "Bienestar": {
+        "conclusion": "Sin datos publicados.",
+        "detalle": {
+          "Clima escolar": "Sin datos publicados.",
+          "Autoestima académica": "Sin datos publicados.",
+          "Hábitos de vida saludable": "Sin datos publicados.",
+          "Participación y formación ciudadana": "Sin datos publicados."
+        },
+        "fuente": "Fuente: Agencia de Calidad de la Educación · IDPS 8° básico y 2° medio 2025 (preliminar)."
+      },
+      "Académico": {
+        "conclusion": "Sin datos publicados.",
+        "fuente": "Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (preliminar); 6° básico 2024 (final)."
+      },
+      "Seguridad": {
+        "conclusion": "Sin registros de denuncias publicados."
+      }
+    }
+  }
+]
