@@ -20,11 +20,14 @@ export function TarjetaColegio({
   colegio,
   conclusiones,
   respuestas,
+  desdeUsuario = false,
 }: {
   scored: ScoredColegio;
   colegio: Colegio;
   conclusiones: ConclusionesColegio | null;
   respuestas: RespuestasFamilia;
+  /** true → distancia medida desde la ubicación del usuario; false → desde Pudahuel. */
+  desdeUsuario?: boolean;
 }) {
   const nombre = conclusiones?.identidad.nombre ?? colegio.NOM_RBD;
   const badges = razonesCalce(scored, colegio, respuestas);
@@ -48,7 +51,7 @@ export function TarjetaColegio({
         </li>
         <li className="flex items-center gap-xs">
           <Icon nombre="place" size={16} />
-          {formatearDistancia(scored.distanciaKm)}
+          {formatearDistancia(scored.distanciaKm, desdeUsuario ? "casa" : "pudahuel")}
         </li>
       </ul>
 

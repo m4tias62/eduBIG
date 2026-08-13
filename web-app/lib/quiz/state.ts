@@ -101,8 +101,15 @@ export function nextUrl(path: string, previas: RespuestasParciales, nuevas: Resp
 }
 
 /** Convierte respuestas parciales completas + coordenadas del sector en
- *  input listo para runMotor. Devuelve null si falta algún campo obligatorio. */
-export function toRespuestasFamilia(r: RespuestasParciales): RespuestasFamilia | null {
+ *  input listo para runMotor. Devuelve null si falta algún campo obligatorio.
+ *
+ *  `coords` define el punto de referencia para la distancia: la ubicación real
+ *  del usuario si la activó, o el centro de Pudahuel como fallback. La ubicación
+ *  es un dato sensible → llega desde el cliente (sessionStorage), nunca por URL. */
+export function toRespuestasFamilia(
+  r: RespuestasParciales,
+  coords?: { lat: number; lon: number }
+): RespuestasFamilia | null {
   if (
     r.techoCopago === undefined ||
     r.quiereInclusion === undefined ||
@@ -117,8 +124,8 @@ export function toRespuestasFamilia(r: RespuestasParciales): RespuestasFamilia |
   return {
     techoCopago: r.techoCopago,
     nivel: r.nivel,
-    latSector: LAT_PUDAHUEL,
-    lonSector: LON_PUDAHUEL,
+    latSector: coords ? coords.lat : LAT_PUDAHUEL,
+    lonSector: coords ? coords.lon : LON_PUDAHUEL,
     tipoDistancia: r.tipoDistancia,
     radioKm: r.radioKm,
     perfil: r.perfil,

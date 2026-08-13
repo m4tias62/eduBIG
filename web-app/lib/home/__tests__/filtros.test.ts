@@ -5,6 +5,7 @@ import {
   parseVista,
   filtrarUniverso,
   pasaFiltros,
+  type FiltrosHome,
 } from "@/lib/home/filtros";
 import { getUniverso, getColegio } from "@/lib/data/schools";
 import { distanciaKm } from "@/lib/motor/haversine";
@@ -12,12 +13,12 @@ import { LAT_PUDAHUEL, LON_PUDAHUEL } from "@/lib/quiz/state";
 
 describe("Filtros Home — parse/serialize", () => {
   it("roundtrip completo", () => {
-    const original = {
+    const original: FiltrosHome = {
       q: "graham",
       gratuito: true,
-      nivel: "media" as const,
+      nivel: "media",
       distanciaMaxKm: 2,
-      dependencia: "publica" as const,
+      dependencias: ["publica"],
     };
     const qs = serializeFiltros(original);
     expect(parseFiltros(new URLSearchParams(qs))).toEqual(original);
@@ -26,7 +27,7 @@ describe("Filtros Home — parse/serialize", () => {
   it("ignora valores inválidos", () => {
     const p = parseFiltros(new URLSearchParams("nivel=xxx&dep=???&dist=-5"));
     expect(p.nivel).toBeUndefined();
-    expect(p.dependencia).toBeUndefined();
+    expect(p.dependencias).toBeUndefined();
     expect(p.distanciaMaxKm).toBeUndefined();
   });
 
@@ -58,8 +59,13 @@ describe("Filtros Home — aplicación sobre universo real", () => {
   });
 
   it("dependencia pública devuelve solo COD_DEPE=6", () => {
-    const pub = filtrarUniverso(universo, { dependencia: "publica" });
+    const pub = filtrarUniverso(universo, { dependencias: ["publica"] });
     for (const c of pub) expect(c.COD_DEPE).toBe(6);
+  });
+
+  it("dependencias multi (pública + part. pagado) devuelve solo esos códigos", () => {
+    const res = filtrarUniverso(universo, { dependencias: ["publica", "part_pagado"] });
+    for (const c of res) expect([6, 4]).toContain(c.COD_DEPE);
   });
 
   it("distancia máxima limita al radio", () => {
@@ -98,7 +104,7 @@ describe("Filtros Home — aplicación sobre universo real", () => {
     expect(pasaFiltros(c!, {
       gratuito: true,
       nivel: "basica",
-      dependencia: "publica",
+      dependencias: ["publica"],
     })).toBe(true);
   });
 });

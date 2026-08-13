@@ -18,17 +18,23 @@ export function TarjetaColegioBrowse({
   colegio,
   conclusiones,
   distanciaKm,
+  desdeUsuario = false,
 }: {
   colegio: Colegio;
   conclusiones?: ConclusionesColegio | null;
   distanciaKm: number;
+  /** true → distancia medida desde la ubicación del usuario; false → desde Pudahuel. */
+  desdeUsuario?: boolean;
 }) {
   const nombre = conclusiones?.identidad.nombre ?? colegio.NOM_RBD;
 
   return (
     <Link
       href={`/colegio/${colegio.rbd}`}
-      className="rounded-m border border-borde-sutil bg-superficie-base p-l flex flex-col gap-m hover:border-borde-definido transition-colors"
+      /* Borde azul (info-fuerte) = estado "no filtrada / no seleccionada":
+         representa la cadena fría de los datos oficiales, coherente con el
+         concepto de Edubig. Al hover se intensifica al azul de enlace. */
+      className="rounded-m border border-info-fuerte bg-superficie-base p-l flex flex-col gap-m hover:border-interaccion-enlace-hover transition-colors"
     >
       <h3 className="text-sm font-bold text-texto-primario">{nombre}</h3>
 
@@ -47,7 +53,7 @@ export function TarjetaColegioBrowse({
         </li>
         <li className="flex items-center gap-xs">
           <Icon nombre="place" size={16} />
-          {formatearDistancia(distanciaKm)}
+          {formatearDistancia(distanciaKm, desdeUsuario ? "casa" : "pudahuel")}
         </li>
       </ul>
     </Link>

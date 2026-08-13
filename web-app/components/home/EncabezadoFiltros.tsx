@@ -1,16 +1,15 @@
 import { Icon } from "@/components/ui/Icon";
-import { FiltroChip } from "./FiltroChip";
+import { BarraFiltros } from "./BarraFiltros";
 import { ToggleListaMapa } from "./ToggleListaMapa";
 import type { FiltrosHome } from "@/lib/home/filtros";
-import { toggleFiltroUrl } from "@/lib/home/filtros";
 
 /**
- * Encabezado de exploración — buscador + chips de filtro + toggle vista.
+ * Encabezado de exploración — buscador + barra de filtros + toggle vista.
  * Espejo del frame Figma "Encabezado" (61:4).
  *
- * Los chips con `conChevron` (Nivel, Distancia, Tipo) son placeholders
- * hoy — al hacer click aplican el primer valor de su categoría. En una
- * iteración futura se puede convertir en dropdowns reales (Popover + Radio).
+ * Los filtros viven en <BarraFiltros /> (client component): chips en una
+ * sola línea, con acordeón desplegable multi-selección para Nivel, Distancia
+ * y Tipo de colegio. "Gratuito" aplica al instante como toggle.
  *
  * TODO iteración 2: buscador funcional (hoy es placeholder visual, filtra
  * solo si se pasa ?q= en la URL manualmente).
@@ -32,57 +31,8 @@ export function EncabezadoFiltros({
         </span>
       </div>
 
-      {/* Chips de filtro */}
-      <div className="flex flex-wrap gap-xs">
-        <FiltroChip
-          label="Gratuito"
-          href={toggleFiltroUrl(filtros, vista, {
-            gratuito: filtros.gratuito ? undefined : true,
-          })}
-          activo={!!filtros.gratuito}
-        />
-        <FiltroChip
-          label={filtros.nivel === "basica" ? "Básica" : filtros.nivel === "media" ? "Media" : filtros.nivel === "basica_y_media" ? "Ambos" : "Nivel"}
-          href={toggleFiltroUrl(filtros, vista, {
-            nivel:
-              filtros.nivel === undefined ? "basica"
-              : filtros.nivel === "basica" ? "media"
-              : filtros.nivel === "media" ? "basica_y_media"
-              : undefined,
-          })}
-          activo={filtros.nivel !== undefined}
-          conChevron
-        />
-        <FiltroChip
-          label={filtros.distanciaMaxKm !== undefined ? `Hasta ${filtros.distanciaMaxKm} km` : "Distancia"}
-          href={toggleFiltroUrl(filtros, vista, {
-            distanciaMaxKm:
-              filtros.distanciaMaxKm === undefined ? 1
-              : filtros.distanciaMaxKm === 1 ? 2
-              : filtros.distanciaMaxKm === 2 ? 5
-              : undefined,
-          })}
-          activo={filtros.distanciaMaxKm !== undefined}
-          conChevron
-        />
-        <FiltroChip
-          label={
-            filtros.dependencia === "publica" ? "Pública (SLEP)"
-            : filtros.dependencia === "part_subvencionado" ? "Part. subvencionado"
-            : filtros.dependencia === "part_pagado" ? "Part. pagado"
-            : "Tipo de colegio"
-          }
-          href={toggleFiltroUrl(filtros, vista, {
-            dependencia:
-              filtros.dependencia === undefined ? "publica"
-              : filtros.dependencia === "publica" ? "part_subvencionado"
-              : filtros.dependencia === "part_subvencionado" ? "part_pagado"
-              : undefined,
-          })}
-          activo={filtros.dependencia !== undefined}
-          conChevron
-        />
-      </div>
+      {/* Chips de filtro + acordeón */}
+      <BarraFiltros vista={vista} filtros={filtros} />
 
       {/* Toggle Lista / Mapa */}
       <ToggleListaMapa vista={vista} filtros={filtros} />

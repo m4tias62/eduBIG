@@ -70,8 +70,14 @@ export function razonesCalce(
   return candidatas.slice(0, 3).map((c) => c.label);
 }
 
-/** Formatea distancia en metros/km según magnitud. */
-export function formatearDistancia(km: number): string {
-  if (km < 1) return `A ${Math.round(km * 1000)} m de tu casa`;
-  return `A ${km.toFixed(1).replace(".", ",")} km de tu casa`;
+/** Formatea distancia en metros/km según magnitud.
+ *  `referencia` define el punto desde el que se mide: la casa/ubicación del
+ *  usuario ("casa", por defecto) o el centro de la comuna ("pudahuel"). */
+export function formatearDistancia(
+  km: number,
+  referencia: "casa" | "pudahuel" = "casa"
+): string {
+  const sufijo = referencia === "casa" ? "de tu casa" : "del centro de Pudahuel";
+  if (km < 1) return `A ${Math.round(km * 1000)} m ${sufijo}`;
+  return `A ${km.toFixed(1).replace(".", ",")} km ${sufijo}`;
 }

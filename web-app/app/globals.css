@@ -52,3 +52,15 @@
     font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
   }
 }
+
+@layer utilities {
+  /* Oculta la scrollbar en la fila de chips de filtro (scroll horizontal,
+     una sola línea) manteniendo el desplazamiento táctil. */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

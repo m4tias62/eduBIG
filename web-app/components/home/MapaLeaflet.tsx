@@ -1,24 +1,22 @@
 "use client";
 
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { useEffect } from "react";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 import Link from "next/link";
 import "leaflet/dist/leaflet.css";
 import type { Colegio, ConclusionesColegio } from "@/lib/types";
 import { LAT_PUDAHUEL, LON_PUDAHUEL } from "@/lib/quiz/state";
+import { distanciaKm } from "@/lib/motor/haversine";
+import { useUbicacion } from "@/lib/ubicacion";
 
 /**
  * Vista Mapa — Leaflet + tiles OpenStreetMap con los colegios como pines.
  * Espejo del frame Figma "Home — Mobile — Mapa" (69:135).
  *
- * Stack open-source total:
- *  - Leaflet: motor de mapas
- *  - OpenStreetMap tiles: sin API key ni costo
- *  - react-leaflet: bindings React
- *
- * Pin custom (divIcon): círculo blanco con borde rdbu-11 — coherente
- * con el patrón visual del Figma sin depender de las imágenes por defecto
- * de Leaflet (que rompen con muchos bundlers).
+ * Ubicación: si el usuario activó su ubicación, el mapa se centra en ella,
+ * muestra un pin "tú estás aquí" y filtra los colegios por el radio elegido
+ * medido desde ahí. Si no, usa el centro de Pudahuel como fallback.
  */
 
 const pinIcon = L.divIcon({
@@ -29,33 +27,70 @@ const pinIcon = L.divIcon({
   popupAnchor: [0, -12],
 });
 
+const userIcon = L.divIcon({
+  className: "edubig-user-pin",
+  html: '<div style="width:18px;height:18px;border-radius:50%;background:#0958D9;border:3px solid #fff;box-shadow:0 0 0 2px rgba(9,88,217,0.4),0 2px 6px rgba(0,0,0,0.3);"></div>',
+  iconSize: [18, 18],
+  iconAnchor: [9, 9],
+  popupAnchor: [0, -12],
+});
+
+/** Recentra el mapa cuando cambia el punto de referencia (p. ej. al activar
+ *  la ubicación del usuario). El `center` de MapContainer solo aplica al montar. */
+function Recentrar({ lat, lon }: { lat: number; lon: number }) {
+  const map = useMap();
+  useEffect(() => {
+    map.setView([lat, lon]);
+  }, [lat, lon, map]);
+  return null;
+}
+
 export function MapaLeaflet({
   colegios,
   conclusionesIndex,
+  distanciaMaxKm,
 }: {
   colegios: Colegio[];
   conclusionesIndex: ReadonlyMap<number, ConclusionesColegio>;
+  distanciaMaxKm?: number;
 }) {
+  const { ubicacion } = useUbicacion();
+  const refLat = ubicacion ? ubicacion.lat : LAT_PUDAHUEL;
+  const refLon = ubicacion ? ubicacion.lon : LON_PUDAHUEL;
+
+  const visibles =
+    distanciaMaxKm === undefined
+      ? colegios
+      : colegios.filter(
+          (c) => distanciaKm(c.LATITUD, c.LONGITUD, refLat, refLon) <= distanciaMaxKm
+        );
+
   return (
     <div className="w-full h-[calc(100vh-260px)] relative">
       <MapContainer
-        center={[LAT_PUDAHUEL, LON_PUDAHUEL]}
+        center={[refLat, refLon]}
         zoom={13}
         scrollWheelZoom
         className="w-full h-full"
       >
+        <Recentrar lat={refLat} lon={refLon} />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {colegios.map((c) => {
+
+        {ubicacion && (
+          <Marker position={[ubicacion.lat, ubicacion.lon]} icon={userIcon}>
+            <Popup>
+              <p className="text-xs font-bold text-texto-primario m-0">Tú estás aquí</p>
+            </Popup>
+          </Marker>
+        )}
+
+        {visibles.map((c) => {
           const nombre = conclusionesIndex.get(c.rbd)?.identidad.nombre ?? c.NOM_RBD;
           return (
-            <Marker
-              key={c.rbd}
-              position={[c.LATITUD, c.LONGITUD]}
-              icon={pinIcon}
-            >
+            <Marker key={c.rbd} position={[c.LATITUD, c.LONGITUD]} icon={pinIcon}>
               <Popup>
                 <div className="flex flex-col gap-xs min-w-[200px]">
                   <p className="text-xs font-bold text-texto-primario m-0">{nombre}</p>

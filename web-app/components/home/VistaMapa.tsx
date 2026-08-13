@@ -21,9 +21,17 @@ const MapaLeaflet = dynamic(() => import("./MapaLeaflet").then((m) => m.MapaLeaf
 export function VistaMapa({
   colegios,
   conclusionesIndex,
+  distanciaMaxKm,
 }: {
   colegios: Colegio[];
   conclusionesIndex: ReadonlyMap<number, ConclusionesColegio>;
+  distanciaMaxKm?: number;
 }) {
-  return <MapaLeaflet colegios={colegios} conclusionesIndex={conclusionesIndex} />;
+  return (
+    <MapaLeaflet
+      colegios={colegios}
+      conclusionesIndex={conclusionesIndex}
+      distanciaMaxKm={distanciaMaxKm}
+    />
+  );
 }

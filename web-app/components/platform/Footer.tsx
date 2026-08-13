@@ -40,18 +40,22 @@ export function Footer() {
             Equipo
           </p>
           <div className="flex items-center gap-xs flex-wrap">
-            <span className="text-xs">Matías Cáceres</span>
+            <span className="text-xs">Israel Rubilar</span>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/joseisraelrubilar/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-2xs text-texto-sobre-oscuro-secundario underline"
             >
               LinkedIn
             </a>
           </div>
           <div className="flex items-center gap-xs flex-wrap">
-            <span className="text-xs">Israel Rubilar</span>
+            <span className="text-xs">Matías Cáceres</span>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/matias-caceres-maureira-9b6051259/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-2xs text-texto-sobre-oscuro-secundario underline"
             >
               LinkedIn

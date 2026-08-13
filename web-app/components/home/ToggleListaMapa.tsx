@@ -19,7 +19,7 @@ export function ToggleListaMapa({
   const hrefMapa = "/?" + serializeFiltros(filtros, { vista: "mapa" });
 
   return (
-    <div className="inline-flex rounded-s bg-superficie-hundida p-xxs">
+    <div className="inline-flex self-start rounded-s bg-superficie-hundida p-xxs">
       <Link
         href={hrefLista}
         className={cn(
