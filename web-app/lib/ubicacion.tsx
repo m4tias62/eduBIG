@@ -93,8 +93,9 @@ export function UbicacionProvider({ children }: { children: ReactNode }) {
   }, []);
 
   // Al montar: rehidrata la ubicación previa; si no hay y aún no pedimos
-  // permiso esta sesión, lo pedimos automáticamente (entrar al sitio = pedir).
+  // permiso esta sesión, lo pedimos en la PRIMERA interacción del usuario.
   useEffect(() => {
+    // 1. Rehidratar ubicación previa de esta sesión.
     let tieneGuardada = false;
     try {
       const raw = sessionStorage.getItem(KEY);
@@ -109,16 +110,35 @@ export function UbicacionProvider({ children }: { children: ReactNode }) {
     } catch {
       /* sessionStorage no disponible — se ignora */
     }
+    if (tieneGuardada) return;
 
-    if (!tieneGuardada) {
-      let yaPedida = false;
-      try {
-        yaPedida = sessionStorage.getItem(KEY_PEDIDA) === "1";
-      } catch {
-        /* ignore */
-      }
-      if (!yaPedida) pedirUbicacion();
+    // 2. ¿Ya pedimos permiso esta sesión? No re-preguntar en cada página.
+    let yaPedida = false;
+    try {
+      yaPedida = sessionStorage.getItem(KEY_PEDIDA) === "1";
+    } catch {
+      /* ignore */
     }
+    if (yaPedida) return;
+
+    // 3. Pedir en la primera interacción (toque/click/tecla). Los navegadores
+    //    móviles (iOS/Safari en particular) ignoran el prompt de geolocalización
+    //    si se pide en la carga sin un gesto del usuario; con un listener que
+    //    dispara al primer gesto funciona igual en móvil y en desktop.
+    const quitar = () => {
+      window.removeEventListener("pointerdown", pedirEnGesto);
+      window.removeEventListener("touchstart", pedirEnGesto);
+      window.removeEventListener("keydown", pedirEnGesto);
+    };
+    const pedirEnGesto = () => {
+      quitar();
+      pedirUbicacion();
+    };
+    window.addEventListener("pointerdown", pedirEnGesto, { once: true });
+    window.addEventListener("touchstart", pedirEnGesto, { once: true });
+    window.addEventListener("keydown", pedirEnGesto, { once: true });
+
+    return quitar;
   }, [pedirUbicacion]);
 
   return (
