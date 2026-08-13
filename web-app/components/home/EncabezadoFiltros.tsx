@@ -1,6 +1,7 @@
 import { Icon } from "@/components/ui/Icon";
 import { BarraFiltros } from "./BarraFiltros";
 import { ToggleListaMapa } from "./ToggleListaMapa";
+import { BotonVolver } from "@/components/ficha/BotonVolver";
 import type { FiltrosHome } from "@/lib/home/filtros";
 
 /**
@@ -23,6 +24,9 @@ export function EncabezadoFiltros({
 }) {
   return (
     <section className="bg-superficie-base px-l py-m flex flex-col gap-m border-b border-borde-sutil">
+      {/* Volver — solo en vista Mapa (en Lista, arriba va el Hero) */}
+      {vista === "mapa" && <BotonVolver href="/" />}
+
       {/* Buscador (visual — funcional por URL manual por ahora) */}
       <div className="flex items-center gap-xs rounded-s bg-superficie-elevada border border-borde-definido px-m py-xs">
         <Icon nombre="search" size={20} className="text-texto-secundario" />

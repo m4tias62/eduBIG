@@ -32,9 +32,10 @@ export function TarjetaColegioBrowse({
     <Link
       href={`/colegio/${colegio.rbd}`}
       /* Borde azul (info-fuerte) = estado "no filtrada / no seleccionada":
-         representa la cadena fría de los datos oficiales, coherente con el
-         concepto de Edubig. Al hover se intensifica al azul de enlace. */
-      className="rounded-m border border-info-fuerte bg-superficie-base p-l flex flex-col gap-m hover:border-interaccion-enlace-hover transition-colors"
+         representa la cadena fría de los datos oficiales. Stroke asimétrico
+         intencional (2px arriba/izquierda, 4px derecha/abajo) para dar
+         personalidad/profundidad a la card. Al hover se intensifica el azul. */
+      className="rounded-m border-t-2 border-l-2 border-r-4 border-b-4 border-info-fuerte bg-superficie-base p-l flex flex-col gap-m hover:border-interaccion-enlace-hover transition-colors"
     >
       <h3 className="text-sm font-bold text-texto-primario">{nombre}</h3>
 

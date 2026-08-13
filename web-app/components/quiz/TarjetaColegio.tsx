@@ -11,9 +11,10 @@ import { razonesCalce, formatearDistancia } from "@/lib/quiz/razones";
  *   Nombre → Imagen → Meta (sostenedor, niveles, distancia) →
  *   Razones del calce (badges) → Acciones (Ver ficha / Comparar).
  *
- * Fondo superficie/base + borde temperatura/calido-profundo (2px) — el
- * borde cálido cumple función estructural sobre el fondo gris del
- * contenedor del Shortlist (confirmado por Matías post-rediseño).
+ * Fondo superficie/base + borde temperatura/calido-profundo con stroke
+ * asimétrico intencional (2px arriba/izquierda, 4px derecha/abajo) para dar
+ * personalidad/profundidad a la card. El borde cálido cumple función
+ * estructural sobre el fondo gris del Shortlist (confirmado por Matías).
  */
 export function TarjetaColegio({
   scored,
@@ -33,7 +34,7 @@ export function TarjetaColegio({
   const badges = razonesCalce(scored, colegio, respuestas);
 
   return (
-    <article className="rounded-m border-2 border-temp-calido-profundo bg-superficie-base p-l flex flex-col gap-m">
+    <article className="rounded-m border-t-2 border-l-2 border-r-4 border-b-4 border-temp-calido-profundo bg-superficie-base p-l flex flex-col gap-m">
       <h3 className="text-sm font-bold text-texto-primario">{nombre}</h3>
 
       <div className="w-full aspect-video rounded-s bg-superficie-hundida border border-borde-sutil flex items-center justify-center">

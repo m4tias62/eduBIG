@@ -54,6 +54,7 @@ export function ShortlistResultado({
     <>
       {/* Cabecera blanca (identidad discreta post-quiz) */}
       <header className="bg-superficie-base px-l pt-xl pb-l flex flex-col gap-m">
+        <Isologo width={88} priority />
         <Link
           href="/"
           className="inline-flex items-center gap-xs self-start rounded-s bg-interaccion-enlace px-l py-xs text-xs font-bold text-texto-sobre-oscuro hover:bg-interaccion-enlace-hover"
@@ -61,7 +62,6 @@ export function ShortlistResultado({
           Ir al inicio del sitio
           <Icon nombre="home" size={18} />
         </Link>
-        <Isologo width={88} priority />
         <div className="flex flex-col gap-xs">
           <h1 className="text-lg font-bold text-texto-primario">
             Estos son los colegios que calzan con tu familia
@@ -102,17 +102,6 @@ export function ShortlistResultado({
             );
           })
         )}
-      </section>
-
-      {/* Cierre gris — acción final */}
-      <section className="bg-superficie-elevada px-l pb-l flex justify-center">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-xs rounded-s bg-interaccion-enlace px-l py-xs text-xs font-bold text-texto-sobre-oscuro hover:bg-interaccion-enlace-hover"
-        >
-          Ir al inicio
-          <Icon nombre="home" size={18} />
-        </Link>
       </section>
 
       <Footer />
