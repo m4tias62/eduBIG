@@ -26,7 +26,7 @@ export function FiltroChip({
     <Link
       href={href}
       className={cn(
-        "inline-flex items-center gap-xxs rounded-s px-m py-xs text-xs whitespace-nowrap border transition-colors",
+        "inline-flex items-center gap-xxs rounded-s px-m py-xs text-xs whitespace-nowrap border-2 transition-colors",
         activo
           ? "bg-superficie-inversa text-texto-sobre-oscuro border-superficie-inversa"
           : "bg-superficie-base text-texto-primario border-borde-definido hover:border-texto-primario"
