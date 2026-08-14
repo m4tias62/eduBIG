@@ -241,10 +241,10 @@ function ChipToggle({
       onClick={onClick}
       aria-pressed={activo}
       className={cn(
-        "inline-flex items-center gap-xxs rounded-s px-m py-xs text-xs whitespace-nowrap shrink-0 border transition-colors",
+        "inline-flex items-center gap-xxs rounded-s px-m py-xs text-xs whitespace-nowrap shrink-0 border-2 transition-colors",
         activo
           ? "bg-temp-calido-profundo text-texto-sobre-oscuro border-temp-calido-profundo"
-          : "bg-superficie-base text-temp-frio-profundo border-temp-frio-profundo hover:bg-temp-frio-suave"
+          : "bg-superficie-base text-texto-primario border-temp-frio-profundo hover:bg-temp-frio-suave"
       )}
     >
       {label}
@@ -269,10 +269,10 @@ function ChipDesplegable({
       onClick={onClick}
       aria-expanded={abierto}
       className={cn(
-        "inline-flex items-center gap-xxs rounded-s px-m py-xs text-xs whitespace-nowrap shrink-0 border transition-colors",
+        "inline-flex items-center gap-xxs rounded-s px-m py-xs text-xs whitespace-nowrap shrink-0 border-2 transition-colors",
         activo
           ? "bg-temp-calido-profundo text-texto-sobre-oscuro border-temp-calido-profundo"
-          : "bg-superficie-base text-temp-frio-profundo border-temp-frio-profundo hover:bg-temp-frio-suave",
+          : "bg-superficie-base text-texto-primario border-temp-frio-profundo hover:bg-temp-frio-suave",
         !activo && abierto && "bg-temp-frio-suave"
       )}
     >
@@ -283,7 +283,7 @@ function ChipDesplegable({
         className={cn(
           "transition-transform",
           abierto && "rotate-180",
-          activo ? "text-texto-sobre-oscuro" : "text-temp-frio-profundo"
+          activo ? "text-texto-sobre-oscuro" : "text-texto-primario"
         )}
       />
     </button>
