@@ -1,4 +1,4 @@
-import { Icon } from "@/components/ui/Icon";
+import { BuscadorInput } from "./BuscadorInput";
 import { BarraFiltros } from "./BarraFiltros";
 import { ToggleListaMapa } from "./ToggleListaMapa";
 import { BotonVolver } from "@/components/ficha/BotonVolver";
@@ -27,13 +27,8 @@ export function EncabezadoFiltros({
       {/* Volver — solo en vista Mapa (en Lista, arriba va el Hero) */}
       {vista === "mapa" && <BotonVolver href="/" />}
 
-      {/* Buscador (visual — funcional por URL manual por ahora) */}
-      <div className="flex items-center gap-xs rounded-s bg-superficie-elevada border border-borde-definido px-m py-xs">
-        <Icon nombre="search" size={20} className="text-texto-secundario" />
-        <span className="text-xs text-texto-secundario">
-          {filtros.q ? `"${filtros.q}"` : "Buscar colegio o comuna"}
-        </span>
-      </div>
+      {/* Buscador funcional — filtra por ?q= (nombre o comuna) con debounce */}
+      <BuscadorInput vista={vista} filtros={filtros} />
 
       {/* Chips de filtro + acordeón */}
       <BarraFiltros vista={vista} filtros={filtros} />

@@ -243,8 +243,8 @@ function ChipToggle({
       className={cn(
         "inline-flex items-center gap-xxs rounded-s px-m py-xs text-xs whitespace-nowrap shrink-0 border transition-colors",
         activo
-          ? "bg-superficie-inversa text-texto-sobre-oscuro border-superficie-inversa"
-          : "bg-superficie-base text-texto-primario border-borde-definido hover:border-texto-primario"
+          ? "bg-temp-calido-profundo text-texto-sobre-oscuro border-temp-calido-profundo"
+          : "bg-superficie-base text-temp-frio-profundo border-temp-frio-profundo hover:bg-temp-frio-suave"
       )}
     >
       {label}
@@ -271,9 +271,9 @@ function ChipDesplegable({
       className={cn(
         "inline-flex items-center gap-xxs rounded-s px-m py-xs text-xs whitespace-nowrap shrink-0 border transition-colors",
         activo
-          ? "bg-superficie-inversa text-texto-sobre-oscuro border-superficie-inversa"
-          : "bg-superficie-base text-texto-primario border-borde-definido hover:border-texto-primario",
-        !activo && abierto && "border-texto-primario"
+          ? "bg-temp-calido-profundo text-texto-sobre-oscuro border-temp-calido-profundo"
+          : "bg-superficie-base text-temp-frio-profundo border-temp-frio-profundo hover:bg-temp-frio-suave",
+        !activo && abierto && "bg-temp-frio-suave"
       )}
     >
       {label}
@@ -283,7 +283,7 @@ function ChipDesplegable({
         className={cn(
           "transition-transform",
           abierto && "rotate-180",
-          activo ? "text-texto-sobre-oscuro" : "text-texto-primario"
+          activo ? "text-texto-sobre-oscuro" : "text-temp-frio-profundo"
         )}
       />
     </button>
@@ -341,7 +341,7 @@ function OpcionCheck({
         className={cn(
           "inline-flex h-5 w-5 items-center justify-center rounded-s border transition-colors",
           checked
-            ? "bg-superficie-inversa border-superficie-inversa"
+            ? "bg-temp-calido-profundo border-temp-calido-profundo"
             : "bg-superficie-base border-borde-definido"
         )}
       >
@@ -372,10 +372,10 @@ function OpcionRadio({
       <span
         className={cn(
           "inline-flex h-5 w-5 items-center justify-center rounded-full border transition-colors",
-          checked ? "border-superficie-inversa" : "border-borde-definido"
+          checked ? "border-temp-calido-profundo" : "border-borde-definido"
         )}
       >
-        {checked && <span className="h-2.5 w-2.5 rounded-full bg-superficie-inversa" />}
+        {checked && <span className="h-2.5 w-2.5 rounded-full bg-temp-calido-profundo" />}
       </span>
       <span className="text-xs text-texto-primario">{label}</span>
     </button>

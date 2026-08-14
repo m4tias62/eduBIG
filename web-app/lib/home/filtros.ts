@@ -34,8 +34,10 @@ const COD_A_DEP: Record<number, Dependencia> = {
 /** Aplica todos los filtros a un colegio. */
 export function pasaFiltros(c: Colegio, f: FiltrosHome): boolean {
   if (f.q) {
-    const q = f.q.toLowerCase();
-    if (!c.NOM_RBD.toLowerCase().includes(q)) return false;
+    const q = f.q.toLowerCase().trim();
+    const nombre = c.NOM_RBD?.toLowerCase() ?? "";
+    const comuna = c.NOM_COM_RBD?.toLowerCase() ?? "";
+    if (q && !nombre.includes(q) && !comuna.includes(q)) return false;
   }
   if (f.gratuito && c.PAGO_MENSUAL !== "GRATUITO") return false;
   if (f.nivel === "basica" && !c.ofrece_basica) return false;

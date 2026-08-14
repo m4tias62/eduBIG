@@ -3,22 +3,26 @@ import Image from "next/image";
 import Isologo from "@/components/platform/Isologo";
 
 /**
- * Hero de la Home — bloque rojo con foto de fondo (aula heritage, opacidad 25%)
- * + isologo blanco + copy + CTA principal al Test de Calce.
- *
- * Composición visual:
- *  - Fondo: color sólido `rdbu-11` (rojo profundo)
- *  - Sobre él: foto `hero-classroom.jpg` al 25% (object-cover) — el rojo
- *    penetra el 75% restante y da al Hero una calidez texturada sin
- *    competir con el copy.
- *  - Contenido: sobre todo, con `relative z-10` para stacking correcto.
+ * Hero de la Home. Composición de fill (espejo del frame Figma
+ * "Home — Mobile — Lista" › Hero), de abajo hacia arriba:
+ *   1. Base sólida `superficie/inversa`.
+ *   2. Degradado lineal al 80%: rdbu-01 (#053061, frío) arriba → rdbu-10
+ *      (#b2181f, cálido) abajo. Traduce las dos cadenas de Edubig: la fría
+ *      de los datos oficiales y la cálida de la familia.
+ *   3. Foto de aula al 25% (textura cálida sin competir con el copy).
  *
  * Copy geo-agnóstica: "que calza con tu familia" evita amarrar la Home a
- * Pudahuel (decisión registrada en bitácora original).
+ * Pudahuel (decisión registrada en bitácora).
  */
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-rdbu-11 text-texto-sobre-oscuro">
+    <section className="relative overflow-hidden bg-superficie-inversa text-texto-sobre-oscuro">
+      {/* Degradado frío (arriba) → cálido (abajo) al 80% sobre la base inversa */}
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-b from-rdbu-01 to-rdbu-10 opacity-80"
+      />
+      {/* Foto de aula al 25%, sobre el degradado */}
       <Image
         src="/hero-classroom.jpg"
         alt=""
