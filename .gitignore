@@ -53,3 +53,9 @@ yarn-error.log*
 
 # Sistema
 Thumbs.db
+
+# Master JSON nacional descomprimido — se regenera con data-pipeline/scripts/build_master_chile.py
+web-app/public/data/master-chile.json
+
+# Zona de basura local para el bridge (no puede borrar archivos; muévelos aquí y borra el dir a mano)
+_to_delete/
