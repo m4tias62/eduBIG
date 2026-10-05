@@ -59,3 +59,6 @@ web-app/public/data/master-chile.json
 
 # Zona de basura local para el bridge (no puede borrar archivos; muévelos aquí y borra el dir a mano)
 _to_delete/
+
+# Dataset nacional en JSON (15 MB) — se regenera con data-pipeline/scripts/05_dataset_nacional.py
+data-pipeline/nacional/dataset_nacional_2025.json
