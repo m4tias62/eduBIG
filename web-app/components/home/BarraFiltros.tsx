@@ -283,7 +283,7 @@ function ChipDesplegable({
         className={cn(
           "transition-transform",
           abierto && "rotate-180",
-          activo ? "text-texto-sobre-oscuro" : "text-texto-primario"
+          activo ? "text-texto-sobre-oscuro" : "text-temp-frio-profundo"
         )}
       />
     </button>

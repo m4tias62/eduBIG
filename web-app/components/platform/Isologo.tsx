@@ -1,8 +1,10 @@
 import Image from "next/image";
 
 /**
- * Isologotipo Edubig — PNG oficial (public/isologo-edubig.png, 802×503, RGBA).
- * Reemplaza la aproximación SVG anterior por el archivo real de marca.
+ * Isologotipo Edubig — PNG oficial (public/isologo-edubig.png, 1076×621, RGBA).
+ * Marca ago-2026: dos cápsulas superpuestas — azul (rdbu-02, "011" en tipo
+ * pixel) + coral (rdbu-09, "eB" en serif). Fondo transparente para servir
+ * sobre cualquier superficie (hero oscuro, cabecera clara, footer).
  *
  * Se sirve vía next/image para optimización automática (WebP/AVIF en
  * navegadores compatibles, lazy load, priorización opcional).
@@ -12,7 +14,7 @@ import Image from "next/image";
  *   - Footer: <Isologo /> (66px, default)
  *   - Cabecera post-quiz: <Isologo width={88} />
  */
-const RATIO_ALTO = 503 / 802;
+const RATIO_ALTO = 621 / 1076;
 
 export default function Isologo({
   width = 66,

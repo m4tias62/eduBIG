@@ -6,9 +6,12 @@
  * derivada del rango real entre los 57 colegios de Pudahuel (registrado
  * en bitácora original — mantiene comparabilidad entre fichas).
  *
- * Deliberadamente NO usa color para codificar signo (memoria: el eje RdBu
- * está reservado a temperatura frío/cálido). La posición arriba/abajo del
- * cero + el label numérico son la redundancia WCAG 1.4.1.
+ * Color codifica signo (decisión ago-2026): verde `exito-fuerte` cuando el
+ * colegio está sobre sus similares (delta ≥ 0), ámbar `advertencia-fuerte`
+ * cuando está por debajo. El eje RdBu / temperatura queda reservado a
+ * identidad y navegación (chip filtro, hero) — sin colisión: advertencia-
+ * fuerte es #8A6D00 (mostaza), distinto del coral rdbu-09 #d6604d.
+ * Redundancia WCAG 1.4.1: posición sobre/bajo el cero + label numérico.
  */
 
 const ESCALA_MAX = 56;
@@ -80,7 +83,7 @@ export function BarraBrechaSimce({
               <rect
                 x={bx} y={y}
                 width={BAR_W} height={Math.max(h, 1)}
-                className="fill-superficie-inversa"
+                className={b.valor >= 0 ? "fill-exito-fuerte" : "fill-advertencia-fuerte"}
                 rx={2}
               />
               <text
