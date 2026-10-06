@@ -77,6 +77,14 @@ const config: Config = {
         "temp-calido-suave": "#fddbc7",
         "temp-calido-pleno": "#f4a582",
         "temp-calido-profundo": "#d6604d",
+
+        // Series de dataviz cualitativa (color = identidad de serie, no
+        // valoración). Espejo semántico de VisualizaciónData/Cualitativa/*
+        // en Figma. Cuando se formalice el design system se puede renombrar
+        // a viz-cualitativa-01..16 si se quiere calzar 1:1 con Figma.
+        "viz-serie-este": "#198038",       // Graph-03  — colegio en foco
+        "viz-serie-similares": "#4a62d1",  // Graph-11  — referencia primaria
+        "viz-serie-nacional": "#a56eff",   // Graph-12  — referencia secundaria
       },
 
       fontFamily: {

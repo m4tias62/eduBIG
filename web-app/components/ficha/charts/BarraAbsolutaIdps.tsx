@@ -7,6 +7,13 @@
  * Académico usa brechas ±56. No es inconsistencia — es coherente con la
  * naturaleza distinta de cada dato (IDPS es índice absoluto; SIMCE se
  * lee mejor en diferencia contra pares).
+ *
+ * Color (decisión ago-2026): identidad de serie, NO semáforo. Cada barra
+ * lleva su propio token de viz/cualitativa — verde `viz-serie-este` para
+ * el colegio en foco, azul `viz-serie-similares` para colegios similares,
+ * lavanda `viz-serie-nacional` para el promedio nacional. La comparación
+ * la hace el usuario leyendo las tres barras juntas, no un color de
+ * valoración.
  */
 
 const IDPS_MAX = 100;
@@ -27,9 +34,9 @@ export function BarraAbsolutaIdps({
   labelNacional?: string;
 }) {
   const filas = [
-    { label: labelEste, valor: este, destacar: true },
-    { label: labelSimilares, valor: similares, destacar: false },
-    { label: labelNacional, valor: nacional, destacar: false },
+    { label: labelEste, valor: este, colorClass: "fill-viz-serie-este" },
+    { label: labelSimilares, valor: similares, colorClass: "fill-viz-serie-similares" },
+    { label: labelNacional, valor: nacional, colorClass: "fill-viz-serie-nacional" },
   ];
 
   const VB_W = 320;
@@ -67,7 +74,7 @@ export function BarraAbsolutaIdps({
                 <rect
                   x={bx} y={y + ROW_H / 2 - 6}
                   width={w} height={12}
-                  className={f.destacar ? "fill-superficie-inversa" : "fill-borde-enfatico"}
+                  className={f.colorClass}
                   rx={2}
                 />
                 <text
