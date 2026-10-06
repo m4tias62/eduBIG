@@ -38,6 +38,13 @@ F_SIMCE = {"4b": RAW / "simce4b2025_rbd_final.csv",
            "8b": RAW / "simce8b2025_rbd_final.csv",
            "2m": RAW / "simce2m2025_rbd_final.csv"}
 
+F_IDPS = {"4b": RAW / "idps4B2025_rbd_final.csv",
+          "8b": RAW / "idps8B2025_rbd_final.csv",
+          "2m": RAW / "idps2M2025_rbd_final.csv"}
+MATERIAS = {"4b": ["lect", "mate"], "8b": ["lect", "mate", "hist"], "2m": ["lect", "mate"]}
+# id_indicador de los archivos IDPS (verificado: el promedio de sus subdimensiones = valor del xlsx)
+IDPS_ID = {"1": "autoestima", "2": "clima", "3": "participacion", "4": "habitos"}
+
 GSE_LABELS = {1: "Bajo", 2: "Medio Bajo", 3: "Medio", 4: "Medio Alto", 5: "Alto"}
 
 # Códigos de tipo de enseñanza (ENS_01..ENS_11 del Directorio Mineduc)
@@ -132,6 +139,44 @@ def leer_gse():
 
 
 # ---------------------------------------------------------------------------
+# 3b. Comparación con colegios similares (SIMCE e IDPS 2025, Agencia de Calidad)
+#     Decisiones 2026-10-06: se agregan 4°B, 8°B y 2°M (opción B) y el IDPS usa
+#     el indicador oficial de la Agencia en vez del promedio de subdimensiones del xlsx.
+# ---------------------------------------------------------------------------
+def leer_simce_comparacion():
+    res = None
+    for k, mats in MATERIAS.items():
+        s = pd.read_csv(F_SIMCE[k], sep=";", encoding="latin-1", dtype=str)
+        out = pd.DataFrame({"rbd": pd.to_numeric(s["rbd"], errors="coerce")})
+        for m in mats:
+            out[f"simce_{m}_{k}_2025_oficial"] = pd.to_numeric(s[f"prom_{m}{k}_rbd"], errors="coerce")
+            out[f"simce_{m}_{k}_2025_difgru"] = pd.to_numeric(s[f"difgru_{m}{k}_rbd"], errors="coerce")
+            out[f"simce_{m}_{k}_2025_siggru"] = pd.to_numeric(s[f"siggru_{m}{k}_rbd"], errors="coerce").astype("Int64")
+        out = out[out["rbd"].notna()].astype({"rbd": int})
+        res = out if res is None else res.merge(out, on="rbd", how="outer")
+    return res
+
+
+def leer_idps_oficial():
+    res = None
+    for k, f in F_IDPS.items():
+        i = pd.read_csv(f, sep=";", encoding="latin-1", dtype=str)
+        i["rbd"] = pd.to_numeric(i["rbd"], errors="coerce")
+        i = i[i["rbd"].notna()].astype({"rbd": int})
+        for col in ("prom", "difgru", "sigdifgru"):
+            i[col] = pd.to_numeric(i[col], errors="coerce")
+        w = i.pivot_table(index="rbd", columns="id_indicador", values=["prom", "difgru", "sigdifgru"], aggfunc="first")
+        out = pd.DataFrame(index=w.index)
+        for idn, dim in IDPS_ID.items():
+            out[f"idps_{dim}_{k}_2025"] = w[("prom", idn)]
+            out[f"idps_{dim}_{k}_2025_difgru"] = w[("difgru", idn)]
+            out[f"idps_{dim}_{k}_2025_sigdifgru"] = w[("sigdifgru", idn)].astype("Int64")
+        out = out.reset_index()
+        res = out if res is None else res.merge(out, on="rbd", how="outer")
+    return res
+
+
+# ---------------------------------------------------------------------------
 # 4. Construcción
 # ---------------------------------------------------------------------------
 def main():
@@ -145,11 +190,37 @@ def main():
     df = df.drop(columns="_dir").merge(gse, on="rbd", how="left")
     df["tiene_gse"] = df[["gse_4b", "gse_8b", "gse_2m"]].notna().any(axis=1)
 
+    # SIMCE: comparación oficial. Control: el puntaje del xlsx (4°B, 2°M) debe ser idéntico al oficial.
+    simce = leer_simce_comparacion()
+    df = df.merge(simce, on="rbd", how="left")
+    global CONTROL
+    CONTROL = {}
+    for k in ("4b", "2m"):
+        for m in MATERIAS[k]:
+            a, b = df[f"simce_{m}_{k}_2025"], df[f"simce_{m}_{k}_2025_oficial"]
+            CONTROL[f"SIMCE {m} {k}"] = int(((a - b).abs() > 0.001).sum() + (a.isna() != b.isna()).sum())
+            df = df.drop(columns=f"simce_{m}_{k}_2025_oficial")
+    for m in MATERIAS["8b"]:
+        df = df.rename(columns={f"simce_{m}_8b_2025_oficial": f"simce_{m}_8b_2025"})
+
+    # IDPS: el indicador oficial reemplaza al promedio de subdimensiones del xlsx (decisión A, 2026-10-06)
+    idps_xlsx = [c for c in df.columns if c.startswith("idps_") and c.endswith("_2025")]
+    xlsx_ceros = (df[idps_xlsx] == 0)
+    idps = leer_idps_oficial()
+    df = df.drop(columns=idps_xlsx).merge(idps, on="rbd", how="left")
+    CONTROL["IDPS: ceros del xlsx que en la fuente oficial son vacíos"] = int(
+        sum((xlsx_ceros[c] & df[c].isna()).sum() for c in idps_xlsx))
+    CONTROL["IDPS: ceros del xlsx que en la fuente oficial son 0"] = int(
+        sum((xlsx_ceros[c] & (df[c] == 0)).sum() for c in idps_xlsx))
+
     # Marcas (no se corrige ningún valor)
     df["coord_fuera_continente"] = ~(df["latitud"].between(-56, -17) & df["longitud"].between(-76, -66))
-    idps4 = [c for c in df.columns if c.startswith("idps_") and c.endswith("_4b_2025")]
-    idps2 = [c for c in df.columns if c.startswith("idps_") and c.endswith("_2m_2025")]
-    df["idps_cero_ambiguo"] = (df[idps4 + idps2] == 0).any(axis=1)
+    idps_prom = [c for c in df.columns if c.startswith("idps_") and c.endswith("_2025")]
+    df["idps_cero_ambiguo"] = (df[idps_prom] == 0).any(axis=1)
+    dif_simce = [c for c in df.columns if c.startswith("simce_") and c.endswith("_difgru")]
+    dif_idps = [c for c in df.columns if c.startswith("idps_") and c.endswith("_difgru")]
+    df["tiene_comparacion_simce"] = df[dif_simce].notna().any(axis=1)
+    df["tiene_comparacion_idps"] = df[dif_idps].notna().any(axis=1)
 
     # Universo: básica, media o especial (decisión 2026-10-05)
     en_universo = df["ofrece_basica"] | df["ofrece_media"] | df["ofrece_especial"]
@@ -177,6 +248,9 @@ def main():
         ("GSE 4° básico", df["gse_4b"].notna()),
         ("GSE 8° básico", df["gse_8b"].notna()),
         ("GSE 2° medio", df["gse_2m"].notna()),
+        ("Comparación SIMCE con similares (al menos un curso)", df["tiene_comparacion_simce"]),
+        ("Comparación IDPS con similares (al menos un curso)", df["tiene_comparacion_idps"]),
+        ("SIMCE 8° básico 2025 (lectura)", df["simce_lect_8b_2025"].notna()),
         ("PIE (sí/no)", df["pie"].notna()),
         ("Gratuidad (sí/no, sin 'sin dato')", df["gratuito"].isin(["si", "no"])),
     ]
@@ -192,6 +266,7 @@ def main():
               f"- PIE: sí {int((df.pie==True).sum())}, no {int((df.pie==False).sum())}.",
               f"- Coordenadas fuera de Chile continental (marcadas, no corregidas): {int(df.coord_fuera_continente.sum())}.",
               f"- Colegios con algún IDPS en 0 (marcados, no imputados): {int(df.idps_cero_ambiguo.sum())}.",
+              "- Controles contra la fuente oficial: " + "; ".join(f"{k}: {v}" for k, v in CONTROL.items()) + ".",
               f"- Excluidos por universo: " + ", ".join(f"{k} {v}" for k, v in excl.motivo.value_counts().items()) + "."]
     (OUT / "cobertura.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -201,6 +276,7 @@ def main():
         "coord_fuera_continente": df["coord_fuera_continente"],
         "sin_niveles": ~df[list(NIVELES)].any(axis=1),
         "sin_gse": ~df["tiene_gse"],
+        "puntaje_simce_sin_comparacion": df[[c for c in df.columns if c.startswith("simce_") and c.endswith("_2025")]].notna().any(axis=1) & ~df["tiene_comparacion_simce"],
         "sin_pie": df["pie"].isna(),
         "gratuidad_sin_dato": df["gratuito"].eq("sin_dato"),
         "idps_cero_ambiguo": df["idps_cero_ambiguo"],
@@ -235,9 +311,17 @@ def validar_pudahuel(df):
         "GSE 4° básico": (m["cod_grupo_4b"].astype(float).fillna(-1) == m["gse_4b"].astype(float).fillna(-1)),
         "GSE 2° medio": (m["cod_grupo_2m"].astype(float).fillna(-1) == m["gse_2m"].astype(float).fillna(-1)),
     }
+    def igual(a, b):
+        return (pd.to_numeric(m[a], errors="coerce").fillna(-999) - pd.to_numeric(m[b], errors="coerce").fillna(-999)).abs() < 0.001
+    for k in ("4b", "8b", "2m"):
+        checks[f"SIMCE lectura {k}: diferencia con similares"] = igual(f"difgru_lect{k}_rbd", f"simce_lect_{k}_2025_difgru")
+        checks[f"SIMCE lectura {k}: significancia"] = igual(f"siggru_lect{k}_rbd", f"simce_lect_{k}_2025_siggru")
+        checks[f"IDPS autoestima {k}: valor"] = igual(f"autoestima_prom_{k}", f"idps_autoestima_{k}_2025")
+        checks[f"IDPS autoestima {k}: diferencia con similares"] = igual(f"autoestima_difgru_{k}", f"idps_autoestima_{k}_2025_difgru")
     L = ["# Validación contra colegios_universo.json (Pudahuel)\n",
          f"Universo MVP: {len(u)} colegios. En el dataset nacional: {len(m)}. "
          f"No están (no figuran en el xlsx): {len(fuera)} → {fuera}\n",
+         "Nota: el MVP se armó con las bases preliminares de la Agencia (junio de 2026); el dataset nacional usa las finales (30-06-2026, v2). Las discrepancias en comparación pueden venir de esa diferencia.\n",
          "| Campo | Coinciden | Discrepan (RBD) |", "|---|---|---|"]
     for k, ok in checks.items():
         bad = m.loc[~ok.fillna(False), "rbd"].tolist()

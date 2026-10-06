@@ -21,6 +21,14 @@ Script: `data-pipeline/scripts/05_dataset_nacional.py`. Todas las decisiones son
 4. **Denuncias.** Un 0 se lee como 0 denuncias. Los vacíos de 2022 a 2024 quedan vacíos.
 5. **SIMCE fuera de 150–350.** Se mantienen sin marcar, porque coinciden uno a uno con los archivos oficiales de la Agencia. Por ejemplo, Matemática 2° medio llega a 425.
 
+6. **Comparación con colegios similares (2026-10-06, opción B).** Se agregan desde los archivos oficiales SIMCE e IDPS 2025 la diferencia con similares y su significancia para 4° básico, 8° básico y 2° medio. 8° básico (puntajes SIMCE e IDPS) entra completo aunque no esté en el xlsx: es del mismo año y complementa sin contradecir. Hay que avisarle a Israel.
+7. **IDPS: indicador oficial (2026-10-06, opción A).** Excepción a la regla "gana el xlsx": los valores IDPS del xlsx son el promedio simple de las subdimensiones, no el indicador oficial (diferencia menor a 1 punto). Se usa el indicador oficial de la Agencia para que valor, comparación y significancia vengan de la misma fuente. Efecto: los 1.722 ceros IDPS del xlsx resultaron ser datos vacíos en la fuente oficial; ya no quedan ceros ambiguos.
+8. **Puntaje sin comparación.** 913 colegios tienen puntaje SIMCE pero la Agencia no publica su comparación con similares. Se tratan como D19: se muestran sin comparación.
+
+## Verificación de fuentes
+
+Los archivos SIMCE, IDPS y Directorio de `raw/` son idénticos a una descarga oficial nueva del 2026-10-06 (ver `verificacion_fuentes_2026-10-06.md`). Los SIMCE e IDPS son la versión final de la Agencia (base del 30-06-2026, v2).
+
 ## Supuestos (por confirmar)
 
 - **Gratuidad.** Sale de `PAGO_MENSUAL` del Directorio:
@@ -29,7 +37,6 @@ Script: `data-pipeline/scripts/05_dataset_nacional.py`. Todas las decisiones son
   - Cualquier tramo de pago = no.
   - Es lo que declara el colegio, no la adhesión formal a la ley de gratuidad.
 - **PIE.** Sale de `CONVENIO_PIE` del Directorio (1 = sí, 0 = no).
-- **IDPS en 0** (532 colegios). Se marcan como ambiguos y se dejan tal cual. Un índice de 0 a 100 en cero es poco plausible.
 - **Coordenadas fuera del continente** (5). Son Isla de Pascua y Juan Fernández. Se marcan, pero son correctas.
 
 ## Validación

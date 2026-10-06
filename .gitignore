@@ -62,3 +62,6 @@ _to_delete/
 
 # Dataset nacional en JSON (15 MB) — se regenera con data-pipeline/scripts/05_dataset_nacional.py
 data-pipeline/nacional/dataset_nacional_2025.json
+
+# Descargas de verificación (respaldo local, no se versiona)
+data-pipeline/raw/_verificacion_*

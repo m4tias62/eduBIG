@@ -136,538 +136,919 @@ rbd,nombre,comuna,region,dependencia,motivo
 16906,"CURAUMA LANGUAGE SCHOOL, ESC. ESP. DE LENG. Y DE PARV",VALPARAÍSO,VALPO,Particular Subvencionado,gratuidad_sin_dato
 20300,COLEGIO DIEGO THOMPSON,VALPARAÍSO,VALPO,Particular Subvencionado,gratuidad_sin_dato
 16798,COLEGIO NEW BUCKINGHAM,VILLA ALEMANA,VALPO,Particular Subvencionado,gratuidad_sin_dato
-248,ESCUELA BASICA SAN JOSE,CALAMA,ANTOF,Servicio Local de Educación,idps_cero_ambiguo
-268,ESC. BASICA RURAL SAN ANTONIO DE PADUA,OLLAGÜE,ANTOF,Servicio Local de Educación,idps_cero_ambiguo
-276,ESCUELA BASICA TALABRE,SAN PEDRO DE ATACAMA,ANTOF,Servicio Local de Educación,idps_cero_ambiguo
-5250,ESCUELA REGIMIENTO HUSARES,ANGOL,ARAUC,Municipal,idps_cero_ambiguo
-5258,ESCUELA BASICA CHACAICO,ANGOL,ARAUC,Municipal,idps_cero_ambiguo
-6506,ESCUELA MUNICIPAL DINAMARCA,CARAHUE,ARAUC,Servicio Local de Educación,idps_cero_ambiguo
-6510,ESCUELA BASICA PAILACOYAN,CARAHUE,ARAUC,Servicio Local de Educación,idps_cero_ambiguo
-6515,ESCUELA CATRIPULLI,CARAHUE,ARAUC,Servicio Local de Educación,idps_cero_ambiguo
-6521,ESCUELA BASICA CAMARONES,CARAHUE,ARAUC,Servicio Local de Educación,idps_cero_ambiguo
-6523,ESCUELA BASICA CHOMIO,CARAHUE,ARAUC,Servicio Local de Educación,idps_cero_ambiguo
-6529,ESCUELA BASICA MATTE Y SANCHEZ,CARAHUE,ARAUC,Servicio Local de Educación,idps_cero_ambiguo
-6553,ESCUELA PARTICULAR ALTO TIRUA,CARAHUE,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-6555,ESCUELA PARTICULAR PILMAIQUENCO,CARAHUE,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-19919,ESCUELA PARTICULAR APOCALIPSIS,CARAHUE,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-6595,ESCUELA BASICA RAYEN RUNGI,CHOLCHOL,ARAUC,Municipal,idps_cero_ambiguo
-6622,ESC. BASICA CAMPANARIO,CHOLCHOL,ARAUC,Municipal,idps_cero_ambiguo
-6626,ESC. BASICA RUCAPANGUE,CHOLCHOL,ARAUC,Municipal,idps_cero_ambiguo
-6627,ESC. BASICA ALTAMIRA,CHOLCHOL,ARAUC,Municipal,idps_cero_ambiguo
-6653,ESCUELA PARTICULAR COILACO,CHOLCHOL,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-5964,ESC. BASICA SAN CAMILO,CUNCO,ARAUC,Municipal,idps_cero_ambiguo
-5984,ESC. BASICA LO SCHMITH,CUNCO,ARAUC,Municipal,idps_cero_ambiguo
-5985,ESCUELA LA MANANA,CUNCO,ARAUC,Municipal,idps_cero_ambiguo
-5995,ESCUELA PARTICULAR QUECHEREHUE,CUNCO,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-5364,ESCUELA MANCHURIA,CURACAUTÍN,ARAUC,Municipal,idps_cero_ambiguo
-5368,"ESC. BASICA SAN ARTURO, RADALCO ESTE.",CURACAUTÍN,ARAUC,Municipal,idps_cero_ambiguo
-6032,ESCUELA MAMUIL MALAL,CURARREHUE,ARAUC,Municipal,idps_cero_ambiguo
-5379,ESCUELA TRICAUCO,ERCILLA,ARAUC,Municipal,idps_cero_ambiguo
-6180,ESCUELA DOLLINCO,FREIRE,ARAUC,Municipal,idps_cero_ambiguo
-6192,ESCUELA PARTICULAR LAS PATAGUAS,FREIRE,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-6208,REDUCCIÓN PAINEMIL,FREIRE,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-6219,ESCUELA PARTICULAR TRAPILHUE,FREIRE,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-5480,ESCUELA RUCATRARO ALTO,GALVARINO,ARAUC,Municipal,idps_cero_ambiguo
-6711,ESCUELA BASICA MANIUCO,GALVARINO,ARAUC,Municipal,idps_cero_ambiguo
-6719,ESCUELA BASICA CHACAICO,GALVARINO,ARAUC,Municipal,idps_cero_ambiguo
-6745,ESCUELA PARTICULAR BELLAVISTA,GALVARINO,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-16794,ESCUELA NUEVA MILLARAYEN,GALVARINO,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-6276,ESCUELA BASICA MUNICIPAL SAN JUSTO,GORBEA,ARAUC,Municipal,idps_cero_ambiguo
-5835,ESC. BASICA VILLA COIHUECO,LAUTARO,ARAUC,Municipal,idps_cero_ambiguo
-5837,ESCUELA DOLLICO ALTO,LAUTARO,ARAUC,Municipal,idps_cero_ambiguo
-5838,ESC. BASICA LAS MINAS,LAUTARO,ARAUC,Municipal,idps_cero_ambiguo
-5849,ESC. BASICA PUMALAL,LAUTARO,ARAUC,Municipal,idps_cero_ambiguo
-5850,ESC. BASICA VISTA HERMOSA,LAUTARO,ARAUC,Municipal,idps_cero_ambiguo
-6315,ESCUELA RUCAHUE,LONCOCHE,ARAUC,Municipal,idps_cero_ambiguo
-6319,ESCUELA ESMERALDA,LONCOCHE,ARAUC,Municipal,idps_cero_ambiguo
-6323,ESCUELA WENUY KUDAU,LONCOCHE,ARAUC,Municipal,idps_cero_ambiguo
-6325,ESCUELA PUKOYAM,LONCOCHE,ARAUC,Municipal,idps_cero_ambiguo
-6332,ESCUELA BASICA NILCAHUIN,LONCOCHE,ARAUC,Municipal,idps_cero_ambiguo
-5328,ESCUELA BASICA MITRAUQUEN,LONQUIMAY,ARAUC,Municipal,idps_cero_ambiguo
-5331,ESCUELA BASICA MARIMENUCO,LONQUIMAY,ARAUC,Municipal,idps_cero_ambiguo
-5339,ESCUELA DE TROYO,LONQUIMAY,ARAUC,Municipal,idps_cero_ambiguo
-5340,ESC. BASICA LEONTINA VASQUEZ RIVERA,LONQUIMAY,ARAUC,Municipal,idps_cero_ambiguo
-19958,ESCUELA PARTICULAR QUINQUEN,LONQUIMAY,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-19999,ESCUELA PARTICULAR GALLETUE,LONQUIMAY,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-5563,ESC. BASICA PETRONA PAILLALEO,LOS SAUCES,ARAUC,Municipal,idps_cero_ambiguo
-5474,ESC. BASICA RALUN,LUMACO,ARAUC,Municipal,idps_cero_ambiguo
-5485,ESC. BASICA BUTA RINCON,LUMACO,ARAUC,Municipal,idps_cero_ambiguo
-5490,ESC. BASICA COMUDE,LUMACO,ARAUC,Municipal,idps_cero_ambiguo
-6021,ESCUELA PARTICULAR CAREN,MELIPEUCO,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-6567,ESCUELA PARTICULAR JOSE ABELARDO NUNEZ,NUEVA IMPERIAL,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-6602,ESCUELA BASICA CATRIANCHE,NUEVA IMPERIAL,ARAUC,Servicio Local de Educación,idps_cero_ambiguo
-6623,ESCUELA ARENAS BLANCAS,NUEVA IMPERIAL,ARAUC,Servicio Local de Educación,idps_cero_ambiguo
-6666,ESCUELA PARTICULAR ALMAGRO,NUEVA IMPERIAL,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-6674,ESCUELA PARTICULAR ALTO MANIO,NUEVA IMPERIAL,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-20222,ESCUELA PARTICULAR INALKO,NUEVA IMPERIAL,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-20279,COLEGIO INTERCULTURAL CERRO LONCOCHE,PADRE LAS CASAS,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-6245,ESCUELA EL ESFUERZO,PITRUFQUÉN,ARAUC,Municipal,idps_cero_ambiguo
-6076,ESCUELA PARTICULAR CABURGUA,PUCÓN,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-6083,ESCUELA PARTICULAR RELICURA,PUCÓN,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-5494,ESCUELA PARTICULAR PICHI-LONCOYAN,PURÉN,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-5512,ESC.BASICA PINGUIDAHUE,PURÉN,ARAUC,Municipal,idps_cero_ambiguo
-5513,ESC. BASICA TRANAMAN,PURÉN,ARAUC,Municipal,idps_cero_ambiguo
-5523,ESCUELA PELLAHUENCO,PURÉN,ARAUC,Municipal,idps_cero_ambiguo
-5524,ESC. BASICA EL LINGUE,PURÉN,ARAUC,Municipal,idps_cero_ambiguo
-6490,ESCUELA PARTICULAR MANUEL ROJAS,SAAVEDRA,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-6492,ESCUELA PARTICULAR DAGOBERTO GODOY,SAAVEDRA,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-20378,ESCUELA BASICA RENACER,SAAVEDRA,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-5590,COMPLEJO EDUC. UN AMANECER EN LA ARAUCANIA,TEMUCO,ARAUC,Municipal,idps_cero_ambiguo
-5633,ESCUELA CONOCO CHICO,TEMUCO,ARAUC,Municipal,idps_cero_ambiguo
-5636,ESCUELA BOTROLHUE,TEMUCO,ARAUC,Municipal,idps_cero_ambiguo
-5666,LICEO CAMILO HENRIQUEZ DE TEMUCO,TEMUCO,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-5745,ESCUELA PARTICULAR MILLANTU,TEMUCO,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-5746,ESCUELA PARTICULAR MONO PAINE,TEMUCO,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-5785,ESCUELA PARTICULAR SAN MATEO,TEMUCO,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-5813,COLEGIO CENTENARIO DE TEMUCO,TEMUCO,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-20274,COLEGIO FOR LIFE,TEMUCO,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-6358,ESCUELA BASICA ESTACION TOLTEN,TEODORO SCHMIDT,ARAUC,Servicio Local de Educación,idps_cero_ambiguo
-6361,ESCUELA DE CAYCHAYEN,TEODORO SCHMIDT,ARAUC,Servicio Local de Educación,idps_cero_ambiguo
-6400,ESCUELA ISLA LLICAN,TEODORO SCHMIDT,ARAUC,Servicio Local de Educación,idps_cero_ambiguo
-6407,ESCUELA NOHUALHUE,TEODORO SCHMIDT,ARAUC,Servicio Local de Educación,idps_cero_ambiguo
-6411,ESCUELA PUYEHUE,TEODORO SCHMIDT,ARAUC,Servicio Local de Educación,idps_cero_ambiguo
-6413,ESCUELA DE RUCA-CURA,TEODORO SCHMIDT,ARAUC,Servicio Local de Educación,idps_cero_ambiguo
-5455,ESC.BASICA QUILQUEN,TRAIGUÉN,ARAUC,Municipal,idps_cero_ambiguo
-5462,ESC. BASICA REDUCCION TEMULEMU,TRAIGUÉN,ARAUC,Municipal,idps_cero_ambiguo
-6737,ESCUELA PARTICULAR PAILLAHUE,TRAIGUÉN,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-5927,ESCUELA PARTICULAR CODINHUE,VILCÚN,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-5933,ESCUELA PARTICULAR EL NATRE,VILCÚN,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-6699,ESCUELA PARTICULAR AMBROSIO OHIGGINS,VILCÚN,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-6097,ESCUELA LAS VERTIENTES,VILLARRICA,ARAUC,Municipal,idps_cero_ambiguo
-6117,ESCUELA PARTICULAR NANCUL,VILLARRICA,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-6157,ESCUELA PARTICULAR VIRGEN CANDELARIA,VILLARRICA,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-16910,ESCUELA BASICA PEUMA MEW,VILLARRICA,ARAUC,Particular Subvencionado,idps_cero_ambiguo
-496,ESCUELA DE CHOLLAY,ALTO DEL CARMEN,ATCMA,Servicio Local de Educación,idps_cero_ambiguo
-497,ESCUELA DE LA PAMPA,ALTO DEL CARMEN,ATCMA,Servicio Local de Educación,idps_cero_ambiguo
-500,ESCUELA BÁSICA RURAL EL TAMBO,ALTO DEL CARMEN,ATCMA,Servicio Local de Educación,idps_cero_ambiguo
-502,ESCUELA DE LAS MARQUESAS,ALTO DEL CARMEN,ATCMA,Servicio Local de Educación,idps_cero_ambiguo
-504,ESCUELA GABRIELA MISTRAL,ALTO DEL CARMEN,ATCMA,Servicio Local de Educación,idps_cero_ambiguo
-508,ESCUELA DE CHIGUINTO,ALTO DEL CARMEN,ATCMA,Servicio Local de Educación,idps_cero_ambiguo
-11036,ESCUELA JOSÉ JOAQUÍN VALLEJOS,CALDERA,ATCMA,Servicio Local de Educación,idps_cero_ambiguo
-439,ESCUELA TOTORAL,COPIAPÓ,ATCMA,Servicio Local de Educación,idps_cero_ambiguo
-13116,ESCUELA BÁSICA RURAL JAIME PROHENS,TIERRA AMARILLA,ATCMA,Servicio Local de Educación,idps_cero_ambiguo
-14,ESCUELA ROMULO J. PENA MATURANA,ARICA,AYP,Servicio Local de Educación,idps_cero_ambiguo
-75,ESCUELA VALLE DE GUANACAGUA,CAMARONES,AYP,Servicio Local de Educación,idps_cero_ambiguo
-10887,ESCUELA DE CHITITA,CAMARONES,AYP,Servicio Local de Educación,idps_cero_ambiguo
-87,ESCUELA ANCOLACANE,GENERAL LAGOS,AYP,Servicio Local de Educación,idps_cero_ambiguo
-89,ESCUELA HUMAPALCA,GENERAL LAGOS,AYP,Servicio Local de Educación,idps_cero_ambiguo
-91,ESCUELA COSAPILLA,GENERAL LAGOS,AYP,Servicio Local de Educación,idps_cero_ambiguo
-84,ESCUELA LOS ALAMOS,PUTRE,AYP,Servicio Local de Educación,idps_cero_ambiguo
-40137,COLEGIO SINAI,AYSÉN,AYSEN,Particular Subvencionado,idps_cero_ambiguo
-8399,ESCUELA PÚBLICA NACIMIENTO DEL BAKER,CHILE CHICO,AYSEN,Servicio Local de Educación,idps_cero_ambiguo
-24218,ESC.NUESTRA SRA DE LA DIVINA PROVIDENCIA,CISNES,AYSEN,Particular Subvencionado,idps_cero_ambiguo
-8354,ESCUELA RURAL PABLO CEA VASQUEZ,COYHAIQUE,AYSEN,Servicio Local de Educación,idps_cero_ambiguo
-8393,ESCUELA DE REPOLLAL,GUAITECAS,AYSEN,Servicio Local de Educación,idps_cero_ambiguo
-4386,ESCUELA PARTICULAR EDGARDO SOLAR ACUÑA,ALTO BIOBÍO,BBIO,Particular Subvencionado,idps_cero_ambiguo
-4389,ESCUELA PARTICULAR TRAPA TRAPA,ALTO BIOBÍO,BBIO,Particular Subvencionado,idps_cero_ambiguo
-4328,ESCUELA BASICA CERRO PILQUE,ANTUCO,BBIO,Municipal,idps_cero_ambiguo
-5059,ESCUELA HUGO CABRERA AGUIRRE,ARAUCO,BBIO,Municipal,idps_cero_ambiguo
-5067,ESCUELA MAR LOS PINOS,ARAUCO,BBIO,Municipal,idps_cero_ambiguo
-5069,ESCUELA BASICA ALTO YANI,ARAUCO,BBIO,Municipal,idps_cero_ambiguo
-5080,ESCUELA BASICA PEMEREHUE,ARAUCO,BBIO,Municipal,idps_cero_ambiguo
-4300,ESCUELA LOMAS DE ANGOL,CABRERO,BBIO,Municipal,idps_cero_ambiguo
-31107,COLEGIO ESPERANZA,CABRERO,BBIO,Particular Subvencionado,idps_cero_ambiguo
-4586,ESCUELA BASICA MANQUIMAVIDA,CHIGUAYANTE,BBIO,Servicio Local de Educación,idps_cero_ambiguo
-5162,ESCUELA HUIDE,CONTULMO,BBIO,Municipal,idps_cero_ambiguo
-5174,ESCUELA EL ALAMO,CONTULMO,BBIO,Municipal,idps_cero_ambiguo
-5176,ESCUELA MAHUILQUE,CONTULMO,BBIO,Municipal,idps_cero_ambiguo
-5095,ESCUELA LOS CRUCEROS,CURANILAHUE,BBIO,Municipal,idps_cero_ambiguo
-5100,ESCUELA PLEGARIAS,CURANILAHUE,BBIO,Municipal,idps_cero_ambiguo
-4882,ESCUELA BASICA QUEBRADA LAS ULLOA,FLORIDA,BBIO,Servicio Local de Educación,idps_cero_ambiguo
-4889,ESCUELA BASICA PENINHUEQUE,FLORIDA,BBIO,Servicio Local de Educación,idps_cero_ambiguo
-18112,COLEGIO BICENTENARIO INES ENRIQUEZ FRODDEN,FLORIDA,BBIO,Servicio Local de Educación,idps_cero_ambiguo
-4901,ESCUELA BASICA EL MAITEN,HUALQUI,BBIO,Servicio Local de Educación,idps_cero_ambiguo
-4907,ESCUELA GOMERO,HUALQUI,BBIO,Servicio Local de Educación,idps_cero_ambiguo
-4909,ESCUELA PROFESORA JUANA SALGADO PARRA DE UNIHUE,HUALQUI,BBIO,Servicio Local de Educación,idps_cero_ambiguo
-4913,ESCUELA BARRANCAS JUNTAS,HUALQUI,BBIO,Servicio Local de Educación,idps_cero_ambiguo
-4920,ESCUELA SAN NICANOR,HUALQUI,BBIO,Servicio Local de Educación,idps_cero_ambiguo
-4414,ESCUELA BASICA MUNILQUE IZAURIETA,MULCHÉN,BBIO,Municipal,idps_cero_ambiguo
-4417,ESCUELA BASICA SAN LUIS DE MALVEN,MULCHÉN,BBIO,Municipal,idps_cero_ambiguo
-4421,ESCUELA BASICA PILGUEN,MULCHÉN,BBIO,Municipal,idps_cero_ambiguo
-4426,ESCUELA BASICA EL PARRON,MULCHÉN,BBIO,Municipal,idps_cero_ambiguo
-4433,ESCUELA BASICA RAPELCO,MULCHÉN,BBIO,Municipal,idps_cero_ambiguo
-4467,ESCUELA SANTA LUISA,NACIMIENTO,BBIO,Municipal,idps_cero_ambiguo
-4469,ESCUELA PALMILLA,NACIMIENTO,BBIO,Municipal,idps_cero_ambiguo
-4479,ESCUELA CHEQUENAL,NACIMIENTO,BBIO,Municipal,idps_cero_ambiguo
-4337,ESCUELA BASICA LA HOYADA,QUILLECO,BBIO,Municipal,idps_cero_ambiguo
-4502,ESCUELA BASICA TURQUIA,SAN ROSENDO,BBIO,Municipal,idps_cero_ambiguo
-4372,ESCUELA QUILLAILEO,SANTA BÁRBARA,BBIO,Municipal,idps_cero_ambiguo
-4940,ESCUELA CURAMAVIDA,SANTA JUANA,BBIO,Servicio Local de Educación,idps_cero_ambiguo
-4942,ESCUELA TANAHUILLIN,SANTA JUANA,BBIO,Servicio Local de Educación,idps_cero_ambiguo
-11418,ESCUELA LOS QUIQUES,SANTA JUANA,BBIO,Servicio Local de Educación,idps_cero_ambiguo
-4777,ESCUELA PARTICULAR ESMERALDA,TALCAHUANO,BBIO,Particular Subvencionado,idps_cero_ambiguo
-5195,ESCUELA CERRO NEGRO,TIRÚA,BBIO,Municipal,idps_cero_ambiguo
-5198,ESCUELA ALTO QUILANTAHUE,TIRÚA,BBIO,Municipal,idps_cero_ambiguo
-5204,ESCUELA LOS MAQUIS,TIRÚA,BBIO,Municipal,idps_cero_ambiguo
-4854,ESCUELA BASICA SAN FRANCISCO,TOMÉ,BBIO,Municipal,idps_cero_ambiguo
-4514,ESCUELA MUNICIPAL RERE,YUMBEL,BBIO,Municipal,idps_cero_ambiguo
-662,ESCUELA DE MAITENCILLO,ANDACOLLO,COQ,Servicio Local de Educación,idps_cero_ambiguo
-795,ESC.BASICA DOMINGO SANTA MARIA GONZALEZ,ANDACOLLO,COQ,Servicio Local de Educación,idps_cero_ambiguo
-1092,ESCUELA BASICA MINCHA NORTE,CANELA,COQ,Municipal,idps_cero_ambiguo
-1101,ESCUELA BASICA JOSE MIGUEL CARRERA,CANELA,COQ,Municipal,idps_cero_ambiguo
-1117,ESCUELA PARTICULAR LOS TOMES,CANELA,COQ,Particular Subvencionado,idps_cero_ambiguo
-11153,ESCUELA LA PARRITA,CANELA,COQ,Municipal,idps_cero_ambiguo
-864,ESCUELA BASICA VIOLETA PARRA SANDOVAL,COMBARBALÁ,COQ,Municipal,idps_cero_ambiguo
-865,ESCUELA BASICA DANIEL BARROS GREZ,COMBARBALÁ,COQ,Municipal,idps_cero_ambiguo
-870,ESCUELA BASICA CAMILO HENRIQUEZ GONZALEZ,COMBARBALÁ,COQ,Municipal,idps_cero_ambiguo
-871,ESCUELA BASICA LUIS ENRIQUE BOU PEREZ,COMBARBALÁ,COQ,Municipal,idps_cero_ambiguo
-879,ESCUELA BASICA BENJAMIN VICUNA MACKENNA,COMBARBALÁ,COQ,Municipal,idps_cero_ambiguo
-887,ESCUELA BASICA CAUPOLICAN,COMBARBALÁ,COQ,Municipal,idps_cero_ambiguo
-892,ESCUELA PARTICULAR EL DURAZNO,COMBARBALÁ,COQ,Particular Subvencionado,idps_cero_ambiguo
-13312,ESCUELA PARTICULAR CHEPICA,COMBARBALÁ,COQ,Particular Subvencionado,idps_cero_ambiguo
-637,ESCUELA LUCILA GODOY ALCAYAGA,COQUIMBO,COQ,Servicio Local de Educación,idps_cero_ambiguo
-645,ESCUELA DE EL TANGUE,COQUIMBO,COQ,Servicio Local de Educación,idps_cero_ambiguo
-647,COLEGIO MANUEL MONTT,COQUIMBO,COQ,Particular Subvencionado,idps_cero_ambiguo
-40064,COLEGIO ALTA CORDILLERA,COQUIMBO,COQ,Particular Subvencionado,idps_cero_ambiguo
-978,ESCUELA BASICA MATANCILLA,ILLAPEL,COQ,Municipal,idps_cero_ambiguo
-981,ESCUELA BASICA CHOAPA LINDO,ILLAPEL,COQ,Municipal,idps_cero_ambiguo
-984,ESCUELA BASICA TUNGA SUR,ILLAPEL,COQ,Municipal,idps_cero_ambiguo
-986,ESCUELA BASICA LAS CHINCHILLAS DE COCOU,ILLAPEL,COQ,Municipal,idps_cero_ambiguo
-991,ESCUELA PARTICULAR QUEBRADA EL PERAL,ILLAPEL,COQ,Particular Subvencionado,idps_cero_ambiguo
-994,ESCUELA PARTICULAR RINCON DEL ROMERO,ILLAPEL,COQ,Particular Subvencionado,idps_cero_ambiguo
-1001,ESCUELA PARTICULAR HERMINIA RAMOS,ILLAPEL,COQ,Particular Subvencionado,idps_cero_ambiguo
-1002,ESCUELA PARTICULAR EL SOCAVON,ILLAPEL,COQ,Particular Subvencionado,idps_cero_ambiguo
-1010,ESCUELA PARTICULAR CUYUNTAGUA,ILLAPEL,COQ,Particular Subvencionado,idps_cero_ambiguo
-13380,ESCUELA BASICA MUNICIPAL LOS PERALES,ILLAPEL,COQ,Municipal,idps_cero_ambiguo
-523,ESCUELA ALONSO DE ERCILLA,LA SERENA,COQ,Servicio Local de Educación,idps_cero_ambiguo
-550,ESCUELA DE ALMIRANTE LATORRE,LA SERENA,COQ,Servicio Local de Educación,idps_cero_ambiguo
-554,ESCUELA DE PELICANA,LA SERENA,COQ,Servicio Local de Educación,idps_cero_ambiguo
-558,COLEGIO PUNTA DE TEATINOS,LA SERENA,COQ,Servicio Local de Educación,idps_cero_ambiguo
-13388,COLEGIO SANTO TOMAS LA SERENA,LA SERENA,COQ,Particular Subvencionado,idps_cero_ambiguo
-1062,ESC.PDTE.FEDERICO ERRAZURIZ ECHAURREN,LOS VILOS,COQ,Municipal,idps_cero_ambiguo
-806,ESCUELA FRONTERA LAS RAMADAS,MONTE PATRIA,COQ,Municipal,idps_cero_ambiguo
-813,ESCUELA BASICA LA UNION,MONTE PATRIA,COQ,Municipal,idps_cero_ambiguo
-823,ESCUELA BASICA COLLIGUAY,MONTE PATRIA,COQ,Municipal,idps_cero_ambiguo
-830,ESCUELA MARCELA PAZ,MONTE PATRIA,COQ,Municipal,idps_cero_ambiguo
-836,ESCUELA INES DE SUAREZ,MONTE PATRIA,COQ,Municipal,idps_cero_ambiguo
-843,ESCUELA LOS PERALES DE CAMPANARIO,MONTE PATRIA,COQ,Municipal,idps_cero_ambiguo
-844,ESCUELA PARTICULAR CERRILLOS DE RAPEL,MONTE PATRIA,COQ,Particular Subvencionado,idps_cero_ambiguo
-727,ESCUELA LA PALOMA,OVALLE,COQ,Municipal,idps_cero_ambiguo
-735,ESCUELA LA QUIROGA,OVALLE,COQ,Municipal,idps_cero_ambiguo
-746,ESCUELA EL SAUCE,OVALLE,COQ,Municipal,idps_cero_ambiguo
-749,ESCUELA TRANQUE RECOLETA,OVALLE,COQ,Municipal,idps_cero_ambiguo
-754,ESCUELA LA ARAUCANA,OVALLE,COQ,Municipal,idps_cero_ambiguo
-758,ESCUELA CORDILLERA,OVALLE,COQ,Municipal,idps_cero_ambiguo
-760,ESCUELA LAS LOMAS DE PUNILLA,OVALLE,COQ,Municipal,idps_cero_ambiguo
-950,ESCUELA LA CEBADAS,OVALLE,COQ,Municipal,idps_cero_ambiguo
-697,ESCUELA MUNICIPAL ALCOHUAZ,PAIGUANO,COQ,Servicio Local de Educación,idps_cero_ambiguo
-940,ESCUELA SAN PEDRO,PUNITAQUI,COQ,Municipal,idps_cero_ambiguo
-954,ESCUELA EL AJIAL DE QUILE,PUNITAQUI,COQ,Municipal,idps_cero_ambiguo
-955,ESCUELA VILLA LOS CORRALES,PUNITAQUI,COQ,Municipal,idps_cero_ambiguo
-956,ESCUELA PORTEZUELOS BLANCOS,PUNITAQUI,COQ,Municipal,idps_cero_ambiguo
-775,ESCUELA BASICA DE FUNDINA,RÍO HURTADO,COQ,Municipal,idps_cero_ambiguo
-776,ES.BAS.SAN PEDRO DE RIO HURTADO,RÍO HURTADO,COQ,Municipal,idps_cero_ambiguo
-786,ESCUELA BASICA LA HUERTA,RÍO HURTADO,COQ,Municipal,idps_cero_ambiguo
-787,ESCUELA BASICA MORRILLOS,RÍO HURTADO,COQ,Municipal,idps_cero_ambiguo
-788,ESCUELA BASICA VADO DE MORRILLOS,RÍO HURTADO,COQ,Municipal,idps_cero_ambiguo
-1022,ESCUELA COIRON,SALAMANCA,COQ,Municipal,idps_cero_ambiguo
-1042,ESCUELA MUNICIPAL COLLIGUAY,SALAMANCA,COQ,Municipal,idps_cero_ambiguo
-1044,ESCUELA PARTICULAR MANQUEHUA,SALAMANCA,COQ,Particular Subvencionado,idps_cero_ambiguo
-681,ESCUELA DE EL ARENAL,VICUÑA,COQ,Servicio Local de Educación,idps_cero_ambiguo
-687,ESCUELA DE HUANTA,VICUÑA,COQ,Servicio Local de Educación,idps_cero_ambiguo
-688,ESCUELA DE CHAPILCA,VICUÑA,COQ,Servicio Local de Educación,idps_cero_ambiguo
-689,ESCUELA DE VARILLAR,VICUÑA,COQ,Servicio Local de Educación,idps_cero_ambiguo
-22425,ESCUELA PARTICULAR CURAMO,ANCUD,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-22690,COLEGIO AYTUE,ANCUD,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-7776,ESCUELA RURAL EL SEMBRADOR,CALBUCO,LAGOS,Municipal,idps_cero_ambiguo
-7786,ESCUELA RURAL DAITAO,CALBUCO,LAGOS,Municipal,idps_cero_ambiguo
-7787,ESCUELA RURAL QUENU,CALBUCO,LAGOS,Municipal,idps_cero_ambiguo
-7790,ESCUELA RURAL SOL DEL PACIFICO,CALBUCO,LAGOS,Municipal,idps_cero_ambiguo
-7805,ESCUELA RURAL PEDRO BARRIENTOS BARRIENTOS,CALBUCO,LAGOS,Municipal,idps_cero_ambiguo
-7819,ESCUELA RURAL EL AVELLANAL,CALBUCO,LAGOS,Municipal,idps_cero_ambiguo
-7821,ESCUELA RURAL ISLA TABON,CALBUCO,LAGOS,Municipal,idps_cero_ambiguo
-7822,ESCUELA RURAL MACHIL,CALBUCO,LAGOS,Municipal,idps_cero_ambiguo
-8020,ESCUELA RURAL PAUL HARRIS,CASTRO,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8037,ESCUELA RURAL LOS ROBLES,CASTRO,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-22176,ESCUELA PADRE HURTADO,CASTRO,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8294,ESCUELA RURAL AUTENI,CHAITÉN,LAGOS,Municipal,idps_cero_ambiguo
-8295,ESCUELA RURAL CHUIT,CHAITÉN,LAGOS,Municipal,idps_cero_ambiguo
-8296,ESCUELA RURAL NUEVA ESPERANZA,CHAITÉN,LAGOS,Municipal,idps_cero_ambiguo
-8299,ESCUELA RURAL CASA DE PESCA,CHAITÉN,LAGOS,Municipal,idps_cero_ambiguo
-8300,ESCUELA RURAL LOYOLA,CHAITÉN,LAGOS,Municipal,idps_cero_ambiguo
-8208,ESCUELA RURAL CURACO DE VILUPULLI,CHONCHI,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8226,ESCUELA RURAL QUINCHED,CHONCHI,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8231,ESCUELA RURAL TERAO,CHONCHI,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8234,ESCUELA RURAL MIRAFLORES,CHONCHI,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-7757,ESCUELA RURAL SANTA AGUEDA,COCHAMÓ,LAGOS,Municipal,idps_cero_ambiguo
-7770,ESCUELA RURAL SANTA TERESITA DE LOS ANDES,COCHAMÓ,LAGOS,Municipal,idps_cero_ambiguo
-8163,ESCUELA RURAL CHULLEC,CURACO DE VÉLEZ,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8164,ESCUELA RURAL TOLQUIEN,CURACO DE VÉLEZ,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8173,ESCUELA RURAL HUENAO,CURACO DE VÉLEZ,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8144,ESCUELA RURAL CESAR GOMEZ GARCIA,DALCAHUE,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8149,ESCUELA RURAL CARIHUEICO,DALCAHUE,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8157,ESCUELA RURAL JOSE MARIA ULLOA SALDIVIA,DALCAHUE,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-11590,ESCUELA RURAL SAN PEDRO,DALCAHUE,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-31463,COLEGIO GOTITAS DE LUZ,DALCAHUE,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-7929,ESCUELA BASICA AGRICOLA HUEMPELEO,FRESIA,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-7933,ESCUELA RURAL OLGA SOTO ALVARADO,FRESIA,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-7938,ESCUELA RURAL ENTRE RIOS,FRESIA,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-7946,ESCUELA PARTICULAR N. 224 PICHI MAULE,FRESIA,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-7990,ESCUELA RURAL COLONIA SAN MARTIN,FRUTILLAR,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-7994,ESCUELA PARTICULAR N.241 LA PAZ,FRUTILLAR,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-11576,ESCUELA PARTICULAR N.290 LOS RADALES,FRUTILLAR,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-8334,ESCUELA RURAL EL ESPOLON,FUTALEUFÚ,LAGOS,Municipal,idps_cero_ambiguo
-8338,ESCUELA RURAL LONCONAO,FUTALEUFÚ,LAGOS,Municipal,idps_cero_ambiguo
-22092,ESCUELA PARTICULAR LOS HALCONES,HUALAIHUÉ,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-22100,ESCUELA RURAL EL VARAL,HUALAIHUÉ,LAGOS,Municipal,idps_cero_ambiguo
-7966,ESCUELA RURAL LINEA SOLAR,LLANQUIHUE,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-7919,ESCUELA PARTICULAR N.221 ESTAQUILLA BAJO,LOS MUERMOS,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-7922,ESCUELA PARTICULAR N.232 EL PROGRESO,LOS MUERMOS,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-22310,ESCUELA RURAL YERBAS BUENAS,LOS MUERMOS,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-7858,ESCUELA RURAL FRANCISCO HERNANDEZ NAVARRO,MAULLIN,LAGOS,Municipal,idps_cero_ambiguo
-7861,ESCUELA RURAL EL JARDIN DE OLMOPULLI,MAULLIN,LAGOS,Municipal,idps_cero_ambiguo
-7871,ESCUELA PARTICULAR N.211 LAS ENCINAS,MAULLIN,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-22048,ESCUELA RURAL CHANGUE,MAULLIN,LAGOS,Municipal,idps_cero_ambiguo
-22209,ESCUELA RURAL EL LLOLLE,MAULLIN,LAGOS,Municipal,idps_cero_ambiguo
-7359,ESCUELA RURAL TRINQUICAHUIN,OSORNO,LAGOS,Municipal,idps_cero_ambiguo
-7371,ESCUELA RURAL FORRAHUE,OSORNO,LAGOS,Municipal,idps_cero_ambiguo
-7380,ESCUELA RURAL LUMACO,OSORNO,LAGOS,Municipal,idps_cero_ambiguo
-7381,ESCUELA RURAL CHACAYAL,OSORNO,LAGOS,Municipal,idps_cero_ambiguo
-7382,ESCUELA RURAL LOS ABEDULES,OSORNO,LAGOS,Municipal,idps_cero_ambiguo
-7384,ESCUELA RURAL TACAMO ALTO,OSORNO,LAGOS,Municipal,idps_cero_ambiguo
-22146,COLEGIO ABRAHAM LINCOLN,OSORNO,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-22263,COLEGIO SAN MARCOS,OSORNO,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-8341,ESCUELA RURAL FRONTERIZA,PALENA,LAGOS,Municipal,idps_cero_ambiguo
-8342,ESCUELA RURAL PUERTO RAMIREZ,PALENA,LAGOS,Municipal,idps_cero_ambiguo
-22138,ESCUELA RURAL EL TIGRE,PALENA,LAGOS,Municipal,idps_cero_ambiguo
-7642,ESCUELA BASICA GABRIELA MISTRAL,PUERTO MONTT,LAGOS,Municipal,idps_cero_ambiguo
-7673,ESCUELA RURAL LOS PIONEROS DE SALTO CHICO,PUERTO MONTT,LAGOS,Municipal,idps_cero_ambiguo
-7677,ESCUELA RURAL METRI,PUERTO MONTT,LAGOS,Municipal,idps_cero_ambiguo
-7680,ESCUELA RURAL COLONIA EL GATO,PUERTO MONTT,LAGOS,Municipal,idps_cero_ambiguo
-7684,ESCUELA RURAL TEPUAL,PUERTO MONTT,LAGOS,Municipal,idps_cero_ambiguo
-7693,ESCUELA RURAL PELLINES DEL SALTO,PUERTO MONTT,LAGOS,Municipal,idps_cero_ambiguo
-7694,ESCUELA RURAL ALTO BONITO,PUERTO MONTT,LAGOS,Municipal,idps_cero_ambiguo
-7718,THE AMERICAN SCHOOL,PUERTO MONTT,LAGOS,Particular Pagado,idps_cero_ambiguo
-16923,THE BRITISH SCHOOL PATAGONIA,PUERTO MONTT,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-22086,LICEO RURAL LAS QUEMAS,PUERTO MONTT,LAGOS,Municipal,idps_cero_ambiguo
-7489,ESCUELA RURAL LA PELLINADA,PUERTO OCTAY,LAGOS,Municipal,idps_cero_ambiguo
-7501,ESCUELA PARTICULAR N.179 NOCHACO,PUERTO OCTAY,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-7534,ESCUELA RURAL CONCORDIA,PURRANQUE,LAGOS,Municipal,idps_cero_ambiguo
-7453,ESCUELA RURAL RADALES,PUYEHUE,LAGOS,Municipal,idps_cero_ambiguo
-7463,ESCUELA RURAL DESAGUE RUPANCO,PUYEHUE,LAGOS,Municipal,idps_cero_ambiguo
-8239,ESCUELA RURAL INSTITUTO CORFO-PUREO,QUEILÉN,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8247,ESCUELA RURAL JUAN ANTONIO VERA DIAZ,QUEILÉN,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8254,ESCUELA RURAL DETICO,QUEILÉN,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8260,ESCUELA RURAL QUILEN,QUELLÓN,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8267,ESCUELA RURAL HUELPUN,QUELLÓN,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8268,ESCUELA RURAL OQUELDAN,QUELLÓN,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8269,ESCUELA RURAL LASTENIA OYARZUN ANDRADE,QUELLÓN,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8271,ESCUELA RURAL PUNTA PAULA,QUELLÓN,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8286,ESCUELA RURAL SAN ANTONIO,QUELLÓN,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-22112,ESCUELA RURAL PUNTA WHITE,QUELLÓN,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-22656,COLEGIO LLACOLEN,QUELLÓN,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-8113,ESCUELA RURAL AQUELARRE,QUEMCHI,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8122,ESCUELA RURAL PIDO,QUEMCHI,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8127,ESCUELA RURAL QUELER,QUEMCHI,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8131,ESCUELA RURAL MALUCO,QUEMCHI,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8139,ESCUELA RURAL CHENIAO,QUEMCHI,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8179,ESCUELA RURAL FRANCISCO DE VILLAGRA,QUINCHAO,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8183,ESCUELA RURAL AMANECER 2000,QUINCHAO,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-8184,ESCUELA RURAL LLINGUA,QUINCHAO,LAGOS,Servicio Local de Educación,idps_cero_ambiguo
-22284,ESCUELA PARTICULAR HUALINTO,RÍO NEGRO,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-7580,ESCUELA RURAL PULOTRE,SAN JUAN DE LA COSTA,LAGOS,Municipal,idps_cero_ambiguo
-7592,ESCUELA RURAL PURREHUIN,SAN JUAN DE LA COSTA,LAGOS,Municipal,idps_cero_ambiguo
-7607,ESCUELA PARTICULAR N.156 CHANCO,SAN JUAN DE LA COSTA,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-7616,ESCUELA PARTICULAR N.166 MONTE VERDE,SAN JUAN DE LA COSTA,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-7619,ESCUELA PARTICULAR N.173 HUAMPUTUE,SAN JUAN DE LA COSTA,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-22620,ESCUELA PARTICULAR ANTUMAPU,SAN JUAN DE LA COSTA,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-7431,ESCUELA RURAL TRUMAO,SAN PABLO,LAGOS,Municipal,idps_cero_ambiguo
-7436,ESCUELA PARTICULAR N.145 QUITRA QUITRA,SAN PABLO,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-7437,ESCUELA PARTICULAR N.148 LOLOLHUE,SAN PABLO,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-7443,ESCUELA PARTICULAR N.153 EL ROBLE,SAN PABLO,LAGOS,Particular Subvencionado,idps_cero_ambiguo
-2493,ESCUELA BAS. JOSE MIGUEL CARRERA VERDUGO,CHIMBARONGO,LGBO,Servicio Local de Educación,idps_cero_ambiguo
-2505,ESCUELA MUNICIPAL G448 HUEMUL,CHIMBARONGO,LGBO,Servicio Local de Educación,idps_cero_ambiguo
-2534,ESCUELA EUGENIO RUIZ-TAGLE MONTES,CHÉPICA,LGBO,Municipal,idps_cero_ambiguo
-2543,ESCUELA CARLOS DONOSO REBOLLEDO,CHÉPICA,LGBO,Municipal,idps_cero_ambiguo
-2705,ESCUELA TRINIDAD,MARCHIHUE,LGBO,Municipal,idps_cero_ambiguo
-15569,ESCUELA PUERTECILLO,NAVIDAD,LGBO,Municipal,idps_cero_ambiguo
-2612,LICEO SAN JOSE DEL CARMEN,PALMILLA,LGBO,Municipal,idps_cero_ambiguo
-2723,ESCUELA MUNICIPAL LOS BRIONES,PAREDONES,LGBO,Municipal,idps_cero_ambiguo
-2725,ESCUELA MUNICIPAL LO VALDIVIA,PAREDONES,LGBO,Municipal,idps_cero_ambiguo
-2633,ESCUELA MARTA VALDES ECHEÑIQUE,PERALILLO,LGBO,Municipal,idps_cero_ambiguo
-2373,ESCUELA BASICA SAN JOSE,PICHIDEGUA,LGBO,Municipal,idps_cero_ambiguo
-2604,ESCUELA PENABLANCA,PUMANQUE,LGBO,Municipal,idps_cero_ambiguo
-2126,COL. JOSE A. MANSO DE VELASCO Y S.,RANCAGUA,LGBO,Municipal,idps_cero_ambiguo
-2136,ESCUELA MUNICIPAL ISABEL RIQUELME,RANCAGUA,LGBO,Municipal,idps_cero_ambiguo
-2185,COLEGIO ALONSO DE ERCILLA,RANCAGUA,LGBO,Particular Pagado,idps_cero_ambiguo
-15521,COLEGIO INGLES SAINT JOHN,RANCAGUA,LGBO,Particular Pagado,idps_cero_ambiguo
-2464,ESCUELA JOSE DE SAN MARTIN,SAN FERNANDO,LGBO,Servicio Local de Educación,idps_cero_ambiguo
-2343,ESCUELA MUNICIPAL TOQUIHUA,SAN VICENTE,LGBO,Municipal,idps_cero_ambiguo
-2350,ESCUELA SAN ALBERTO DE IDAHUE,SAN VICENTE,LGBO,Municipal,idps_cero_ambiguo
-2560,ESC. MUNICIPAL LA LAJUELA,SANTA CRUZ,LGBO,Municipal,idps_cero_ambiguo
-8419,ESC. PROF. MIGUEL S. MONTECINOS C.,NATALES,MAG,Servicio Local de Educación,idps_cero_ambiguo
-8420,ESC. DE CONCENTRACION FRONTERIZA DOROTEA,NATALES,MAG,Servicio Local de Educación,idps_cero_ambiguo
-24341,ESCUELA PAMPA GUANACO,TIMAUKEL,MAG,Servicio Local de Educación,idps_cero_ambiguo
-24325,ESCUELA RURAL CERRO GUIDO,TORRES DEL PAINE,MAG,Servicio Local de Educación,idps_cero_ambiguo
-3579,ESCUELA JOSÉ DOLORES MUÑOZ LABRA,CAUQUENES,MAULE,Servicio Local de Educación,idps_cero_ambiguo
-3596,ESCUELA LA CAPILLA DE PILEN ALTO,CAUQUENES,MAULE,Servicio Local de Educación,idps_cero_ambiguo
-3599,ESCUELA MIXTA ATENEA,CAUQUENES,MAULE,Servicio Local de Educación,idps_cero_ambiguo
-3333,ESCUELA CARLOS DEL CAMPO RIVERA,COLBÚN,MAULE,Municipal,idps_cero_ambiguo
-3346,ESCUELA SANTA ELENA,COLBÚN,MAULE,Municipal,idps_cero_ambiguo
-3179,ESCUELA BARRANQUILLAS,CONSTITUCIÓN,MAULE,Servicio Local de Educación,idps_cero_ambiguo
-3187,ESCUELA CARRIZALILLO,CONSTITUCIÓN,MAULE,Servicio Local de Educación,idps_cero_ambiguo
-3189,ESCUELA TERESA CONSUELO,CONSTITUCIÓN,MAULE,Servicio Local de Educación,idps_cero_ambiguo
-3190,ESCUELA RURAL QUEBRADA VERDE,CONSTITUCIÓN,MAULE,Servicio Local de Educación,idps_cero_ambiguo
-3213,ESCUELA LA TRICHERA,CUREPTO,MAULE,Municipal,idps_cero_ambiguo
-3215,ESCUELA EL SANTO DE TABUNCO,CUREPTO,MAULE,Municipal,idps_cero_ambiguo
-3216,ESCUELA CAPILLA DE RAPILERMO,CUREPTO,MAULE,Municipal,idps_cero_ambiguo
-3221,ESCUELA DOCAMAVIDA,CUREPTO,MAULE,Municipal,idps_cero_ambiguo
-3223,ESCUELA DOMULGO,CUREPTO,MAULE,Municipal,idps_cero_ambiguo
-2768,ESCUELA JOSE D. MORALES DIAZ,CURICÓ,MAULE,Municipal,idps_cero_ambiguo
-2895,ESCUELA PARTICULAR LOS COIPOS,HUALAÑÉ,MAULE,Particular Subvencionado,idps_cero_ambiguo
-3272,ESCUELA CHUPALLAR,LINARES,MAULE,Municipal,idps_cero_ambiguo
-3284,ESCUELA VIOLETA PARRA,LINARES,MAULE,Municipal,idps_cero_ambiguo
-3289,ESCUELA DE ROBLERIA,LINARES,MAULE,Municipal,idps_cero_ambiguo
-3369,ESCUELA ROBERTO MUNOZ VALDES,LONGAVÍ,MAULE,Municipal,idps_cero_ambiguo
-3377,ESCUELA MANUEL ROZAS ARISTIA,LONGAVÍ,MAULE,Municipal,idps_cero_ambiguo
-2844,ESC.INTERN.LAS PALMAS TRES ESQUINAS,MOLINA,MAULE,Municipal,idps_cero_ambiguo
-3406,ESCUELA CARLOS ZINIGA FUENTES,PARRAL,MAULE,Municipal,idps_cero_ambiguo
-3419,ESCUELA EL CIENAGO,PARRAL,MAULE,Municipal,idps_cero_ambiguo
-3016,LICEO DE PELARCO,PELARCO,MAULE,Municipal,idps_cero_ambiguo
-3030,ESCUELA LIHUENO,PELARCO,MAULE,Municipal,idps_cero_ambiguo
-3616,ESCUELA BENITO MANCILLA PEREZ,PELLUHUE,MAULE,Servicio Local de Educación,idps_cero_ambiguo
-3146,ESCUELA LA ESPERANZA DEL FUTURO,PENCAHUE,MAULE,Municipal,idps_cero_ambiguo
-2826,ESCUELA TRES ESQUINAS,ROMERAL,MAULE,Municipal,idps_cero_ambiguo
-2874,ESCUELA EL DURAZNO,SAGRADA FAMILIA,MAULE,Municipal,idps_cero_ambiguo
-3082,ESCUELA SAN DIEGO,SAN CLEMENTE,MAULE,Municipal,idps_cero_ambiguo
-3088,ESCUELA VILCHES ALTO,SAN CLEMENTE,MAULE,Municipal,idps_cero_ambiguo
-3506,ESCUELA INES DE SUAREZ,SAN JAVIER,MAULE,Municipal,idps_cero_ambiguo
-3518,ESCUELA MARIANO EGANA,SAN JAVIER,MAULE,Municipal,idps_cero_ambiguo
-3523,ESCUELA CARLOS CONDELL,SAN JAVIER,MAULE,Municipal,idps_cero_ambiguo
-3527,ESCUELA CAMILA MATTA VIAL,SAN JAVIER,MAULE,Municipal,idps_cero_ambiguo
-3026,ESCUELA PANGUE ABAJO,SAN RAFAEL,MAULE,Municipal,idps_cero_ambiguo
-2817,ESCUELA SAN CRISTOBAL,TENO,MAULE,Municipal,idps_cero_ambiguo
-2909,LICEO NUEVO HORIZONTE,VICHUQUEN,MAULE,Municipal,idps_cero_ambiguo
-4085,ESCUELA BASICA EL TOLLO,COBQUECURA,NUBLE,Municipal,idps_cero_ambiguo
-4089,ESCUELA BASICA LA ACHIRA,COBQUECURA,NUBLE,Municipal,idps_cero_ambiguo
-4091,ESCUELA BASICA EL AVELLANAL,COBQUECURA,NUBLE,Municipal,idps_cero_ambiguo
-4052,ESCUELA GUARILIHUE ALTO,COELEMU,NUBLE,Municipal,idps_cero_ambiguo
-4054,ESCUELA MAGDALENA,COELEMU,NUBLE,Municipal,idps_cero_ambiguo
-4064,ESCUELA MEIPO,COELEMU,NUBLE,Municipal,idps_cero_ambiguo
-4067,ESCUELA SANTA FILOMENA,COELEMU,NUBLE,Municipal,idps_cero_ambiguo
-3852,ESCUELA ANIBAL PINTO,COIHUECO,NUBLE,Servicio Local de Educación,idps_cero_ambiguo
-3853,ESCUELA JULIO MONTT SALAMANCA,COIHUECO,NUBLE,Servicio Local de Educación,idps_cero_ambiguo
-3854,ESCUELA CANCHA RAYADA,COIHUECO,NUBLE,Servicio Local de Educación,idps_cero_ambiguo
-3857,ESCUELA BENJAMIN VICUNA MACKENNA,COIHUECO,NUBLE,Servicio Local de Educación,idps_cero_ambiguo
-3913,ESCUELA NAVIDAD-TREHUALEMU,EL CARMEN,NUBLE,Municipal,idps_cero_ambiguo
-3917,ESCUELA VALLE DE ATACALCO,EL CARMEN,NUBLE,Municipal,idps_cero_ambiguo
-3926,ESCUELA SAN JOSE SUR,EL CARMEN,NUBLE,Municipal,idps_cero_ambiguo
-3932,ESCUELA MAIPO,EL CARMEN,NUBLE,Municipal,idps_cero_ambiguo
-4131,ESCUELA DOCTOR DAVID BENAVENTE SEPÚLVEDA,NINHUE,NUBLE,Municipal,idps_cero_ambiguo
-3968,ESCUELA BASICA MONTE EL LEON,PEMUCO,NUBLE,Municipal,idps_cero_ambiguo
-3882,ESCUELA NIDO DE GOLONDRINAS,PINTO,NUBLE,Servicio Local de Educación,idps_cero_ambiguo
-3885,COLEGIO FRANCISCO DE ASIS,PINTO,NUBLE,Particular Subvencionado,idps_cero_ambiguo
-4037,ESCUELA MEMBRILLAR,PORTEZUELO,NUBLE,Municipal,idps_cero_ambiguo
-4006,ESCUELA BASICA LIUCURA BAJO,QUILLÓN,NUBLE,Municipal,idps_cero_ambiguo
-4107,ESCUELA BASICA SANTA CAROLINA,QUIRIHUE,NUBLE,Municipal,idps_cero_ambiguo
-3757,ESCUELA AGUA BUENA,SAN CARLOS,NUBLE,Servicio Local de Educación,idps_cero_ambiguo
-3783,ESCUELAS LAS JUNTAS,SAN CARLOS,NUBLE,Servicio Local de Educación,idps_cero_ambiguo
-3828,ESCUELA BASICA LOS COIGUES,SAN FABIÁN,NUBLE,Servicio Local de Educación,idps_cero_ambiguo
-3832,ESCUELA BASICA FABIAN DE LA FUENTE,SAN FABIÁN,NUBLE,Servicio Local de Educación,idps_cero_ambiguo
-3898,ESCUELA SANTA JUANA,SAN IGNACIO,NUBLE,Municipal,idps_cero_ambiguo
-3904,ESCUELA LOURDES,SAN IGNACIO,NUBLE,Municipal,idps_cero_ambiguo
-4077,ESCUELA BASICA VILLA DENECAN,TREHUACO,NUBLE,Municipal,idps_cero_ambiguo
-3947,ESCUELA PANGAL DEL LAJA,YUNGAY,NUBLE,Municipal,idps_cero_ambiguo
-3804,ESCUELA ZEMITA,ÑIQUÉN,NUBLE,Servicio Local de Educación,idps_cero_ambiguo
-22095,ESCUELA PARTICULAR EL HUIRO,CORRAL,RIOS,Particular Subvencionado,idps_cero_ambiguo
-7011,ESCUELA PARTICULAR CHIHUIO,FUTRONO,RIOS,Particular Subvencionado,idps_cero_ambiguo
-7158,ESCUELA RURAL CARIMANCA,LA UNIÓN,RIOS,Municipal,idps_cero_ambiguo
-22077,ESCUELA PARTICULAR LLAQUITO,LA UNIÓN,RIOS,Particular Subvencionado,idps_cero_ambiguo
-22225,ESC. PARTICULAR CHAQUIAN,LA UNIÓN,RIOS,Particular Subvencionado,idps_cero_ambiguo
-22613,ESCUELA PARTICULAR CRECER,LA UNIÓN,RIOS,Particular Subvencionado,idps_cero_ambiguo
-6848,ESCUELA PARTICULAR EL BOSQUE,LAGO RANCO,RIOS,Particular Subvencionado,idps_cero_ambiguo
-7304,ESCUELA RURAL CALCURRUPE,LAGO RANCO,RIOS,Municipal,idps_cero_ambiguo
-22016,ESCUELA PARTICULAR CARRAN CHICO,LAGO RANCO,RIOS,Particular Subvencionado,idps_cero_ambiguo
-22125,ESCUELA PARTICULAR COMUY,LAGO RANCO,RIOS,Particular Subvencionado,idps_cero_ambiguo
-22153,ESCUELA PARTICULAR ESTRELLA SOLITARIA,LAGO RANCO,RIOS,Particular Subvencionado,idps_cero_ambiguo
-6972,ESCUELA COLEGUAL NUM.32,LOS LAGOS,RIOS,Particular Subvencionado,idps_cero_ambiguo
-6975,ESCUELA PARTICULAR COVADONGA,LOS LAGOS,RIOS,Particular Subvencionado,idps_cero_ambiguo
-6857,ESCUELA RURAL MISSISSIPPI,MARIQUINA,RIOS,Servicio Local de Educación,idps_cero_ambiguo
-11540,ESCUELA PARTICULAR ALEPUE,MARIQUINA,RIOS,Particular Subvencionado,idps_cero_ambiguo
-11542,ESCUELA PARTICULAR MELIQUINA,MARIQUINA,RIOS,Particular Subvencionado,idps_cero_ambiguo
-11543,ESCUELA PARTICULAR TRIPAYANTE,MARIQUINA,RIOS,Particular Subvencionado,idps_cero_ambiguo
-7037,ESCUELA RURAL SANTA HIGIDIA,MÁFIL,RIOS,Servicio Local de Educación,idps_cero_ambiguo
-22522,COLEGIO SAN MARTIN DE LAS LOMAS,MÁFIL,RIOS,Particular Subvencionado,idps_cero_ambiguo
-7225,ESCUELA RURAL EDUVIGES SCHULZ DE MOHR,PAILLACO,RIOS,Servicio Local de Educación,idps_cero_ambiguo
-40203,COLEGIO HERIBERTO BALDINO ACUÑA CASTILLO,PAILLACO,RIOS,Particular Subvencionado,idps_cero_ambiguo
-7051,ESCUELA RURAL PANGUILELFUN,PANGUIPULLI,RIOS,Servicio Local de Educación,idps_cero_ambiguo
-7072,ESCUELA RURAL LLANCAHUE,PANGUIPULLI,RIOS,Servicio Local de Educación,idps_cero_ambiguo
-7079,ESCUELA RURAL MALCHEHUE,PANGUIPULLI,RIOS,Servicio Local de Educación,idps_cero_ambiguo
-7089,ESCUELA RURAL LAGO NELTUME,PANGUIPULLI,RIOS,Servicio Local de Educación,idps_cero_ambiguo
-22221,ESCUELA FRAY LEONARDO,PANGUIPULLI,RIOS,Particular Subvencionado,idps_cero_ambiguo
-22269,ESCUELA PARTICULAR TRAFUN CHICO,PANGUIPULLI,RIOS,Particular Subvencionado,idps_cero_ambiguo
-22353,ESCUELA PARTICULAR TRULLUN MAPU,PANGUIPULLI,RIOS,Particular Subvencionado,idps_cero_ambiguo
-7239,ESCUELA BASICA SAN JOSE DE FILUCO,RÍO BUENO,RIOS,Municipal,idps_cero_ambiguo
-7276,COLEGIO SANTA CRUZ,RÍO BUENO,RIOS,Particular Subvencionado,idps_cero_ambiguo
-7282,ESCUELA PARTICULAR NUEVA LUMACO,RÍO BUENO,RIOS,Particular Subvencionado,idps_cero_ambiguo
-6781,ESCUELA ALEMANIA,VALDIVIA,RIOS,Servicio Local de Educación,idps_cero_ambiguo
-6803,ESCUELA RURAL CASA BLANCA,VALDIVIA,RIOS,Servicio Local de Educación,idps_cero_ambiguo
-6805,ESCUELA RURAL SANTO DOMINGO,VALDIVIA,RIOS,Servicio Local de Educación,idps_cero_ambiguo
-6817,ESCUELA RURAL ANDRES FRIED KOPP,VALDIVIA,RIOS,Servicio Local de Educación,idps_cero_ambiguo
-6818,ESCUELA RURAL LOS PELLINES,VALDIVIA,RIOS,Servicio Local de Educación,idps_cero_ambiguo
-6834,COLEGIO METODISTA LA TRINIDAD,VALDIVIA,RIOS,Particular Subvencionado,idps_cero_ambiguo
-10269,LICEO MUNC.ALMIRANTE GALVARINO RIVEROS,CONCHALÍ,RM,Servicio Local de Educación,idps_cero_ambiguo
-10278,ESCUELA PEDRO AGUIRRE CERDA,CONCHALÍ,RM,Servicio Local de Educación,idps_cero_ambiguo
-12251,COLEGIO BATALLA DE LA CONCEPCION,EL BOSQUE,RM,Servicio Local de Educación,idps_cero_ambiguo
-26297,COLEGIO MONTAHUE,HUECHURABA,RM,Particular Pagado,idps_cero_ambiguo
-9289,ESCUELA LAS ARAUCARIAS,LA FLORIDA,RM,Municipal,idps_cero_ambiguo
-24448,COLEGIO ARTISTICO EL SALVADOR ANEXO,LA FLORIDA,RM,Particular Subvencionado,idps_cero_ambiguo
-25034,ESCUELA BASICA PART. LAS PLEYADES,LA FLORIDA,RM,Particular Subvencionado,idps_cero_ambiguo
-25393,COLEGIO QUINTO CENTENARIO CORDILLERA,LA FLORIDA,RM,Particular Subvencionado,idps_cero_ambiguo
-9008,COLEGIO MUNICIPALIZADO CONFEDERAC SUIZA,LA REINA,RM,Municipal,idps_cero_ambiguo
-9039,COLEGIO RUBEN DARIO,LA REINA,RM,Particular Pagado,idps_cero_ambiguo
-10428,ESCUELA BASICA PROFESOR OMAR ARANDA ARAYA,LAMPA,RM,Municipal,idps_cero_ambiguo
-26171,"ESCUELA BASICA N° 2150, COLEGIO MOUNIER",LAS CONDES,RM,Particular Pagado,idps_cero_ambiguo
-10140,ESCUELA PARTICULAR FRINGS COLLEGE,LO PRADO,RM,Particular Subvencionado,idps_cero_ambiguo
-9864,LICEO JOSE IGNACIO ZENTENO,MAIPÚ,RM,Servicio Local de Educación,idps_cero_ambiguo
-9889,LICEO REINO DE DINAMARCA,MAIPÚ,RM,Servicio Local de Educación,idps_cero_ambiguo
-25921,COLEGIO CENTRO EDUCACIONAL ROUSSEAU,MAIPÚ,RM,Particular Subvencionado,idps_cero_ambiguo
-10821,ESCUELA RAQUEL FERNANDEZ DE MORANDE,MELIPILLA,RM,Municipal,idps_cero_ambiguo
-11783,ESCUELA BASICA N°1238 GIORDANO BRUNO,PEÑALOLÉN,RM,Particular Pagado,idps_cero_ambiguo
-10522,ESCUELA BASICA G-N°643 SAN JUAN DE PIRQUE,PIRQUE,RM,Municipal,idps_cero_ambiguo
-25171,CENTRO EDUC. PRINCIPADO DE ASTURIAS,PUENTE ALTO,RM,Particular Subvencionado,idps_cero_ambiguo
-24769,COLEGIO SAN ISAAC JOGUES,QUILICURA,RM,Particular Subvencionado,idps_cero_ambiguo
-25853,COLEGIO POLIVALENTE NOVO HORIZONTE,QUILICURA,RM,Particular Subvencionado,idps_cero_ambiguo
-9999,ESCUELA ANTUMALAL,QUINTA NORMAL,RM,Municipal,idps_cero_ambiguo
-10352,LICEO BICENTENARIO NUEVA AURORA DE CHILE,RECOLETA,RM,Particular Subvencionado,idps_cero_ambiguo
-11761,ESCUELA PARTICULAR SAN FELIPE NERI,RECOLETA,RM,Particular Subvencionado,idps_cero_ambiguo
-10210,LICEO GENERAL ALEJANDRO GOROSTIAGA ORREGO,RENCA,RM,Municipal,idps_cero_ambiguo
-25639,ESCUELA BASICA Y ESPECIAL N° 1905 JACARANDA,RENCA,RM,Particular Subvencionado,idps_cero_ambiguo
-12775,INSTITUTO  DOMINGO  EYZAGUIRRE,SAN BERNARDO,RM,Particular Subvencionado,idps_cero_ambiguo
-10538,ESCUELA BASICA G-N°637 LAS MELOSAS,SAN JOSÉ DE MAIPO,RM,Municipal,idps_cero_ambiguo
-25894,COLEGIO MANANTIAL DE SAN MIGUEL,SAN MIGUEL,RM,Particular Subvencionado,idps_cero_ambiguo
-8620,COLEGIO SAN SEBASTIAN,SANTIAGO,RM,Particular Subvencionado,idps_cero_ambiguo
-10722,COLEGIO TORREON,TALAGANTE,RM,Particular Subvencionado,idps_cero_ambiguo
-10442,ESCUELA BASICA G-N°350,TILTIL,RM,Municipal,idps_cero_ambiguo
-20329,ESCUELA BASICA N° 2464 `COLEGIO BASICO INTEGRADO PADRE PIO`,TILTIL,RM,Particular Subvencionado,idps_cero_ambiguo
-168,ESCUELA CUISAMA,CAMIÑA,TPCA,Municipal,idps_cero_ambiguo
-173,ESCUELA MOQUELLA,CAMIÑA,TPCA,Municipal,idps_cero_ambiguo
-156,ESCUELA PISAGUA,HUARA,TPCA,Municipal,idps_cero_ambiguo
-162,ESCUELA SIBAYA,HUARA,TPCA,Municipal,idps_cero_ambiguo
-114,ESCUELA PLACIDO VILLARROEL,IQUIQUE,TPCA,Servicio Local de Educación,idps_cero_ambiguo
-117,ESCUELA PAULA JARAQUEMADA ALQUIZAR,IQUIQUE,TPCA,Servicio Local de Educación,idps_cero_ambiguo
-12664,ESCUELA SAN SANTIAGO DE MACAYA,POZO ALMONTE,TPCA,Municipal,idps_cero_ambiguo
-1176,ESCUELA PABLO NERUDA,CABILDO,VALPO,Municipal,idps_cero_ambiguo
-1181,ESCUELA BASICA LOS ANGELES,CABILDO,VALPO,Municipal,idps_cero_ambiguo
-1438,COLEGIO SAULO DE TARSO,CALERA,VALPO,Particular Subvencionado,idps_cero_ambiguo
-1997,ESCUELA DOMINGO ORTIZ DE ROZAS,CASABLANCA,VALPO,Municipal,idps_cero_ambiguo
-14805,COLEGIO EL QUISCO,EL QUISCO,VALPO,Municipal,idps_cero_ambiguo
-2076,ESCUELA BASICA QUILLAYCILLO,EL TABO,VALPO,Municipal,idps_cero_ambiguo
-1129,ESCUELA ANGEL MENAY,LA LIGUA,VALPO,Municipal,idps_cero_ambiguo
-1131,ESC. BASICA CASAS VIEJAS DE LONGOTOMA,LA LIGUA,VALPO,Municipal,idps_cero_ambiguo
-1137,ESCUELA BASICA HORTENCIA POWELL S.,LA LIGUA,VALPO,Municipal,idps_cero_ambiguo
-1333,ESCUELA JORGE BARROS BEAUCHEF,PANQUEHUE,VALPO,Municipal,idps_cero_ambiguo
-1153,ESCUELA BASICA EL CRUCERO,PETORCA,VALPO,Municipal,idps_cero_ambiguo
-1158,ESCUELA BASICA BENANCIO PEREZ,PETORCA,VALPO,Municipal,idps_cero_ambiguo
-1239,ESCUELA HERMANO FERNANDO DE LA FUENTE,SAN ESTEBAN,VALPO,Municipal,idps_cero_ambiguo
-1269,ESCUELA JOHN F KENNEDY,SAN FELIPE,VALPO,Municipal,idps_cero_ambiguo
-1286,ESCUELA BASICA CAROLINA OCAMPO GARCIA,SAN FELIPE,VALPO,Municipal,idps_cero_ambiguo
-1325,ESCUELA BASICA AURORA VELASCO PEREZ,SANTA MARÍA,VALPO,Municipal,idps_cero_ambiguo
-1588,COLEGIO NTRA.SRA.DE LA MISERICORDIA,VALPARAÍSO,VALPO,Particular Subvencionado,idps_cero_ambiguo
-11220,COLEGIO LUIS GALDAMEZ,VALPARAÍSO,VALPO,Particular Subvencionado,idps_cero_ambiguo
-1975,ESCUELA JUAN BAUTISTA ALBERDI,VILLA ALEMANA,VALPO,Municipal,idps_cero_ambiguo
-1680,ESCUELA ORLANDO PENA CARVAJAL,VIÑA DEL MAR,VALPO,Servicio Local de Educación,idps_cero_ambiguo
-14260,COLEGIO LORD COCHRANE ANEXO,VIÑA DEL MAR,VALPO,Particular Pagado,idps_cero_ambiguo
+219,LICEO BICENTENARIO POLITECNICO CESAREO AGUIRRE GOYENECHEA,CALAMA,ANTOF,Servicio Local de Educación,puntaje_simce_sin_comparacion
+246,ESCUELA BASICA SENORA DE LA CANDELARIA,CALAMA,ANTOF,Servicio Local de Educación,puntaje_simce_sin_comparacion
+268,ESC. BASICA RURAL SAN ANTONIO DE PADUA,OLLAGÜE,ANTOF,Servicio Local de Educación,puntaje_simce_sin_comparacion
+271,ESCUELA BASICA CAMAR,SAN PEDRO DE ATACAMA,ANTOF,Servicio Local de Educación,puntaje_simce_sin_comparacion
+273,ESCUELA BASICA SOLOR,SAN PEDRO DE ATACAMA,ANTOF,Servicio Local de Educación,puntaje_simce_sin_comparacion
+277,ESCUELA BASICA SAN BARTOLOME,SAN PEDRO DE ATACAMA,ANTOF,Servicio Local de Educación,puntaje_simce_sin_comparacion
+377,ESCUELA PARANAL,TALTAL,ANTOF,Municipal,puntaje_simce_sin_comparacion
+5250,ESCUELA REGIMIENTO HUSARES,ANGOL,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6508,"ESCUELA BASICA DINAMARCA, LUCERO",CARAHUE,ARAUC,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6539,ESCUELA BASICA COI COI,CARAHUE,ARAUC,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6545,ESCUELA PARTICULAR CHANGO,CARAHUE,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6550,ESCUELA PARTICULAR VISTA HERMOSA,CARAHUE,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6560,ESCUELA PARTICULAR EL AMANECER,CARAHUE,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6562,ESCUELA PARTICULAR LA ALBORADA,CARAHUE,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6566,ESCUELA PARTICULAR JAVIERA CARRERA,CARAHUE,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6575,ESCUELA PARTICULAR ALONSO DE ERCILLA,CARAHUE,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6578,ESCUELA PARTICULAR LA MONTANA,CARAHUE,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+16962,ESCUELA MONTE SINAÍ,CARAHUE,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+20026,ESCUELA MAPU- LAFKEN,CARAHUE,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6594,ESCUELA BASICA LOS AVELLANOS,CHOLCHOL,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6612,ESC. BASICA PICHIRAYEN,CHOLCHOL,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6630,ESC. BASICA NUEVA AURORA,CHOLCHOL,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6668,ESCUELA PARTICULAR COPINCHE,CHOLCHOL,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6670,ESCUELA PARTICULAR HUEICO,CHOLCHOL,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6671,ESCUELA PARTICULAR RENACO,CHOLCHOL,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6679,ESCUELA PARTICULAR PIUHUICHEN,CHOLCHOL,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6692,ESCUELA PARTICULAR ARTURO PRAT,CHOLCHOL,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6700,ESCUELA PARTICULAR TRAYENCO,CHOLCHOL,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+20285,COLEGIO EMANUEL,CHOLCHOL,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+20289,ESCUELA NUEVOS COPIHUES,CHOLCHOL,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5307,ESCUELA BASICA SAN ANDRES,COLLIPULLI,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5309,ESCUELA BASICA RIO AMARGO,COLLIPULLI,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5310,ESCUELA BASICA MAPUDANCO,COLLIPULLI,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5392,ESCUELA PARTICULAR EL PROGRESO,COLLIPULLI,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+20152,AYIÑLEO (LA LUZ Y EL AMOR QUE NUNCA SE EXTINGUE),COLLIPULLI,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5973,ESC. BASICA EL ROSAL,CUNCO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5977,ESC. BASICA QUINETRU,CUNCO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5995,ESCUELA PARTICULAR QUECHEREHUE,CUNCO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5999,ESCUELA PARTICULAR PADRE BERNABE,CUNCO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6003,ESC. PART. STA. ISABEL DE TRAFAMPULLI,CUNCO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5360,ESCUELA BASICA LEFUCO,CURACAUTÍN,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6029,ESCUELA RUCA MANKE,CURARREHUE,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6031,ESCUELA EL SANTILLO,CURARREHUE,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6043,ESCUELA PARTICULAR LONCOFILO,CURARREHUE,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6044,ESCUELA PARTICULAR MAITE,CURARREHUE,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6151,ESCUELA PARTICULAR PUENTE BASA,CURARREHUE,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5379,ESCUELA TRICAUCO,ERCILLA,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5385,ESCUELA CHACAIMAPU,ERCILLA,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5386,ESCUELA BASICA TEMOCUICUI,ERCILLA,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5391,ESCUELA PARTICULAR SANTA ROSA,ERCILLA,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6173,ESCUELA RUCAHUE,FREIRE,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6175,ESCUELA LAS PALMERAS,FREIRE,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6177,ESCUELA CACIQUE AILLANIR,FREIRE,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6179,ESCUELA RURAL EL LLIUCO,FREIRE,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6180,ESCUELA DOLLINCO,FREIRE,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6192,ESCUELA PARTICULAR LAS PATAGUAS,FREIRE,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6211,ESCUELA PARTICULAR MAHUIDACHE,FREIRE,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+11471,ESCUELA PARTICULAR FOLILCO,FREIRE,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6678,ESCUELA PARTICULAR SANTA MARIA,GALVARINO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6711,ESCUELA BASICA MANIUCO,GALVARINO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6714,ESCUELA MUNICIPAL DE LLUQUENTUE,GALVARINO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6716,ESC. BASICA QUETRE,GALVARINO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6721,ESCUELA REDUCCION PANGUECO,GALVARINO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6722,ESCUELA BASICA QUINAHUE,GALVARINO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6725,ESCUELA DE HUAMPOMALLIN,GALVARINO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6731,ESCUELA BASICA PELANTARO,GALVARINO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6736,ESCUELA PARTICULAR RAPA,GALVARINO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6739,ESCUELA MUNICIPAL NILPE,GALVARINO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6743,ESCUELA PARTICULAR RENICURA,GALVARINO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6748,ESCUELA PARTICULAR EL JARDIN,GALVARINO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+20117,ESCUELA LOS ALAMOS,GALVARINO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6279,ESCUELA MELIRREHUE,GORBEA,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6283,ESCUELA CUARTA FAJA,GORBEA,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6289,ESCUELA FAJA RICCI,GORBEA,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5837,ESCUELA DOLLICO ALTO,LAUTARO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5846,ESC. BASICA TRES ESQUINAS,LAUTARO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5849,ESC. BASICA PUMALAL,LAUTARO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5855,ESC. BASICA MUCO CHUREO,LAUTARO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5857,ESC. BASICA MALPICHAHUE,LAUTARO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5871,ESCUELA PARTICULAR SANTA TERESITA,LAUTARO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6323,ESCUELA WENUY KUDAU,LONCOCHE,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6325,ESCUELA PUKOYAM,LONCOCHE,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6343,ESCUELA PARTICULAR COLLICO,LONCOCHE,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6347,ESCUELA PARTICULAR SUBVENCIONADA LA FAMILIA,LONCOCHE,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5336,ESCUELA BASICA PEHUENCO,LONQUIMAY,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5337,ESCUELA DE SIERRA NEVADA,LONQUIMAY,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5339,ESCUELA DE TROYO,LONQUIMAY,ARAUC,Municipal,puntaje_simce_sin_comparacion
+19958,ESCUELA PARTICULAR QUINQUEN,LONQUIMAY,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5541,ESC. BASICA ELENA MULLER M.,LOS SAUCES,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5546,ESC. BASICA OSCAR CASTRO,LOS SAUCES,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5551,ESC. BASICA GUINDO GRANDE,LOS SAUCES,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5561,ESCUELA DE CENTENARIO,LOS SAUCES,ARAUC,Municipal,puntaje_simce_sin_comparacion
+19913,LICEO BICENTENARIO LOS SAUCES,LOS SAUCES,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5473,ESC. BASICA QUETRAHUE,LUMACO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5479,ESC. BASICA CHANCO,LUMACO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5482,ESC. BASICA RUCAYECO,LUMACO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5487,ESCUELA MUNICIPAL G-180 MARIA RIQUELME MENA,LUMACO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5492,ESC. BASICA REDUCCION CALBUDIR,LUMACO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5506,ESCUELA GENERAL LAGOS,LUMACO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6011,ESC. BASICA MOLULCO,MELIPEUCO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6012,ESC. BASICA CUMCUMLLAQUE,MELIPEUCO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6017,ESCUELA MUNICIPAL CARÉN,MELIPEUCO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6019,ESCUELA PARTICULAR LLAIMA,MELIPEUCO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6025,ESCUELA DAHUELHUE,MELIPEUCO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6600,ESCUELA EL COPIHUAL,NUEVA IMPERIAL,ARAUC,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6605,ESC.BASICA RAYEN MAHUIDA,NUEVA IMPERIAL,ARAUC,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6611,ESC. BASICA CHIVILCOYAN,NUEVA IMPERIAL,ARAUC,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6633,ESC. BASICA SANTA MARIA DE BOROA,NUEVA IMPERIAL,ARAUC,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6639,ESCUELA BASICA MANIO DUCANAN,NUEVA IMPERIAL,ARAUC,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6654,ESCUELA PARTICULAR ENTRE RIOS,NUEVA IMPERIAL,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6662,ESCUELA PARTICULAR LOMA LARGA,NUEVA IMPERIAL,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6684,ESCUELA PARTICULAR SAN ANTONIO,NUEVA IMPERIAL,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6688,ESCUELA PARTICULAR TRANAMIL RULO,NUEVA IMPERIAL,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6695,ESCUELA PARTICULAR FAIZI,NUEVA IMPERIAL,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6701,ESCUELA PARTICULAR ANIBAL PINTO,NUEVA IMPERIAL,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+11528,ESCUELA PARTICULAR SANTA ELENA,NUEVA IMPERIAL,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+19911,ESCUELA PARTICULAR BOLLILCO,NUEVA IMPERIAL,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5635,ESCUELA TROMEN,PADRE LAS CASAS,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5648,ESCUELA CHAPOD,PADRE LAS CASAS,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5731,ESCUELA PARTICULAR MILLAHUECO,PADRE LAS CASAS,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5740,ESCUELA PARTICULAR SAN MANUEL,PADRE LAS CASAS,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5754,ESCUELA PARTICULAR NUEVA MEMBRILLAR,PADRE LAS CASAS,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5770,ESCUELA BASICA KOYAM,PADRE LAS CASAS,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5776,ESCUELA PARTICULAR VIRGEN DE GUADALUPE,PADRE LAS CASAS,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5784,ESCUELA PARTICULAR SARGENTO CANDELARIA,PADRE LAS CASAS,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5793,ESCUELA ANDRES BELLO,PADRE LAS CASAS,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5798,ESCUELA PARTICULAR NIRRIMAPU,PADRE LAS CASAS,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5799,ESCUELA SANTA INES DE CAIVICO,PADRE LAS CASAS,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5800,ESCUELA PARTICULAR JOSE LUIS SANFUENTES,PADRE LAS CASAS,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5803,ESCUELA PARTICULAR PICHI ITINENTO,PADRE LAS CASAS,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5806,ESCUELA PARTICULAR DAVID RIADI MATUS,PADRE LAS CASAS,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6168,ESCUELA LENFUEN,PADRE LAS CASAS,ARAUC,Municipal,puntaje_simce_sin_comparacion
+20279,COLEGIO INTERCULTURAL CERRO LONCOCHE,PADRE LAS CASAS,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5893,ESCUELA PARTICULAR LAS CEREZAS,PERQUENCO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+20113,ESCUELA BASICA PART VISTA HERMOSA,PERQUENCO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6231,ESC. BASICA LOS GALPONES,PITRUFQUÉN,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6248,ESCUELA CHADA,PITRUFQUÉN,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6251,ESCUELA RESERVA FORESTAL MAHUIDANCHI,PITRUFQUÉN,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6263,ESCUELA PARTICULAR MUNE BAJO,PITRUFQUÉN,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6054,ESC. BASICA QUELHUE,PUCÓN,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6062,ESC. BASICA PICHARES,PUCÓN,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6075,ESCUELA PARTICULAR SAN LUIS,PUCÓN,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6077,ESCUELA PARTICULAR QUETROLELFU,PUCÓN,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5494,ESCUELA PARTICULAR PICHI-LONCOYAN,PURÉN,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5503,ESCUELA PARTICULAR EL EDEN,PURÉN,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5521,ESC. BASICA QUILACO,PURÉN,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5522,ESC. BASICA HUITRANLEBU,PURÉN,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5525,ESC. BASICA CAUPOLICAN,PURÉN,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5532,ESCUELA PARTICULAR TRULAUQUEN,PURÉN,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5533,ESCUELA PARTICULAR SAN BERNARDO,PURÉN,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5536,ESCUELA PARTICULAR PICHIHUENOCOLLE,PURÉN,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5276,ESCUELA BASICA TOLPAN,RENAICO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6456,ESCCUELA BASICA INALAFQUEN,SAAVEDRA,ARAUC,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6465,LICEO PART. SUBVENC. LA SIERRA,SAAVEDRA,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6471,ESCUELA PARTICULAR SOL NACIENTE,SAAVEDRA,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6474,ESCUELA PARTICULAR QUIFO,SAAVEDRA,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6475,ESCUELA PARTICULAR LLAGUEY,SAAVEDRA,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6478,ESCUELA PARTICULAR PIEDRA ALTA,SAAVEDRA,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6479,ESCUELA PARTICULAR DEUME,SAAVEDRA,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6480,ESCUELA PARTICULAR NUEVA RUCATRARO,SAAVEDRA,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6485,ESCUELA PADRE ERNESTO WILHELM,SAAVEDRA,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6487,ESCUELA PARTICULAR LOS CISNES,SAAVEDRA,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6492,ESCUELA PARTICULAR DAGOBERTO GODOY,SAAVEDRA,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5632,ESCUELA REDUCCION MONTE VERDE,TEMUCO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5636,ESCUELA BOTROLHUE,TEMUCO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5644,ESCUELA TROMEN ALTO,TEMUCO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5647,ESCUELA COLLIMALLIN,TEMUCO,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5734,ESCUELA PARTICULAR BOTRONHUE,TEMUCO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5751,ESCUELA SAN ANTONIO DE NIENOCO,TEMUCO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5756,ESCUELA PARTICULAR RENGALIL,TEMUCO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5759,ESCUELA PARTICULAR BOYECO,TEMUCO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5765,ESCUELA PARTICULAR KIMELTU DE PANCO,TEMUCO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6750,ESCUELA LLOLLETUE,TEMUCO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+19973,ESCUELA ESPECIAL HABLAARTE,TEMUCO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+20288,COLEGIO EL CASTILLO DE TEMUCO,TEMUCO,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6373,ESCUELA PORMA,TEODORO SCHMIDT,ARAUC,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6390,ESCUELA PARTICULAR ARAUCANA PELEHUE,TEODORO SCHMIDT,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6410,ESCUELA MALALHUE,TEODORO SCHMIDT,ARAUC,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6443,ESCUELA PART. KOM PU LOF NI KIMELTUWE,TEODORO SCHMIDT,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+19930,ESC. PART. BASICA COMUN BOLIL,TEODORO SCHMIDT,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+20024,ESCUELA PARTICULAR HUENTE,TEODORO SCHMIDT,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+20187,ESCUELA PARTICULAR NUEVO AMANECER,TEODORO SCHMIDT,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6348,COMPLEJO EDUCACIONAL MARTIN KLEINKNECHT,TOLTÉN,ARAUC,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6353,ESCUELA SAN PEDRO,TOLTÉN,ARAUC,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6377,ESCUELA DE CAMAGUEY,TOLTÉN,ARAUC,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6385,ESCUELA PARTICULAR CHANQUIN,TOLTÉN,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5449,ESC. BASICA ANIDIR,TRAIGUÉN,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5455,ESC.BASICA QUILQUEN,TRAIGUÉN,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5459,ESC. BASICA FUNDO QUINO,TRAIGUÉN,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5462,ESC. BASICA REDUCCION TEMULEMU,TRAIGUÉN,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5463,ESC. BASICA DIDAICO,TRAIGUÉN,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6737,ESCUELA PARTICULAR PAILLAHUE,TRAIGUÉN,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5404,ESCUELA HERNAN TRIZANO AVEZZANA,VICTORIA,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5414,ESCUELA BASICA TOQUIHUE,VICTORIA,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5422,ESCUELA BASICA LAS CARDAS,VICTORIA,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5424,ESCUELA BASICA SAN LUIS,VICTORIA,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5437,ESCUELA PARTICULAR BOLLILCO,VICTORIA,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+20141,ESCUELA PARTICULAR EMANUEL,VICTORIA,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5911,ESC. BASICA CANTINO,VILCÚN,ARAUC,Municipal,puntaje_simce_sin_comparacion
+5930,ESCUELA PARTICULAR SANTA GERTRUDIS,VILCÚN,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5933,ESCUELA PARTICULAR EL NATRE,VILCÚN,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+5947,ESCUELA PARTICULAR CRUZ DEL SUR,VILCÚN,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6699,ESCUELA PARTICULAR AMBROSIO OHIGGINS,VILCÚN,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+19912,ESC. BASICA CRUZ DEL SUR,VILCÚN,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6107,ESCUELA CONQUIL,VILLARRICA,ARAUC,Municipal,puntaje_simce_sin_comparacion
+6117,ESCUELA PARTICULAR NANCUL,VILLARRICA,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6139,ESCUELA PARTICULAR SANTA RITA,VILLARRICA,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6142,ESCUELA PARTICULAR LIUMALLA,VILLARRICA,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6143,ESCUELA PARTICULAR RAYENKO,VILLARRICA,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6155,ESCUELA PARTICULAR SAN FRANCISCO,VILLARRICA,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6160,ESCUELA PARTICULAR CARMELITA,VILLARRICA,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+6317,ESCUELA EL CASTILLO,VILLARRICA,ARAUC,Municipal,puntaje_simce_sin_comparacion
+7076,ESCUELA ESTADIO,VILLARRICA,ARAUC,Municipal,puntaje_simce_sin_comparacion
+7077,ESCUELA ALIHUEN,VILLARRICA,ARAUC,Municipal,puntaje_simce_sin_comparacion
+16910,ESCUELA BASICA PEUMA MEW,VILLARRICA,ARAUC,Particular Subvencionado,puntaje_simce_sin_comparacion
+497,ESCUELA DE LA PAMPA,ALTO DEL CARMEN,ATCMA,Servicio Local de Educación,puntaje_simce_sin_comparacion
+500,ESCUELA BÁSICA RURAL EL TAMBO,ALTO DEL CARMEN,ATCMA,Servicio Local de Educación,puntaje_simce_sin_comparacion
+504,ESCUELA GABRIELA MISTRAL,ALTO DEL CARMEN,ATCMA,Servicio Local de Educación,puntaje_simce_sin_comparacion
+508,ESCUELA DE CHIGUINTO,ALTO DEL CARMEN,ATCMA,Servicio Local de Educación,puntaje_simce_sin_comparacion
+11031,ESCUELA SARA CRUZ ALVAYAY,ALTO DEL CARMEN,ATCMA,Servicio Local de Educación,puntaje_simce_sin_comparacion
+387,ESCUELA BÁSICA EMPERATRIZ SEPÚLVEDA LANDEROS,DIEGO DE ALMAGRO,ATCMA,Servicio Local de Educación,puntaje_simce_sin_comparacion
+490,ESCUELA PABLO NERUDA,HUASCO,ATCMA,Servicio Local de Educación,puntaje_simce_sin_comparacion
+445,ESCUELA PAUL HARRIS,TIERRA AMARILLA,ATCMA,Servicio Local de Educación,puntaje_simce_sin_comparacion
+447,ESCUELA SAN ANTONIO,TIERRA AMARILLA,ATCMA,Servicio Local de Educación,puntaje_simce_sin_comparacion
+467,ESCUELA HERNÁN ARAVENA CONTRERAS,VALLENAR,ATCMA,Servicio Local de Educación,puntaje_simce_sin_comparacion
+485,ESCUELA BÁSICA YERBAS BUENAS,VALLENAR,ATCMA,Servicio Local de Educación,puntaje_simce_sin_comparacion
+74,ESCUELA VALLE DE CAMARONES,CAMARONES,AYP,Servicio Local de Educación,puntaje_simce_sin_comparacion
+81,ESCUELA PAYACHATAS,PUTRE,AYP,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8379,ESCUELA PEDRO AGUIRRE CERDA,AYSÉN,AYSEN,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8382,ESCUELA CARLOS CONDELL,AYSÉN,AYSEN,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8389,ESCUELA AMANDA LABARCA HUBERSTONE,CISNES,AYSEN,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8355,ESCUELA RURAL PABLO NERUDA,COYHAIQUE,AYSEN,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8356,ESCUELA RURAL RIO BLANCO,COYHAIQUE,AYSEN,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8362,ESCUELA RURAL ARROYO EL GATO,COYHAIQUE,AYSEN,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8371,ESC.CON INTERNADO JOSE MIGUEL CARRERA,LAGO VERDE,AYSEN,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8372,ESCUELA RURAL CON INTERNADO LA TAPERA,LAGO VERDE,AYSEN,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8407,ESCUELA MARIA ANTONIETA PARRA MONSALVE,RÍO IBÁÑEZ,AYSEN,Servicio Local de Educación,puntaje_simce_sin_comparacion
+4374,ESCUELA BASICA PITRIL,ALTO BIOBÍO,BBIO,Municipal,puntaje_simce_sin_comparacion
+4389,ESCUELA PARTICULAR TRAPA TRAPA,ALTO BIOBÍO,BBIO,Particular Subvencionado,puntaje_simce_sin_comparacion
+4327,ESCUELA VOLCAN ANTUCO,ANTUCO,BBIO,Municipal,puntaje_simce_sin_comparacion
+4330,ESCUELA OLGA RIOS DE PINOCHET,ANTUCO,BBIO,Municipal,puntaje_simce_sin_comparacion
+5065,ESCUELA QUILANTRAL,ARAUCO,BBIO,Municipal,puntaje_simce_sin_comparacion
+5069,ESCUELA BASICA ALTO YANI,ARAUCO,BBIO,Municipal,puntaje_simce_sin_comparacion
+5070,ESCUELA BASICA VALLE VERDE,ARAUCO,BBIO,Municipal,puntaje_simce_sin_comparacion
+5072,ESCUELA VALLE ARAUCO,ARAUCO,BBIO,Municipal,puntaje_simce_sin_comparacion
+4022,ESCUELA QUINEL,CABRERO,BBIO,Municipal,puntaje_simce_sin_comparacion
+4295,ESCUELA PILLANCO,CABRERO,BBIO,Municipal,puntaje_simce_sin_comparacion
+4297,ESCUELA LAS OBRAS,CABRERO,BBIO,Municipal,puntaje_simce_sin_comparacion
+4299,ESCUELA EL PARAISO,CABRERO,BBIO,Municipal,puntaje_simce_sin_comparacion
+4302,ESCUELA COLICHEU,CABRERO,BBIO,Municipal,puntaje_simce_sin_comparacion
+4304,ESCUELA LOS LEONES,CABRERO,BBIO,Municipal,puntaje_simce_sin_comparacion
+4306,ESCUELA EL PROGRESO,CABRERO,BBIO,Municipal,puntaje_simce_sin_comparacion
+5135,ESCUELA BASICA PAICAVI,CAÑETE,BBIO,Municipal,puntaje_simce_sin_comparacion
+5140,ESCUELA BASICA FEDERICO GANA,CAÑETE,BBIO,Municipal,puntaje_simce_sin_comparacion
+5143,ESCUELA BASICA SALTO DEL HUILLINCO,CAÑETE,BBIO,Municipal,puntaje_simce_sin_comparacion
+5145,ESCUELA BASICA GARCIA HURTADO DE MENDOZA,CAÑETE,BBIO,Municipal,puntaje_simce_sin_comparacion
+5147,ESCUELA BASICA TRES SAUCES,CAÑETE,BBIO,Municipal,puntaje_simce_sin_comparacion
+5180,ESCUELA PARTICULAR NUEVA AURORA,CAÑETE,BBIO,Particular Subvencionado,puntaje_simce_sin_comparacion
+4561,LICEO JUAN MARTINEZ DE ROZAS,CONCEPCIÓN,BBIO,Servicio Local de Educación,puntaje_simce_sin_comparacion
+17658,COLEGIO EINSTEIN,CONCEPCIÓN,BBIO,Particular Pagado,puntaje_simce_sin_comparacion
+5163,ESCUELA GRANO DE TRIGO,CONTULMO,BBIO,Municipal,puntaje_simce_sin_comparacion
+5165,ESCUELA HUALLEPEN ALTO,CONTULMO,BBIO,Municipal,puntaje_simce_sin_comparacion
+5167,ESCUELA NAHUELBUTA ALTO,CONTULMO,BBIO,Municipal,puntaje_simce_sin_comparacion
+5175,ESCUELA VILLA ELICURA,CONTULMO,BBIO,Municipal,puntaje_simce_sin_comparacion
+11399,ESCUELA SAN ERNESTO,CONTULMO,BBIO,Municipal,puntaje_simce_sin_comparacion
+4977,LICEO COMERCIAL ANDRES BELLO LOPEZ,CORONEL,BBIO,Servicio Local de Educación,puntaje_simce_sin_comparacion
+5006,ESCUELA BASICA PATAGUAL,CORONEL,BBIO,Servicio Local de Educación,puntaje_simce_sin_comparacion
+5086,ESCUELA CUATRO DE OCTUBRE,CURANILAHUE,BBIO,Municipal,puntaje_simce_sin_comparacion
+5095,ESCUELA LOS CRUCEROS,CURANILAHUE,BBIO,Municipal,puntaje_simce_sin_comparacion
+5100,ESCUELA PLEGARIAS,CURANILAHUE,BBIO,Municipal,puntaje_simce_sin_comparacion
+11425,ESCUELA CIFUENTES BAJO,CURANILAHUE,BBIO,Municipal,puntaje_simce_sin_comparacion
+12004,LICEO POLITECNICO CURANILAHUE,CURANILAHUE,BBIO,Particular Subvencionado,puntaje_simce_sin_comparacion
+4879,ESCUELA BASICA PUENTE SIETE,FLORIDA,BBIO,Servicio Local de Educación,puntaje_simce_sin_comparacion
+4886,ESCUELA BASICA SAN SEBASTIAN DE MANCO,FLORIDA,BBIO,Servicio Local de Educación,puntaje_simce_sin_comparacion
+4896,ESCUELA PARTICULAR UNICORNIO,FLORIDA,BBIO,Particular Subvencionado,puntaje_simce_sin_comparacion
+4897,LICEO SAN JUAN BAUTISTA DE HUALQUI,HUALQUI,BBIO,Servicio Local de Educación,puntaje_simce_sin_comparacion
+4904,ESCUELA BASICA RANGUEL,HUALQUI,BBIO,Servicio Local de Educación,puntaje_simce_sin_comparacion
+4917,ESCUELA SANTA SUSANA DE PICHACO,HUALQUI,BBIO,Servicio Local de Educación,puntaje_simce_sin_comparacion
+4918,ESCUELA AGUA CORTA,HUALQUI,BBIO,Servicio Local de Educación,puntaje_simce_sin_comparacion
+4496,COLEGIO PARTICULAR SAN MAURICIO,LAJA,BBIO,Particular Subvencionado,puntaje_simce_sin_comparacion
+5035,ESCUELA ARMANDO ARANCIBIA OLIVOS,LEBU,BBIO,Municipal,puntaje_simce_sin_comparacion
+5036,ESCUELA RUCA RAQUI,LEBU,BBIO,Municipal,puntaje_simce_sin_comparacion
+5040,ESCUELA VILLARRICA,LEBU,BBIO,Municipal,puntaje_simce_sin_comparacion
+5105,LICEO BICENTENARIO POLITECNICO CAUPOLICAN,LOS ÁLAMOS,BBIO,Municipal,puntaje_simce_sin_comparacion
+4177,ESCUELA CLARA REBOLLEDO DE GODOY,LOS ÁNGELES,BBIO,Municipal,puntaje_simce_sin_comparacion
+4188,ESCUELA REPUBLICA DE GRECIA,LOS ÁNGELES,BBIO,Municipal,puntaje_simce_sin_comparacion
+4193,ESCUELA BASICA LOS MOLINOS,LOS ÁNGELES,BBIO,Municipal,puntaje_simce_sin_comparacion
+4216,ESCUELA BASICA EL CHEQUEN,LOS ÁNGELES,BBIO,Municipal,puntaje_simce_sin_comparacion
+4228,ESCUELA BASICA LA MANCHA,LOS ÁNGELES,BBIO,Municipal,puntaje_simce_sin_comparacion
+20392,COLEGIO SAN PABLO,LOS ÁNGELES,BBIO,Particular Subvencionado,puntaje_simce_sin_comparacion
+4414,ESCUELA BASICA MUNILQUE IZAURIETA,MULCHÉN,BBIO,Municipal,puntaje_simce_sin_comparacion
+4419,ESCUELA BASICA BUREO,MULCHÉN,BBIO,Municipal,puntaje_simce_sin_comparacion
+4433,ESCUELA BASICA RAPELCO,MULCHÉN,BBIO,Municipal,puntaje_simce_sin_comparacion
+4435,ESCUELA BASICA LOS HINOJOS,MULCHÉN,BBIO,Municipal,puntaje_simce_sin_comparacion
+4436,ESCUELA BASICA SANTA ADRIANA,MULCHÉN,BBIO,Municipal,puntaje_simce_sin_comparacion
+4437,ESCUELA BASICA AURORA DE ENERO,MULCHÉN,BBIO,Municipal,puntaje_simce_sin_comparacion
+4441,ESCUELA BASICA CASAS DE PILE,MULCHÉN,BBIO,Municipal,puntaje_simce_sin_comparacion
+4466,ESCUELA VÍCTOR MANUEL BELTRÁN CARRIMÁN,NACIMIENTO,BBIO,Municipal,puntaje_simce_sin_comparacion
+4479,ESCUELA CHEQUENAL,NACIMIENTO,BBIO,Municipal,puntaje_simce_sin_comparacion
+17798,COLEGIO ACUMAR,NEGRETE,BBIO,Particular Subvencionado,puntaje_simce_sin_comparacion
+4393,ESCUELA BASICA RUCALHUE,QUILACO,BBIO,Municipal,puntaje_simce_sin_comparacion
+4395,ESCUELA BASICA CERRO EL PADRE,QUILACO,BBIO,Municipal,puntaje_simce_sin_comparacion
+4396,ESCUELA BASICA CAMPAMENTO,QUILACO,BBIO,Municipal,puntaje_simce_sin_comparacion
+4402,ESCUELA BASICA LONCOPANGUE,QUILACO,BBIO,Municipal,puntaje_simce_sin_comparacion
+4342,ESCUELA ERMINDA GOMEZ DE POLIC.,QUILLECO,BBIO,Municipal,puntaje_simce_sin_comparacion
+4345,ESCUELA BASICA RIO PARDO,QUILLECO,BBIO,Municipal,puntaje_simce_sin_comparacion
+4348,ESCUELA BASICA EL ESFUERZO,QUILLECO,BBIO,Municipal,puntaje_simce_sin_comparacion
+4503,ESCUELA BASICA LOS CALLEJONES,SAN ROSENDO,BBIO,Municipal,puntaje_simce_sin_comparacion
+4355,ESCUELA DE EDUCACIÓN GENERAL BÁSICA EL HUACHI,SANTA BÁRBARA,BBIO,Municipal,puntaje_simce_sin_comparacion
+4357,ESCUELA BASICA VILLACURA,SANTA BÁRBARA,BBIO,Municipal,puntaje_simce_sin_comparacion
+4359,ESCUELA BASICA MANIL,SANTA BÁRBARA,BBIO,Municipal,puntaje_simce_sin_comparacion
+4361,ESCUELA BASICA CORCOVADO,SANTA BÁRBARA,BBIO,Municipal,puntaje_simce_sin_comparacion
+4365,ESCUELA RINCONADA,SANTA BÁRBARA,BBIO,Municipal,puntaje_simce_sin_comparacion
+4368,ESCUELA LOS NOTROS,SANTA BÁRBARA,BBIO,Municipal,puntaje_simce_sin_comparacion
+4372,ESCUELA QUILLAILEO,SANTA BÁRBARA,BBIO,Municipal,puntaje_simce_sin_comparacion
+4391,ESCUELA EL CASTILLO,SANTA BÁRBARA,BBIO,Particular Subvencionado,puntaje_simce_sin_comparacion
+4929,ESCUELA ESPIGADO,SANTA JUANA,BBIO,Servicio Local de Educación,puntaje_simce_sin_comparacion
+4758,COLEGIO CARMELA CARVAJAL DE PRAT,TALCAHUANO,BBIO,Particular Subvencionado,puntaje_simce_sin_comparacion
+4777,ESCUELA PARTICULAR ESMERALDA,TALCAHUANO,BBIO,Particular Subvencionado,puntaje_simce_sin_comparacion
+5212,ESCUELA PARTICULAR NUEVA LAS HUELLAS,TIRÚA,BBIO,Particular Subvencionado,puntaje_simce_sin_comparacion
+5213,ESCUELA PARTICULAR LAS MISIONES,TIRÚA,BBIO,Particular Subvencionado,puntaje_simce_sin_comparacion
+17762,ESCUELA PARTICULAR BAJO QUILANTAHUE,TIRÚA,BBIO,Particular Subvencionado,puntaje_simce_sin_comparacion
+4844,ESCUELA BASICA MENQUE,TOMÉ,BBIO,Municipal,puntaje_simce_sin_comparacion
+4855,ESCUELA BASICA MILLAHUE,TOMÉ,BBIO,Municipal,puntaje_simce_sin_comparacion
+4858,ESCUELA BASICA CORONEY,TOMÉ,BBIO,Municipal,puntaje_simce_sin_comparacion
+4860,ESCUELA BASICA VEGAS DE COLIUMO,TOMÉ,BBIO,Municipal,puntaje_simce_sin_comparacion
+4867,ESCUELA BASICA RAFAEL AMPUERO VILLARROEL,TOMÉ,BBIO,Particular Subvencionado,puntaje_simce_sin_comparacion
+11395,ESCUELA BASICA LLOICURA,TOMÉ,BBIO,Municipal,puntaje_simce_sin_comparacion
+17711,ESCUELA BASICA EL ESPINO,TOMÉ,BBIO,Municipal,puntaje_simce_sin_comparacion
+4317,ESCUELA LOS AROMOS,TUCAPEL,BBIO,Municipal,puntaje_simce_sin_comparacion
+659,ESCUELA PADRE BLAS HERNANDEZ SANCHEZ,ANDACOLLO,COQ,Servicio Local de Educación,puntaje_simce_sin_comparacion
+661,ESCUELA LUIS AMENABAR OSSA,ANDACOLLO,COQ,Servicio Local de Educación,puntaje_simce_sin_comparacion
+783,ESCUELA DOCTOR JOSE LUIS ARRANO,ANDACOLLO,COQ,Servicio Local de Educación,puntaje_simce_sin_comparacion
+1092,ESCUELA BASICA MINCHA NORTE,CANELA,COQ,Municipal,puntaje_simce_sin_comparacion
+1095,ESCUELA BASICA SARGENTO ALDEA,CANELA,COQ,Municipal,puntaje_simce_sin_comparacion
+1096,ESCUELA BASICA LOS POZOS,CANELA,COQ,Municipal,puntaje_simce_sin_comparacion
+1099,ESCUELA VIOLETA PARRA,CANELA,COQ,Municipal,puntaje_simce_sin_comparacion
+1102,ESCUELA BASICA BALDOMERO LILLO FIGUEROA,CANELA,COQ,Municipal,puntaje_simce_sin_comparacion
+1104,ESCUELA LA CORTADERA,CANELA,COQ,Municipal,puntaje_simce_sin_comparacion
+1108,ESCUELA BASICA MARTA BRUNETT,CANELA,COQ,Municipal,puntaje_simce_sin_comparacion
+1109,ESCUELA BASICA GABRIELA MISTRAL,CANELA,COQ,Municipal,puntaje_simce_sin_comparacion
+850,ESCUELA JUAN LUIS SAN FUENTES,COMBARBALÁ,COQ,Municipal,puntaje_simce_sin_comparacion
+862,ESCUELA ESTRELLA DE BELEN,COMBARBALÁ,COQ,Municipal,puntaje_simce_sin_comparacion
+870,ESCUELA BASICA CAMILO HENRIQUEZ GONZALEZ,COMBARBALÁ,COQ,Municipal,puntaje_simce_sin_comparacion
+871,ESCUELA BASICA LUIS ENRIQUE BOU PEREZ,COMBARBALÁ,COQ,Municipal,puntaje_simce_sin_comparacion
+892,ESCUELA PARTICULAR EL DURAZNO,COMBARBALÁ,COQ,Particular Subvencionado,puntaje_simce_sin_comparacion
+896,ESCUELA PARTICULAR LA COLORADA,COMBARBALÁ,COQ,Particular Subvencionado,puntaje_simce_sin_comparacion
+13579,COLEGIO SAN ISIDRO,COMBARBALÁ,COQ,Particular Subvencionado,puntaje_simce_sin_comparacion
+635,ESCUELA DE TOTORALILLO,COQUIMBO,COQ,Servicio Local de Educación,puntaje_simce_sin_comparacion
+641,ESCUELA DE LAS CARDAS,COQUIMBO,COQ,Servicio Local de Educación,puntaje_simce_sin_comparacion
+644,ESCUELA DE PUERTO ALDEA,COQUIMBO,COQ,Servicio Local de Educación,puntaje_simce_sin_comparacion
+977,ESCUELA BASICA GRACIELA DIAZ ALLENDE,ILLAPEL,COQ,Municipal,puntaje_simce_sin_comparacion
+985,ESCUELA BASICA ASIENTO VIEJO,ILLAPEL,COQ,Municipal,puntaje_simce_sin_comparacion
+993,ESCUELA PARTICULAR CANELILLO ALTO,ILLAPEL,COQ,Particular Subvencionado,puntaje_simce_sin_comparacion
+995,ESCUELA PARTICULAR CAREN,ILLAPEL,COQ,Particular Subvencionado,puntaje_simce_sin_comparacion
+1008,ESCUELA PARTICULAR QUILLAICILLO,ILLAPEL,COQ,Particular Subvencionado,puntaje_simce_sin_comparacion
+13379,ESCUELA BASICA CUMBRE DE LOS ANDES,ILLAPEL,COQ,Municipal,puntaje_simce_sin_comparacion
+598,ESCUELA DE PUNTA DE CHOROS,LA HIGUERA,COQ,Servicio Local de Educación,puntaje_simce_sin_comparacion
+608,ESCUELA DE LOS CHOROS,LA HIGUERA,COQ,Servicio Local de Educación,puntaje_simce_sin_comparacion
+558,COLEGIO PUNTA DE TEATINOS,LA SERENA,COQ,Servicio Local de Educación,puntaje_simce_sin_comparacion
+13378,COLEGIO SER,LA SERENA,COQ,Particular Pagado,puntaje_simce_sin_comparacion
+1053,ESCUELA BASICA FORJADORES DE CHILE,LOS VILOS,COQ,Municipal,puntaje_simce_sin_comparacion
+1061,ESCUELA TILAMA,LOS VILOS,COQ,Municipal,puntaje_simce_sin_comparacion
+1065,ESCUELA BASICA EL MANZANO,LOS VILOS,COQ,Municipal,puntaje_simce_sin_comparacion
+1068,ESCUELA PARTICULAR CULIMO,LOS VILOS,COQ,Particular Subvencionado,puntaje_simce_sin_comparacion
+1072,ESCUELA PARTICULAR INFIERNILLO,LOS VILOS,COQ,Particular Subvencionado,puntaje_simce_sin_comparacion
+13302,ESCUELA PARTICULAR CERRO BLANCO,LOS VILOS,COQ,Particular Subvencionado,puntaje_simce_sin_comparacion
+810,ESCUELA CENTRAL HIDROELECTRICA LOS MOLLE,MONTE PATRIA,COQ,Municipal,puntaje_simce_sin_comparacion
+813,ESCUELA BASICA LA UNION,MONTE PATRIA,COQ,Municipal,puntaje_simce_sin_comparacion
+814,ESCUELA BASICA EL TAYAN,MONTE PATRIA,COQ,Municipal,puntaje_simce_sin_comparacion
+816,ESCUELA GUSTAVO CONTRERAS CASTRO,MONTE PATRIA,COQ,Municipal,puntaje_simce_sin_comparacion
+819,ESCUELA BUENAVENTURA,MONTE PATRIA,COQ,Municipal,puntaje_simce_sin_comparacion
+820,ESCUELA SOL DEL CUYANO,MONTE PATRIA,COQ,Municipal,puntaje_simce_sin_comparacion
+835,ESCUELA CARMELA PRAT,MONTE PATRIA,COQ,Municipal,puntaje_simce_sin_comparacion
+837,ESCUELA ESPERANZA DE HUANA,MONTE PATRIA,COQ,Municipal,puntaje_simce_sin_comparacion
+13412,COLEGIO BASICO RENACER DE CERRILLOS,MONTE PATRIA,COQ,Municipal,puntaje_simce_sin_comparacion
+723,ESCUELA VILLORRIO EL TALHUEN,OVALLE,COQ,Municipal,puntaje_simce_sin_comparacion
+731,ESCUELA EL TRAPICHE,OVALLE,COQ,Municipal,puntaje_simce_sin_comparacion
+733,ESCUELA SANTA CRISTINA,OVALLE,COQ,Municipal,puntaje_simce_sin_comparacion
+736,ESCUELA BASICA LOS SOSSAS,OVALLE,COQ,Municipal,puntaje_simce_sin_comparacion
+743,ESCUELA CARACHILLA,OVALLE,COQ,Municipal,puntaje_simce_sin_comparacion
+744,ESCUELA ORURO,OVALLE,COQ,Municipal,puntaje_simce_sin_comparacion
+752,ESCUELA VALLE HERMOSO,OVALLE,COQ,Municipal,puntaje_simce_sin_comparacion
+759,ESCUELA BASICA GASPAR CABRALES,OVALLE,COQ,Municipal,puntaje_simce_sin_comparacion
+762,ESCUELA CALETA EL TORO,OVALLE,COQ,Municipal,puntaje_simce_sin_comparacion
+910,ESC.BASICA SAN ANTONIO DE LA VILLA,OVALLE,COQ,Municipal,puntaje_simce_sin_comparacion
+943,ESCUELA PADRE PABLO DIEHL HARTMAN,OVALLE,COQ,Municipal,puntaje_simce_sin_comparacion
+953,ESCUELA PATRICIO ZEBALLOS,OVALLE,COQ,Municipal,puntaje_simce_sin_comparacion
+11113,BASICA COMUN DELIA ANDRADE DE TELLO,OVALLE,COQ,Municipal,puntaje_simce_sin_comparacion
+32059,ESCUELA ECOLOGICA PEJERREYES,OVALLE,COQ,Municipal,puntaje_simce_sin_comparacion
+686,ESCUELA BÁSICA MARIO AQUILES RODRIGUEZ,PAIGUANO,COQ,Servicio Local de Educación,puntaje_simce_sin_comparacion
+696,ESCUELA MUNICIPAL LA ORTIGA,PAIGUANO,COQ,Servicio Local de Educación,puntaje_simce_sin_comparacion
+925,ESCUELA BASICA VILLA LOS QUILES,PUNITAQUI,COQ,Municipal,puntaje_simce_sin_comparacion
+928,ESCUELA BASICA GRANEROS,PUNITAQUI,COQ,Municipal,puntaje_simce_sin_comparacion
+931,ESCUELA SAN ANTONIO DE PADUA,PUNITAQUI,COQ,Municipal,puntaje_simce_sin_comparacion
+934,ESCUELA BEATRIZ VEGA VEGA,PUNITAQUI,COQ,Municipal,puntaje_simce_sin_comparacion
+940,ESCUELA SAN PEDRO,PUNITAQUI,COQ,Municipal,puntaje_simce_sin_comparacion
+945,ESCUELA SOL NACIENTE,PUNITAQUI,COQ,Municipal,puntaje_simce_sin_comparacion
+13309,ESC. BASICA LA HIGUERA DE PUNITAQUI,PUNITAQUI,COQ,Municipal,puntaje_simce_sin_comparacion
+13363,ESCUELA BASICA MUNICIPAL LA GRANJITA,PUNITAQUI,COQ,Municipal,puntaje_simce_sin_comparacion
+778,ESCUELA BASICA LAS BREAS,RÍO HURTADO,COQ,Municipal,puntaje_simce_sin_comparacion
+780,ESCUELA BASICA TABAQUEROS,RÍO HURTADO,COQ,Municipal,puntaje_simce_sin_comparacion
+792,ESCUELA BASICA ESTANCIA EL SAUCE,RÍO HURTADO,COQ,Municipal,puntaje_simce_sin_comparacion
+793,ESCUELA BASICA DE SERON,RÍO HURTADO,COQ,Municipal,puntaje_simce_sin_comparacion
+11110,LICEO JORGE IRIBARREN CHARLIN DE HURTADO,RÍO HURTADO,COQ,Municipal,puntaje_simce_sin_comparacion
+1032,ESCUELA BASICA SAN AGUSTIN,SALAMANCA,COQ,Municipal,puntaje_simce_sin_comparacion
+1034,ESCUELA LOS CORRALES,SALAMANCA,COQ,Municipal,puntaje_simce_sin_comparacion
+1038,ESCUELA PARTICULAR EL PALQUIAL,SALAMANCA,COQ,Particular Subvencionado,puntaje_simce_sin_comparacion
+1041,ESCUELA PARTICULAR CAJON DE QUELEN,SALAMANCA,COQ,Particular Subvencionado,puntaje_simce_sin_comparacion
+1045,ESCUELA PARTICULAR PUNTA NUEVA,SALAMANCA,COQ,Particular Subvencionado,puntaje_simce_sin_comparacion
+1047,ESCUELA PARTICULAR VALLE CAMISAS,SALAMANCA,COQ,Particular Subvencionado,puntaje_simce_sin_comparacion
+13570,ESCUELA MUNICIPAL VILLA SANTA ROSA,SALAMANCA,COQ,Municipal,puntaje_simce_sin_comparacion
+674,ESCUELA DE VINITA ALTA,VICUÑA,COQ,Servicio Local de Educación,puntaje_simce_sin_comparacion
+676,ESCUELA DE SAN CARLOS,VICUÑA,COQ,Servicio Local de Educación,puntaje_simce_sin_comparacion
+678,ESCUELA AMELIA BARAHONA MUJICA,VICUÑA,COQ,Servicio Local de Educación,puntaje_simce_sin_comparacion
+683,ESCUELA DE LA CALERA,VICUÑA,COQ,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8061,ESCUELA RURAL PUNTA CHILEN,ANCUD,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8085,ESCUELA RURAL SAN MIGUEL DE COÑIMO,ANCUD,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8099,ESCUELA RURAL COCOTUE,ANCUD,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8104,ESCUELA RURAL PUENTE PUNTRA,ANCUD,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+22425,ESCUELA PARTICULAR CURAMO,ANCUD,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+22615,ESCUELA PARTICULAR OMILEN ANTU,ANCUD,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+22690,COLEGIO AYTUE,ANCUD,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7789,ESCUELA RURAL ALONSO DE ERCILLA,CALBUCO,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7798,ESCUELA RURAL EL DAO,CALBUCO,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7810,ESCUELA RURAL SAN ANTONIO,CALBUCO,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7820,ESCUELA RURAL CHUCAGUA,CALBUCO,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7821,ESCUELA RURAL ISLA TABON,CALBUCO,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7824,ESCUELA RURAL HUAYUN BAJO,CALBUCO,LAGOS,Municipal,puntaje_simce_sin_comparacion
+8014,ESCUELA RURAL MANUELA CARDENAS BARRIA,CASTRO,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8037,ESCUELA RURAL LOS ROBLES,CASTRO,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8038,ESCUELA RURAL SAN MIGUEL,CASTRO,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+40457,LICEO TECNICO PROFESIONAL PABLO NERUDA,CASTRO,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+8301,ESCUELA RURAL BUILL,CHAITÉN,LAGOS,Municipal,puntaje_simce_sin_comparacion
+8304,ESCUELA RURAL RIO AMARILLO,CHAITÉN,LAGOS,Municipal,puntaje_simce_sin_comparacion
+8306,ESCUELA RURAL VALLE EL FRIO,CHAITÉN,LAGOS,Municipal,puntaje_simce_sin_comparacion
+8307,ESCUELA RURAL HUEQUE,CHAITÉN,LAGOS,Municipal,puntaje_simce_sin_comparacion
+8308,ESCUELA RURAL POYO,CHAITÉN,LAGOS,Municipal,puntaje_simce_sin_comparacion
+8208,ESCUELA RURAL CURACO DE VILUPULLI,CHONCHI,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8213,ESCUELA RURAL EL PULPITO,CHONCHI,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8216,ESCUELA RURAL PUCATUE,CHONCHI,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8217,ESCUELA RURAL TEUPA,CHONCHI,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8227,ESCUELA RURAL CHANQUIN,CHONCHI,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8228,ESCUELA RURAL VILUPULLI,CHONCHI,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8230,ESCUELA RURAL RAUCO,CHONCHI,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8231,ESCUELA RURAL TERAO,CHONCHI,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+11553,ESCUELA RURAL NALHUITAD,CHONCHI,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7754,ESCUELA RURAL JOHN KENNEDY,COCHAMÓ,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7757,ESCUELA RURAL SANTA AGUEDA,COCHAMÓ,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7758,ESCUELA RURAL SAN ANTONIO,COCHAMÓ,LAGOS,Municipal,puntaje_simce_sin_comparacion
+8169,ESCUELA RURAL HUYAR ALTO,CURACO DE VÉLEZ,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8170,ESCUELA RURAL SAN JAVIER,CURACO DE VÉLEZ,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8144,ESCUELA RURAL CESAR GOMEZ GARCIA,DALCAHUE,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8158,ESCUELA RURAL CALEN,DALCAHUE,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+40424,CENTRO EDUCACIONAL RAICES DE MI TIERRA,DALCAHUE,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7929,ESCUELA BASICA AGRICOLA HUEMPELEO,FRESIA,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7930,ESCUELA RURAL LUCILA GODOY ALCAYAGA,FRESIA,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7931,ESCUELA RURAL PATO LLICO,FRESIA,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7940,ESCUELA RURAL PARGA,FRESIA,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7944,ESCUELA RURAL SANTA MONICA,FRESIA,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7946,ESCUELA PARTICULAR N. 224 PICHI MAULE,FRESIA,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7947,ESCUELA PARTICULAR N. 225 LA ARAÑA,FRESIA,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7950,ESCUELA PARTICULAR N. 228 EL PATO DE LLICO,FRESIA,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7978,ESCUELA RURAL MARIO PEREZ NAVARRO,FRUTILLAR,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7987,ESCUELA CARLOS SPRINGER NIKLITSCHEK,FRUTILLAR,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7993,ESCUELA PARTICULAR N. 240 LA HUACHA,FRUTILLAR,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7994,ESCUELA PARTICULAR N.241 LA PAZ,FRUTILLAR,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7998,ESCUELA PARTICULAR N.247 EL RETAMO,FRUTILLAR,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+22338,ESCUELA PARTICULAR PEDERNAL ALTO,FRUTILLAR,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+22340,ESCUELA PARTICULAR EL COPIHUE,FRUTILLAR,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+8335,ESCUELA RURAL RIO AZUL,FUTALEUFÚ,LAGOS,Municipal,puntaje_simce_sin_comparacion
+8337,ESCUELA RURAL LAS ESCALAS,FUTALEUFÚ,LAGOS,Municipal,puntaje_simce_sin_comparacion
+8312,ESCUELA RURAL PICHICOLO,HUALAIHUÉ,LAGOS,Municipal,puntaje_simce_sin_comparacion
+8320,ESCUELA RURAL MANIHUEICO,HUALAIHUÉ,LAGOS,Municipal,puntaje_simce_sin_comparacion
+8329,ESCUELA RURAL CORDILLERA NEVADA,HUALAIHUÉ,LAGOS,Municipal,puntaje_simce_sin_comparacion
+22396,ESCUELA PARTICULAR LA COLONIA,LLANQUIHUE,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7878,ESCUELA RURAL PALIHUE,LOS MUERMOS,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7881,ESCUELA RURAL HUAUTRUNES,LOS MUERMOS,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7887,ESCUELA RURAL CARACOL,LOS MUERMOS,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7897,ESCUELA RURAL MANUEL GATICA ARRIAGADA,LOS MUERMOS,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7908,ESCUELA PARTICULAR N.216 MIRAMAR,LOS MUERMOS,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7915,ESCUELA PARTICULAR N.217 MIRAMAR BAJO,LOS MUERMOS,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+12191,ESCUELA PARTICULAR N.308 EL MIRADOR,LOS MUERMOS,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+22346,ESCUELA PARTICULAR SANTA ROSA,LOS MUERMOS,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7852,ESCUELA RURAL JUANITA FERNANDEZ,MAULLIN,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7855,ESCUELA RURAL PUELPUN,MAULLIN,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7860,ESCUELA RURAL MARIO ENRIQUE GUZMAN ACEVEDO,MAULLIN,LAGOS,Municipal,puntaje_simce_sin_comparacion
+22049,ESCUELA PARTICULAR N.322,MAULLIN,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+22184,ESCUELA PARTICULAR RUBEN BASTIDAS,MAULLIN,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+22261,ESCUELA PARTICULAR PABLO NERUDA,MAULLIN,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7356,ESCUELA RURAL PELLECO,OSORNO,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7366,ESCUELA RURAL MARIA LUISA BOMBAL,OSORNO,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7368,ESCUELA RURAL SANTA ROSA,OSORNO,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7382,ESCUELA RURAL LOS ABEDULES,OSORNO,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7390,ESCUELA PARTICULAR N.130 AURORA DE CHILE,OSORNO,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+11594,COLEGIO ANTILLANCA,OSORNO,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+22146,COLEGIO ABRAHAM LINCOLN,OSORNO,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+22263,COLEGIO SAN MARCOS,OSORNO,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+22397,COLEGIO TECNICO PROFESIONAL SANTA TERESA DE LOS ANDES,OSORNO,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7625,LICEO INDUSTRIAL PUERTO MONTT,PUERTO MONTT,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7648,ESCUELA MARCELA PAZ,PUERTO MONTT,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7662,ESCUELA RURAL SENDA SUR,PUERTO MONTT,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7668,COLEGIO ISLA TENGLO,PUERTO MONTT,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7676,ESCUELA RURAL CHINQUIHUE ALTO,PUERTO MONTT,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7684,ESCUELA RURAL TEPUAL,PUERTO MONTT,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7686,ESCUELA RURAL MAILLEN-PUQUELDON,PUERTO MONTT,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7688,ESCUELA RURAL LAUCA,PUERTO MONTT,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7689,ESCUELA RURAL PICHIQUILLAIPE,PUERTO MONTT,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7690,ESCUELA RURAL RIO BLANCO,PUERTO MONTT,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7691,ESCUELA RURAL ·PUNTILLA TENGLO,PUERTO MONTT,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7695,ESCUELA RURAL SALTO GRANDE,PUERTO MONTT,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7698,ESCUELA RURAL CALETA LA ARENA,PUERTO MONTT,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7477,ESCUELA RURAL ADMINISTRACION RUPANCO,PUERTO OCTAY,LAGOS,Municipal,puntaje_simce_sin_comparacion
+22427,ESCUELA PARTICULAR EMMANUEL,PUERTO OCTAY,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7729,ESCUELA RURAL JOSE WERNER MEIXNER,PUERTO VARAS,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7730,ESCUELA RURAL REINALDO RADDATZ HARRICH,PUERTO VARAS,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7732,ESCUELA RURAL JANEQUEO,PUERTO VARAS,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7741,ESCUELA RURAL RICARDO ROTH SCHUTZ,PUERTO VARAS,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8202,ESCUELA RURAL DETIF,PUQUELDÓN,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8205,ESCUELA RURAL ICHUAC,PUQUELDÓN,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7511,ESCUELA RURAL ANTONIO SEGUNDO FERNANDEZ PORTALES,PURRANQUE,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7522,ESCUELA RURAL CRUCERO NUEVO,PURRANQUE,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7538,ESCUELA RURAL MANQUEMAPU,PURRANQUE,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7458,ESCUELA RURAL ÑADY,PUYEHUE,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7465,ESCUELA RURAL TERMAS DE PUYEHUE,PUYEHUE,LAGOS,Municipal,puntaje_simce_sin_comparacion
+8243,ESCUELA RURAL JUAN BAUTISTA CHIGUAY,QUEILÉN,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8247,ESCUELA RURAL JUAN ANTONIO VERA DIAZ,QUEILÉN,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8251,ESCUELA RURAL SAN JOSE DE TRANQUI,QUEILÉN,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8255,LICEO RAYEN MAPU,QUELLÓN,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8261,ESCUELA RURAL CHADMO CENTRAL,QUELLÓN,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8263,ESCUELA RURAL JOSE SANTOS LINCOMAN INAICHEO,QUELLÓN,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8269,ESCUELA RURAL LASTENIA OYARZUN ANDRADE,QUELLÓN,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8274,ESCUELA RURAL CANDELARIA,QUELLÓN,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8278,ESCUELA RURAL YELCHO,QUELLÓN,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8287,ESCUELA RURAL AUCHAC,QUELLÓN,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8288,ESCUELA RURAL YALDAD,QUELLÓN,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+22112,ESCUELA RURAL PUNTA WHITE,QUELLÓN,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8111,LICEO BICENTENARIO QUEMCHI,QUEMCHI,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8113,ESCUELA RURAL AQUELARRE,QUEMCHI,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8121,ESCUELA RURAL SANTA ROSA,QUEMCHI,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8133,ESCUELA RURAL LINDA VISTA,QUEMCHI,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8135,ESCUELA RURAL TAC,QUEMCHI,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8176,ESCUELA RURAL LA CAPILLA,QUINCHAO,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8180,ESCUELA RURAL ALAO,QUINCHAO,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8181,ESCUELA RURAL METAHUE,QUINCHAO,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8182,ESCUELA RURAL LA VILLA,QUINCHAO,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8184,ESCUELA RURAL LLINGUA,QUINCHAO,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8188,ESCUELA RURAL LA CAPILLA,QUINCHAO,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8191,ESCUELA RURAL SAN FRANCISCO,QUINCHAO,LAGOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7552,ESCUELA RURAL RAMON PUSCHEL APPEL,RÍO NEGRO,LAGOS,Municipal,puntaje_simce_sin_comparacion
+22284,ESCUELA PARTICULAR HUALINTO,RÍO NEGRO,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7586,ESCUELA RURAL LOMA DE LA PIEDRA,SAN JUAN DE LA COSTA,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7588,ESCUELA RURAL PUCATRIHUE,SAN JUAN DE LA COSTA,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7600,ESCUELA PARTICULAR N.163 LAFQUELMAPU,SAN JUAN DE LA COSTA,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7606,ESCUELA PARTICULAR N.164 TROSCO,SAN JUAN DE LA COSTA,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7607,ESCUELA PARTICULAR N.156 CHANCO,SAN JUAN DE LA COSTA,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7619,ESCUELA PARTICULAR N.173 HUAMPUTUE,SAN JUAN DE LA COSTA,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7622,ESCUELA PARTICULAR N.154 HUITRAPULLI,SAN JUAN DE LA COSTA,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+22620,ESCUELA PARTICULAR ANTUMAPU,SAN JUAN DE LA COSTA,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7427,ESCUEAL RURAL QUILEN,SAN PABLO,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7431,ESCUELA RURAL TRUMAO,SAN PABLO,LAGOS,Municipal,puntaje_simce_sin_comparacion
+7443,ESCUELA PARTICULAR N.153 EL ROBLE,SAN PABLO,LAGOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+2491,ESCUELA MUNICIPAL LAS QUEZADAS F-413,CHIMBARONGO,LGBO,Servicio Local de Educación,puntaje_simce_sin_comparacion
+2500,ESCUELA MUNICIPAL G414 BARRIO ESTACION,CHIMBARONGO,LGBO,Servicio Local de Educación,puntaje_simce_sin_comparacion
+2506,ESCUELA MUNICIPAL G453 SAN JOSE DE LO TORO,CHIMBARONGO,LGBO,Servicio Local de Educación,puntaje_simce_sin_comparacion
+2509,ESCUELA MUNICIPAL SANTA ISABEL G-503,CHIMBARONGO,LGBO,Servicio Local de Educación,puntaje_simce_sin_comparacion
+2536,COLEGIO MUNICIPAL EMILIA SALINAS DIAZ,CHÉPICA,LGBO,Municipal,puntaje_simce_sin_comparacion
+2541,ESCUELA HECTOR RODOLFO CASTILLO MORENO,CHÉPICA,LGBO,Municipal,puntaje_simce_sin_comparacion
+2544,COLEGIO CRUZ MARIA,CHÉPICA,LGBO,Municipal,puntaje_simce_sin_comparacion
+2406,LICEO MUNICIPAL LUIS GREGORIO VALENZUELA LAVIN,COINCO,LGBO,Municipal,puntaje_simce_sin_comparacion
+2410,ESCUELA MUNICIPAL EL RULO,COINCO,LGBO,Municipal,puntaje_simce_sin_comparacion
+2391,ESC. SUBTENIENTE JULIO MONTT SALAMANCA,COLTAUCO,LGBO,Municipal,puntaje_simce_sin_comparacion
+2394,ESCUELA MUNICIPAL JOSEFINA VIAL DE VIAL,COLTAUCO,LGBO,Municipal,puntaje_simce_sin_comparacion
+2396,ESCUELA MUNICIPAL DE RINCONADA DE IDAHUE,COLTAUCO,LGBO,Municipal,puntaje_simce_sin_comparacion
+2698,ESCUELA MUNICIPAL GUADALAO,LA ESTRELLA,LGBO,Municipal,puntaje_simce_sin_comparacion
+2438,COLEGIO MARIA LUISA FABRES VERGARA,LAS CABRAS,LGBO,Municipal,puntaje_simce_sin_comparacion
+2440,COLEGIO CARMEN OJEDA SANTANDER,LAS CABRAS,LGBO,Municipal,puntaje_simce_sin_comparacion
+2687,ESCUELA MUNICIPAL PASO DEL SOLDADO,LITUECHE,LGBO,Municipal,puntaje_simce_sin_comparacion
+2692,ESCUELA MUNICIPAL MANQUEHUA,LITUECHE,LGBO,Municipal,puntaje_simce_sin_comparacion
+2590,ESCUELA MUNICIPAL RINCONADA DE QUIAHUE,LOLOL,LGBO,Municipal,puntaje_simce_sin_comparacion
+2591,ESCUELA MUNICIPAL JUANA GONZALEZ,LOLOL,LGBO,Municipal,puntaje_simce_sin_comparacion
+2594,ESCUELA BASICA HUGO URZUA URZUA,LOLOL,LGBO,Municipal,puntaje_simce_sin_comparacion
+2598,ESCUELA BASICA OLGA DE GOMEZ,LOLOL,LGBO,Municipal,puntaje_simce_sin_comparacion
+2255,ESC. SAN JUAQUIN DE LOS MAYOS,MACHALÍ,LGBO,Municipal,puntaje_simce_sin_comparacion
+2475,ESCUELA LOS MAQUIS,MALLOA,LGBO,Municipal,puntaje_simce_sin_comparacion
+15720,LICEO MUNICIPAL ZOILA ROSA CARRENO,MALLOA,LGBO,Municipal,puntaje_simce_sin_comparacion
+2702,ESCUELA MUNICIPAL LA QUEBRADA,MARCHIHUE,LGBO,Municipal,puntaje_simce_sin_comparacion
+2703,ESCUELA MUNICIPAL EL SAUCE,MARCHIHUE,LGBO,Municipal,puntaje_simce_sin_comparacion
+2704,ESCUELA RENÉ CARVAJAL MADARIAGA,MARCHIHUE,LGBO,Municipal,puntaje_simce_sin_comparacion
+2706,ESCUELA MUNICIPAL LO MARCHANT,MARCHIHUE,LGBO,Municipal,puntaje_simce_sin_comparacion
+2711,ESCUELA MUNICIPAL SAN MIGUEL VILUCO,MARCHIHUE,LGBO,Municipal,puntaje_simce_sin_comparacion
+2526,ESCUELA BAS. IGNACIO CARRERA PINTO,NANCAGUA,LGBO,Servicio Local de Educación,puntaje_simce_sin_comparacion
+2661,ESCUELA MUNICIPAL EL MANZANO,NAVIDAD,LGBO,Municipal,puntaje_simce_sin_comparacion
+2673,ESCUELA MUNICIPAL PADRE ALBERTO HURTADO,NAVIDAD,LGBO,Municipal,puntaje_simce_sin_comparacion
+2678,ESCUELA MUNICIPAL MARIA WILLIAMS,NAVIDAD,LGBO,Municipal,puntaje_simce_sin_comparacion
+2622,ESCUELA MUNICIPAL VALLE HERMOSO,PALMILLA,LGBO,Municipal,puntaje_simce_sin_comparacion
+2624,ESCUELA MUNICIPAL LIHUEIMO,PALMILLA,LGBO,Municipal,puntaje_simce_sin_comparacion
+2637,ESCUELA MUNICIPAL VILLA SAN PEDRO,PAREDONES,LGBO,Municipal,puntaje_simce_sin_comparacion
+2722,ESCUELA LOS COPIHUES DEL CALVARIO,PAREDONES,LGBO,Municipal,puntaje_simce_sin_comparacion
+2634,ESCUELA PABLO NERUDA,PERALILLO,LGBO,Municipal,puntaje_simce_sin_comparacion
+2366,ESCUELA FERNANDO HUERTA PENA,PICHIDEGUA,LGBO,Municipal,puntaje_simce_sin_comparacion
+2642,ESCUELA COGUIL,PICHILEMU,LGBO,Municipal,puntaje_simce_sin_comparacion
+2646,ESCUELA LA AGUADA,PICHILEMU,LGBO,Municipal,puntaje_simce_sin_comparacion
+2607,ESCUELA MUNICIPAL DE RINCON LOS PERALES,PUMANQUE,LGBO,Municipal,puntaje_simce_sin_comparacion
+11257,ESCUELA MUNICIPAL DE COLHUE,PUMANQUE,LGBO,Municipal,puntaje_simce_sin_comparacion
+2184,ESCUELA PARTICULAR BUEN PASTOR,RANCAGUA,LGBO,Particular Subvencionado,puntaje_simce_sin_comparacion
+2271,ESCUELA MUNICIPAL SUECIA,REQUÍNOA,LGBO,Municipal,puntaje_simce_sin_comparacion
+2322,ESCUELA RURAL LA VINILLA,SAN VICENTE,LGBO,Municipal,puntaje_simce_sin_comparacion
+2331,CENTRO EDUC. REQUEGUA,SAN VICENTE,LGBO,Municipal,puntaje_simce_sin_comparacion
+2335,ESC. ENRIQUE YANEZ GONZALEZ,SAN VICENTE,LGBO,Municipal,puntaje_simce_sin_comparacion
+2343,ESCUELA MUNICIPAL TOQUIHUA,SAN VICENTE,LGBO,Municipal,puntaje_simce_sin_comparacion
+2558,ESCUELA LA FINCA,SANTA CRUZ,LGBO,Municipal,puntaje_simce_sin_comparacion
+2560,ESC. MUNICIPAL LA LAJUELA,SANTA CRUZ,LGBO,Municipal,puntaje_simce_sin_comparacion
+2568,ESCUELA MUNICIPAL DE PANAMA,SANTA CRUZ,LGBO,Municipal,puntaje_simce_sin_comparacion
+2572,ESCUELA MUNICIPAL DE RINCON DE YAQUIL,SANTA CRUZ,LGBO,Municipal,puntaje_simce_sin_comparacion
+8468,ESCUELA DIEGO PORTALES,LAGUNA BLANCA,MAG,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8420,ESC. DE CONCENTRACION FRONTERIZA DOROTEA,NATALES,MAG,Servicio Local de Educación,puntaje_simce_sin_comparacion
+24322,ESCUELA BASICA RURAL SENO OBSTRUCCION,NATALES,MAG,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8450,ESCUELA DELLAMIRA REBECA AGUILAR,PUNTA ARENAS,MAG,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8470,ESCUELA PUNTA DELGADA,SAN GREGORIO,MAG,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8482,ESCUELA IGNACIO CARRERA PINTO,TIMAUKEL,MAG,Servicio Local de Educación,puntaje_simce_sin_comparacion
+8423,ESC.HOGAR MUN.FRONTERIZA RAMON SERRANO M,TORRES DEL PAINE,MAG,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3550,ESCUELA PURISIMA CONCEPCION DE POCILLAS,CAUQUENES,MAULE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3564,ESCUELA HECTOR SILVESTRE PAIVA MANRIQUEZ,CAUQUENES,MAULE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3569,ESCUELA JAVIERA CARRERA,CAUQUENES,MAULE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3573,ESCUELA PEDRO DE VALDIVIA,CAUQUENES,MAULE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3580,ESCUELA PEDERNALES,CAUQUENES,MAULE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3586,ESCUELA CHORRILLOS,CAUQUENES,MAULE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3602,ESCUELA EL TROZO,CAUQUENES,MAULE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3624,ESCUELA LOS PEUMOS,CHANCO,MAULE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3625,ESCUELA GABRIELA MISTRAL,CHANCO,MAULE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3631,ESCUELA EMA VASQUEZ GUTIERREZ,CHANCO,MAULE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3632,ESCUELA ANTONIETA LEON VERDUGO,CHANCO,MAULE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3633,ESCUELA QUINIPATO,CHANCO,MAULE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3336,ESCUELA RARI,COLBÚN,MAULE,Municipal,puntaje_simce_sin_comparacion
+3337,ESCUELA AMALIA AMSTRONG DE TORRES,COLBÚN,MAULE,Municipal,puntaje_simce_sin_comparacion
+3340,ESCUELA LA GUARDIA,COLBÚN,MAULE,Municipal,puntaje_simce_sin_comparacion
+3163,INSTITUTO BICENTENARIO DE EXCELENCIA POLITECNICO SUPERIOR EGIDIO ROZZI SACHETTI,CONSTITUCIÓN,MAULE,Corp. De Administración Delegada,puntaje_simce_sin_comparacion
+3176,ESCUELA JUNQUILLAR,CONSTITUCIÓN,MAULE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3177,ESCUELA MARIA INES MAROMILLAS,CONSTITUCIÓN,MAULE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3191,ESCUELA SANTA AURORA DE CARRIZAL,CONSTITUCIÓN,MAULE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+20352,COLEGIO BUEN PASTOR,CONSTITUCIÓN,MAULE,Particular Subvencionado,puntaje_simce_sin_comparacion
+3212,ESCUELA ANA LUISA ESPINA RIVERO,CUREPTO,MAULE,Municipal,puntaje_simce_sin_comparacion
+3217,ESCUELA JUAN JESUS GONZALEZ AVENDAÑO,CUREPTO,MAULE,Municipal,puntaje_simce_sin_comparacion
+3219,ESCUELA LA ORILLA,CUREPTO,MAULE,Municipal,puntaje_simce_sin_comparacion
+3235,ESCUELA MAURICIO LETELIER LETELIER,CUREPTO,MAULE,Municipal,puntaje_simce_sin_comparacion
+3242,ESCUELA SAN FRANCISCO DE ASIS,CUREPTO,MAULE,Municipal,puntaje_simce_sin_comparacion
+2759,ESCUELA EL MAITENAL,CURICÓ,MAULE,Municipal,puntaje_simce_sin_comparacion
+2762,ESCUELA EL PORVENIR,CURICÓ,MAULE,Municipal,puntaje_simce_sin_comparacion
+2765,ESCUELA RAMON FREIRE,CURICÓ,MAULE,Municipal,puntaje_simce_sin_comparacion
+2766,ESCUELA VICTOR VERGARA CAMPOS,CURICÓ,MAULE,Municipal,puntaje_simce_sin_comparacion
+2768,ESCUELA JOSE D. MORALES DIAZ,CURICÓ,MAULE,Municipal,puntaje_simce_sin_comparacion
+2771,ESCUELA PABLO NERUDA,CURICÓ,MAULE,Municipal,puntaje_simce_sin_comparacion
+3134,ESCUELA MARIA OLGA VEGA VEGA,EMPEDRADO,MAULE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+2888,ESCUELA EDUARDO NUNEZ FUENZALIDA,HUALAÑÉ,MAULE,Municipal,puntaje_simce_sin_comparacion
+2892,ESCUELA DE BARBA RUBIA,HUALAÑÉ,MAULE,Municipal,puntaje_simce_sin_comparacion
+2895,ESCUELA PARTICULAR LOS COIPOS,HUALAÑÉ,MAULE,Particular Subvencionado,puntaje_simce_sin_comparacion
+3265,ESCUELA LAS TOSCAS,LINARES,MAULE,Municipal,puntaje_simce_sin_comparacion
+3271,ESCUELA LOS HUALLES,LINARES,MAULE,Municipal,puntaje_simce_sin_comparacion
+3373,ESCUELA EL CARMEN,LONGAVÍ,MAULE,Municipal,puntaje_simce_sin_comparacion
+3378,ESCUELA SOFIA VASQUEZ REBOLLEDO,LONGAVÍ,MAULE,Municipal,puntaje_simce_sin_comparacion
+3383,ESCUELA SANTIAGO BUERAS AVARIA,LONGAVÍ,MAULE,Municipal,puntaje_simce_sin_comparacion
+3384,ESCUELA RAMBERTO CARRERA MARTINEZ,LONGAVÍ,MAULE,Municipal,puntaje_simce_sin_comparacion
+3124,ESCUELA LINARES DE PERALES,MAULE,MAULE,Municipal,puntaje_simce_sin_comparacion
+2846,ESCUELA BUENA PAZ,MOLINA,MAULE,Municipal,puntaje_simce_sin_comparacion
+2850,ESCUELA JULIA CATAN DABIKE,MOLINA,MAULE,Municipal,puntaje_simce_sin_comparacion
+2851,ESCUELA BUENA FE,MOLINA,MAULE,Municipal,puntaje_simce_sin_comparacion
+2858,ESCUELA LA PALMILLA,MOLINA,MAULE,Municipal,puntaje_simce_sin_comparacion
+2860,ESCUELA EL CERRILLO,MOLINA,MAULE,Municipal,puntaje_simce_sin_comparacion
+3413,ESCUELA VILLA REINA,PARRAL,MAULE,Municipal,puntaje_simce_sin_comparacion
+3429,ESCUELA LA FORTUNA,PARRAL,MAULE,Municipal,puntaje_simce_sin_comparacion
+3029,ESCUELA WILIBALDO NUNEZ,PELARCO,MAULE,Municipal,puntaje_simce_sin_comparacion
+3615,ESCUELA ESCRITORA MARCELA PAZ,PELLUHUE,MAULE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3140,ESCUELA CORINTO,PENCAHUE,MAULE,Municipal,puntaje_simce_sin_comparacion
+2921,ESCUELA LA ALBORADA,RAUCO,MAULE,Municipal,puntaje_simce_sin_comparacion
+3449,ESCUELA SAN RAMON,RETIRO,MAULE,Municipal,puntaje_simce_sin_comparacion
+3453,ESCUELA SANTA CECILIA,RETIRO,MAULE,Municipal,puntaje_simce_sin_comparacion
+3458,ESCUELA MARIA IGNACIA MENA MONROY,RETIRO,MAULE,Municipal,puntaje_simce_sin_comparacion
+2829,ESCUELA BASICA LUIS ESCOBAR LARA,ROMERAL,MAULE,Municipal,puntaje_simce_sin_comparacion
+2832,ESCUELA BASICA GISLLEN E. BERNUCCI GIUSTACORI,ROMERAL,MAULE,Municipal,puntaje_simce_sin_comparacion
+3036,ESCUELA EL BOLSICO,RÍO CLARO,MAULE,Municipal,puntaje_simce_sin_comparacion
+3048,ESCUELA PASO ANCHO,RÍO CLARO,MAULE,Municipal,puntaje_simce_sin_comparacion
+2877,ESCUELA LA HIGUERILLA,SAGRADA FAMILIA,MAULE,Municipal,puntaje_simce_sin_comparacion
+3067,ESCUELA LEOPOLDO GUARDA GEYNTES,SAN CLEMENTE,MAULE,Municipal,puntaje_simce_sin_comparacion
+3073,ESCUELA BAJO LIRCAY,SAN CLEMENTE,MAULE,Municipal,puntaje_simce_sin_comparacion
+3077,ESCUELA COREL,SAN CLEMENTE,MAULE,Municipal,puntaje_simce_sin_comparacion
+3084,ESCUELA LOS ROBLES DE VILCHES CENTRO,SAN CLEMENTE,MAULE,Municipal,puntaje_simce_sin_comparacion
+3093,ESCUELA CARRETONES,SAN CLEMENTE,MAULE,Municipal,puntaje_simce_sin_comparacion
+3104,ESCUELA LA PLACETA,SAN CLEMENTE,MAULE,Municipal,puntaje_simce_sin_comparacion
+3489,ESCUELA JORGE GONZALEZ BASTIAS,SAN JAVIER,MAULE,Municipal,puntaje_simce_sin_comparacion
+3502,ADELAIDA RIQUELME MESA,SAN JAVIER,MAULE,Municipal,puntaje_simce_sin_comparacion
+3520,ESCUELA MARIANO LATORRE,SAN JAVIER,MAULE,Municipal,puntaje_simce_sin_comparacion
+3526,ESCUELA AURELIO MEZA RIVERA,SAN JAVIER,MAULE,Municipal,puntaje_simce_sin_comparacion
+3024,ESCUELA DANTE RONCAGLIOLO BAVESTRELLO,SAN RAFAEL,MAULE,Municipal,puntaje_simce_sin_comparacion
+2947,ESCUELA LAS ARAUCARIAS,TALCA,MAULE,Municipal,puntaje_simce_sin_comparacion
+3003,COLEGIO PIAGET,TALCA,MAULE,Particular Subvencionado,puntaje_simce_sin_comparacion
+2806,ESCUELA HUEMUL,TENO,MAULE,Municipal,puntaje_simce_sin_comparacion
+2819,ESCUELA TENIENTE CRUZ,TENO,MAULE,Municipal,puntaje_simce_sin_comparacion
+2907,ESCUELA PLAYA LINDA DE LIPIMAVIDA,VICHUQUEN,MAULE,Municipal,puntaje_simce_sin_comparacion
+2914,ESCUELA EMA CORNEJO DE CARDOEN,VICHUQUEN,MAULE,Municipal,puntaje_simce_sin_comparacion
+3321,ESCUELA SANTA ELENA,YERBAS BUENAS,MAULE,Municipal,puntaje_simce_sin_comparacion
+3991,ESCUELA COLTON QUILLAY,BULNES,NUBLE,Municipal,puntaje_simce_sin_comparacion
+3992,ESCUELA MILAHUE,BULNES,NUBLE,Municipal,puntaje_simce_sin_comparacion
+3997,ESCUELA EL CARACOL,BULNES,NUBLE,Municipal,puntaje_simce_sin_comparacion
+3691,ESCUELA PAUL HARRIS,CHILLÁN,NUBLE,Municipal,puntaje_simce_sin_comparacion
+3697,ESCUELA BASICA CONFLUENCIA,CHILLÁN,NUBLE,Municipal,puntaje_simce_sin_comparacion
+4085,ESCUELA BASICA EL TOLLO,COBQUECURA,NUBLE,Municipal,puntaje_simce_sin_comparacion
+4100,ESCUELA BASICA MELA,COBQUECURA,NUBLE,Municipal,puntaje_simce_sin_comparacion
+4062,ESCUELA VEGAS DE ITATA,COELEMU,NUBLE,Municipal,puntaje_simce_sin_comparacion
+3837,ESCUELA ENRIQUE GRAF REYES,COIHUECO,NUBLE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3846,ESCUELA BÁSICA EMBALSE COIHUECO,COIHUECO,NUBLE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3859,ESCUELA SAN ANTONIO DE FRUTILLARES,COIHUECO,NUBLE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3869,ESCUELA AGROECOLÓGICAS LAS ISLAS,COIHUECO,NUBLE,Particular Subvencionado,puntaje_simce_sin_comparacion
+3916,ESCUELA CAPILLA NORTE,EL CARMEN,NUBLE,Municipal,puntaje_simce_sin_comparacion
+3918,ESCUELA LUIS TEODORO ORTEGA OYARCE,EL CARMEN,NUBLE,Municipal,puntaje_simce_sin_comparacion
+3921,ESCUELA LAS HORMIGAS,EL CARMEN,NUBLE,Municipal,puntaje_simce_sin_comparacion
+3922,ESCUELA MATA REDONDA,EL CARMEN,NUBLE,Municipal,puntaje_simce_sin_comparacion
+3934,ESCUELA SAN ISIDRO,EL CARMEN,NUBLE,Municipal,puntaje_simce_sin_comparacion
+3935,ESCUELA DE SAN VICENTE ALTO,EL CARMEN,NUBLE,Municipal,puntaje_simce_sin_comparacion
+4125,ESCUELA ROSARIO CHACON BARRIOS,NINHUE,NUBLE,Municipal,puntaje_simce_sin_comparacion
+4128,ESCUELA BASICA DE RELOCA,NINHUE,NUBLE,Municipal,puntaje_simce_sin_comparacion
+4130,ESCUELA BASICA EL RINCON,NINHUE,NUBLE,Municipal,puntaje_simce_sin_comparacion
+4134,ESCUELA BASICA TALHUAN,NINHUE,NUBLE,Municipal,puntaje_simce_sin_comparacion
+3964,ESCUELA JOSE FRANCISCO ZAPATA DOMINGUEZ,PEMUCO,NUBLE,Municipal,puntaje_simce_sin_comparacion
+3874,ESCUELA JAVIER JARPA SOTOMAYOR,PINTO,NUBLE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3876,ESCUELA HECTOR MANUEL ARIAS CORTES,PINTO,NUBLE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3877,ESCUELA SANTA EDUVIGES,PINTO,NUBLE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3884,ESCUELA SAN ALFONSO,PINTO,NUBLE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+4040,ESCUELA CUCHA URREJOLA,PORTEZUELO,NUBLE,Municipal,puntaje_simce_sin_comparacion
+31409,ESCUELA BASICA HUACALEMU,PORTEZUELO,NUBLE,Municipal,puntaje_simce_sin_comparacion
+4102,LICEO BICENTENARIO DE EXCELENCIA CARLOS MONTANE CASTRO,QUIRIHUE,NUBLE,Municipal,puntaje_simce_sin_comparacion
+4107,ESCUELA BASICA SANTA CAROLINA,QUIRIHUE,NUBLE,Municipal,puntaje_simce_sin_comparacion
+4112,ESCUELA BASICA SANTA ELENA,QUIRIHUE,NUBLE,Municipal,puntaje_simce_sin_comparacion
+4061,ESCUELA BASICA AMERICA,RANQUIL,NUBLE,Municipal,puntaje_simce_sin_comparacion
+11407,ESCUELA BASICA LOS OLIVOS,RANQUIL,NUBLE,Municipal,puntaje_simce_sin_comparacion
+3754,ESCUELA BULI,SAN CARLOS,NUBLE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3757,ESCUELA AGUA BUENA,SAN CARLOS,NUBLE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3781,ESCUELA MILLAUQUEN,SAN CARLOS,NUBLE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3785,ESCUELA TRES ESQUINAS,SAN CARLOS,NUBLE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+4142,ESCUELA LA MERCED,SAN CARLOS,NUBLE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3829,ESCUELA BÁSICA JOSÉ ANDRES LEIVA LEIVA,SAN FABIÁN,NUBLE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3833,ESCUELA BASICA TRABUNCURA,SAN FABIÁN,NUBLE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3894,ESCUELA SANTA MARIA,SAN IGNACIO,NUBLE,Municipal,puntaje_simce_sin_comparacion
+3897,ESCUELA CALLE ALEGRE,SAN IGNACIO,NUBLE,Municipal,puntaje_simce_sin_comparacion
+3898,ESCUELA SANTA JUANA,SAN IGNACIO,NUBLE,Municipal,puntaje_simce_sin_comparacion
+3899,ESCUELA COLTON VARIANTE,SAN IGNACIO,NUBLE,Municipal,puntaje_simce_sin_comparacion
+3903,ESCUELA MAYULERMO,SAN IGNACIO,NUBLE,Municipal,puntaje_simce_sin_comparacion
+3687,ESCUELA BASICA EL PEUMO,SAN NICOLÁS,NUBLE,Municipal,puntaje_simce_sin_comparacion
+12065,ESCUELA BASICA MELA,TREHUACO,NUBLE,Municipal,puntaje_simce_sin_comparacion
+3949,ESCUELA EL ROBLE,YUNGAY,NUBLE,Municipal,puntaje_simce_sin_comparacion
+11404,ESCUELA SAN LUIS,YUNGAY,NUBLE,Municipal,puntaje_simce_sin_comparacion
+3804,ESCUELA ZEMITA,ÑIQUÉN,NUBLE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+3818,ESCUELA COLVINDO,ÑIQUÉN,NUBLE,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7020,ESCUELA RURAL CARBONEROS,CORRAL,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7024,ESCUELA RURAL SAN CARLOS,CORRAL,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7025,ESCUELA RURAL EL HUAPE,CORRAL,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7026,ESCUELA RURAL CHAIHUIN,CORRAL,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6989,ESCUELA RURAL LOS CERRILLOS,FUTRONO,RIOS,Municipal,puntaje_simce_sin_comparacion
+6991,ESCUELA RURAL ISLA HUAPI,FUTRONO,RIOS,Municipal,puntaje_simce_sin_comparacion
+6992,ESCUELA RURAL VISTA HERMOSA,FUTRONO,RIOS,Municipal,puntaje_simce_sin_comparacion
+6996,ESCUELA RURAL PUMOL,FUTRONO,RIOS,Municipal,puntaje_simce_sin_comparacion
+22349,ESCUELA PARTICULAR SICHAHUE,FUTRONO,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7136,ESCUELA RURAL CATAMUTUN,LA UNIÓN,RIOS,Municipal,puntaje_simce_sin_comparacion
+7142,ESCUELA RURAL CUINCO,LA UNIÓN,RIOS,Municipal,puntaje_simce_sin_comparacion
+7173,ESCUELA RURAL EL HUAPE,LA UNIÓN,RIOS,Municipal,puntaje_simce_sin_comparacion
+7174,ESCUELA RURAL LOS CHILCOS,LA UNIÓN,RIOS,Municipal,puntaje_simce_sin_comparacion
+7188,ESCUELA PARTICULAR TRES VENTANAS,LA UNIÓN,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7192,ESCUELA PARTICULAR PUMAIHUE,LA UNIÓN,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+11582,ESCUELA PARTICULAR FOLLECO ALTO,LA UNIÓN,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+22207,ESCUELA PARTICULAR SAN SEBASTIAN,LA UNIÓN,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+22228,ESCUELA PARTICULAR AYELEN,LA UNIÓN,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7301,ESCUELA RURAL ILIHUE,LAGO RANCO,RIOS,Municipal,puntaje_simce_sin_comparacion
+7304,ESCUELA RURAL CALCURRUPE,LAGO RANCO,RIOS,Municipal,puntaje_simce_sin_comparacion
+7305,ESCUELA RURAL ILLAHUAPI,LAGO RANCO,RIOS,Municipal,puntaje_simce_sin_comparacion
+7309,ESCUELA RURAL PITRIUCO,LAGO RANCO,RIOS,Municipal,puntaje_simce_sin_comparacion
+7314,ESCUELA PARTICULAR LOS GUINDOS,LAGO RANCO,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7315,ESCUELA PARTICULAR RUPUMEICA,LAGO RANCO,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+6901,ESCUELA RURAL REDUCCION ANTILHUE,LANCO,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6902,ESCUELA RURAL RUCAKLEN,LANCO,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6903,ESCUELA RURAL PUQUINE BAJO,LANCO,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+31017,ESCUELA PARTICULAR RURAL JUAN PABLO SEGUNDO,LANCO,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+6944,ESCUELA RURAL USTARITZ,LOS LAGOS,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6946,ESCUELA RURAL COMUNIDAD STA CARLA,LOS LAGOS,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6955,ESCUELA RURAL ENRIQUE HEVIA LABBE,LOS LAGOS,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+22268,ESCUELA PARTICULAR GABRIELA MISTRAL,LOS LAGOS,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+6866,ESCUELA RURAL ALFONSO OSSES PEREZ,MARIQUINA,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6891,ESC.RURAL JUAN POBLETE SAINT-SIMON,MARIQUINA,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+22162,ESCUELA PARTICULAR PUILE,MARIQUINA,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+22219,ESCUELA SANTA CECILIA,MARIQUINA,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+22383,ESCUELA PARTICULAR ROSALIA OJEDA SANCHEZ,MARIQUINA,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+40116,ESCUELA PARTICULAR MARTÍN TEJEDA GUZMAN,MARIQUINA,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7037,ESCUELA RURAL SANTA HIGIDIA,MÁFIL,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7040,ESCUELA RURAL RUNCA,MÁFIL,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+22522,COLEGIO SAN MARTIN DE LAS LOMAS,MÁFIL,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+6990,ESCUELA RURAL EL LLOLLY,PAILLACO,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7212,ESCUELA RURAL EL NARANJO,PAILLACO,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7214,ESCUELA RURAL MANAO,PAILLACO,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7220,ESCUELA RURAL LA PENA,PAILLACO,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+22291,COLEGIO KIMEL,PAILLACO,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+22448,ESCUELA PARTICULAR EL CARDO,PAILLACO,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+22753,ESCUELA PARTICULAR ADONAI,PAILLACO,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+31001,ESCUELA EL AROMO,PAILLACO,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7058,ESCUELA RURAL HUITAG,PANGUIPULLI,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7069,ESCUELA RURAL COZ COZ,PANGUIPULLI,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7078,ESCUELA RURAL CARRIRINE,PANGUIPULLI,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7083,ESCUELA RURAL BOCATOMA,PANGUIPULLI,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7092,ESCUELA RURAL REHUEICO,PANGUIPULLI,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+7109,ESCUELA PARTICULAR PELEHUE,PANGUIPULLI,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7111,ESCUELA PARTICULAR PUCURA,PANGUIPULLI,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+22025,ESCUELA PARTICULAR SAN MIGUEL,PANGUIPULLI,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+22527,CENTRO EDUCACIONAL SAN SEBASTIAN,PANGUIPULLI,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7239,ESCUELA BASICA SAN JOSE DE FILUCO,RÍO BUENO,RIOS,Municipal,puntaje_simce_sin_comparacion
+7249,ESCUELA RURAL TIQUECO,RÍO BUENO,RIOS,Municipal,puntaje_simce_sin_comparacion
+7253,ESCUELA RURAL CURRALHUE GRANDE,RÍO BUENO,RIOS,Municipal,puntaje_simce_sin_comparacion
+7257,ESCUELA RURAL FUTAHUENTE,RÍO BUENO,RIOS,Municipal,puntaje_simce_sin_comparacion
+7266,ESCUELA RURAL TRAPI,RÍO BUENO,RIOS,Municipal,puntaje_simce_sin_comparacion
+7273,ESCUELA RURAL EL ARRAYAN,RÍO BUENO,RIOS,Municipal,puntaje_simce_sin_comparacion
+7279,ESCUELA PART LA AGUADA,RÍO BUENO,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7284,ESCUELA PARTICULAR NUEVA PINDACO,RÍO BUENO,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7285,ESCUELA PARTICULAR BOQUIAL,RÍO BUENO,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7290,ESCUELA PARTICULAR TREHUACO,RÍO BUENO,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7296,ESCUELA PARTICULAR LOS AZADORES,RÍO BUENO,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+7297,ESCUELA RURAL SANTA ISABEL,RÍO BUENO,RIOS,Municipal,puntaje_simce_sin_comparacion
+12188,ESCUELA CERRO ALEGRE,RÍO BUENO,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+22148,ESCUELA PART. EL PARQUE PONHUIPA,RÍO BUENO,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+6798,ESCUELA RURAL PUNUCAPA,VALDIVIA,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6805,ESCUELA RURAL SANTO DOMINGO,VALDIVIA,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6814,ESCUELA RURAL MISION DE ARIQUE,VALDIVIA,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+6816,ESCUELA RURAL CAYUMAPU,VALDIVIA,RIOS,Servicio Local de Educación,puntaje_simce_sin_comparacion
+22738,COLEGIO SAN LUCAS DE VALDIVIA,VALDIVIA,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+31006,COLEGIO LAS GAVIOTAS,VALDIVIA,RIOS,Particular Subvencionado,puntaje_simce_sin_comparacion
+31054,COLEGIO EL LABRADOR,BUIN,RM,Particular Subvencionado,puntaje_simce_sin_comparacion
+26516,ESCUELA BASICA N°2327 CONDORES,CONCHALÍ,RM,Particular Subvencionado,puntaje_simce_sin_comparacion
+9850,ESCUELA PARTICULAR LOS LAGOS CHILE,EL BOSQUE,RM,Particular Subvencionado,puntaje_simce_sin_comparacion
+26278,ESCUELA BASICA ARISTA VITAE,LA CISTERNA,RM,Particular Subvencionado,puntaje_simce_sin_comparacion
+26501,LICEO TECNICO PROFESIONAL PATRICIO AYLWIN AZOCAR,LA GRANJA,RM,Servicio Local de Educación,puntaje_simce_sin_comparacion
+26250,ESCUELA BAS. MISIONERO DE AGOSTINI,LA PINTANA,RM,Particular Subvencionado,puntaje_simce_sin_comparacion
+8895,COLEGIO DALCAHUE,LAS CONDES,RM,Particular Pagado,puntaje_simce_sin_comparacion
+9038,COLEGIO SAN LUIS DE LAS CONDES,LAS CONDES,RM,Particular Pagado,puntaje_simce_sin_comparacion
+26134,COLEGIO QUIMAY,LAS CONDES,RM,Particular Pagado,puntaje_simce_sin_comparacion
+31047,CENTRO EDUCACIONAL LIFE SUPPORT,LAS CONDES,RM,Particular Pagado,puntaje_simce_sin_comparacion
+25224,COLEGIO BERTAIT COLLEGE,LO BARNECHEA,RM,Particular Pagado,puntaje_simce_sin_comparacion
+25839,ESC. BAS. Y ESP. CELEI,LO PRADO,RM,Particular Subvencionado,puntaje_simce_sin_comparacion
+25466,ESCUELA BÁSICA N°1812 EL PORVENIR,MAIPÚ,RM,Particular Subvencionado,puntaje_simce_sin_comparacion
+25677,ESCUELA BASICA  N°1921 SISTER VERENANCE,MAIPÚ,RM,Particular Pagado,puntaje_simce_sin_comparacion
+26434,COLEGIO ALVARO LAVÍN,MAIPÚ,RM,Particular Subvencionado,puntaje_simce_sin_comparacion
+10825,ESCUELA PADRE ALBERTO HURTADO,MELIPILLA,RM,Municipal,puntaje_simce_sin_comparacion
+12258,COLEGIO EMMANUEL MOUNIER,PEÑAFLOR,RM,Particular Pagado,puntaje_simce_sin_comparacion
+11783,ESCUELA BASICA N°1238 GIORDANO BRUNO,PEÑALOLÉN,RM,Particular Pagado,puntaje_simce_sin_comparacion
+11928,ESCUELA ANTILLANCA,PUENTE ALTO,RM,Particular Subvencionado,puntaje_simce_sin_comparacion
+26168,COLEGIO POLIVALENTE SAN PEDRO DE QUILICURA,QUILICURA,RM,Particular Subvencionado,puntaje_simce_sin_comparacion
+25362,ESC.PART. TALLERES PREVOCACIONALES PADRE HURT,RENCA,RM,Particular Subvencionado,puntaje_simce_sin_comparacion
+25954,ESC. BAS. Y ESP. NTRA. SRA. DE LAS NIEVES,SAN BERNARDO,RM,Particular Subvencionado,puntaje_simce_sin_comparacion
+10532,ESCUELA BASICA G-N°631 FRONTERIZA,SAN JOSÉ DE MAIPO,RM,Municipal,puntaje_simce_sin_comparacion
+41807,INSTITUTO DE ENSEÑANZA PRIMARIA PROFESOR PAULO ALVAREZ,SAN MIGUEL,RM,Particular Pagado,puntaje_simce_sin_comparacion
+10869,ESCUELA BASICA G-N°140,SAN PEDRO,RM,Municipal,puntaje_simce_sin_comparacion
+10870,ESCUELA BASICA G-N°141,SAN PEDRO,RM,Municipal,puntaje_simce_sin_comparacion
+11806,ESCUELA BASICA PARTICULAR ARMI,SAN RAMÓN,RM,Particular Subvencionado,puntaje_simce_sin_comparacion
+8717,ESCUELA PARTICULAR SAINT HENRY SCHOOL,SANTIAGO,RM,Particular Subvencionado,puntaje_simce_sin_comparacion
+10442,ESCUELA BASICA G-N°350,TILTIL,RM,Municipal,puntaje_simce_sin_comparacion
+31300,ESCUELA BÁSICA N°186 MANCHESTER COLLEGE,TILTIL,RM,Particular Subvencionado,puntaje_simce_sin_comparacion
+8793,ESCUELA BASICA N°823 SPENDIX,ÑUÑOA,RM,Particular Pagado,puntaje_simce_sin_comparacion
+31426,ESCUELA BASICA N°2403 GREEN FOREST COLLEGE,ÑUÑOA,RM,Particular Pagado,puntaje_simce_sin_comparacion
+41264,COLEGIO EL ROBLE,ÑUÑOA,RM,Particular Pagado,puntaje_simce_sin_comparacion
+171,ESCUELA APAMILCA,CAMIÑA,TPCA,Municipal,puntaje_simce_sin_comparacion
+174,ESCUELA FRANCIA,CAMIÑA,TPCA,Municipal,puntaje_simce_sin_comparacion
+177,ESCUELA BASICA CARIQUIMA,COLCHANE,TPCA,Municipal,puntaje_simce_sin_comparacion
+185,ESCUELA BASICA PISIGA-CHOQUE,COLCHANE,TPCA,Municipal,puntaje_simce_sin_comparacion
+154,ESCUELA BASICA FRONTERIZA,HUARA,TPCA,Municipal,puntaje_simce_sin_comparacion
+156,ESCUELA PISAGUA,HUARA,TPCA,Municipal,puntaje_simce_sin_comparacion
+159,ESCUELA JAINA,HUARA,TPCA,Municipal,puntaje_simce_sin_comparacion
+162,ESCUELA SIBAYA,HUARA,TPCA,Municipal,puntaje_simce_sin_comparacion
+192,ESCUELA BASICA MAMINA,POZO ALMONTE,TPCA,Municipal,puntaje_simce_sin_comparacion
+196,ESCUELA BASICA HUATACONDO,POZO ALMONTE,TPCA,Municipal,puntaje_simce_sin_comparacion
+1171,ESCUELA BASICA LA FRONTERA DE ALICAHUE,CABILDO,VALPO,Municipal,puntaje_simce_sin_comparacion
+1182,ESCUELA BASICA G-47,CABILDO,VALPO,Municipal,puntaje_simce_sin_comparacion
+11206,ESCUELA MUNICIPAL LAS PUERTAS,CABILDO,VALPO,Municipal,puntaje_simce_sin_comparacion
+2064,LICEO POETA VICENTE HUIDOBRO,CARTAGENA,VALPO,Municipal,puntaje_simce_sin_comparacion
+2071,ESCUELA BASICA SAN FRANCISCO,CARTAGENA,VALPO,Municipal,puntaje_simce_sin_comparacion
+1462,ESCUELA BASICA LOS TILOS DE HUALCAPO,HIJUELAS,VALPO,Municipal,puntaje_simce_sin_comparacion
+1418,ESCUELA BASICA,LA CRUZ,VALPO,Municipal,puntaje_simce_sin_comparacion
+1130,ESC. BASICA LOS HORNOS DE HUAQUEN,LA LIGUA,VALPO,Municipal,puntaje_simce_sin_comparacion
+1134,CARMEN SANCHEZ ARAYA,LA LIGUA,VALPO,Municipal,puntaje_simce_sin_comparacion
+1140,ESCUELA BASICA CARLOS ARIZTIA RUIZ,LA LIGUA,VALPO,Municipal,puntaje_simce_sin_comparacion
+1145,ESCUELA ENRIQUE DOLL ROJAS,LA LIGUA,VALPO,Municipal,puntaje_simce_sin_comparacion
+1475,ESC. BASICA TRANQUE LLIU LLIU,LIMACHE,VALPO,Municipal,puntaje_simce_sin_comparacion
+1495,ESCUELA LA RAMAYANA,OLMUÉ,VALPO,Municipal,puntaje_simce_sin_comparacion
+40099,LICEO TECNICO PROFESIONAL PAPUDO,PAPUDO,VALPO,Municipal,puntaje_simce_sin_comparacion
+1150,ESCUELA BASICA NEFTALI REYES B.,PETORCA,VALPO,Municipal,puntaje_simce_sin_comparacion
+1157,ESCUELA BASICA LOS ALAMOS EL SOBRANTE,PETORCA,VALPO,Municipal,puntaje_simce_sin_comparacion
+1162,ESCUELA PARTICULAR JUAN PABLO II,PETORCA,VALPO,Particular Subvencionado,puntaje_simce_sin_comparacion
+1869,ESCUELA LOS MAQUIS,PUCHUNCAVÍ,VALPO,Servicio Local de Educación,puntaje_simce_sin_comparacion
+1876,ESCUELA BASICA LA QUEBRADA,PUCHUNCAVÍ,VALPO,Servicio Local de Educación,puntaje_simce_sin_comparacion
+1308,ESCUELA ALEJANDRINA CARVAJAL ASPEE,PUTAENDO,VALPO,Municipal,puntaje_simce_sin_comparacion
+1309,ESCUELA EDUARDO BECERRA BASCUNAN,PUTAENDO,VALPO,Municipal,puntaje_simce_sin_comparacion
+14573,ESCUELA CAROLA REYES PIZARRO,QUILLOTA,VALPO,Particular Subvencionado,puntaje_simce_sin_comparacion
+1900,ESCUELA LOS MOLLES DE MARGA MARGA,QUILPUÉ,VALPO,Municipal,puntaje_simce_sin_comparacion
+1906,ESCUELA DELFINA ALARCON HENRIQUEZ,QUILPUÉ,VALPO,Municipal,puntaje_simce_sin_comparacion
+42190,COLEGIO GREENHOUSE ACADEMY,RINCONADA,VALPO,Particular Pagado,puntaje_simce_sin_comparacion
+2038,ESCUELA BASICA EL ASILO,SAN ANTONIO,VALPO,Municipal,puntaje_simce_sin_comparacion
+1238,ESCUELA INCLUSIVA SAN LORENZO,SAN ESTEBAN,VALPO,Municipal,puntaje_simce_sin_comparacion
+1243,ESCUELA EL COBRE,SAN ESTEBAN,VALPO,Municipal,puntaje_simce_sin_comparacion
+1273,ESCUELA SAN RAFAEL,SAN FELIPE,VALPO,Municipal,puntaje_simce_sin_comparacion
+1283,ESCUELA HERIBERTO BERMUDEZ CRUZ,SAN FELIPE,VALPO,Municipal,puntaje_simce_sin_comparacion
+1322,ESCUELA LA HIGUERA,SANTA MARÍA,VALPO,Municipal,puntaje_simce_sin_comparacion
+1325,ESCUELA BASICA AURORA VELASCO PEREZ,SANTA MARÍA,VALPO,Municipal,puntaje_simce_sin_comparacion
+2093,ESCUELA BUCALEMITO,SANTO DOMINGO,VALPO,Municipal,puntaje_simce_sin_comparacion
+2095,ESCUELA BASICA JUANITA FERNANDEZ S.,SANTO DOMINGO,VALPO,Municipal,puntaje_simce_sin_comparacion
+11200,ESCUELA PADRE ALBERTO HURTADO,SANTO DOMINGO,VALPO,Municipal,puntaje_simce_sin_comparacion
+1525,LICEO BICENTENARIO INSTITUTO TÉCNICO PROFESIONAL MARTÍTIMO DE VALPARAÍSO,VALPARAÍSO,VALPO,Servicio Local de Educación,puntaje_simce_sin_comparacion
+1556,ESCUELA ELEUTERIO RAMIREZ,VALPARAÍSO,VALPO,Servicio Local de Educación,puntaje_simce_sin_comparacion
+14871,COLEGIO ALIMAPU,VALPARAÍSO,VALPO,Particular Subvencionado,puntaje_simce_sin_comparacion
+1672,LICEO BICENTENARIO JOSÉ FRANCISCO VERGARA ETCHEVERS,VIÑA DEL MAR,VALPO,Servicio Local de Educación,puntaje_simce_sin_comparacion
 369,ESCUELA LUCILA GODOY ALCAYAGA,MEJILLONES,ANTOF,Municipal,sin_gse
 275,ESCUELA BASICA ANDINA,SAN PEDRO DE ATACAMA,ANTOF,Servicio Local de Educación,sin_gse
 5233,ESCUELA BASICA JUAN M. FERRIERE CAIRE,ANGOL,ARAUC,Municipal,sin_gse
