@@ -52,6 +52,9 @@ export const metadata: Metadata = {
  * Root layout — estructura común de todas las páginas:
  *   enlace "Saltar al contenido" (WCAG 2.4.1) → barra de navegación
  *   (escritorio) → <main id="contenido"> → footer (salvo en el Test).
+ * El body es una columna de alto mínimo igual a la ventana y <main> crece:
+ * en páginas cortas el footer queda al fondo de la pantalla, sin franja
+ * blanca debajo.
  * El proveedor de ubicación (sessionStorage) se comparte entre Test,
  * exploración y shortlist.
  */
@@ -62,13 +65,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es-CL">
-      <body className="min-h-screen bg-superficie-base">
+      <body className="flex min-h-screen flex-col bg-superficie-base">
         <UbicacionProvider>
           <a href="#contenido" className="salto-contenido">
             Saltar al contenido
           </a>
           <BarraNavegacion />
-          <main id="contenido" tabIndex={-1} className="focus:outline-none">
+          <main id="contenido" tabIndex={-1} className="flex-1 focus:outline-none">
             {children}
           </main>
           <PieCondicional>

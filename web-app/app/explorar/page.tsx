@@ -26,7 +26,7 @@ export default function Explorar({
 }) {
   return (
     <>
-      <div className="min-h-[70vh]">
+      <div>
         <Exploracion filtros={parseFiltros(searchParams)} />
       </div>
     </>

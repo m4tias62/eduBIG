@@ -48,7 +48,7 @@ export function BarraNavegacion() {
           {enlace("/explorar", "Explorar colegios", ruta.startsWith("/explorar") || ruta.startsWith("/colegio"))}
           {enlace(
             rbds.length ? `/comparar?rbd=${rbds.join(",")}` : "/comparar",
-            rbds.length ? `Comparar (${rbds.length})` : "Comparar",
+            rbds.length ? `Comparar colegios (${rbds.length})` : "Comparar colegios",
             ruta.startsWith("/comparar")
           )}
           <Link

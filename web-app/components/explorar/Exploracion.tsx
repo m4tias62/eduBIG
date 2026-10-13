@@ -137,8 +137,9 @@ export function Exploracion({ filtros }: { filtros: FiltrosExploracion }) {
       <div className="flex flex-col min-w-0">
       <section
         className={cn(
-          "bg-superficie-base px-l pt-l pb-m",
-          modo ? "explorar-columna border-b border-borde-sutil" : "lg:px-0 lg:pb-xxl"
+          // Mismo margen superior que el resto de las páginas (32 px en escritorio)
+          "bg-superficie-base px-l pt-l pb-m lg:pt-xl",
+          modo ? "explorar-columna border-b border-borde-sutil" : "pb-xl lg:px-0 lg:pb-xxl"
         )}
       >
         <div className={cn(!modo && RETICULA_LG)}>

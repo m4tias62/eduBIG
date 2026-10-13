@@ -45,7 +45,7 @@ export default function Comparar({
   return (
     <>
       <SincronizarComparacion rbds={colegios.map((c) => c.rbd)} />
-      <div className="contenedor flex flex-col gap-l py-l lg:py-xl">
+      <div className="contenedor flex flex-col gap-l pt-l pb-xl lg:pt-xl lg:pb-xxl">
         <BotonVolver href="/" />
         <div className="flex flex-col gap-xs ancho-8-col">
           <h1 className="text-lg font-bold text-texto-primario">Comparar colegios</h1>
