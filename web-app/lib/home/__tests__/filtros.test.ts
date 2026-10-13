@@ -1,110 +1,52 @@
 import { describe, it, expect } from "vitest";
-import {
-  parseFiltros,
-  serializeFiltros,
-  parseVista,
-  filtrarUniverso,
-  pasaFiltros,
-  type FiltrosHome,
-} from "@/lib/home/filtros";
-import { getUniverso, getColegio } from "@/lib/data/schools";
-import { distanciaKm } from "@/lib/motor/haversine";
-import { LAT_PUDAHUEL, LON_PUDAHUEL } from "@/lib/quiz/state";
+import fs from "node:fs";
+import path from "node:path";
+import { explorar, normalizar, parseFiltros, serializeFiltros, ordenEfectivo } from "@/lib/home/filtros";
+import type { ColegioIndice } from "@/lib/types";
 
-describe("Filtros Home — parse/serialize", () => {
-  it("roundtrip completo", () => {
-    const original: FiltrosHome = {
-      q: "graham",
-      gratuito: true,
-      nivel: "media",
-      distanciaMaxKm: 2,
-      dependencias: ["publica"],
-    };
-    const qs = serializeFiltros(original);
-    expect(parseFiltros(new URLSearchParams(qs))).toEqual(original);
-  });
+const DIR = path.join(__dirname, "..", "..", "..", "public", "data", "nacional");
+const indice: ColegioIndice[] = JSON.parse(fs.readFileSync(path.join(DIR, "indice.json"), "utf-8"));
 
-  it("ignora valores inválidos", () => {
-    const p = parseFiltros(new URLSearchParams("nivel=xxx&dep=???&dist=-5"));
-    expect(p.nivel).toBeUndefined();
-    expect(p.dependencias).toBeUndefined();
-    expect(p.distanciaMaxKm).toBeUndefined();
-  });
-
-  it("parseVista default a lista", () => {
-    expect(parseVista(new URLSearchParams(""))).toBe("lista");
-    expect(parseVista(new URLSearchParams("vista=mapa"))).toBe("mapa");
-    expect(parseVista(new URLSearchParams("vista=lista"))).toBe("lista");
-    expect(parseVista(new URLSearchParams("vista=otro"))).toBe("lista");
+describe("URL de exploración", () => {
+  it("parse y serialize son inversos", () => {
+    const qs = "comuna=13124&cercanas=1&gratuito=1&nivel=media&tipo=publica%2Cpart_subvencionado&orden=ingreso_u&vista=mapa";
+    const f = parseFiltros(new URLSearchParams(qs));
+    expect(f.comuna).toBe(13124);
+    expect(f.tipos).toEqual(["publica", "part_subvencionado"]);
+    expect(serializeFiltros(f)).toBe(qs);
   });
 });
 
-describe("Filtros Home — aplicación sobre universo real", () => {
-  const universo = getUniverso();
-
-  it("sin filtros retorna todo el universo", () => {
-    expect(filtrarUniverso(universo, {}).length).toBe(universo.length);
+describe("explorar", () => {
+  it("por comuna: solo esa comuna y en orden alfabético", () => {
+    const f = parseFiltros(new URLSearchParams("comuna=13124"));
+    const r = explorar(indice, f, { modo: "comuna", comunas: new Set([13124]) });
+    expect(r.length).toBeGreaterThan(40);
+    expect(r.every((x) => x.c.c === 13124)).toBe(true);
+    const nombres = r.map((x) => x.c.n);
+    expect(nombres).toEqual([...nombres].sort((a, b) => a.localeCompare(b, "es")));
   });
 
-  it("gratuito filtra los con copago", () => {
-    const gratuitos = filtrarUniverso(universo, { gratuito: true });
-    expect(gratuitos.length).toBeGreaterThan(0);
-    expect(gratuitos.length).toBeLessThan(universo.length);
-    for (const c of gratuitos) expect(c.PAGO_MENSUAL).toBe("GRATUITO");
+  it("Gratuito incluye 'gratuito por ley' y 'sin dato' (D36), excluye pagados", () => {
+    const f = parseFiltros(new URLSearchParams("gratuito=1"));
+    const r = explorar(indice, f, { modo: "nombre" });
+    expect(r.some((x) => x.c.k === "gratuito_ley")).toBe(true);
+    expect(r.some((x) => x.c.k === "pago" || x.c.k === "pago_sin_monto")).toBe(false);
   });
 
-  it("nivel media requiere ofrece_media", () => {
-    const media = filtrarUniverso(universo, { nivel: "media" });
-    for (const c of media) expect(c.ofrece_media).toBe(true);
+  it("busca sin tildes ni mayúsculas", () => {
+    expect(normalizar("Concepción")).toBe("concepcion");
+    const f = parseFiltros(new URLSearchParams("q=ciudad de brasilia"));
+    const r = explorar(indice, f, { modo: "nombre" });
+    expect(r.some((x) => x.c.rbd === 10130)).toBe(true);
   });
 
-  it("dependencia pública devuelve solo COD_DEPE=6", () => {
-    const pub = filtrarUniverso(universo, { dependencias: ["publica"] });
-    for (const c of pub) expect(c.COD_DEPE).toBe(6);
-  });
-
-  it("dependencias multi (pública + part. pagado) devuelve solo esos códigos", () => {
-    const res = filtrarUniverso(universo, { dependencias: ["publica", "part_pagado"] });
-    for (const c of res) expect([6, 4]).toContain(c.COD_DEPE);
-  });
-
-  it("distancia máxima limita al radio", () => {
-    const cerca = filtrarUniverso(universo, { distanciaMaxKm: 1 });
-    const lejos = filtrarUniverso(universo, { distanciaMaxKm: 10 });
-    expect(cerca.length).toBeLessThanOrEqual(lejos.length);
-  });
-
-  it("búsqueda por texto es case-insensitive y parcial", () => {
-    const graham = filtrarUniverso(universo, { q: "graham" });
-    const grahamUpper = filtrarUniverso(universo, { q: "GRAHAM" });
-    expect(graham.length).toBe(grahamUpper.length);
-    expect(graham.length).toBeGreaterThan(0);
-  });
-
-  it("orden: los resultados salen ordenados por distancia ascendente (haversine)", () => {
-    const todos = filtrarUniverso(universo, {});
-    for (let i = 1; i < todos.length; i++) {
-      const dPrev = distanciaKm(todos[i - 1].LATITUD, todos[i - 1].LONGITUD, LAT_PUDAHUEL, LON_PUDAHUEL);
-      const dCurr = distanciaKm(todos[i].LATITUD, todos[i].LONGITUD, LAT_PUDAHUEL, LON_PUDAHUEL);
-      expect(dCurr).toBeGreaterThanOrEqual(dPrev);
-    }
-  });
-
-  it("combinación de filtros (gratuito + básica) reduce más que cada uno solo", () => {
-    const gratuitos = filtrarUniverso(universo, { gratuito: true });
-    const basica = filtrarUniverso(universo, { nivel: "basica" });
-    const combo = filtrarUniverso(universo, { gratuito: true, nivel: "basica" });
-    expect(combo.length).toBeLessThanOrEqual(gratuitos.length);
-    expect(combo.length).toBeLessThanOrEqual(basica.length);
-  });
-
-  it("Graham Bell pasa filtros de básica + público + gratuito", () => {
-    const c = getColegio(10090);
-    expect(c).not.toBeNull();
-    expect(pasaFiltros(c!, {
-      gratuito: true,
-      nivel: "basica",
-      dependencias: ["publica"],
-    })).toBe(true);
+  it("el orden por ingreso a la U solo aplica con media (D33)", () => {
+    expect(ordenEfectivo(parseFiltros(new URLSearchParams("orden=ingreso_u")), "comuna")).toBe("nombre");
+    const f = parseFiltros(new URLSearchParams("orden=ingreso_u&nivel=media"));
+    expect(ordenEfectivo(f, "comuna")).toBe("ingreso_u");
+    const r = explorar(indice, f, { modo: "comuna", comunas: new Set([13124]) });
+    const tr = r.map((x) => x.c.tr).filter((v): v is number => v !== undefined);
+    expect(tr).toEqual([...tr].sort((a, b) => b - a));
   });
 });

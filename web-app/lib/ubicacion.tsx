@@ -8,141 +8,105 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import type { Comuna } from "@/lib/types";
+import type { Referencia } from "@/lib/motor/types";
+import { distanciaKm } from "@/lib/motor/haversine";
 
 /**
- * Ubicación del usuario para el filtro de distancia (Home + Test de Calce).
+ * Ubicación de la familia (D22, D23, D34).
  *
- * Flujo: el permiso se pide AUTOMÁTICAMENTE al entrar al sitio (una vez por
- * sesión). Si se concede, la distancia se mide desde la posición real del
- * usuario en el mapa, la lista y el test. Si se rechaza (o no se soporta),
- * fallback al centro de Pudahuel.
- *
- * Privacidad: la ubicación real es un dato sensible, así que NO viaja por la
- * URL (a diferencia del resto de filtros). Vive solo en el cliente y se
- * persiste en sessionStorage — dura la sesión del navegador y no se comparte.
+ * - Se pide SOLO cuando hace falta (Q4 del Test, la exploración y la
+ *   shortlist compartida). No hay ubicación por defecto: el centro de
+ *   Pudahuel del MVP se eliminó.
+ * - Dos precisiones: "Usar mi ubicación" (GPS) o "Elegir comuna".
+ * - Privacidad: vive solo en el navegador (sessionStorage), nunca en la URL.
+ *   Dura la sesión y no viaja en los enlaces compartidos.
  */
 
-const KEY = "edubig_ubicacion";
-const KEY_PEDIDA = "edubig_ubicacion_pedida";
+const KEY = "edubig_ubicacion_v2";
 
-export interface Ubicacion {
-  lat: number;
-  lon: number;
-}
+export type Ubicacion =
+  | { tipo: "gps"; lat: number; lon: number }
+  | { tipo: "comuna"; cod: number };
 
-export type EstadoUbicacion =
-  | "idle"
-  | "cargando"
-  | "ok"
-  | "denegado"
-  | "error"
-  | "no_soportado";
+export type EstadoGps = "idle" | "cargando" | "denegado" | "error" | "no_soportado";
 
 interface UbicacionCtx {
   ubicacion: Ubicacion | null;
-  estado: EstadoUbicacion;
-  pedirUbicacion: () => void;
-  limpiarUbicacion: () => void;
+  /** false hasta leer sessionStorage (evita mostrar el modal antes de tiempo). */
+  lista: boolean;
+  estadoGps: EstadoGps;
+  pedirGps: () => void;
+  elegirComuna: (cod: number) => void;
+  limpiar: () => void;
 }
 
 const Ctx = createContext<UbicacionCtx | null>(null);
 
+function guardar(u: Ubicacion | null) {
+  try {
+    if (u) sessionStorage.setItem(KEY, JSON.stringify(u));
+    else sessionStorage.removeItem(KEY);
+  } catch {
+    /* sessionStorage no disponible: la ubicación dura solo esta página */
+  }
+}
+
 export function UbicacionProvider({ children }: { children: ReactNode }) {
   const [ubicacion, setUbicacion] = useState<Ubicacion | null>(null);
-  const [estado, setEstado] = useState<EstadoUbicacion>("idle");
+  const [lista, setLista] = useState(false);
+  const [estadoGps, setEstadoGps] = useState<EstadoGps>("idle");
 
-  const pedirUbicacion = useCallback(() => {
-    // Marca que ya pedimos permiso esta sesión (evita re-preguntar tras un
-    // rechazo y protege del doble-montaje de React StrictMode en dev).
+  useEffect(() => {
     try {
-      sessionStorage.setItem(KEY_PEDIDA, "1");
+      const raw = sessionStorage.getItem(KEY);
+      if (raw) {
+        const u = JSON.parse(raw);
+        if (u?.tipo === "gps" && typeof u.lat === "number" && typeof u.lon === "number") {
+          setUbicacion({ tipo: "gps", lat: u.lat, lon: u.lon });
+        } else if (u?.tipo === "comuna" && typeof u.cod === "number") {
+          setUbicacion({ tipo: "comuna", cod: u.cod });
+        }
+      }
     } catch {
-      /* ignore */
+      /* ignorar */
     }
+    setLista(true);
+  }, []);
+
+  const pedirGps = useCallback(() => {
     if (typeof navigator === "undefined" || !navigator.geolocation) {
-      setEstado("no_soportado");
+      setEstadoGps("no_soportado");
       return;
     }
-    setEstado("cargando");
+    setEstadoGps("cargando");
     navigator.geolocation.getCurrentPosition(
       (pos) => {
-        const u = { lat: pos.coords.latitude, lon: pos.coords.longitude };
+        const u: Ubicacion = { tipo: "gps", lat: pos.coords.latitude, lon: pos.coords.longitude };
         setUbicacion(u);
-        setEstado("ok");
-        try {
-          sessionStorage.setItem(KEY, JSON.stringify(u));
-        } catch {
-          /* ignore */
-        }
+        guardar(u);
+        setEstadoGps("idle");
       },
-      (err) => {
-        setEstado(err.code === err.PERMISSION_DENIED ? "denegado" : "error");
-      },
+      (err) => setEstadoGps(err.code === err.PERMISSION_DENIED ? "denegado" : "error"),
       { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 }
     );
   }, []);
 
-  const limpiarUbicacion = useCallback(() => {
-    setUbicacion(null);
-    setEstado("idle");
-    try {
-      sessionStorage.removeItem(KEY);
-    } catch {
-      /* ignore */
-    }
+  const elegirComuna = useCallback((cod: number) => {
+    const u: Ubicacion = { tipo: "comuna", cod };
+    setUbicacion(u);
+    guardar(u);
+    setEstadoGps("idle");
   }, []);
 
-  // Al montar: rehidrata la ubicación previa; si no hay y aún no pedimos
-  // permiso esta sesión, lo pedimos en la PRIMERA interacción del usuario.
-  useEffect(() => {
-    // 1. Rehidratar ubicación previa de esta sesión.
-    let tieneGuardada = false;
-    try {
-      const raw = sessionStorage.getItem(KEY);
-      if (raw) {
-        const p = JSON.parse(raw);
-        if (typeof p?.lat === "number" && typeof p?.lon === "number") {
-          setUbicacion({ lat: p.lat, lon: p.lon });
-          setEstado("ok");
-          tieneGuardada = true;
-        }
-      }
-    } catch {
-      /* sessionStorage no disponible — se ignora */
-    }
-    if (tieneGuardada) return;
-
-    // 2. ¿Ya pedimos permiso esta sesión? No re-preguntar en cada página.
-    let yaPedida = false;
-    try {
-      yaPedida = sessionStorage.getItem(KEY_PEDIDA) === "1";
-    } catch {
-      /* ignore */
-    }
-    if (yaPedida) return;
-
-    // 3. Pedir en la primera interacción (toque/click/tecla). Los navegadores
-    //    móviles (iOS/Safari en particular) ignoran el prompt de geolocalización
-    //    si se pide en la carga sin un gesto del usuario; con un listener que
-    //    dispara al primer gesto funciona igual en móvil y en desktop.
-    const quitar = () => {
-      window.removeEventListener("pointerdown", pedirEnGesto);
-      window.removeEventListener("touchstart", pedirEnGesto);
-      window.removeEventListener("keydown", pedirEnGesto);
-    };
-    const pedirEnGesto = () => {
-      quitar();
-      pedirUbicacion();
-    };
-    window.addEventListener("pointerdown", pedirEnGesto, { once: true });
-    window.addEventListener("touchstart", pedirEnGesto, { once: true });
-    window.addEventListener("keydown", pedirEnGesto, { once: true });
-
-    return quitar;
-  }, [pedirUbicacion]);
+  const limpiar = useCallback(() => {
+    setUbicacion(null);
+    guardar(null);
+    setEstadoGps("idle");
+  }, []);
 
   return (
-    <Ctx.Provider value={{ ubicacion, estado, pedirUbicacion, limpiarUbicacion }}>
+    <Ctx.Provider value={{ ubicacion, lista, estadoGps, pedirGps, elegirComuna, limpiar }}>
       {children}
     </Ctx.Provider>
   );
@@ -151,13 +115,60 @@ export function UbicacionProvider({ children }: { children: ReactNode }) {
 export function useUbicacion(): UbicacionCtx {
   const ctx = useContext(Ctx);
   if (!ctx) {
-    // Fallback seguro si se consume fuera del provider (no debería ocurrir).
     return {
       ubicacion: null,
-      estado: "idle",
-      pedirUbicacion: () => {},
-      limpiarUbicacion: () => {},
+      lista: true,
+      estadoGps: "idle",
+      pedirGps: () => {},
+      elegirComuna: () => {},
+      limpiar: () => {},
     };
   }
   return ctx;
+}
+
+/** Comuna cuyo centro está más cerca de un punto. */
+export function comunaMasCercana(lat: number, lon: number, comunas: Comuna[]): Comuna {
+  let mejor = comunas[0];
+  let dMin = Infinity;
+  for (const c of comunas) {
+    const d = distanciaKm(lat, lon, c.lat, c.lon);
+    if (d < dMin) {
+      dMin = d;
+      mejor = c;
+    }
+  }
+  return mejor;
+}
+
+/** Ubicación guardada → punto de referencia del motor y de la exploración. */
+export function construirReferencia(
+  u: Ubicacion,
+  comunaPorCod: ReadonlyMap<number, Comuna>,
+  comunas: Comuna[]
+): Referencia | null {
+  if (u.tipo === "comuna") {
+    const c = comunaPorCod.get(u.cod);
+    if (!c) return null;
+    return {
+      tipo: "comuna",
+      lat: c.lat,
+      lon: c.lon,
+      codComuna: c.cod,
+      nombreComuna: c.nombre,
+      region: c.region,
+      cercanas: c.cercanas,
+    };
+  }
+  if (comunas.length === 0) return null;
+  const c = comunaMasCercana(u.lat, u.lon, comunas);
+  return {
+    tipo: "gps",
+    lat: u.lat,
+    lon: u.lon,
+    codComuna: c.cod,
+    nombreComuna: c.nombre,
+    region: c.region,
+    cercanas: c.cercanas,
+  };
 }

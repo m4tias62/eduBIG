@@ -2,7 +2,7 @@
 
 Plataforma que traduce datos oficiales del Mineduc, Agencia de Calidad y Supereduc en información accesible para familias que están eligiendo colegio.
 
-Servicio en producción para Pudahuel (Región Metropolitana, Chile). Universo cubierto: 57 colegios activos al momento del pipeline (agosto 2026).
+Escala nacional: 8.250 colegios de básica, media y educación especial con matrícula 2025 (branch `data/master-chile-nacional`). El MVP publicado en Vercel cubre los 57 colegios de Pudahuel.
 
 ## Filosofía
 
@@ -36,11 +36,11 @@ Separación estricta: `data-pipeline/` produce los JSON en `web-app/public/data/
 
 **Data**: Python 3, Pandas, Jupyter. Fuentes: Directorio Mineduc, SIMCE (Agencia de Calidad), IDPS (Agencia de Calidad), Denuncias formales (Supereduc).
 
-**Motor de scoring**: Capa 1 filtros duros (copago, nivel, distancia haversine) + Capa 2 ponderación de 6 perfiles con bono inclusión. Implementado en Python (source of truth) y portado a TypeScript con paridad de test 100%.
+**Motor de scoring**: Capa 1 filtros duros (copago, nivel, inclusión, alcance) + Capa 2 suma ponderada con percentiles nacionales. La versión nacional (decisiones D21–D36) vive en TypeScript (`web-app/lib/motor`); el notebook Python 04 corresponde al motor del MVP.
 
 **Frontend**: Next.js 14 (App Router), TypeScript, Tailwind CSS, react-leaflet + OpenStreetMap, Material Symbols. Sin backend — todo estático, servido desde CDN.
 
-**Testing**: vitest — 28 tests que validan el motor contra fixtures generadas por Python y verifican el render de las 57 fichas.
+**Testing**: vitest — motor, estado del Test, exploración y render de fichas sobre el dataset nacional.
 
 ## Cómo correr localmente
 
@@ -52,7 +52,14 @@ npm run dev
 # abrir http://localhost:3000
 ```
 
-**Pipeline** (opcional — los JSON ya están commiteados en web-app/public/data/):
+**Datos nacionales** (los JSON ya están versionados en `web-app/public/data/nacional/`):
+```bash
+cd data-pipeline/scripts
+python3 05_dataset_nacional.py   # dataset nacional 2025 (desde raw/)
+python3 06_datos_web.py          # JSON para la web-app
+```
+
+**Pipeline del MVP** (notebooks):
 ```bash
 cd data-pipeline
 python3 -m venv venv

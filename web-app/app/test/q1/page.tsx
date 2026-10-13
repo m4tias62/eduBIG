@@ -1,19 +1,16 @@
 import { PreguntaLayout } from "@/components/quiz/PreguntaLayout";
 import { OpcionPregunta } from "@/components/quiz/OpcionPregunta";
 import { nextUrl, parseRespuestas } from "@/lib/quiz/state";
+import type { TechoCopago } from "@/lib/motor/types";
 
-/**
- * Q1 — Copago. Mapea a techoCopago (0..5, siguiendo los rangos Mineduc).
- * Sin nota de legitimación: no hay riesgo de deseabilidad social aquí.
- */
+/** Q1 — Copago. Tope de mensualidad (tramos del Directorio Mineduc). */
 export default function Q1({
   searchParams,
 }: {
   searchParams: Record<string, string | string[] | undefined>;
 }) {
   const previas = parseRespuestas(searchParams);
-
-  const opciones: Array<{ label: string; valor: number }> = [
+  const opciones: Array<{ label: string; valor: TechoCopago }> = [
     { label: "Gratuito", valor: 0 },
     { label: "Hasta $10.000", valor: 1 },
     { label: "Hasta $25.000", valor: 2 },
@@ -30,10 +27,7 @@ export default function Q1({
       subtitulo="Verás opciones de ese monto y menores, incluidas las gratuitas."
     >
       {opciones.map((o) => (
-        <OpcionPregunta
-          key={o.valor}
-          href={nextUrl("/test/q2a", previas, { techoCopago: o.valor as never })}
-        >
+        <OpcionPregunta key={o.valor} href={nextUrl("/test/q2a", previas, { techoCopago: o.valor })}>
           {o.label}
         </OpcionPregunta>
       ))}

@@ -7,15 +7,15 @@ export default function NotFound() {
         Colegio no encontrado
       </h1>
       <p className="text-sm text-texto-secundario">
-        No tenemos datos para el RBD que buscaste. Puede que ya no esté activo
-        en el Directorio Mineduc, o que no pertenezca al universo de Pudahuel
-        que Edubig cubre hoy.
+        No tenemos datos para el RBD que buscaste. Puede que no tenga matrícula
+        en 2025 o que solo imparta educación de adultos o parvularia, que
+        Edubig no cubre.
       </p>
       <Link
-        href="/"
+        href="/explorar"
         className="text-sm font-medium text-interaccion-enlace hover:text-interaccion-enlace-hover"
       >
-        ← Volver al inicio
+        ← Buscar otro colegio
       </Link>
     </div>
   );

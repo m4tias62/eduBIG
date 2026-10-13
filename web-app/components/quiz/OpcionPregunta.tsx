@@ -2,28 +2,37 @@
 
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
 /**
- * Opción clickable de una pregunta del quiz.
- * Espejo del component set Figma "Opción de pregunta" (variantes Estado=Reposo/Selected).
+ * Opción clickable de una pregunta del Test (auto-avance: la respuesta es la
+ * acción, sin botón "Continuar").
  *
- * Auto-advance: al hacer click, el <Link> navega a la próxima URL con
- * la respuesta serializada. Sin botón "Continuar" — patrón validado en
- * bitácora original del quiz.
+ * `secundaria`: menos peso visual, para "No tengo una prioridad clara" (D35).
  */
 export function OpcionPregunta({
   href,
   children,
+  detalle,
+  secundaria = false,
 }: {
   href: string;
   children: ReactNode;
+  detalle?: string;
+  secundaria?: boolean;
 }) {
   return (
     <Link
       href={href}
-      className="block w-full rounded-m border border-borde-definido bg-superficie-base px-l py-m text-sm text-texto-primario hover:border-texto-primario hover:bg-superficie-elevada focus:border-interaccion-foco focus:outline-none transition-colors"
+      className={cn(
+        "flex min-h-[44px] w-full flex-col gap-xxs rounded-m border px-l py-m text-left transition-colors focus:border-interaccion-foco focus:outline-none",
+        secundaria
+          ? "border-dashed border-borde-definido bg-superficie-elevada text-texto-secundario hover:border-texto-primario"
+          : "border-borde-definido bg-superficie-base text-texto-primario hover:border-texto-primario hover:bg-superficie-elevada"
+      )}
     >
-      {children}
+      <span className={secundaria ? "text-xs" : "text-sm"}>{children}</span>
+      {detalle && <span className="text-2xs text-texto-secundario">{detalle}</span>}
     </Link>
   );
 }

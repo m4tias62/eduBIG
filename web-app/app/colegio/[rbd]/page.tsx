@@ -1,56 +1,32 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { FichaColegio } from "@/components/ficha/FichaColegio";
-import {
-  getAllRbds,
-  getColegio,
-  getConclusionesColegio,
-} from "@/lib/data/schools";
+import { getDetalle } from "@/lib/data/servidor";
 
 /**
- * Ruta estática por RBD — Next 14 App Router.
- *
- * `generateStaticParams` pre-renderiza los 57 colegios del universo al
- * build. Cada ficha resultante es un HTML estático servible directamente
- * desde CDN — carga instantánea, indexable por buscadores, compartible
- * por URL a familias reales.
+ * Ficha por RBD. Se renderiza en el servidor a pedido (8.250 colegios): lee
+ * solo el archivo de la comuna del colegio. El HTML resultante lleva sus
+ * metadatos para compartir por WhatsApp.
  */
-
 interface PageProps {
   params: { rbd: string };
 }
 
-export function generateStaticParams(): Array<{ rbd: string }> {
-  return getAllRbds().map((rbd) => ({ rbd: String(rbd) }));
-}
-
 export function generateMetadata({ params }: PageProps): Metadata {
-  const rbd = Number(params.rbd);
-  const colegio = getColegio(rbd);
-  const conclusiones = getConclusionesColegio(rbd);
-  if (!colegio) return { title: "Colegio no encontrado — Edubig" };
-
-  const descripcionCorta =
-    conclusiones?.lo_esencial.Académico ??
-    "Ficha del colegio con datos oficiales traducidos.";
+  const d = getDetalle(Number(params.rbd));
+  if (!d) return { title: "Colegio no encontrado — Edubig" };
+  const descripcion = `${d.comuna}. ${d.traduccion.lo_esencial.Académico}`;
   return {
-    title: `${colegio.NOM_RBD} — Edubig`,
-    description: descripcionCorta,
-    openGraph: {
-      title: `${colegio.NOM_RBD}`,
-      description: descripcionCorta,
-      type: "article",
-    },
+    title: `${d.nombre} — Edubig`,
+    description: descripcion,
+    openGraph: { title: d.nombre, description: descripcion, type: "article" },
   };
 }
 
 export default function ColegioPage({ params }: PageProps) {
   const rbd = Number(params.rbd);
-  if (Number.isNaN(rbd)) notFound();
-
-  const colegio = getColegio(rbd);
-  if (!colegio) notFound();
-
-  const conclusiones = getConclusionesColegio(rbd);
-  return <FichaColegio colegio={colegio} conclusiones={conclusiones} />;
+  if (!Number.isInteger(rbd)) notFound();
+  const detalle = getDetalle(rbd);
+  if (!detalle) notFound();
+  return <FichaColegio detalle={detalle} />;
 }

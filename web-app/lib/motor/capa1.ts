@@ -1,60 +1,65 @@
-import type { Colegio } from "@/lib/types";
-import type { RespuestasFamilia } from "./types";
-import { distanciaKm } from "./haversine";
+import type { ColegioIndice } from "@/lib/types";
+import type { Alcance, Inclusion, NivelFamilia, Referencia, TechoCopago } from "./types";
 
 /**
- * Capa 1 — Filtros duros. Un colegio pasa si cumple los tres:
- * copago, nivel y distancia (si el modo es "duro").
- *
- * Reglas de bypass:
- * - Copago sin información (pago_mensual_rango == null) → pasa (no se
- *   penaliza por falta de dato oficial; principio del pipeline).
- * - Educación especial pura (no ofrece básica ni media) → pasa el filtro
- *   de nivel automáticamente.
- * - Distancia "flexible" → no descalifica; se pondera en Capa 2.
+ * Capa 1 — Filtros duros: copago, nivel, inclusión y alcance.
  */
-export function pasaFiltroCopago(
-  rangoColegio: number | null,
-  techoFamilia: number
-): boolean {
-  if (rangoColegio === null || Number.isNaN(rangoColegio)) return true;
-  return rangoColegio <= techoFamilia;
-}
 
-export function pasaFiltroNivel(
-  ofreceBasica: boolean,
-  ofreceMedia: boolean,
-  nivelFamilia: RespuestasFamilia["nivel"]
-): boolean {
-  if (!ofreceBasica && !ofreceMedia) return true; // educación especial pura
-  if (nivelFamilia === "basica") return ofreceBasica;
-  if (nivelFamilia === "media") return ofreceMedia;
-  return ofreceBasica && ofreceMedia; // "basica_y_media"
-}
-
-export function pasaFiltroDistancia(
-  latColegio: number,
-  lonColegio: number,
-  latSector: number,
-  lonSector: number,
-  tipo: RespuestasFamilia["tipoDistancia"],
-  radioKm?: number
-): boolean {
-  if (tipo === "flexible") return true;
-  if (radioKm === undefined) {
-    throw new Error("radioKm es requerido cuando tipoDistancia = 'duro'");
+/** D36: colegios sin dato de copago se tratan según su dependencia. */
+export function pasaCopago(c: ColegioIndice, techo: TechoCopago): boolean {
+  switch (c.k) {
+    case "gratuito":
+    case "gratuito_ley":
+      return true;
+    case "pago":
+      return (c.r ?? 5) <= techo;
+    case "pago_sin_monto":
+      return techo > 0; // pasa con etiqueta si la familia eligió un tope de pago
+    default:
+      return true; // particular subvencionado sin dato: pasa con "Sin dato de costo"
   }
-  return distanciaKm(latColegio, lonColegio, latSector, lonSector) <= radioKm;
 }
 
-/** Orquestador — un colegio pasa Capa 1 si cumple los tres filtros. */
-export function pasaFiltrosDuros(colegio: Colegio, prefs: RespuestasFamilia): boolean {
-  if (!pasaFiltroCopago(colegio.pago_mensual_rango, prefs.techoCopago)) return false;
-  if (!pasaFiltroNivel(colegio.ofrece_basica, colegio.ofrece_media, prefs.nivel)) return false;
-  if (!pasaFiltroDistancia(
-    colegio.LATITUD, colegio.LONGITUD,
-    prefs.latSector, prefs.lonSector,
-    prefs.tipoDistancia, prefs.radioKm
-  )) return false;
+/** Los colegios solo de educación especial no tienen nivel y pasan siempre. */
+export function pasaNivel(c: ColegioIndice, nivel: NivelFamilia): boolean {
+  if (!c.b && !c.m) return true;
+  if (nivel === "basica") return c.b === 1;
+  if (nivel === "media") return c.m === 1;
+  return c.b === 1 && c.m === 1;
+}
+
+/** D21: "necesitar" filtra; "valorar un entorno inclusivo" no filtra (suma en Capa 2). */
+export function pasaInclusion(c: ColegioIndice, inclusion: Inclusion): boolean {
+  if (inclusion === "pie") return c.p === 1;
+  if (inclusion === "especial") return c.e === 1;
   return true;
+}
+
+/** Filtros que no dependen de la distancia. */
+export function pasaFiltrosBase(
+  c: ColegioIndice,
+  r: { techoCopago: TechoCopago; nivel: NivelFamilia; inclusion: Inclusion }
+): boolean {
+  return pasaCopago(c, r.techoCopago) && pasaNivel(c, r.nivel) && pasaInclusion(c, r.inclusion);
+}
+
+export function pasaAlcance(
+  c: ColegioIndice,
+  distanciaKm: number,
+  ref: Referencia,
+  alcance: Alcance,
+  regionPorComuna: ReadonlyMap<number, string>
+): boolean {
+  switch (alcance) {
+    case "1km":
+      return distanciaKm <= 1;
+    case "3km":
+      return distanciaKm <= 3;
+    case "comuna":
+      return c.c === ref.codComuna;
+    case "cercanas":
+      return c.c === ref.codComuna || ref.cercanas.includes(c.c);
+    case "cualquiera":
+      return regionPorComuna.get(c.c) === ref.region;
+  }
 }

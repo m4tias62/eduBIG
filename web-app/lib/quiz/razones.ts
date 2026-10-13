@@ -1,83 +1,57 @@
-import type { Colegio } from "@/lib/types";
-import type { ScoredColegio, RespuestasFamilia } from "@/lib/motor";
+import type { ColegioIndice } from "@/lib/types";
+import type { Referencia, RespuestasFamilia, ScoredColegio } from "@/lib/motor/types";
 
 /**
- * Deriva las "razones del calce" que se muestran como badges en la
- * TarjetaColegio del Shortlist. Máximo 3, priorizando las que responden
- * al perfil elegido por la familia.
+ * "Razones del calce": hasta 3 etiquetas por tarjeta de la shortlist,
+ * priorizando la que responde a la dimensión elegida en Q5.
  *
- * Regla de umbral 0.6: la normalización es sobre el universo completo,
- * así que 0.6 significa "en el tercio superior del universo".
+ * Umbral 0,6: el colegio está sobre el 60 % de los colegios del país en su
+ * diferencia con colegios similares (percentil nacional, ver motor/capa2).
  */
-
-export interface RazonCalce {
-  label: string;
-  /** Prioridad para ordenar razones (más alta primero). */
-  peso: number;
-}
 
 const UMBRAL_FUERTE = 0.6;
 
 export function razonesCalce(
   scored: ScoredColegio,
-  colegio: Colegio,
-  respuestas: RespuestasFamilia
+  respuestas: RespuestasFamilia,
+  ref: Referencia
 ): string[] {
   const s = scored.scores;
-  const candidatas: RazonCalce[] = [];
+  const c: ColegioIndice = scored.colegio;
+  const candidatas: Array<{ label: string; peso: number }> = [];
 
-  // Razón principal si matchea con el perfil elegido
-  const matchPerfil: Record<RespuestasFamilia["perfil"], { dim: keyof typeof s; label: string } | null> = {
-    academico:      { dim: "academico",     label: "Fuerte académico" },
-    autoestima:     { dim: "autoestima",    label: "Fuerte en autoestima" },
-    habitos:        { dim: "habitos",       label: "Fuerte en hábitos saludables" },
-    convivencia:    { dim: "convivencia",   label: "Buena convivencia" },
-    participacion:  { dim: "participacion", label: "Fuerte participación" },
-    todo_por_igual: null,
+  const porPerfil: Record<string, { dim: keyof typeof s; label: string }> = {
+    academico: { dim: "academico", label: "Fuerte en lo académico" },
+    autoestima: { dim: "autoestima", label: "Fuerte en autoestima" },
+    habitos: { dim: "habitos", label: "Fuerte en hábitos saludables" },
+    convivencia: { dim: "convivencia", label: "Buena convivencia" },
+    participacion: { dim: "participacion", label: "Fuerte participación" },
+    superior: { dim: "superior", label: "Ingreso a la U sobre similares" },
   };
-  const match = matchPerfil[respuestas.perfil];
-  if (match && s[match.dim] >= UMBRAL_FUERTE) {
-    candidatas.push({ label: match.label, peso: 100 });
+  const match = porPerfil[respuestas.perfil];
+  const crudoPositivo = match?.dim === "academico" ? (c.s ?? 0) > 0 : match?.dim === "superior" ? (c.tr ?? 0) > 0 : true;
+  if (match && s[match.dim] >= UMBRAL_FUERTE && crudoPositivo) candidatas.push({ label: match.label, peso: 100 });
+
+  if (ref.tipo === "gps") {
+    if (scored.distanciaKm <= 1) candidatas.push({ label: "Cerca de ti", peso: 80 });
+    else if (scored.distanciaKm <= 2) candidatas.push({ label: "En tu barrio", peso: 70 });
+  } else if (c.c === ref.codComuna && respuestas.alcance !== "comuna") {
+    candidatas.push({ label: "En tu comuna", peso: 70 });
   }
 
-  // Distancia (siempre relevante en móvil urbano)
-  if (scored.distanciaKm <= 1) candidatas.push({ label: "Cerca de tu casa", peso: 80 });
-  else if (scored.distanciaKm <= 2) candidatas.push({ label: "En tu barrio", peso: 70 });
+  if (c.k === "gratuito" || c.k === "gratuito_ley") {
+    candidatas.push({ label: "Sin copago", peso: respuestas.techoCopago === 0 ? 60 : 50 });
+  }
+  if (respuestas.inclusion !== "no" && c.p === 1) candidatas.push({ label: "Programa PIE", peso: 85 });
+  if (respuestas.inclusion !== "no" && c.e === 1) candidatas.push({ label: "Educación especial", peso: 86 });
 
-  // Copago gratuito (relevante siempre si la familia lo eligió)
-  if (colegio.PAGO_MENSUAL === "GRATUITO") {
-    const peso = respuestas.techoCopago === 0 ? 90 : 50;
-    candidatas.push({ label: "Sin copago", peso });
+  if (s.academico >= UMBRAL_FUERTE && (c.s ?? 0) > 0 && respuestas.perfil !== "academico") {
+    candidatas.push({ label: "SIMCE sobre similares", peso: 40 });
   }
-
-  // Convenio PIE cuando familia quiere inclusión
-  if (respuestas.quiereInclusion && colegio.CONVENIO_PIE === 1) {
-    candidatas.push({ label: "Convenio PIE", peso: 85 });
-  }
-  if (respuestas.quiereInclusion && colegio.ofrece_educacion_especial) {
-    candidatas.push({ label: "Educación especial", peso: 85 });
-  }
-
-  // Razones secundarias — otras dimensiones fuertes
-  if (s.academico >= UMBRAL_FUERTE && respuestas.perfil !== "academico") {
-    candidatas.push({ label: "Sobre similares en SIMCE", peso: 40 });
-  }
-  if (s.seguridad >= UMBRAL_FUERTE) {
+  if (s.seguridad >= UMBRAL_FUERTE && respuestas.perfil !== "convivencia") {
     candidatas.push({ label: "Pocas denuncias", peso: 35 });
   }
 
   candidatas.sort((a, b) => b.peso - a.peso);
-  return candidatas.slice(0, 3).map((c) => c.label);
-}
-
-/** Formatea distancia en metros/km según magnitud.
- *  `referencia` define el punto desde el que se mide: la casa/ubicación del
- *  usuario ("casa", por defecto) o el centro de la comuna ("pudahuel"). */
-export function formatearDistancia(
-  km: number,
-  referencia: "casa" | "pudahuel" = "casa"
-): string {
-  const sufijo = referencia === "casa" ? "de tu casa" : "del centro de Pudahuel";
-  if (km < 1) return `A ${Math.round(km * 1000)} m ${sufijo}`;
-  return `A ${km.toFixed(1).replace(".", ",")} km ${sufijo}`;
+  return candidatas.slice(0, 3).map((x) => x.label);
 }

@@ -1,0 +1,31 @@
+{
+  "generado": "2026-10-13",
+  "fuente": "data-pipeline/nacional/dataset_nacional_2025.csv",
+  "colegios": 8250,
+  "comunas": 345,
+  "regiones": {
+    "AYP": "Arica y Parinacota",
+    "TPCA": "Tarapacá",
+    "ANTOF": "Antofagasta",
+    "ATCMA": "Atacama",
+    "COQ": "Coquimbo",
+    "VALPO": "Valparaíso",
+    "RM": "Metropolitana",
+    "LGBO": "O'Higgins",
+    "MAULE": "Maule",
+    "NUBLE": "Ñuble",
+    "BBIO": "Biobío",
+    "ARAUC": "La Araucanía",
+    "RIOS": "Los Ríos",
+    "LAGOS": "Los Lagos",
+    "AYSEN": "Aysén",
+    "MAG": "Magallanes"
+  },
+  "tasa_ingreso_u_promedio_por_gse_2m": {
+    "1": 0.2263,
+    "2": 0.303,
+    "3": 0.4125,
+    "4": 0.4813,
+    "5": 0.6168
+  }
+}

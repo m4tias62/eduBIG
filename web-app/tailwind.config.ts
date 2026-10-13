@@ -26,7 +26,7 @@ const config: Config = {
         // Texto sobre superficies claras
         "texto-primario": "#1F1F1F",
         "texto-secundario": "rgba(0, 0, 0, 0.54)",
-        "texto-terciario": "rgba(0, 0, 0, 0.26)",
+        "texto-terciario": "#767676",       // auditoría WCAG 2.2 sep-2026: 1,8 → 4,5:1
         "texto-sutil": "rgba(0, 0, 0, 0.12)",
 
         // Texto sobre superficies oscuras
@@ -36,7 +36,7 @@ const config: Config = {
 
         // Bordes
         "borde-sutil": "rgba(0, 0, 0, 0.12)",
-        "borde-definido": "#B8B8B8",
+        "borde-definido": "#8C8C8C",        // auditoría WCAG 2.2 sep-2026: 2,0 → 3,4:1
         "borde-enfatico": "#757575",
 
         // Estados
@@ -77,12 +77,13 @@ const config: Config = {
         "temp-calido-suave": "#fddbc7",
         "temp-calido-pleno": "#f4a582",
         "temp-calido-profundo": "#d6604d",
+        "temp-calido-acento": "#b2181f",    // auditoría WCAG 2.2 sep-2026
 
         // Series de dataviz cualitativa (color = identidad de serie, no
         // valoración). Espejo semántico de VisualizaciónData/Cualitativa/*
         // en Figma. Cuando se formalice el design system se puede renombrar
         // a viz-cualitativa-01..16 si se quiere calzar 1:1 con Figma.
-        "viz-serie-este": "#198038",       // Graph-03  — colegio en foco
+        "viz-serie-este": "#009d9a",       // Graph-04  — colegio en foco (antes Graph-03, excluido el 2026-09-09; D-13, por confirmar)
         "viz-serie-similares": "#4a62d1",  // Graph-11  — referencia primaria
         "viz-serie-nacional": "#a56eff",   // Graph-12  — referencia secundaria
       },

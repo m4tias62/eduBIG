@@ -1,64 +1,81 @@
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
-import type { Colegio, ConclusionesColegio } from "@/lib/types";
-import type { ScoredColegio, RespuestasFamilia } from "@/lib/motor";
-import { dependenciaGlosa, nivelesGlosa } from "@/lib/data/formatters";
-import { razonesCalce, formatearDistancia } from "@/lib/quiz/razones";
+import type { ColegioIndice } from "@/lib/types";
+import {
+  costoEtiqueta,
+  dependenciaGlosa,
+  formatearDistancia,
+  nivelesGlosa,
+  type ReferenciaDistancia,
+} from "@/lib/data/formatters";
 
 /**
- * Tarjeta de resultado en el Shortlist. Espejo del componente Figma
- * "Tarjeta colegio / Estado=Calce":
- *   Nombre → Imagen → Meta (sostenedor, niveles, distancia) →
- *   Razones del calce (badges) → Acciones (Ver ficha / Comparar).
+ * Tarjeta de la shortlist. Nace CÁLIDA (D08): el sistema la trajo para la
+ * familia, y recién ahí aparecen las razones del calce.
  *
- * Fondo superficie/base + borde temperatura/calido-profundo con stroke
- * asimétrico intencional (2px arriba/izquierda, 4px derecha/abajo) para dar
- * personalidad/profundidad a la card. El borde cálido cumple función
- * estructural sobre el fondo gris del Shortlist (confirmado por Matías).
+ * Variante `sinDatos` (D24): misma información de identidad, sin razones ni
+ * puntaje, en tono neutro: el colegio pasa los filtros pero no tiene
+ * comparación oficial con colegios similares.
  */
 export function TarjetaColegio({
-  scored,
   colegio,
-  conclusiones,
-  respuestas,
-  desdeUsuario = false,
+  distanciaKm,
+  referencia,
+  razones = [],
+  sinDatos = false,
+  posicion,
 }: {
-  scored: ScoredColegio;
-  colegio: Colegio;
-  conclusiones: ConclusionesColegio | null;
-  respuestas: RespuestasFamilia;
-  /** true → distancia medida desde la ubicación del usuario; false → desde Pudahuel. */
-  desdeUsuario?: boolean;
+  colegio: ColegioIndice;
+  distanciaKm: number;
+  referencia: ReferenciaDistancia;
+  razones?: string[];
+  sinDatos?: boolean;
+  posicion?: number;
 }) {
-  const nombre = conclusiones?.identidad.nombre ?? colegio.NOM_RBD;
-  const badges = razonesCalce(scored, colegio, respuestas);
+  const costoSinDato = colegio.k === "sin_dato" || colegio.k === "pago_sin_monto" || colegio.k === "gratuito_ley";
 
   return (
-    <article className="rounded-m border-t-2 border-l-2 border-r-4 border-b-4 border-temp-calido-profundo bg-superficie-base p-l flex flex-col gap-m">
-      <h3 className="text-sm font-bold text-texto-primario">{nombre}</h3>
-
-      <div className="w-full aspect-video rounded-s bg-superficie-hundida border border-borde-sutil flex items-center justify-center">
-        <Icon nombre="apartment" size={40} className="text-texto-terciario" />
+    <article
+      className={
+        sinDatos
+          ? "rounded-m border border-borde-definido bg-superficie-base p-l flex flex-col gap-m"
+          : "rounded-m border-t-2 border-l-2 border-r-4 border-b-4 border-temp-calido-profundo bg-superficie-base p-l flex flex-col gap-m"
+      }
+    >
+      <div className="flex items-start gap-s">
+        {posicion !== undefined && (
+          <span
+            aria-hidden
+            className="mt-xxs inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-temp-calido-suave text-2xs font-bold text-texto-primario"
+          >
+            {posicion}
+          </span>
+        )}
+        <h3 className="text-sm font-bold text-texto-primario">{colegio.n}</h3>
       </div>
 
       <ul className="flex flex-col gap-xs text-xs text-texto-secundario">
         <li className="flex items-center gap-xs">
-          <Icon nombre="monetization_on" size={16} />
-          {dependenciaGlosa(colegio.COD_DEPE)}
+          <Icon nombre="account_balance" size={16} />
+          {dependenciaGlosa(colegio.d)}
         </li>
         <li className="flex items-center gap-xs">
           <Icon nombre="school" size={16} />
-          {nivelesGlosa(colegio.ofrece_basica, colegio.ofrece_media)}
+          {nivelesGlosa(!!colegio.b, !!colegio.m, !!colegio.e)}
         </li>
         <li className="flex items-center gap-xs">
           <Icon nombre="place" size={16} />
-          {formatearDistancia(scored.distanciaKm, desdeUsuario ? "casa" : "pudahuel")}
+          {formatearDistancia(distanciaKm, referencia)}
+        </li>
+        <li className="flex items-center gap-xs">
+          <Icon nombre="monetization_on" size={16} />
+          <span className={costoSinDato ? "italic" : undefined}>{costoEtiqueta(colegio.k, colegio.r)}</span>
         </li>
       </ul>
 
-      {badges.length > 0 && (
-        <ul className="flex flex-wrap gap-xs">
-          {badges.map((b) => (
+      {!sinDatos && razones.length > 0 && (
+        <ul className="flex flex-wrap gap-xs" aria-label="Razones del calce">
+          {razones.map((b) => (
             <li
               key={b}
               className="rounded-s border border-borde-enfatico bg-superficie-base px-s py-xxs text-2xs text-texto-primario"
@@ -69,22 +86,12 @@ export function TarjetaColegio({
         </ul>
       )}
 
-      <div className="flex gap-xs">
-        <Link
-          href={`/colegio/${colegio.rbd}`}
-          className="flex-1 rounded-s bg-interaccion-enlace px-m py-xs text-center text-xs font-bold text-texto-sobre-oscuro hover:bg-interaccion-enlace-hover"
-        >
-          Ver ficha
-        </Link>
-        <button
-          type="button"
-          disabled
-          className="rounded-s border border-borde-definido bg-superficie-base px-m py-xs text-xs font-medium text-texto-terciario cursor-not-allowed"
-          title="Función pendiente"
-        >
-          Comparar
-        </button>
-      </div>
+      <Link
+        href={`/colegio/${colegio.rbd}`}
+        className="min-h-[44px] inline-flex items-center justify-center rounded-s bg-interaccion-enlace px-m py-xs text-center text-xs font-bold text-texto-sobre-oscuro hover:bg-interaccion-enlace-hover"
+      >
+        Ver ficha
+      </Link>
     </article>
   );
 }

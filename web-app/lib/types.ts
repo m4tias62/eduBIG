@@ -1,160 +1,129 @@
 /**
- * Tipos para el dominio Edubig — reflejan colegios_universo.json
- * y colegios_conclusiones.json que produce el pipeline.
+ * Tipos del dominio Edubig a escala nacional.
+ *
+ * Reflejan lo que produce data-pipeline/scripts/06_datos_web.py a partir del
+ * dataset nacional 2025 (8.250 colegios):
+ *   public/data/nacional/indice.json          → ColegioIndice[]
+ *   public/data/nacional/comunas.json         → Comuna[]
+ *   public/data/nacional/fichas/<comuna>.json → DetalleColegio[]
  */
 
-/** Categorías de copago crudas del Directorio Mineduc. */
-export type RangoCopago =
-  | "GRATUITO"
-  | "$1.000 A $10.000"
-  | "$10.001 A $25.000"
-  | "$25.001 A $50.000"
-  | "$50.001 A $100.000"
-  | "MAS DE $100.000"
-  | "SIN INFORMACION"
-  | "SIN_INFORMACION";
+/** Códigos de dependencia del dataset nacional (distintos a los del MVP). */
+export type CodDependencia = 1 | 2 | 3 | 4 | 5;
+// 1 Municipal · 2 Particular subvencionado · 3 Particular pagado
+// 4 Administración delegada · 5 Servicio Local de Educación
 
 /**
- * Fila cruda de colegios_universo.json.
- * Campos con `| null` cuando el pipeline pudo no traerlos (SIMCE/IDPS por curso).
+ * Estado de costo según D36:
+ *  - gratuito        el Directorio dice GRATUITO
+ *  - gratuito_ley    sin dato, pero municipal o SLEP (Ley 20.845)
+ *  - pago            hay un tramo de pago mensual informado
+ *  - pago_sin_monto  sin dato, particular pagado
+ *  - sin_dato        sin dato, particular subvencionado (u otra dependencia)
  */
-export interface Colegio {
-  // Identidad + directorio Mineduc
+export type EstadoCosto = "gratuito" | "gratuito_ley" | "pago" | "pago_sin_monto" | "sin_dato";
+
+/** Registro compacto de un colegio (exploración, búsqueda y motor). */
+export interface ColegioIndice {
   rbd: number;
-  NOM_RBD: string;
-  ESTADO_ESTAB: number;
-  NOM_COM_RBD: string;
-  ORI_RELIGIOSA: number;
-  ORI_OTRO_GLOSA: string;
-  PAGO_MATRICULA: RangoCopago;
-  PAGO_MENSUAL: RangoCopago;
-  COD_DEPE: number;         // 3=Part. subvencionado, 4=Part. pagado, 6=SLEP público
-  LATITUD: number;
-  LONGITUD: number;
-  RURAL_RBD: number;
-  MAT_TOTAL: number;
-
-  // Filtros duros y niveles ofrecidos (motor Capa 1)
-  pago_mensual_rango: number | null;   // 0..5 (paralelo a PAGO_MENSUAL), null = sin info
-  ofrece_educacion_regular: boolean;
-  ofrece_educacion_especial: boolean;
-  ofrece_basica: boolean;
-  ofrece_media: boolean;
-  CONVENIO_PIE: number;                // 0 | 1
-
-  // SIMCE — por curso (4°b, 6°b, 8°b, 2°m) x materia (lect, mate, hist)
-  // Ver notebook 04 para semántica exacta. dif = vs. grupo, prom = absoluto.
-  cod_grupo_2m: number | null;
-  prom_lect2m_rbd: number | null;
-  prom_mate2m_rbd: number | null;
-  difgru_lect2m_rbd: number | null;
-  difgru_mate2m_rbd: number | null;
-  siggru_lect2m_rbd: number | null;
-  siggru_mate2m_rbd: number | null;
-  cod_grupo_4b: number | null;
-  prom_lect4b_rbd: number | null;
-  prom_mate4b_rbd: number | null;
-  difgru_lect4b_rbd: number | null;
-  difgru_mate4b_rbd: number | null;
-  siggru_lect4b_rbd: number | null;
-  siggru_mate4b_rbd: number | null;
-  cod_grupo_6b: number | null;
-  prom_lect6b_rbd: number | null;
-  prom_mate6b_rbd: number | null;
-  difgru_lect6b_rbd: number | null;
-  difgru_mate6b_rbd: number | null;
-  siggru_lect6b_rbd: number | null;
-  siggru_mate6b_rbd: number | null;
-  cod_grupo_8b: number | null;
-  prom_lect8b_rbd: number | null;
-  prom_mate8b_rbd: number | null;
-  prom_hist8b_rbd: number | null;
-  difgru_lect8b_rbd: number | null;
-  difgru_mate8b_rbd: number | null;
-  difgru_hist8b_rbd: number | null;
-  siggru_lect8b_rbd: number | null;
-  siggru_mate8b_rbd: number | null;
-  siggru_hist8b_rbd: number | null;
-
-  // Supereduc — denuncias por año
-  conteo_denuncias_24: number | null;
-  conteo_denuncias_25: number | null;
-
-  // IDPS 2° medio (4 dimensiones, dif vs. par-establecimiento y difgru vs. grupo)
-  autoestima_dif_2m: number | null;
-  clima_dif_2m: number | null;
-  participacion_dif_2m: number | null;
-  habitos_dif_2m: number | null;
-  autoestima_difgru_2m: number | null;
-  clima_difgru_2m: number | null;
-  participacion_difgru_2m: number | null;
-  habitos_difgru_2m: number | null;
-  autoestima_prom_2m: number | null;
-  clima_prom_2m: number | null;
-  participacion_prom_2m: number | null;
-  habitos_prom_2m: number | null;
-
-  // IDPS 4° básico
-  autoestima_dif_4b: number | null;
-  clima_dif_4b: number | null;
-  participacion_dif_4b: number | null;
-  habitos_dif_4b: number | null;
-  autoestima_difgru_4b: number | null;
-  clima_difgru_4b: number | null;
-  participacion_difgru_4b: number | null;
-  habitos_difgru_4b: number | null;
-  autoestima_prom_4b: number | null;
-  clima_prom_4b: number | null;
-  participacion_prom_4b: number | null;
-  habitos_prom_4b: number | null;
-
-  // IDPS 8° básico
-  autoestima_dif_8b: number | null;
-  clima_dif_8b: number | null;
-  participacion_dif_8b: number | null;
-  habitos_dif_8b: number | null;
-  autoestima_difgru_8b: number | null;
-  clima_difgru_8b: number | null;
-  participacion_difgru_8b: number | null;
-  habitos_difgru_8b: number | null;
-  autoestima_prom_8b: number | null;
-  clima_prom_8b: number | null;
-  participacion_prom_8b: number | null;
-  habitos_prom_8b: number | null;
+  /** Nombre en formato título. */
+  n: string;
+  /** Código de comuna. */
+  c: number;
+  lat: number;
+  lon: number;
+  /** Dependencia (CodDependencia). */
+  d: CodDependencia;
+  /** Ofrece básica / media / educación especial (0 | 1). */
+  b: 0 | 1;
+  m: 0 | 1;
+  e: 0 | 1;
+  /** Convenio PIE (0 | 1). */
+  p: 0 | 1;
+  /** Estado de costo (D36). */
+  k: EstadoCosto;
+  /** Tramo de pago mensual 0..5 (0 = gratuito), ausente si no hay dato. */
+  r?: number;
+  /** Matrícula total 2025. */
+  mt: number;
+  /** 1 = tiene alguna comparación oficial con colegios similares (SIMCE o IDPS). */
+  cmp: 0 | 1;
+  /** SIMCE 2025: promedio de las diferencias con colegios similares. */
+  s?: number;
+  /** IDPS 2025: promedio de las diferencias con similares por dimensión. */
+  ia?: number;
+  ic?: number;
+  ip?: number;
+  ih?: number;
+  /** Denuncias por 100 estudiantes (promedio de los años con dato, 2024–2025). */
+  dn?: number;
+  /** Tasa de ingreso a la universidad 2025 (0–1). */
+  tu?: number;
+  /** Tasa de ingreso relativa a colegios similares (D30), en proporción. */
+  tr?: number;
 }
 
-/**
- * Fila de colegios_conclusiones.json — conclusiones humanas
- * generadas por la capa de traducción (capa_traduccion.py).
- */
-export interface ConclusionesColegio {
-  rbd: number;
-  identidad: {
-    nombre: string;
-    dependencia: string;   // "Educación pública (SLEP)", "Particular subvencionado", "Particular pagado"
-    matricula: string;     // ej. "445 estudiantes"
-    niveles: string;       // "Básica" | "Media" | "Básica y Media" | "Niveles no informados"
-  };
+export interface Comuna {
+  cod: number;
+  nombre: string;
+  /** Código corto de región (RM, VALPO…). */
+  region: string;
+  /** Centro: mediana de las coordenadas de sus colegios (D22). */
+  lat: number;
+  lon: number;
+  /** Colegios en el universo. */
+  n: number;
+  /** Comunas cercanas (las más próximas de la misma región). */
+  cercanas: number[];
+}
+
+/** Frases de la capa de traducción (capa_traduccion.traducir_nacional). */
+export interface Traduccion {
   lo_esencial: {
     Seguridad: string;
     Bienestar: string;
     Académico: string;
     Costo: string;
+    Trayectoria?: string;
   };
-  modulos: {
-    Bienestar?: {
-      conclusion: string;
-      detalle: Record<string, string>;
-      fuente: string;
-    };
-    Académico?: {
-      conclusion: string;
-      fuente: string;
-    };
-    Seguridad?: {
-      conclusion: string;
-    };
-    // Costo aún no genera módulo detallado en el pipeline; se puede
-    // renderizar directamente desde los campos del universo.
-  };
+  bienestar_detalle: Record<string, string>;
 }
+
+/**
+ * Detalle completo de un colegio (ficha). Usa los nombres de columna del
+ * dataset nacional; los campos sin dato no vienen en el JSON.
+ */
+export interface DetalleColegio {
+  rbd: number;
+  nombre: string;
+  comuna: string;
+  cod_comuna: number;
+  region: string;
+  region_nombre: string;
+  dependencia_cod: CodDependencia;
+  dependencia: string;
+  latitud: number;
+  longitud: number;
+  rural: boolean;
+  matricula_total: number;
+  ofrece_parvularia: boolean;
+  ofrece_basica: boolean;
+  ofrece_especial: boolean;
+  ofrece_media_hc: boolean;
+  ofrece_media_tp: boolean;
+  ofrece_media: boolean;
+  pie: boolean;
+  pago_mensual: string;
+  pago_matricula: string;
+  gratuito: "si" | "no" | "sin_dato";
+  estado_costo: EstadoCosto;
+  tiene_gse: boolean;
+  tiene_comparacion_simce: boolean;
+  tiene_comparacion_idps: boolean;
+  traduccion: Traduccion;
+  /** Resto de campos numéricos y etiquetas (SIMCE, IDPS, GSE, PAES, denuncias…). */
+  [campo: string]: unknown;
+}
+
+export type Curso = "4b" | "8b" | "2m";
+export type DimensionIdps = "clima" | "autoestima" | "habitos" | "participacion";

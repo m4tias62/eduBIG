@@ -1,45 +1,37 @@
-import type { Colegio, ConclusionesColegio } from "@/lib/types";
+import type { DetalleColegio } from "@/lib/types";
 import { Icon } from "@/components/ui/Icon";
-import { conclusionCosto } from "@/lib/data/formatters";
 
 /**
- * Bloque "Lo esencial" — 4 filas con la conclusión de cada dimensión.
- * Espejo del frame Figma "Lo esencial" (113:353 / 167:595).
- *
- * Iconos Material Symbols: shield · mood · school · monetization_on
- * (mismos identificadores que usa el gob.cl UI Kit en Figma).
- *
- * Las conclusiones de Seguridad/Bienestar/Académico salen del pipeline
- * (colegios_conclusiones.json). La de Costo se deriva en runtime desde el
- * universo — porque hoy modulos.Costo no existe en el pipeline (registrado
- * en bitácora 2026-08-12).
+ * "Lo esencial": una frase por dimensión. Sale de la MISMA función de la capa
+ * de traducción que cada módulo (Fase B): no pueden contradecirse.
+ * Trayectoria aparece solo en colegios con media (D28).
  */
-export function LoEsencial({
-  colegio,
-  conclusiones,
-}: {
-  colegio: Colegio;
-  conclusiones: ConclusionesColegio | null;
-}) {
-  const filas: Array<{ label: string; texto: string; icono: string }> = [
-    { label: "Seguridad", texto: conclusiones?.lo_esencial.Seguridad ?? "Sin información publicada.", icono: "shield" },
-    { label: "Bienestar", texto: conclusiones?.lo_esencial.Bienestar ?? "Sin información publicada.", icono: "mood" },
-    { label: "Académico", texto: conclusiones?.lo_esencial.Académico ?? "Sin información publicada.", icono: "school" },
-    { label: "Costo", texto: conclusionCosto(colegio), icono: "monetization_on" },
-  ];
+export const FILAS_ESENCIAL: Array<{
+  clave: keyof DetalleColegio["traduccion"]["lo_esencial"];
+  label: string;
+  icono: string;
+}> = [
+  { clave: "Seguridad", label: "Seguridad", icono: "shield" },
+  { clave: "Bienestar", label: "Bienestar", icono: "mood" },
+  { clave: "Académico", label: "Académico", icono: "menu_book" },
+  { clave: "Trayectoria", label: "Ingreso a la universidad", icono: "trending_up" },
+  { clave: "Costo", label: "Costo", icono: "monetization_on" },
+];
 
+export function LoEsencial({ detalle }: { detalle: DetalleColegio }) {
+  const le = detalle.traduccion.lo_esencial;
   return (
     <section className="flex flex-col gap-m">
       <h2 className="text-md font-bold text-texto-primario">Lo esencial</h2>
       <ul className="flex flex-col gap-m">
-        {filas.map(({ label, texto, icono }) => (
-          <li key={label} className="flex gap-s">
+        {FILAS_ESENCIAL.filter((f) => le[f.clave]).map(({ clave, label, icono }) => (
+          <li key={clave} className="flex gap-s">
             <div className="mt-xxs shrink-0">
               <Icon nombre={icono} size={20} className="text-texto-primario" />
             </div>
             <div className="flex flex-col gap-xxs">
               <p className="text-xs font-bold text-texto-primario">{label}</p>
-              <p className="text-xs text-texto-secundario">{texto}</p>
+              <p className="text-xs text-texto-secundario">{le[clave]}</p>
             </div>
           </li>
         ))}

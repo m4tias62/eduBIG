@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { UbicacionProvider } from "@/lib/ubicacion";
 
 /**
  * metadataBase resuelve URLs relativas de OG/Twitter a absolutas.
@@ -12,7 +13,7 @@ const baseUrl = process.env.VERCEL_URL
 
 const TITULO = "Edubig — Encuentra el colegio que calza con tu familia";
 const DESCRIPCION =
-  "Traducimos datos oficiales del Mineduc, Agencia de Calidad y Supereduc en información accesible para familias que están eligiendo colegio en Pudahuel.";
+  "Traducimos datos oficiales del Mineduc, la Agencia de Calidad y la Supereduc en información clara para familias que están eligiendo colegio en Chile.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   description: DESCRIPCION,
   applicationName: "Edubig",
   authors: [{ name: "Matías Cáceres" }, { name: "Israel Rubilar" }],
-  keywords: ["colegios", "Pudahuel", "SIMCE", "IDPS", "elegir colegio", "educación Chile"],
+  keywords: ["colegios", "Chile", "SIMCE", "IDPS", "elegir colegio", "educación Chile"],
   openGraph: {
     title: TITULO,
     description: DESCRIPCION,
@@ -45,10 +46,9 @@ export const metadata: Metadata = {
 };
 
 /**
- * Root layout mínimo — solo <html>/<body>. El Footer se importa en las
- * páginas que lo requieren (Home, Fichas, Resultado del quiz). Las
- * pantallas de quiz (Q1-Q5, Loading) son viewport-inmersivas y no llevan
- * Footer para no romper el flujo.
+ * Root layout — <html>/<body> + proveedor de ubicación (vive en sessionStorage
+ * y se comparte entre Test, exploración y shortlist). El Footer se importa en
+ * las páginas que lo requieren; las pantallas del Test no lo llevan.
  */
 export default function RootLayout({
   children,
@@ -57,7 +57,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es-CL">
-      <body className="min-h-screen bg-superficie-base">{children}</body>
+      <body className="min-h-screen bg-superficie-base">
+        <UbicacionProvider>{children}</UbicacionProvider>
+      </body>
     </html>
   );
 }

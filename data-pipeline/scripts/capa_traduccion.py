@@ -191,7 +191,7 @@ def conclusion_seguridad(c, umbral_vol=UMBRAL_VOLATILIDAD_DENUNCIAS):
         n25 = int(d25)
         s25 = f"{n25} denuncia{'s' if n25 != 1 else ''} en 2025"
         if mat:
-            s25 += f" ({n25 / mat * 1000:.1f} por cada 1.000 estudiantes)"
+            s25 += f" ({n25 / mat * 1000:.1f} por cada 1.000 estudiantes)".replace(".", ",", 1)
     else:
         s25 = "2025 sin datos publicados"
     if d24 is not None:
@@ -268,4 +268,86 @@ def traducir(c):
                           "fuente": fuente_academico()},
             "Seguridad": {"conclusion": conclusion_seguridad(c)},
         },
+    }
+
+
+# ---------------------------------------------------------------------------
+# Dataset nacional 2025 (2026-10-13)
+# Mismas reglas de banda y agregación; cambian los nombres de campo y se suman
+# Costo según D36 y Trayectoria según D28/D30. Las funciones del MVP quedan
+# intactas para no romper sus tests.
+# ---------------------------------------------------------------------------
+DEP_NACIONAL = {1: "Municipal", 2: "Particular subvencionado", 3: "Particular pagado",
+                4: "Administración delegada", 5: "Servicio Local de Educación"}
+
+PAGO_GLOSA = {"GRATUITO": "Gratuito",
+              "$1.000 A $10.000": "$1.000 a $10.000",
+              "$10.001 A $25.000": "$10.001 a $25.000",
+              "$25.001 A $50.000": "$25.001 a $50.000",
+              "$50.001 A $100.000": "$50.001 a $100.000",
+              "MAS DE $100.000": "Más de $100.000",
+              "SIN INFORMACION": "Sin información"}
+
+
+def estado_costo_nacional(gratuito, dependencia_cod):
+    """D36. Devuelve 'gratuito' | 'gratuito_ley' | 'pago' | 'pago_sin_monto' | 'sin_dato'."""
+    if gratuito == "si":
+        return "gratuito"
+    if gratuito == "no":
+        return "pago"
+    if dependencia_cod in (1, 5):          # municipal o SLEP: gratuito por Ley 20.845
+        return "gratuito_ley"
+    if dependencia_cod == 3:               # particular pagado
+        return "pago_sin_monto"
+    return "sin_dato"                       # particular subvencionado (y otros)
+
+
+def conclusion_costo_nacional(gratuito, pago_mensual, pago_matricula, dependencia_cod):
+    est = estado_costo_nacional(gratuito, dependencia_cod)
+    if est == "gratuito":
+        if str(pago_matricula).upper() in ("GRATUITO", "SIN INFORMACION"):
+            return "Gratuito, sin copago."
+        return "Sin copago mensual."
+    if est == "gratuito_ley":
+        return "Gratuito por ley; el Mineduc no informa el dato."
+    if est == "pago_sin_monto":
+        return "Particular pagado; el Mineduc no informa el monto."
+    if est == "sin_dato":
+        return "Sin dato de costo."
+    glosa = PAGO_GLOSA.get(str(pago_mensual).upper(), str(pago_mensual))
+    if dependencia_cod == 3:
+        return f"Mensualidad: {glosa}."
+    return f"Copago mensual: {glosa}."
+
+
+def _pct(x):
+    return f"{round(x * 100)}\u00a0%"
+
+
+def conclusion_trayectoria(tasa, tasa_similares, anio=2025):
+    """D28/D30: tasa bruta y referencia de colegios similares, sin afirmar banda
+    (la tasa relativa la calcula Edubig y no tiene prueba de significancia)."""
+    if tasa is None:
+        return "Sin datos publicados."
+    frase = f"{_pct(tasa)} de sus egresados ingresó a la universidad en {anio}"
+    if tasa_similares is not None:
+        frase += f"; en colegios similares, {_pct(tasa_similares)} en promedio"
+    return frase + "."
+
+
+def traducir_nacional(c, cursos_simce=("4b", "8b", "2m"), niveles_idps=("4b", "8b", "2m")):
+    """`c` es un dict con los nombres de campo del MVP (ver 06_datos_web.py:adaptar)."""
+    academico = conclusion_academico(c, cursos=cursos_simce)
+    bienestar = conclusion_bienestar(c, niveles=niveles_idps)
+    seguridad = conclusion_seguridad(c)
+    costo = conclusion_costo_nacional(c.get("gratuito"), c.get("PAGO_MENSUAL"),
+                                      c.get("PAGO_MATRICULA"), c.get("dependencia_cod"))
+    lo_esencial = {"Seguridad": seguridad, "Bienestar": bienestar,
+                   "Académico": academico, "Costo": costo}
+    if c.get("ofrece_media"):
+        lo_esencial["Trayectoria"] = conclusion_trayectoria(
+            c.get("tasa_ingreso_u_2025"), c.get("tasa_ingreso_u_similares_2025"))
+    return {
+        "lo_esencial": lo_esencial,
+        "bienestar_detalle": detalle_bienestar(c, niveles=niveles_idps),
     }

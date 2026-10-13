@@ -1,51 +1,45 @@
-import type { Colegio, ConclusionesColegio } from "@/lib/types";
-import { dependenciaGlosa, nivelesGlosa, matriculaGlosa } from "@/lib/data/formatters";
+import type { DetalleColegio } from "@/lib/types";
+import { dependenciaGlosa, matriculaGlosa, nivelesGlosa } from "@/lib/data/formatters";
 import { Icon } from "@/components/ui/Icon";
+import { BotonComparar } from "./BotonComparar";
 
-/**
- * Cabecera de la ficha — imagen placeholder + nombre + tres metadatos.
- *
- * Espejo del frame Figma "Cabecera" (113:338 / 167:580). La imagen real
- * queda como placeholder gris; cuando existan fotos por colegio, se
- * intercambia por <Image src=... /> de next/image sin cambiar el resto.
- *
- * Nombre: prefiere identidad.nombre del pipeline (sentence case) sobre
- * NOM_RBD del Directorio (ALL CAPS crudo).
- */
-export function Cabecera({
-  colegio,
-  conclusiones,
-}: {
-  colegio: Colegio;
-  conclusiones?: ConclusionesColegio | null;
-}) {
-  const nombre = conclusiones?.identidad.nombre ?? colegio.NOM_RBD;
-
+/** Cabecera de la ficha: nombre + identidad + agregar a la comparación (D32). */
+export function Cabecera({ detalle }: { detalle: DetalleColegio }) {
   return (
     <section className="flex flex-col gap-m">
-      {/* Placeholder de imagen — 16:9 ratio */}
-      <div className="w-full aspect-video rounded-m bg-superficie-hundida border border-borde-sutil flex items-center justify-center">
-        <Icon nombre="apartment" size={48} className="text-texto-terciario" />
+      <div className="flex flex-col gap-xxs">
+        <p className="text-2xs text-texto-secundario">
+          {detalle.comuna} · Región {detalle.region_nombre} · RBD {detalle.rbd}
+        </p>
+        <h1 className="text-lg font-bold text-texto-primario">{detalle.nombre}</h1>
       </div>
-
-      <h1 className="text-lg font-bold text-texto-primario">
-        {nombre}
-      </h1>
-
       <ul className="flex flex-col gap-xs text-xs text-texto-secundario">
         <li className="flex items-center gap-xs">
-          <Icon nombre="apartment" size={16} />
-          {dependenciaGlosa(colegio.COD_DEPE)}
+          <Icon nombre="account_balance" size={16} />
+          {dependenciaGlosa(detalle.dependencia_cod)}
         </li>
         <li className="flex items-center gap-xs">
           <Icon nombre="school" size={16} />
-          {nivelesGlosa(colegio.ofrece_basica, colegio.ofrece_media)}
+          {nivelesGlosa(detalle.ofrece_basica, detalle.ofrece_media, detalle.ofrece_especial)}
+          {detalle.ofrece_media &&
+            (detalle.ofrece_media_hc && detalle.ofrece_media_tp
+              ? " · científico-humanista y técnico-profesional"
+              : detalle.ofrece_media_tp
+                ? " · técnico-profesional"
+                : " · científico-humanista")}
         </li>
         <li className="flex items-center gap-xs">
           <Icon nombre="groups" size={16} />
-          {matriculaGlosa(colegio.MAT_TOTAL)}
+          {matriculaGlosa(detalle.matricula_total)}
         </li>
+        {detalle.pie && (
+          <li className="flex items-center gap-xs">
+            <Icon nombre="diversity_1" size={16} />
+            Programa de Integración Escolar (PIE)
+          </li>
+        )}
       </ul>
+      <BotonComparar rbd={detalle.rbd} nombre={detalle.nombre} />
     </section>
   );
 }

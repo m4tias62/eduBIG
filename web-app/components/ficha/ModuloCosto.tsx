@@ -1,55 +1,46 @@
 "use client";
 
-import type { Colegio } from "@/lib/types";
+import type { DetalleColegio } from "@/lib/types";
+import { dependenciaGlosa, pagoGlosa } from "@/lib/data/formatters";
 import { ModuloBase } from "./ModuloBase";
-import {
-  conclusionCosto,
-  dependenciaGlosa,
-  estadoCosto,
-  formatearCopago,
-} from "@/lib/data/formatters";
 
 /**
- * Módulo Costo — espejo del component set Figma "Módulo Costo".
- * Datos: PAGO_MENSUAL, PAGO_MATRICULA, COD_DEPE del universo.
- * PIE excluido intencionalmente (será módulo mínimo aparte — decisión
- * registrada en bitácora 2026-08-12).
+ * Costo — Directorio Oficial 2025 (Mineduc). Sin dato de copago, el trato
+ * depende de la dependencia (D36): gratuito por ley, pagado sin monto o
+ * "sin dato de costo".
  */
-export function ModuloCosto({ colegio }: { colegio: Colegio }) {
-  const est = estadoCosto(colegio);
-  const conclusion = conclusionCosto(colegio);
-  const gratuito = est === "gratuito";
+export function ModuloCosto({ detalle }: { detalle: DetalleColegio }) {
+  const k = detalle.estado_costo;
+  const notaD36: Record<string, string> = {
+    gratuito_ley:
+      "El Mineduc no informa el pago de este colegio. Por ser público, la Ley de Inclusión (20.845) no le permite cobrar copago.",
+    pago_sin_monto: "El Mineduc no informa el monto de la mensualidad de este colegio particular pagado.",
+    sin_dato: "El Mineduc no informa si este colegio cobra copago. Consulta directamente en el colegio.",
+  };
 
   return (
     <ModuloBase
       icono="monetization_on"
       titulo="Costo"
-      conclusion={conclusion}
-      fuente="Fuente: Directorio oficial Mineduc · Actualizado marzo 2026"
+      conclusion={detalle.traduccion.lo_esencial.Costo}
+      fuente="Fuente: Directorio Oficial de Establecimientos 2025 (Mineduc)."
     >
-      <div className="flex flex-col gap-m">
-        <h4 className="text-sm font-bold text-texto-primario">Copago</h4>
-
+      <div className="flex flex-col gap-s">
         <div className="flex flex-col gap-xxs">
           <p className="text-xs font-bold text-texto-primario">Mensualidad</p>
           <p className="text-xs text-texto-primario">
-            {gratuito ? "Gratuito" : formatearCopago(colegio.PAGO_MENSUAL)}
+            {k === "gratuito_ley" ? "Gratuito por ley" : pagoGlosa(detalle.pago_mensual)}
           </p>
         </div>
-
         <div className="flex flex-col gap-xxs">
           <p className="text-xs font-bold text-texto-primario">Matrícula</p>
-          <p className="text-xs text-texto-primario">
-            {gratuito ? "Gratuito" : formatearCopago(colegio.PAGO_MATRICULA)}
-          </p>
+          <p className="text-xs text-texto-primario">{pagoGlosa(detalle.pago_matricula)}</p>
         </div>
+        {notaD36[k] && <p className="text-2xs text-texto-secundario">{notaD36[k]}</p>}
       </div>
-
-      <div className="flex flex-col gap-m">
-        <h4 className="text-sm font-bold text-texto-primario">Financiamiento</h4>
-        <p className="text-xs text-texto-primario">
-          {dependenciaGlosa(colegio.COD_DEPE)}
-        </p>
+      <div className="flex flex-col gap-xxs">
+        <p className="text-xs font-bold text-texto-primario">Financiamiento</p>
+        <p className="text-xs text-texto-primario">{dependenciaGlosa(detalle.dependencia_cod)}</p>
       </div>
     </ModuloBase>
   );

@@ -1,134 +1,153 @@
-import type { RespuestasFamilia } from "@/lib/motor";
+import type {
+  Alcance,
+  Inclusion,
+  NivelFamilia,
+  Perfil,
+  RespuestasFamilia,
+  TechoCopago,
+} from "@/lib/motor/types";
 
 /**
- * Estado del quiz codificado en URL search params.
+ * Estado del Test de Calce codificado en la URL.
  *
- * Por qué URL y no Context/localStorage:
- *  - Resiste refresh del navegador.
- *  - Compartible por link (útil para testing con familias — mismos inputs
- *    producen misma shortlist).
- *  - Server Components pueden leer directamente `searchParams` sin
- *    hidratación adicional.
- *  - Simplifica el componente: cada página es 100% función pura de la URL.
+ * Resiste recargas y se puede compartir: las mismas respuestas producen la
+ * misma shortlist. La UBICACIÓN no va en la URL (dato sensible, vive en
+ * sessionStorage): quien abre un enlace compartido elige la suya (D23).
+ *
+ * Parámetros: copago · inc · nivel · alc · perfil
  */
 
-/** Centro geográfico de Pudahuel usado por el pipeline como sector default.
- *  A futuro se sustituye por geocoding de la dirección real de la familia. */
-export const LAT_PUDAHUEL = -33.43913;
-export const LON_PUDAHUEL = -70.7411;
-
-/** Sub-tipo de inclusión — Q2b lo captura pero el motor actual sólo usa el
- *  boolean quiereInclusion. Se guarda por si a futuro se refina el scoring. */
-export type IncTipo = "pie" | "especial" | "entorno";
-
-/** Respuestas parciales acumuladas durante el quiz. */
 export interface RespuestasParciales {
-  techoCopago?: RespuestasFamilia["techoCopago"];
-  quiereInclusion?: boolean;
-  incTipo?: IncTipo;
-  nivel?: RespuestasFamilia["nivel"];
-  tipoDistancia?: RespuestasFamilia["tipoDistancia"];
-  radioKm?: number;
-  perfil?: RespuestasFamilia["perfil"];
+  techoCopago?: TechoCopago;
+  inclusion?: Inclusion;
+  nivel?: NivelFamilia;
+  alcance?: Alcance;
+  perfil?: Perfil;
 }
 
-/** Lee todas las respuestas parciales desde los search params de una URL. */
-export function parseRespuestas(sp: URLSearchParams | Record<string, string | string[] | undefined>): RespuestasParciales {
-  const get = (k: string): string | undefined => {
+type Params = URLSearchParams | Record<string, string | string[] | undefined>;
+
+const INCLUSIONES: Inclusion[] = ["no", "pie", "especial", "entorno"];
+const NIVELES: NivelFamilia[] = ["basica", "media", "basica_y_media"];
+const ALCANCES: Alcance[] = ["1km", "3km", "comuna", "cercanas", "cualquiera"];
+const PERFILES: Perfil[] = [
+  "academico",
+  "autoestima",
+  "habitos",
+  "convivencia",
+  "participacion",
+  "superior",
+  "todo_por_igual",
+];
+
+function lector(sp: Params) {
+  return (k: string): string | undefined => {
     if (sp instanceof URLSearchParams) return sp.get(k) ?? undefined;
     const v = sp[k];
     return Array.isArray(v) ? v[0] : v;
   };
+}
 
+export function parseRespuestas(sp: Params): RespuestasParciales {
+  const get = lector(sp);
   const r: RespuestasParciales = {};
 
   const copago = get("copago");
-  if (copago !== undefined) {
-    const n = Number(copago);
-    if (n >= 0 && n <= 5) r.techoCopago = n as RespuestasFamilia["techoCopago"];
-  }
+  if (copago !== undefined && /^[0-5]$/.test(copago)) r.techoCopago = Number(copago) as TechoCopago;
 
-  const incl = get("incl");
-  if (incl === "si") r.quiereInclusion = true;
-  else if (incl === "no") r.quiereInclusion = false;
-
-  const incTipo = get("incTipo");
-  if (incTipo === "pie" || incTipo === "especial" || incTipo === "entorno") {
-    r.incTipo = incTipo;
-  }
+  const inc = get("inc");
+  if (inc && (INCLUSIONES as string[]).includes(inc)) r.inclusion = inc as Inclusion;
 
   const nivel = get("nivel");
-  if (nivel === "basica" || nivel === "media" || nivel === "basica_y_media") {
-    r.nivel = nivel;
-  }
+  if (nivel && (NIVELES as string[]).includes(nivel)) r.nivel = nivel as NivelFamilia;
 
-  const dist = get("dist");
-  if (dist === "duro" || dist === "flexible") r.tipoDistancia = dist;
-
-  const radio = get("radio");
-  if (radio !== undefined) {
-    const n = Number(radio);
-    if (n > 0) r.radioKm = n;
-  }
+  const alc = get("alc");
+  if (alc && (ALCANCES as string[]).includes(alc)) r.alcance = alc as Alcance;
 
   const perfil = get("perfil");
-  const perfiles = ["academico", "autoestima", "habitos", "convivencia", "participacion", "todo_por_igual"];
-  if (perfil !== undefined && perfiles.includes(perfil)) {
-    r.perfil = perfil as RespuestasFamilia["perfil"];
+  if (perfil && (PERFILES as string[]).includes(perfil)) {
+    // "superior" solo existe si la familia eligió media o ambos niveles (D30)
+    if (perfil !== "superior" || r.nivel === "media" || r.nivel === "basica_y_media") {
+      r.perfil = perfil as Perfil;
+    }
   }
-
   return r;
 }
 
-/** Serializa respuestas parciales a una query string. */
 export function serializeRespuestas(r: RespuestasParciales): string {
-  const params = new URLSearchParams();
-  if (r.techoCopago !== undefined) params.set("copago", String(r.techoCopago));
-  if (r.quiereInclusion !== undefined) params.set("incl", r.quiereInclusion ? "si" : "no");
-  if (r.incTipo) params.set("incTipo", r.incTipo);
-  if (r.nivel) params.set("nivel", r.nivel);
-  if (r.tipoDistancia) params.set("dist", r.tipoDistancia);
-  if (r.radioKm !== undefined) params.set("radio", String(r.radioKm));
-  if (r.perfil) params.set("perfil", r.perfil);
-  return params.toString();
+  const p = new URLSearchParams();
+  if (r.techoCopago !== undefined) p.set("copago", String(r.techoCopago));
+  if (r.inclusion) p.set("inc", r.inclusion);
+  if (r.nivel) p.set("nivel", r.nivel);
+  if (r.alcance) p.set("alc", r.alcance);
+  if (r.perfil) p.set("perfil", r.perfil);
+  return p.toString();
 }
 
 /** Combina respuestas previas + nuevas y devuelve el path completo. */
 export function nextUrl(path: string, previas: RespuestasParciales, nuevas: RespuestasParciales): string {
-  const combinado = { ...previas, ...nuevas };
-  const qs = serializeRespuestas(combinado);
+  const qs = serializeRespuestas({ ...previas, ...nuevas });
   return qs ? `${path}?${qs}` : path;
 }
 
-/** Convierte respuestas parciales completas + coordenadas del sector en
- *  input listo para runMotor. Devuelve null si falta algún campo obligatorio.
- *
- *  `coords` define el punto de referencia para la distancia: la ubicación real
- *  del usuario si la activó, o el centro de Pudahuel como fallback. La ubicación
- *  es un dato sensible → llega desde el cliente (sessionStorage), nunca por URL. */
-export function toRespuestasFamilia(
-  r: RespuestasParciales,
-  coords?: { lat: number; lon: number }
-): RespuestasFamilia | null {
+/** Respuestas completas listas para el motor, o null si falta alguna. */
+export function toRespuestasFamilia(r: RespuestasParciales): RespuestasFamilia | null {
   if (
     r.techoCopago === undefined ||
-    r.quiereInclusion === undefined ||
+    r.inclusion === undefined ||
     r.nivel === undefined ||
-    r.tipoDistancia === undefined ||
+    r.alcance === undefined ||
     r.perfil === undefined
   ) {
     return null;
   }
-  if (r.tipoDistancia === "duro" && r.radioKm === undefined) return null;
-
   return {
     techoCopago: r.techoCopago,
+    inclusion: r.inclusion,
     nivel: r.nivel,
-    latSector: coords ? coords.lat : LAT_PUDAHUEL,
-    lonSector: coords ? coords.lon : LON_PUDAHUEL,
-    tipoDistancia: r.tipoDistancia,
-    radioKm: r.radioKm,
+    alcance: r.alcance,
     perfil: r.perfil,
-    quiereInclusion: r.quiereInclusion,
   };
 }
+
+/* ---------- Glosas para el resumen de respuestas ---------- */
+
+export const COPAGO_GLOSA: Record<TechoCopago, string> = {
+  0: "Gratuito",
+  1: "Hasta $10.000 al mes",
+  2: "Hasta $25.000 al mes",
+  3: "Hasta $50.000 al mes",
+  4: "Hasta $100.000 al mes",
+  5: "Más de $100.000 al mes",
+};
+
+export const INCLUSION_GLOSA: Record<Inclusion, string | null> = {
+  no: null,
+  pie: "Con PIE",
+  especial: "Con educación especial",
+  entorno: "Entorno inclusivo",
+};
+
+export const NIVEL_GLOSA: Record<NivelFamilia, string> = {
+  basica: "Educación básica",
+  media: "Educación media",
+  basica_y_media: "Básica y media",
+};
+
+export const ALCANCE_GLOSA: Record<Alcance, string> = {
+  "1km": "Hasta 1 km",
+  "3km": "Hasta 3 km",
+  comuna: "En tu comuna",
+  cercanas: "Tu comuna y las cercanas",
+  cualquiera: "Cualquier distancia",
+};
+
+export const PERFIL_GLOSA: Record<Perfil, string> = {
+  academico: "Más peso en resultados académicos",
+  autoestima: "Más peso en confianza y motivación",
+  habitos: "Más peso en hábitos de vida saludable",
+  convivencia: "Más peso en seguridad y clima escolar",
+  participacion: "Más peso en participación y comunidad",
+  superior: "Más peso en preparación para la educación superior",
+  todo_por_igual: "Todo por igual",
+};

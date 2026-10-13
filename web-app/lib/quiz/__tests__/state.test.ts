@@ -1,83 +1,30 @@
 import { describe, it, expect } from "vitest";
-import {
-  parseRespuestas,
-  serializeRespuestas,
-  nextUrl,
-  toRespuestasFamilia,
-  LAT_PUDAHUEL,
-  LON_PUDAHUEL,
-} from "@/lib/quiz/state";
+import { nextUrl, parseRespuestas, serializeRespuestas, toRespuestasFamilia } from "@/lib/quiz/state";
 
-describe("Quiz state — parse/serialize", () => {
-  it("roundtrip de respuestas parciales completas", () => {
-    const original = {
-      techoCopago: 2 as const,
-      quiereInclusion: true,
-      incTipo: "pie" as const,
-      nivel: "media" as const,
-      tipoDistancia: "duro" as const,
-      radioKm: 2,
-      perfil: "convivencia" as const,
-    };
-    const qs = serializeRespuestas(original);
-    const parseado = parseRespuestas(new URLSearchParams(qs));
-    expect(parseado).toEqual(original);
+describe("estado del Test en la URL", () => {
+  it("parse y serialize son inversos", () => {
+    const qs = "copago=0&inc=pie&nivel=media&alc=cercanas&perfil=superior";
+    expect(serializeRespuestas(parseRespuestas(new URLSearchParams(qs)))).toBe(qs);
   });
 
-  it("ignora valores fuera de rango o inválidos", () => {
-    const parseado = parseRespuestas(new URLSearchParams("copago=99&nivel=invalido&perfil=xxx"));
-    expect(parseado.techoCopago).toBeUndefined();
-    expect(parseado.nivel).toBeUndefined();
-    expect(parseado.perfil).toBeUndefined();
+  it("descarta valores inválidos", () => {
+    const r = parseRespuestas({ copago: "9", inc: "quizas", nivel: "x", alc: "10km", perfil: "otro" });
+    expect(r).toEqual({});
   });
 
-  it("nextUrl mergea previas + nuevas", () => {
-    const previas = { techoCopago: 0 as const };
-    const url = nextUrl("/test/q2a", previas, { quiereInclusion: false });
-    expect(url).toContain("/test/q2a?");
-    expect(url).toContain("copago=0");
-    expect(url).toContain("incl=no");
-  });
-});
-
-describe("Quiz state — toRespuestasFamilia", () => {
-  it("retorna null si falta algún campo obligatorio", () => {
-    expect(toRespuestasFamilia({})).toBeNull();
-    expect(toRespuestasFamilia({ techoCopago: 0 })).toBeNull();
-    expect(toRespuestasFamilia({
-      techoCopago: 0,
-      quiereInclusion: false,
-      nivel: "media",
-      tipoDistancia: "duro",
-      // falta radioKm cuando distancia es dura
-      perfil: "academico",
-    })).toBeNull();
+  it("'superior' solo vale si eligió media o ambos niveles (D30)", () => {
+    expect(parseRespuestas({ nivel: "basica", perfil: "superior" }).perfil).toBeUndefined();
+    expect(parseRespuestas({ nivel: "basica_y_media", perfil: "superior" }).perfil).toBe("superior");
   });
 
-  it("construye respuestas completas con lat/lon de Pudahuel", () => {
-    const r = toRespuestasFamilia({
-      techoCopago: 0,
-      quiereInclusion: false,
-      nivel: "media",
-      tipoDistancia: "duro",
-      radioKm: 2,
-      perfil: "convivencia",
-    });
-    expect(r).not.toBeNull();
-    expect(r!.latSector).toBe(LAT_PUDAHUEL);
-    expect(r!.lonSector).toBe(LON_PUDAHUEL);
+  it("toRespuestasFamilia exige las 5 respuestas", () => {
+    expect(toRespuestasFamilia({ techoCopago: 0, inclusion: "no", nivel: "basica", alcance: "1km" })).toBeNull();
+    expect(
+      toRespuestasFamilia({ techoCopago: 0, inclusion: "no", nivel: "basica", alcance: "1km", perfil: "academico" })
+    ).not.toBeNull();
   });
 
-  it("distancia flexible no requiere radio", () => {
-    const r = toRespuestasFamilia({
-      techoCopago: 5,
-      quiereInclusion: false,
-      nivel: "basica",
-      tipoDistancia: "flexible",
-      perfil: "academico",
-    });
-    expect(r).not.toBeNull();
-    expect(r!.tipoDistancia).toBe("flexible");
-    expect(r!.radioKm).toBeUndefined();
+  it("nextUrl combina respuestas previas y nuevas", () => {
+    expect(nextUrl("/test/q3", { techoCopago: 2 }, { inclusion: "entorno" })).toBe("/test/q3?copago=2&inc=entorno");
   });
 });

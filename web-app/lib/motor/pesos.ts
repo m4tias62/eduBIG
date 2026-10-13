@@ -1,32 +1,47 @@
-import type { Perfil, TipoDistancia } from "./types";
+import type { Alcance, Dimension, Perfil } from "./types";
 
 /**
- * Distribución de pesos base por perfil de prioridad (Q5 del quiz).
+ * Pesos del Weighted Sum Model.
  *
- * Cada perfil pone 50% en su dimensión, 5% en cada una de las otras cuatro
- * dimensiones IDPS/SIMCE, y 30% en distancia. El perfil "todo_por_igual"
- * reparte 14% × 5 dimensiones + 30% distancia (suma = 1.00).
+ * - La dimensión elegida en Q5 lleva 50 %; las demás se reparten 20 %;
+ *   la distancia, 30 %. Sin media: 5 dimensiones (50 + 4 × 5 + 30).
+ *   Con media o ambos niveles: se suma "superior" (D30) → 50 + 5 × 4 + 30.
+ * - "Todo por igual" reparte 70 % en partes iguales (D35): 14 % con 5
+ *   dimensiones, ~11,7 % con 6.
+ * - Si el alcance es un filtro duro (1 km, 3 km, mi comuna, cercanas), la
+ *   distancia ya se aplicó en Capa 1: su peso se retira y el resto se
+ *   renormaliza (igual que el MVP).
  */
-export const pesosBase: Record<Perfil, Record<string, number>> = {
-  academico:      { academico: 0.50, autoestima: 0.05, habitos: 0.05, convivencia: 0.05, participacion: 0.05, distancia: 0.30 },
-  autoestima:     { academico: 0.05, autoestima: 0.50, habitos: 0.05, convivencia: 0.05, participacion: 0.05, distancia: 0.30 },
-  habitos:        { academico: 0.05, autoestima: 0.05, habitos: 0.50, convivencia: 0.05, participacion: 0.05, distancia: 0.30 },
-  convivencia:    { academico: 0.05, autoestima: 0.05, habitos: 0.05, convivencia: 0.50, participacion: 0.05, distancia: 0.30 },
-  participacion:  { academico: 0.05, autoestima: 0.05, habitos: 0.05, convivencia: 0.05, participacion: 0.50, distancia: 0.30 },
-  todo_por_igual: { academico: 0.14, autoestima: 0.14, habitos: 0.14, convivencia: 0.14, participacion: 0.14, distancia: 0.30 },
-};
 
-/**
- * Calcula los pesos finales según perfil y tipo de distancia.
- * Si la distancia es dura, se remueve el peso de distancia (ya se filtró
- * en Capa 1) y se renormalizan los pesos restantes para que sumen 1.0.
- */
-export function calcularPesosFinales(
+export const PESO_DISTANCIA = 0.3;
+export const PESO_ELEGIDA = 0.5;
+
+const BASE: Dimension[] = ["academico", "autoestima", "habitos", "convivencia", "participacion"];
+
+export function dimensionesActivas(incluyeSuperior: boolean): Dimension[] {
+  return incluyeSuperior ? [...BASE, "superior"] : BASE;
+}
+
+export function esAlcanceDuro(alcance: Alcance): boolean {
+  return alcance !== "cualquiera";
+}
+
+export function calcularPesos(
   perfil: Perfil,
-  tipoDistancia: TipoDistancia
+  incluyeSuperior: boolean,
+  alcance: Alcance
 ): Record<string, number> {
-  const pesos = { ...pesosBase[perfil] };
-  if (tipoDistancia === "duro") {
+  const dims = dimensionesActivas(incluyeSuperior);
+  const pesos: Record<string, number> = {};
+  const elegida = perfil !== "todo_por_igual" && dims.includes(perfil) ? perfil : null;
+  const resto = 1 - PESO_DISTANCIA;
+  for (const d of dims) {
+    if (!elegida) pesos[d] = resto / dims.length;
+    else pesos[d] = d === elegida ? PESO_ELEGIDA : (resto - PESO_ELEGIDA) / (dims.length - 1);
+  }
+  pesos.distancia = PESO_DISTANCIA;
+
+  if (esAlcanceDuro(alcance)) {
     delete pesos.distancia;
     const total = Object.values(pesos).reduce((a, b) => a + b, 0);
     for (const k of Object.keys(pesos)) pesos[k] = pesos[k] / total;

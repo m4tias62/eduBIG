@@ -1,73 +1,113 @@
+import type { ColegioIndice } from "@/lib/types";
+
 /**
- * Tipos del Motor de scoring.
+ * Tipos del Motor del Test de Calce — versión nacional (2026-10-13).
  *
- * Espejo exacto de la lógica en data-pipeline/scripts/04_scoring_engine.ipynb.
+ * Cambios frente al motor del MVP (decisiones de la bitácora):
+ *  D21  Inclusión: "necesito PIE" o "necesito educación especial" filtran
+ *       (Capa 1); "valoro un entorno inclusivo" suma el bono de 5 %.
+ *  D22  Sin ubicación por defecto: la distancia se mide desde el GPS o desde
+ *       el centro de la comuna elegida; Q4 adapta sus opciones a esa precisión.
+ *  D24  Colegios sin comparación oficial: fuera de la shortlist, en un bloque
+ *       aparte ordenado por distancia.
+ *  D26  Si quedan menos de 3, se ofrece ampliar la distancia paso a paso.
+ *  D27  La shortlist muestra 3 colegios.
+ *  D30  Nueva prioridad "Preparación para la educación superior" (tasa de
+ *       ingreso a la U relativa a colegios similares), solo con media.
+ *  D35  "Todo por igual" reparte 70 % entre las dimensiones disponibles.
+ *  D36  Colegios sin dato de copago, según dependencia.
  */
 
-/** Techo máximo de copago que la familia acepta.
- *  Los rangos son los mismos códigos que usa PAGO_MENSUAL en Mineduc,
- *  mapeados a enteros por el pipeline (columna pago_mensual_rango). */
+/** Tope de mensualidad que acepta la familia (tramos del Directorio Mineduc). */
 export type TechoCopago = 0 | 1 | 2 | 3 | 4 | 5;
 
-/** Nivel educativo que necesita la familia. */
 export type NivelFamilia = "basica" | "media" | "basica_y_media";
 
-/** Modo del filtro de distancia.
- *  - "duro": descalifica colegios fuera del radio en Capa 1.
- *  - "flexible": no descalifica, se pondera negativamente en Capa 2. */
-export type TipoDistancia = "duro" | "flexible";
+/** Q2: no necesita / necesita PIE / necesita educación especial / valora entorno inclusivo. */
+export type Inclusion = "no" | "pie" | "especial" | "entorno";
 
-/** Perfil de prioridad del quiz (Q5).
- *  Cada perfil pone 50% del peso en su dimensión, 5% en las demás,
- *  30% en distancia (a menos que sea 'duro' — entonces se renormaliza). */
-export type Perfil =
+/**
+ * Q4: alcance de la búsqueda.
+ *  - Con GPS:    1km · 3km · cualquiera
+ *  - Con comuna: comuna · cercanas · cualquiera
+ * "cualquiera" no descarta por distancia, pero la cercanía pesa 30 % y la
+ * búsqueda se limita a la región de la familia.
+ */
+export type Alcance = "1km" | "3km" | "comuna" | "cercanas" | "cualquiera";
+
+export type Dimension =
   | "academico"
   | "autoestima"
   | "habitos"
   | "convivencia"
   | "participacion"
-  | "todo_por_igual";
+  | "superior";
 
-/** Respuestas del quiz de una familia. */
-export interface RespuestasFamilia {
-  techoCopago: TechoCopago;
-  nivel: NivelFamilia;
-  latSector: number;
-  lonSector: number;
-  tipoDistancia: TipoDistancia;
-  /** Requerido si tipoDistancia === "duro". */
-  radioKm?: number;
-  perfil: Perfil;
-  quiereInclusion: boolean;
+/** Q5: dimensión con más peso, o "todo_por_igual". */
+export type Perfil = Dimension | "todo_por_igual";
+
+/** Punto desde el que se mide la distancia. */
+export interface Referencia {
+  tipo: "gps" | "comuna";
+  lat: number;
+  lon: number;
+  /** Comuna elegida, o la más cercana al GPS. */
+  codComuna: number;
+  nombreComuna: string;
+  region: string;
+  cercanas: number[];
 }
 
-/** Scores por dimensión, todos normalizados a [0, 1] sobre el universo. */
+export interface RespuestasFamilia {
+  techoCopago: TechoCopago;
+  inclusion: Inclusion;
+  nivel: NivelFamilia;
+  alcance: Alcance;
+  perfil: Perfil;
+}
+
+/** Scores por dimensión, en [0, 1]. */
 export interface ScoresPorDimension {
   academico: number;
   autoestima: number;
   habitos: number;
   participacion: number;
   convivencia: number;
+  superior: number;
   seguridad: number;
   distancia: number;
 }
 
-/** Colegio ya puntuado — resultado de Capa 2. */
 export interface ScoredColegio {
-  rbd: number;
-  nombre: string;
+  colegio: ColegioIndice;
   scores: ScoresPorDimension;
   distanciaKm: number;
-  /** Score compuesto final. Rango [0, 1]. Mayor = mejor calce. */
+  /** Score compuesto. Mayor = mejor calce. */
   scoreFinal: number;
 }
 
-/** Resultado del Motor completo. */
+export interface Ampliacion {
+  alcance: Alcance;
+  /** Colegios recomendables con ese alcance. */
+  total: number;
+  /** Cuántos se suman frente al alcance actual. */
+  suma: number;
+}
+
 export interface ResultadoMotor {
-  /** Colegios elegibles ordenados de mejor a peor score. */
+  alcance: Alcance;
+  /** Hasta 3 colegios recomendables, del mejor al peor calce (D27). */
   shortlist: ScoredColegio[];
-  /** Total de colegios que pasaron los filtros de Capa 1. */
-  totalElegibles: number;
-  /** Total del universo evaluado. */
-  totalUniverso: number;
+  /** Colegios que pasan los filtros y tienen datos para comparar. */
+  totalRecomendables: number;
+  /** Hasta 3 colegios que pasan los filtros pero no tienen comparación (D24), por distancia. */
+  sinDatos: ScoredColegio[];
+  totalSinDatos: number;
+  /** Alcances más amplios disponibles cuando quedan menos de 3 (D26). */
+  ampliaciones: Ampliacion[];
+}
+
+export interface UniversoMotor {
+  colegios: ColegioIndice[];
+  regionPorComuna: ReadonlyMap<number, string>;
 }

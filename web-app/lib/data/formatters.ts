@@ -1,73 +1,117 @@
-import type { Colegio, RangoCopago } from "@/lib/types";
+import type { CodDependencia, EstadoCosto } from "@/lib/types";
 
 /**
- * Helpers de formateo y derivación de strings human-readable a partir de
- * los campos crudos del pipeline. Mismos códigos + glosas que produce
- * `identidad.dependencia` en colegios_conclusiones.json.
+ * Glosas legibles a partir de los códigos del dataset nacional.
+ * Fuente única para tarjetas, ficha, comparación y filtros.
  */
 
-/** COD_DEPE → glosa oficial (misma que usa el pipeline en identidad.dependencia). */
-export function dependenciaGlosa(codDepe: number): string {
-  switch (codDepe) {
-    case 3:
-      return "Particular subvencionado";
-    case 4:
-      return "Particular pagado";
-    case 6:
-      return "Educación pública (SLEP)";
+const DEPENDENCIA: Record<CodDependencia, string> = {
+  1: "Pública municipal",
+  2: "Particular subvencionado",
+  3: "Particular pagado",
+  4: "Administración delegada",
+  5: "Pública (Servicio Local)",
+};
+
+export function dependenciaGlosa(d: CodDependencia): string {
+  return DEPENDENCIA[d] ?? "Dependencia no informada";
+}
+
+/** Agrupación para el filtro "Tipo de colegio" de la exploración. */
+export type TipoColegio = "publica" | "part_subvencionado" | "part_pagado";
+
+export function tipoColegio(d: CodDependencia): TipoColegio {
+  if (d === 2) return "part_subvencionado";
+  if (d === 3) return "part_pagado";
+  return "publica"; // municipal, SLEP y administración delegada (financiamiento público)
+}
+
+export const TIPO_GLOSA: Record<TipoColegio, string> = {
+  publica: "Pública",
+  part_subvencionado: "Particular subvencionado",
+  part_pagado: "Particular pagado",
+};
+
+/** "Básica y media", "Básica", "Media y educación especial"… */
+export function nivelesGlosa(basica: boolean, media: boolean, especial: boolean): string {
+  const partes: string[] = [];
+  if (basica) partes.push("básica");
+  if (media) partes.push("media");
+  if (especial) partes.push("educación especial");
+  if (partes.length === 0) return "Niveles no informados";
+  const texto =
+    partes.length === 1 ? partes[0] : partes.slice(0, -1).join(", ") + " y " + partes[partes.length - 1];
+  return texto.charAt(0).toUpperCase() + texto.slice(1);
+}
+
+const RANGO: Record<number, string> = {
+  0: "Gratuito",
+  1: "$1.000 a $10.000",
+  2: "$10.001 a $25.000",
+  3: "$25.001 a $50.000",
+  4: "$50.001 a $100.000",
+  5: "Más de $100.000",
+};
+
+export function rangoGlosa(r: number | undefined): string {
+  return r === undefined ? "Sin información" : RANGO[r] ?? "Sin información";
+}
+
+/** Glosa del pago tal como viene del Directorio ("MAS DE $100.000" → "Más de $100.000"). */
+export function pagoGlosa(crudo: string | undefined): string {
+  if (!crudo) return "Sin información";
+  const mapa: Record<string, string> = {
+    GRATUITO: "Gratuito",
+    "$1.000 A $10.000": RANGO[1],
+    "$10.001 A $25.000": RANGO[2],
+    "$25.001 A $50.000": RANGO[3],
+    "$50.001 A $100.000": RANGO[4],
+    "MAS DE $100.000": RANGO[5],
+    "SIN INFORMACION": "Sin información",
+  };
+  return mapa[crudo.toUpperCase()] ?? crudo;
+}
+
+/** Etiqueta corta de costo para tarjetas y listas (D36). */
+export function costoEtiqueta(k: EstadoCosto, r?: number): string {
+  switch (k) {
+    case "gratuito":
+      return "Gratuito";
+    case "gratuito_ley":
+      return "Gratuito por ley";
+    case "pago":
+      return `${rangoGlosa(r)} al mes`;
+    case "pago_sin_monto":
+      return "Pagado, monto sin dato";
     default:
-      return "Dependencia sin clasificar";
+      return "Sin dato de costo";
   }
 }
 
-/** Niveles ofrecidos → glosa corta. */
-export function nivelesGlosa(ofreceBasica: boolean, ofreceMedia: boolean): string {
-  if (ofreceBasica && ofreceMedia) return "Básica y Media";
-  if (ofreceBasica) return "Básica";
-  if (ofreceMedia) return "Media";
-  return "Niveles no informados";
+export function esGratuito(k: EstadoCosto): boolean {
+  return k === "gratuito" || k === "gratuito_ley";
 }
 
-/**
- * Normaliza los rangos crudos de Mineduc (ALL-CAPS) a sentence case.
- * Ejemplo: "MAS DE $100.000" → "Más de $100.000".
- * Observación registrada en bitácora — a futuro conviene hacerlo en el pipeline.
- */
-export function formatearCopago(rango: RangoCopago): string {
-  const mapa: Record<RangoCopago, string> = {
-    GRATUITO: "Gratuito",
-    "$1.000 A $10.000": "$1.000 a $10.000",
-    "$10.001 A $25.000": "$10.001 a $25.000",
-    "$25.001 A $50.000": "$25.001 a $50.000",
-    "$50.001 A $100.000": "$50.001 a $100.000",
-    "MAS DE $100.000": "Más de $100.000",
-    SIN_INFORMACION: "Sin información",
-    "SIN INFORMACION": "Sin información",
-  } as Record<RangoCopago, string>;
-  return mapa[rango] ?? String(rango);
-}
-
-/** Matrícula total → "445 estudiantes". */
 export function matriculaGlosa(mat: number): string {
   return `${mat.toLocaleString("es-CL")} estudiantes`;
 }
 
-/** Determina el "Estado" visual del Módulo Costo según los datos. */
-export type EstadoCosto = "gratuito" | "con_copago" | "sin_informacion";
-export function estadoCosto(c: Colegio): EstadoCosto {
-  if (c.PAGO_MENSUAL === "SIN INFORMACION" && c.PAGO_MATRICULA === "SIN INFORMACION") {
-    return "sin_informacion";
-  }
-  if (c.PAGO_MENSUAL === "GRATUITO" && c.PAGO_MATRICULA === "GRATUITO") {
-    return "gratuito";
-  }
-  return "con_copago";
+/** Punto desde el que se mide la distancia. */
+export type ReferenciaDistancia = { tipo: "gps" } | { tipo: "comuna"; nombre: string };
+
+export function formatearDistancia(km: number, ref: ReferenciaDistancia): string {
+  const sufijo = ref.tipo === "gps" ? "de tu ubicación" : `del centro de ${ref.nombre}`;
+  if (km < 1) return `A ${Math.max(50, Math.round(km * 20) * 50)} m ${sufijo}`;
+  return `A ${km.toFixed(1).replace(".", ",")} km ${sufijo}`;
 }
 
-/** Conclusión del costo en 1 línea (misma lógica que lo_esencial.Costo del pipeline). */
-export function conclusionCosto(c: Colegio): string {
-  const est = estadoCosto(c);
-  if (est === "gratuito") return "Gratuito, sin copago.";
-  if (est === "sin_informacion") return "Sin información de copago publicada.";
-  return `Copago mensual: ${formatearCopago(c.PAGO_MENSUAL)}.`;
+/** 0,4242 → "42 %". */
+export function pct(x: number): string {
+  return `${Math.round(x * 100)}\u00a0%`;
+}
+
+/** Diferencia en puntos porcentuales con signo: 0,12 → "+12 pts.". */
+export function puntosPct(x: number): string {
+  const v = Math.round(x * 100);
+  return `${v > 0 ? "+" : v < 0 ? "−" : ""}${Math.abs(v)}\u00a0pts.`;
 }

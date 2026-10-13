@@ -4,7 +4,9 @@
  * Cada barra = diferencia del colegio vs. grupo de colegios similares
  * (mismo GSE) para un curso dado. Escala universal FIJA de ±56 puntos,
  * derivada del rango real entre los 57 colegios de Pudahuel (registrado
- * en bitácora original — mantiene comparabilidad entre fichas).
+ * en bitácora original — mantiene comparabilidad entre fichas). A escala
+ * nacional hay diferencias mayores: la barra se recorta en ±56 y la
+ * etiqueta muestra el valor real.
  *
  * Color codifica signo (decisión ago-2026): verde `exito-fuerte` cuando el
  * colegio está sobre sus similares (delta ≥ 0), ámbar `advertencia-fuerte`
@@ -28,7 +30,7 @@ export function BarraBrechaSimce({
     return (
       <div className="flex flex-col gap-xs">
         <h5 className="text-xs font-bold text-texto-primario">{titulo}</h5>
-        <p className="text-2xs text-texto-secundario">Sin datos publicados para este curso.</p>
+        <p className="text-2xs text-texto-secundario">Sin comparación publicada.</p>
       </div>
     );
   }
@@ -59,13 +61,13 @@ export function BarraBrechaSimce({
         {/* Etiqueta de escala */}
         <text
           x={4} y={12}
-          className="fill-texto-terciario text-[10px]"
+          className="fill-texto-secundario text-[10px]"
         >
           +{ESCALA_MAX}
         </text>
         <text
           x={4} y={VB_H - 24}
-          className="fill-texto-terciario text-[10px]"
+          className="fill-texto-secundario text-[10px]"
         >
           −{ESCALA_MAX}
         </text>

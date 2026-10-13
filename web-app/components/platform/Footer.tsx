@@ -69,9 +69,9 @@ export function Footer() {
       <div className="h-px w-full bg-white/[.15]" />
 
       {/* Meta */}
-      <div className="flex flex-col gap-xxs text-2xs text-texto-sobre-oscuro-terciario">
+      <div className="flex flex-col gap-xxs text-2xs text-texto-sobre-oscuro-secundario">
         <p>© 2026 Edubig · Un sistema que se traduce en cuidado.</p>
-        <p>Datos actualizados a agosto 2026 · Aviso de privacidad</p>
+        <p>Datos oficiales 2025 (SIMCE e IDPS versión final, Directorio Mineduc y Supereduc).</p>
       </div>
     </footer>
   );
