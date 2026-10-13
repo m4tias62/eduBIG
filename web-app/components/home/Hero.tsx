@@ -1,56 +1,51 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { ReactNode } from "react";
 import Isologo from "@/components/platform/Isologo";
 
 /**
- * Hero de la Home. Composición de fill (espejo del frame Figma
- * "Home — Mobile — Lista" › Hero), de abajo hacia arriba:
+ * Hero de la Home. Composición de fill (frame Figma "Home — Mobile — Lista"):
  *   1. Base sólida `superficie/inversa`.
- *   2. Degradado lineal al 75%: rdbu-01 (#053061, frío) arriba → rdbu-09
- *      (#d6604d, coral) abajo. Unificado con el hero de WhatsApp
- *      (og-image.jpg) para consistencia de lenguaje visual entre el sitio
- *      y el preview compartido. Traduce las dos cadenas de Edubig: la
- *      fría de los datos oficiales y la cálida de la familia.
- *   3. Foto de aula al 10% (textura cálida sin competir con el copy).
+ *   2. Degradado al 75 %: rdbu-01 (frío) arriba → rdbu-09 (coral) abajo,
+ *      unificado con la imagen OG de WhatsApp.
+ *   3. Foto de aula al 10 %.
  *
- * Copy geo-agnóstica: "que calza con tu familia" evita amarrar la Home a
- * Pudahuel (decisión registrada en bitácora).
+ * Escritorio (≥ 1024 px): dos columnas. A la izquierda el mensaje y el CTA
+ * del Test (sigue siendo el principal, D31); a la derecha, `aside` (la
+ * entrada a la exploración). El logo lo pone la barra de navegación.
  */
-export function Hero() {
+export function Hero({ aside }: { aside?: ReactNode }) {
   return (
     <section className="relative overflow-hidden bg-superficie-inversa text-texto-sobre-oscuro">
-      {/* Degradado frío (arriba) → cálido (abajo) al 80% sobre la base inversa */}
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-gradient-to-b from-rdbu-01 to-rdbu-09 opacity-75"
-      />
-      {/* Foto de aula al 25%, sobre el degradado */}
+      <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-rdbu-01 to-rdbu-09 opacity-75" />
       <Image
         src="/hero-classroom.jpg"
         alt=""
         fill
         priority
-        sizes="(max-width: 768px) 100vw, 768px"
+        sizes="100vw"
         className="object-cover opacity-10"
       />
-      <div className="relative z-10 px-l pt-xl pb-l flex flex-col gap-l">
-        <Isologo width={66} priority />
-
-        <div className="flex flex-col gap-xs">
-          <h1 className="text-xl font-bold">
-            Encuentra el colegio que calza con tu familia
-          </h1>
-          <p className="text-sm text-texto-sobre-oscuro-secundario">
-            Traducimos datos oficiales en visualizaciones accesibles para tomar decisiones informadas.
-          </p>
+      <div className="relative z-10 mx-auto max-w-6xl px-l pt-xl pb-l lg:grid lg:grid-cols-2 lg:items-center lg:gap-xxl lg:px-xl lg:py-xxl">
+        {/* Tablet: mismo ancho de columna que el resto de la Home */}
+        <div className="flex flex-col gap-l md:mx-auto md:max-w-md lg:mx-0 lg:max-w-none">
+          <div className="lg:hidden">
+            <Isologo width={66} priority />
+          </div>
+          <div className="flex flex-col gap-xs lg:gap-m">
+            <h1 className="text-xl font-bold lg:max-w-md">Encuentra el colegio que calza con tu familia</h1>
+            <p className="text-sm text-texto-sobre-oscuro-secundario lg:max-w-md">
+              Traducimos datos oficiales en visualizaciones accesibles para tomar decisiones informadas.
+            </p>
+          </div>
+          <Link
+            href="/test"
+            className="rounded-m bg-interaccion-enlace px-l py-m text-center text-sm font-bold text-texto-sobre-oscuro hover:bg-interaccion-enlace-hover lg:self-start lg:px-xl"
+          >
+            Hacer el Test de Calce
+          </Link>
         </div>
-
-        <Link
-          href="/test"
-          className="rounded-m bg-interaccion-enlace px-l py-m text-center text-sm font-bold text-texto-sobre-oscuro hover:bg-interaccion-enlace-hover"
-        >
-          Hacer el Test de Calce
-        </Link>
+        {aside && <div className="hidden lg:block">{aside}</div>}
       </div>
     </section>
   );

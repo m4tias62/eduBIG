@@ -31,7 +31,10 @@ export function PreguntaLayout({
   children: ReactNode;
 }) {
   return (
-    <div className="mx-auto w-full max-w-md min-h-screen flex flex-col gap-[36px] p-[36px] bg-superficie-base">
+    // Escritorio: la pregunta va en una tarjeta centrada sobre fondo gris,
+    // sin barra de navegación (pantalla inmersiva).
+    <div className="min-h-screen bg-superficie-base lg:bg-superficie-elevada lg:py-xxl">
+    <div className="mx-auto w-full max-w-md min-h-screen flex flex-col gap-[36px] p-[36px] bg-superficie-base lg:min-h-0 lg:max-w-xl lg:rounded-l lg:border lg:border-borde-sutil lg:shadow-sm">
       <QuizHeader paso={paso} esPaso2={esPaso2} volverHref={volverHref} />
       <div className="flex flex-col gap-m">
         {contexto && <ChipContexto>{contexto}</ChipContexto>}
@@ -42,6 +45,7 @@ export function PreguntaLayout({
       </div>
       {nota && <NotaLegitimacion>{nota}</NotaLegitimacion>}
       <div className="flex flex-col gap-m">{children}</div>
+    </div>
     </div>
   );
 }

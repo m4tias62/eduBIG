@@ -33,7 +33,7 @@ export function ModuloTrayectoria({ detalle }: { detalle: DetalleColegio }) {
         </p>
       ) : (
         <>
-          <div className="flex flex-col gap-s">
+          <div className="flex flex-col gap-s lg:max-w-xl">
             <BarraTasa label="Este colegio" valor={tasa} clase="bg-viz-serie-este" />
             {similares !== undefined && (
               <BarraTasa label="Colegios similares" valor={similares} clase="bg-viz-serie-similares" />

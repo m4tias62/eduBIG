@@ -19,7 +19,7 @@ export function ModuloSeguridad({ detalle }: { detalle: DetalleColegio }) {
       conclusion={detalle.traduccion.lo_esencial.Seguridad}
       fuente="Fuente: Superintendencia de Educación · Denuncias 2022–2025."
     >
-      <div className="flex flex-col gap-s">
+      <div className="flex flex-col gap-s lg:max-w-xl">
         <h4 className="text-sm font-bold text-texto-primario">Denuncias formales ante la Superintendencia</h4>
         <table className="w-full text-xs">
           <caption className="sr-only">Denuncias por año</caption>

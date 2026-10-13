@@ -20,6 +20,16 @@ const pinIcon = L.divIcon({
   popupAnchor: [0, -12],
 });
 
+// Pin resaltado al pasar por su tarjeta en la lista (escritorio): cálido,
+// porque la familia lo tiene "en foco" (mismo criterio que el hover de la card).
+const pinResaltado = L.divIcon({
+  className: "edubig-pin-foco",
+  html: '<div style="width:28px;height:28px;border-radius:50%;background:#d6604d;border:4px solid #fff;box-shadow:0 0 0 2px #b2181f,0 2px 8px rgba(0,0,0,0.35);"></div>',
+  iconSize: [28, 28],
+  iconAnchor: [14, 14],
+  popupAnchor: [0, -16],
+});
+
 const refIcon = L.divIcon({
   className: "edubig-user-pin",
   html: '<div style="width:18px;height:18px;border-radius:50%;background:#0958D9;border:3px solid #fff;box-shadow:0 0 0 2px rgba(9,88,217,0.4),0 2px 6px rgba(0,0,0,0.3);"></div>',
@@ -43,16 +53,22 @@ function Encuadrar({ puntos }: { puntos: Array<[number, number]> }) {
 export function MapaLeaflet({
   items,
   referencia,
+  resaltado = null,
+  className,
 }: {
   items: ItemExploracion[];
   referencia?: { lat: number; lon: number; etiqueta: string };
+  /** RBD cuyo pin se resalta (sincronía con la lista en escritorio). */
+  resaltado?: number | null;
+  /** Por defecto, alto pensado para la vista Mapa de móvil. */
+  className?: string;
 }) {
   const puntos: Array<[number, number]> = items.map(({ c }) => [c.lat, c.lon]);
   if (referencia) puntos.push([referencia.lat, referencia.lon]);
   const centro: [number, number] = puntos[0] ?? [-33.45, -70.66];
 
   return (
-    <div className="w-full h-[calc(100vh-300px)] min-h-[360px] relative">
+    <div className={className ?? "w-full h-[calc(100vh-300px)] min-h-[360px] relative"}>
       <MapContainer center={centro} zoom={13} scrollWheelZoom className="w-full h-full">
         <Encuadrar puntos={puntos} />
         <TileLayer
@@ -67,7 +83,12 @@ export function MapaLeaflet({
           </Marker>
         )}
         {items.map(({ c }) => (
-          <Marker key={c.rbd} position={[c.lat, c.lon]} icon={pinIcon}>
+          <Marker
+            key={c.rbd}
+            position={[c.lat, c.lon]}
+            icon={c.rbd === resaltado ? pinResaltado : pinIcon}
+            zIndexOffset={c.rbd === resaltado ? 1000 : 0}
+          >
             <Popup>
               <div className="flex flex-col gap-xs min-w-[200px]">
                 <p className="text-xs font-bold text-texto-primario m-0">{c.n}</p>

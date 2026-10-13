@@ -1,7 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useId, useState } from "react";
+import { cn } from "@/lib/utils";
 import { SelectorUbicacion } from "@/components/ubicacion/SelectorUbicacion";
 import { Icon } from "@/components/ui/Icon";
 import { urlExplorar } from "@/lib/home/filtros";
@@ -10,18 +11,27 @@ import { urlExplorar } from "@/lib/home/filtros";
  * "o explora por tu cuenta" (D31, D34): las mismas dos opciones de ubicación
  * que el Test, más la búsqueda por nombre, que no pide ubicación.
  */
-export function EntradaExploracion() {
+export function EntradaExploracion({ tarjeta = false }: { tarjeta?: boolean }) {
   const router = useRouter();
   const [q, setQ] = useState("");
+  const id = useId();
+  const idTitulo = `${id}-titulo`;
+  const idBuscar = `${id}-buscar`;
 
   return (
-    <section className="bg-superficie-base px-l py-xl" aria-labelledby="explora-titulo">
-      <div className="max-w-md mx-auto flex flex-col gap-l">
+    <section
+      className={cn(
+        "bg-superficie-base text-texto-primario",
+        tarjeta ? "rounded-l p-xl shadow-lg" : "px-l py-xl"
+      )}
+      aria-labelledby={idTitulo}
+    >
+      <div className={cn("flex flex-col gap-l", !tarjeta && "max-w-md mx-auto")}>
         <div className="flex flex-col gap-xs">
           <p className="text-2xs font-bold uppercase tracking-wide text-texto-secundario">
             O explora por tu cuenta
           </p>
-          <h2 id="explora-titulo" className="text-md font-bold text-texto-primario">
+          <h2 id={idTitulo} className="text-md font-bold text-texto-primario">
             ¿Dónde buscas colegio?
           </h2>
         </div>
@@ -46,12 +56,12 @@ export function EntradaExploracion() {
           }}
           className="flex flex-col gap-xs"
         >
-          <label htmlFor="buscar-nombre" className="text-xs font-bold text-texto-primario">
+          <label htmlFor={idBuscar} className="text-xs font-bold text-texto-primario">
             ¿Ya sabes cuál? Búscalo por su nombre
           </label>
           <div className="flex gap-xs">
             <input
-              id="buscar-nombre"
+              id={idBuscar}
               type="search"
               value={q}
               onChange={(e) => setQ(e.target.value)}

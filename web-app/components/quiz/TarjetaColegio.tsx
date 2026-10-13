@@ -38,8 +38,8 @@ export function TarjetaColegio({
     <article
       className={
         sinDatos
-          ? "rounded-m border border-borde-definido bg-superficie-base p-l flex flex-col gap-m"
-          : "rounded-m border-t-2 border-l-2 border-r-4 border-b-4 border-temp-calido-profundo bg-superficie-base p-l flex flex-col gap-m"
+          ? "h-full rounded-m border border-borde-definido bg-superficie-base p-l flex flex-col gap-m"
+          : "h-full rounded-m border-t-2 border-l-2 border-r-4 border-b-4 border-temp-calido-profundo bg-superficie-base p-l flex flex-col gap-m"
       }
     >
       <div className="flex items-start gap-s">
@@ -88,7 +88,7 @@ export function TarjetaColegio({
 
       <Link
         href={`/colegio/${colegio.rbd}`}
-        className="min-h-[44px] inline-flex items-center justify-center rounded-s bg-interaccion-enlace px-m py-xs text-center text-xs font-bold text-texto-sobre-oscuro hover:bg-interaccion-enlace-hover"
+        className="mt-auto min-h-[44px] inline-flex items-center justify-center rounded-s bg-interaccion-enlace px-m py-xs text-center text-xs font-bold text-texto-sobre-oscuro hover:bg-interaccion-enlace-hover"
       >
         Ver ficha
       </Link>

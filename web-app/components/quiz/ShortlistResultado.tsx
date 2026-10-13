@@ -104,16 +104,19 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
     <>
       {lista && !ubicacion && <ModalUbicacion />}
 
-      <header className="bg-superficie-base px-l pt-xl pb-l flex flex-col gap-m max-w-md mx-auto">
-        <Isologo width={88} priority />
-        <Link
-          href="/"
-          className="min-h-[44px] inline-flex items-center gap-xs self-start rounded-s bg-interaccion-enlace px-l py-xs text-xs font-bold text-texto-sobre-oscuro hover:bg-interaccion-enlace-hover"
-        >
-          Ir al inicio del sitio
-          <Icon nombre="home" size={18} />
-        </Link>
-        <div className="flex flex-col gap-xs">
+      <header className="bg-superficie-base px-l pt-xl pb-l flex flex-col gap-m max-w-md mx-auto lg:max-w-6xl lg:px-xl">
+        {/* En escritorio, logo e inicio están en la barra de navegación */}
+        <div className="flex flex-col gap-m lg:hidden">
+          <Isologo width={88} priority />
+          <Link
+            href="/"
+            className="min-h-[44px] inline-flex items-center gap-xs self-start rounded-s bg-interaccion-enlace px-l py-xs text-xs font-bold text-texto-sobre-oscuro hover:bg-interaccion-enlace-hover"
+          >
+            Ir al inicio del sitio
+            <Icon nombre="home" size={18} />
+          </Link>
+        </div>
+        <div className="flex flex-col gap-xs lg:max-w-3xl">
           <h1 className="text-lg font-bold text-texto-primario">
             Estos son los colegios que calzan con tu familia
           </h1>
@@ -126,6 +129,7 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
           )}
         </div>
 
+        <div className="lg:max-w-3xl">
         <NotaLegitimacion>
           Armamos tu lista con lo que nos dijiste: {resumen.join(" · ")}. No hay una combinación
           correcta: es la de tu familia.{" "}
@@ -136,14 +140,15 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
             Ajustar respuestas
           </Link>
         </NotaLegitimacion>
+        </div>
 
         {ubicacion && (
-          <IndicadorUbicacion className="rounded-m border border-borde-sutil bg-superficie-elevada px-m py-xs" />
+          <IndicadorUbicacion className="rounded-m border border-borde-sutil bg-superficie-elevada px-m py-xs lg:max-w-3xl" />
         )}
       </header>
 
-      <section className="bg-superficie-elevada px-l py-l">
-        <div className="flex flex-col gap-m max-w-md mx-auto">
+      <section className="bg-superficie-elevada px-l py-l lg:px-0 lg:py-xl">
+        <div className="flex flex-col gap-m max-w-md mx-auto lg:max-w-6xl lg:px-xl lg:gap-l">
           {error && (
             <p role="alert" className="text-xs text-error-fuerte">
               No pudimos cargar los datos de los colegios. Revisa tu conexión y recarga la página.
@@ -153,8 +158,9 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
             <p role="status" className="text-xs text-texto-secundario">Calculando…</p>
           )}
 
-          {r && refDist &&
-            shortlist.map((sc, i) => (
+          {r && refDist && shortlist.length > 0 && (
+            <div className="flex flex-col gap-m lg:grid lg:grid-cols-3 lg:gap-l">
+            {shortlist.map((sc, i) => (
               <TarjetaColegio
                 key={sc.colegio.rbd}
                 posicion={i + 1}
@@ -164,10 +170,12 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
                 razones={razonesCalce(sc, { ...respuestas, alcance: r.alcance }, calculo!.ref)}
               />
             ))}
+            </div>
+          )}
 
           {/* D26 — pocos colegios: solo se ofrece ampliar la distancia */}
           {r && shortlist.length < 3 && (
-            <div className="rounded-m border border-borde-sutil bg-superficie-base p-l flex flex-col gap-s">
+            <div className="rounded-m border border-borde-sutil bg-superficie-base p-l flex flex-col gap-s lg:max-w-3xl">
               <p className="text-sm font-bold text-texto-primario">
                 {shortlist.length === 0
                   ? "No encontramos colegios con datos para comparar que cumplan tus respuestas."
@@ -207,7 +215,7 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
           {shortlist.length >= 2 && (
             <Link
               href={`/comparar?rbd=${rbdsComparar.join(",")}`}
-              className="min-h-[44px] inline-flex items-center justify-center gap-xs rounded-m border-2 border-interaccion-enlace bg-superficie-base px-l py-s text-sm font-bold text-interaccion-enlace hover:bg-info-suave"
+              className="min-h-[44px] inline-flex items-center justify-center gap-xs rounded-m border-2 border-interaccion-enlace bg-superficie-base px-l py-s text-sm font-bold text-interaccion-enlace hover:bg-info-suave lg:self-center lg:px-xxl"
             >
               <Icon nombre="compare_arrows" size={20} />
               Comparar {shortlist.length === 3 ? "estos 3" : "estos 2"}
@@ -218,7 +226,7 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
             <button
               type="button"
               onClick={compartir}
-              className="min-h-[44px] inline-flex items-center justify-center gap-xs text-xs font-bold text-interaccion-enlace hover:text-interaccion-enlace-hover"
+              className="min-h-[44px] inline-flex items-center justify-center gap-xs text-xs font-bold text-interaccion-enlace hover:text-interaccion-enlace-hover lg:self-center"
             >
               <Icon nombre="share" size={18} />
               {copiado ? "Enlace copiado" : "Compartir esta lista"}
@@ -229,9 +237,9 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
 
       {/* D24 — colegios que pasan los filtros pero no tienen comparación */}
       {r && refDist && r.sinDatos.length > 0 && (
-        <section className="bg-superficie-base px-l py-l" aria-labelledby="sin-datos-titulo">
-          <div className="flex flex-col gap-m max-w-md mx-auto">
-            <div className="flex flex-col gap-xs">
+        <section className="bg-superficie-base px-l py-l lg:px-0 lg:py-xl" aria-labelledby="sin-datos-titulo">
+          <div className="flex flex-col gap-m max-w-md mx-auto lg:max-w-6xl lg:px-xl">
+            <div className="flex flex-col gap-xs lg:max-w-3xl">
               <h2 id="sin-datos-titulo" className="text-md font-bold text-texto-primario">
                 Cerca de ti, sin datos para comparar
               </h2>
@@ -241,15 +249,17 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
                 mostramos por cercanía: también pueden ser una buena opción.
               </p>
             </div>
-            {r.sinDatos.map((sc) => (
-              <TarjetaColegio
-                key={sc.colegio.rbd}
-                colegio={sc.colegio}
-                distanciaKm={sc.distanciaKm}
-                referencia={refDist}
-                sinDatos
-              />
-            ))}
+            <div className="flex flex-col gap-m lg:grid lg:grid-cols-3 lg:gap-l">
+              {r.sinDatos.map((sc) => (
+                <TarjetaColegio
+                  key={sc.colegio.rbd}
+                  colegio={sc.colegio}
+                  distanciaKm={sc.distanciaKm}
+                  referencia={refDist}
+                  sinDatos
+                />
+              ))}
+            </div>
           </div>
         </section>
       )}

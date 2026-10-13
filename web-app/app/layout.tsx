@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { UbicacionProvider } from "@/lib/ubicacion";
+import { BarraNavegacion } from "@/components/platform/BarraNavegacion";
 
 /**
  * metadataBase resuelve URLs relativas de OG/Twitter a absolutas.
@@ -58,7 +59,10 @@ export default function RootLayout({
   return (
     <html lang="es-CL">
       <body className="min-h-screen bg-superficie-base">
-        <UbicacionProvider>{children}</UbicacionProvider>
+        <UbicacionProvider>
+          <BarraNavegacion />
+          {children}
+        </UbicacionProvider>
       </body>
     </html>
   );

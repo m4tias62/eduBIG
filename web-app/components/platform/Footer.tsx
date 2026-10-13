@@ -15,63 +15,63 @@ import Isologo from "./Isologo";
  */
 export function Footer() {
   return (
-    <footer className="w-full bg-superficie-inversa px-l pt-xl pb-l flex flex-col gap-l text-texto-sobre-oscuro">
-      {/* Identidad */}
-      <div className="flex flex-col gap-m">
-        <Isologo />
-        <p className="text-xs text-texto-sobre-oscuro-secundario">
-          Traducimos datos oficiales en decisiones familiares informadas.
-        </p>
-      </div>
+    <footer className="w-full bg-superficie-inversa pt-xl pb-l text-texto-sobre-oscuro">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-l px-l lg:px-xl">
+        <div className="flex flex-col gap-l lg:flex-row lg:items-start lg:justify-between lg:gap-xxl">
+          {/* Identidad */}
+          <div className="flex flex-col gap-m lg:max-w-xs">
+            <Isologo />
+            <p className="text-xs text-texto-sobre-oscuro-secundario">
+              Traducimos datos oficiales en decisiones familiares informadas.
+            </p>
+          </div>
 
-      {/* Columnas */}
-      <div className="flex gap-l">
-        <div className="flex flex-col gap-xs flex-1">
-          <p className="text-2xs font-bold text-texto-sobre-oscuro-secundario">
-            Fuentes de datos
-          </p>
-          <p className="text-xs">Mineduc</p>
-          <p className="text-xs">Agencia de Calidad</p>
-          <p className="text-xs">Supereduc</p>
+          {/* Columnas */}
+          <div className="flex gap-l lg:gap-xxl">
+            <div className="flex flex-col gap-xs flex-1">
+              <p className="text-2xs font-bold text-texto-sobre-oscuro-secundario">Fuentes de datos</p>
+              <p className="text-xs">Mineduc</p>
+              <p className="text-xs">Agencia de Calidad</p>
+              <p className="text-xs">Supereduc</p>
+            </div>
+
+            <div className="flex flex-col gap-xs flex-1">
+              <p className="text-2xs font-bold text-texto-sobre-oscuro-secundario">Equipo</p>
+              <div className="flex items-center gap-xs flex-wrap">
+                <span className="text-xs">Israel Rubilar</span>
+                <a
+                  href="https://www.linkedin.com/in/joseisraelrubilar/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-2xs text-texto-sobre-oscuro-secundario underline"
+                >
+                  LinkedIn
+                </a>
+              </div>
+              <div className="flex items-center gap-xs flex-wrap">
+                <span className="text-xs">Matías Cáceres</span>
+                <a
+                  href="https://www.linkedin.com/in/matias-caceres-maureira-9b6051259/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-2xs text-texto-sobre-oscuro-secundario underline"
+                >
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="flex flex-col gap-xs flex-1">
-          <p className="text-2xs font-bold text-texto-sobre-oscuro-secundario">
-            Equipo
-          </p>
-          <div className="flex items-center gap-xs flex-wrap">
-            <span className="text-xs">Israel Rubilar</span>
-            <a
-              href="https://www.linkedin.com/in/joseisraelrubilar/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-2xs text-texto-sobre-oscuro-secundario underline"
-            >
-              LinkedIn
-            </a>
-          </div>
-          <div className="flex items-center gap-xs flex-wrap">
-            <span className="text-xs">Matías Cáceres</span>
-            <a
-              href="https://www.linkedin.com/in/matias-caceres-maureira-9b6051259/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-2xs text-texto-sobre-oscuro-secundario underline"
-            >
-              LinkedIn
-            </a>
-          </div>
+        {/* Divider — blanco 15% (borde/* del design system está calibrado para
+            superficies claras y no aplica sobre oscuro) */}
+        <div className="h-px w-full bg-white/[.15]" />
+
+        {/* Meta */}
+        <div className="flex flex-col gap-xxs text-2xs text-texto-sobre-oscuro-secundario">
+          <p>© 2026 Edubig · Un sistema que se traduce en cuidado.</p>
+          <p>Datos oficiales 2025 (SIMCE e IDPS versión final, Directorio Mineduc y Supereduc).</p>
         </div>
-      </div>
-
-      {/* Divider — blanco 15% (borde/* del design system está calibrado para
-          superficies claras y no aplica sobre oscuro) */}
-      <div className="h-px w-full bg-white/[.15]" />
-
-      {/* Meta */}
-      <div className="flex flex-col gap-xxs text-2xs text-texto-sobre-oscuro-secundario">
-        <p>© 2026 Edubig · Un sistema que se traduce en cuidado.</p>
-        <p>Datos oficiales 2025 (SIMCE e IDPS versión final, Directorio Mineduc y Supereduc).</p>
       </div>
     </footer>
   );

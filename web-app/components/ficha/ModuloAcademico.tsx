@@ -50,6 +50,7 @@ export function ModuloAcademico({ detalle }: { detalle: DetalleColegio }) {
                 Cada barra es la diferencia con colegios similares: sube = por sobre ellos, baja = por
                 debajo. Escala común a todos los colegios (±56 puntos).
               </p>
+              <div className="flex flex-col gap-xl lg:grid lg:grid-cols-2 lg:gap-x-xl">
               {(["lect", "mate"] as Materia[]).map((m) => (
                 <BarraBrechaSimce
                   key={m}
@@ -60,10 +61,11 @@ export function ModuloAcademico({ detalle }: { detalle: DetalleColegio }) {
                   }))}
                 />
               ))}
+              </div>
             </>
           )}
 
-          <div className="flex flex-col gap-s">
+          <div className="flex flex-col gap-s lg:max-w-xl">
             <h4 className="text-sm font-bold text-texto-primario">Puntajes 2025</h4>
             {cursosConDato.map((curso) => (
               <div key={curso} className="flex flex-col gap-xxs border-t border-borde-sutil pt-xs">

@@ -103,7 +103,7 @@ export function BarraFiltros({
 
   return (
     <div ref={contenedorRef} className="flex flex-col gap-xs">
-      <div className="flex items-center gap-xs overflow-x-auto no-scrollbar -mx-l px-l">
+      <div className="flex items-center gap-xs overflow-x-auto no-scrollbar -mx-l px-l lg:mx-0 lg:flex-wrap lg:overflow-visible lg:px-0">
         <ChipToggle
           label="Gratuito"
           activo={!!filtros.gratuito}

@@ -10,10 +10,13 @@ import { Footer } from "@/components/platform/Footer";
 export default function Home() {
   return (
     <>
-      <Hero />
-      <EntradaExploracion />
-      <section className="bg-superficie-elevada px-l py-xl">
-        <ul className="max-w-md mx-auto flex flex-col gap-m">
+      <Hero aside={<EntradaExploracion tarjeta />} />
+      {/* En móvil la exploración va bajo el hero; en escritorio, dentro de él. */}
+      <div className="lg:hidden">
+        <EntradaExploracion />
+      </div>
+      <section className="bg-superficie-elevada px-l py-xl lg:px-0 lg:py-xxl">
+        <ul className="max-w-md mx-auto flex flex-col gap-m lg:max-w-6xl lg:px-xl lg:grid lg:grid-cols-3 lg:gap-xl">
           {[
             {
               icono: "quiz",
@@ -28,7 +31,7 @@ export default function Home() {
             {
               icono: "compare_arrows",
               titulo: "Comparar",
-              texto: "Pon hasta 3 colegios lado a lado. Cada dato se lee contra colegios similares, nunca como ranking.",
+              texto: "Pon colegios lado a lado (3 en el celular, 4 en el computador). Cada dato se lee contra colegios similares, nunca como ranking.",
             },
           ].map((p) => (
             <li key={p.titulo} className="flex gap-s">

@@ -24,16 +24,23 @@ export function TarjetaColegioBrowse({
   referencia,
   nombreComuna,
   mostrarIngresoU = false,
+  onResaltar,
 }: {
   colegio: ColegioIndice;
   distanciaKm?: number;
   referencia?: ReferenciaDistancia;
   nombreComuna?: string;
   mostrarIngresoU?: boolean;
+  /** Escritorio: avisa al mapa qué colegio está en foco. */
+  onResaltar?: (rbd: number | null) => void;
 }) {
   return (
     <Link
       href={`/colegio/${colegio.rbd}`}
+      onMouseEnter={onResaltar && (() => onResaltar(colegio.rbd))}
+      onMouseLeave={onResaltar && (() => onResaltar(null))}
+      onFocus={onResaltar && (() => onResaltar(colegio.rbd))}
+      onBlur={onResaltar && (() => onResaltar(null))}
       className="rounded-m border-t-2 border-l-2 border-r-4 border-b-4 border-info-fuerte bg-superficie-base p-l flex flex-col gap-s hover:border-temp-calido-profundo focus-visible:border-temp-calido-profundo transition-colors"
     >
       <h3 className="text-sm font-bold text-texto-primario">{colegio.n}</h3>

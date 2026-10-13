@@ -20,13 +20,14 @@ import { SelectorUbicacion } from "@/components/ubicacion/SelectorUbicacion";
 import { BotonVolver } from "@/components/ficha/BotonVolver";
 import { Icon } from "@/components/ui/Icon";
 import { cn } from "@/lib/utils";
+import { useEscritorio } from "@/lib/useEscritorio";
 import { BarraFiltros } from "./BarraFiltros";
 import { TarjetaColegioBrowse } from "./TarjetaColegioBrowse";
 
 const MapaLeaflet = dynamic(() => import("./MapaLeaflet").then((m) => m.MapaLeaflet), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-[calc(100vh-300px)] min-h-[360px] flex items-center justify-center bg-superficie-hundida text-texto-secundario text-xs">
+    <div className="w-full h-full min-h-[360px] flex items-center justify-center bg-superficie-hundida text-texto-secundario text-xs">
       Cargando mapa…
     </div>
   ),
@@ -46,6 +47,8 @@ export function Exploracion({ filtros }: { filtros: FiltrosExploracion }) {
   const { ubicacion, lista } = useUbicacion();
   const [cambiandoLugar, setCambiandoLugar] = useState(false);
   const [pagina, setPagina] = useState(1);
+  const [resaltado, setResaltado] = useState<number | null>(null);
+  const escritorio = useEscritorio();
 
   const modo: "comuna" | "gps" | "nombre" | null = filtros.comuna
     ? "comuna"
@@ -118,10 +121,18 @@ export function Exploracion({ filtros }: { filtros: FiltrosExploracion }) {
   const sugerenciasComuna =
     modo === "nombre" && datos && filtros.q ? comunasQueCoinciden(datos.comunas, filtros.q) : [];
 
+  const refMapa =
+    resultado?.ref && modo !== "nombre"
+      ? { ...resultado.ref, etiqueta: modo === "gps" ? "Tú estás aquí" : `Centro de ${comuna?.nombre ?? "la comuna"}` }
+      : undefined;
+  const conMapaLateral = escritorio && modo !== null;
+
   return (
-    <div className="flex flex-col">
-      <section className="bg-superficie-base px-l pt-l pb-m flex flex-col gap-m border-b border-borde-sutil">
-        <div className="max-w-md w-full mx-auto flex flex-col gap-m">
+    // Escritorio con lugar elegido: lista a la izquierda y mapa fijo a la derecha.
+    <div className={cn("flex flex-col", modo && "lg:grid lg:grid-cols-[minmax(0,560px)_minmax(0,1fr)]")}>
+      <div className="flex flex-col min-w-0">
+      <section className="bg-superficie-base px-l pt-l pb-m flex flex-col gap-m border-b border-borde-sutil lg:px-xl">
+        <div className={cn("max-w-md w-full mx-auto flex flex-col gap-m", modo && "lg:max-w-none")}>
           <BotonVolver href="/" />
           <h1 className="text-lg font-bold text-texto-primario">{titulo}</h1>
 
@@ -162,7 +173,10 @@ export function Exploracion({ filtros }: { filtros: FiltrosExploracion }) {
             <>
               <BarraFiltros filtros={filtros} modo={modo} />
               <div className="flex flex-wrap items-center justify-between gap-s">
-                <ToggleVista vista={filtros.vista} onCambiar={(v) => irA({ ...filtros, vista: v })} />
+                {/* En escritorio el mapa está siempre a la vista: no hace falta el toggle */}
+                <div className="lg:hidden">
+                  <ToggleVista vista={filtros.vista} onCambiar={(v) => irA({ ...filtros, vista: v })} />
+                </div>
                 {(modo === "gps" || permiteOrdenIngresoU(filtros)) && orden && (
                   <SelectorOrden
                     orden={orden}
@@ -190,8 +204,8 @@ export function Exploracion({ filtros }: { filtros: FiltrosExploracion }) {
       )}
 
       {modo && datos && (
-        <section className="bg-superficie-elevada px-l py-l flex-1">
-          <div className="max-w-md w-full mx-auto flex flex-col gap-m">
+        <section className="bg-superficie-elevada px-l py-l flex-1 lg:px-xl">
+          <div className="max-w-md w-full mx-auto flex flex-col gap-m lg:max-w-none">
             {sugerenciasComuna.length > 0 && (
               <div className="flex flex-wrap gap-xs">
                 {sugerenciasComuna.map((c) => (
@@ -225,7 +239,7 @@ export function Exploracion({ filtros }: { filtros: FiltrosExploracion }) {
               </aside>
             )}
 
-            {filtros.vista === "mapa" ? (
+            {filtros.vista === "mapa" && !escritorio ? (
               <>
                 {items.length > MAX_PINES && (
                   <p className="text-2xs text-texto-secundario">
@@ -233,17 +247,7 @@ export function Exploracion({ filtros }: { filtros: FiltrosExploracion }) {
                   </p>
                 )}
                 <div className="-mx-l">
-                  <MapaLeaflet
-                    items={items.slice(0, MAX_PINES)}
-                    referencia={
-                      resultado?.ref && modo !== "nombre"
-                        ? {
-                            ...resultado.ref,
-                            etiqueta: modo === "gps" ? "Tú estás aquí" : `Centro de ${comuna?.nombre ?? "la comuna"}`,
-                          }
-                        : undefined
-                    }
-                  />
+                  <MapaLeaflet items={items.slice(0, MAX_PINES)} referencia={refMapa} />
                 </div>
               </>
             ) : (
@@ -256,6 +260,7 @@ export function Exploracion({ filtros }: { filtros: FiltrosExploracion }) {
                     referencia={referencia}
                     nombreComuna={datos.comunaPorCod.get(c.c)?.nombre}
                     mostrarIngresoU={orden === "ingreso_u"}
+                    onResaltar={conMapaLateral ? setResaltado : undefined}
                   />
                 ))}
                 {items.length > visibles.length && (
@@ -271,6 +276,34 @@ export function Exploracion({ filtros }: { filtros: FiltrosExploracion }) {
             )}
           </div>
         </section>
+      )}
+      </div>
+
+      {/* Mapa lateral fijo (escritorio). Se sincroniza con la lista: al pasar
+          por una tarjeta, su pin se resalta. */}
+      {conMapaLateral && (
+        <aside
+          aria-label="Mapa de los colegios de la lista"
+          className="relative hidden lg:block lg:sticky lg:top-16 lg:self-start lg:h-[calc(100vh-4rem)] border-l border-borde-sutil"
+        >
+          {datos ? (
+            <>
+              <MapaLeaflet
+                items={items.slice(0, MAX_PINES)}
+                referencia={refMapa}
+                resaltado={resaltado}
+                className="h-full w-full"
+              />
+              {items.length > MAX_PINES && (
+                <p className="absolute bottom-m left-m z-[500] rounded-s bg-superficie-base px-s py-xxs text-2xs text-texto-secundario shadow">
+                  El mapa muestra los {MAX_PINES} primeros. Usa los filtros para acotar.
+                </p>
+              )}
+            </>
+          ) : (
+            <div className="h-full w-full bg-superficie-hundida" />
+          )}
+        </aside>
       )}
     </div>
   );

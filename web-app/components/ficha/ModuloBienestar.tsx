@@ -58,7 +58,9 @@ export function ModuloBienestar({ detalle }: { detalle: DetalleColegio }) {
           para este colegio, por eso no podemos compararlo con colegios similares.
         </p>
       ) : (
-        DIMENSIONES.map((dim) => {
+        // Escritorio: las 4 dimensiones en una grilla de 2 × 2.
+        <div className="flex flex-col gap-xl lg:grid lg:grid-cols-2 lg:gap-x-xl">
+        {DIMENSIONES.map((dim) => {
           const meta = DIM_META[dim];
           const filas = CURSOS.map((curso) => ({ curso, v: valores(detalle, dim, curso) })).filter((f) => f.v);
           if (filas.length === 0) return null;
@@ -87,7 +89,8 @@ export function ModuloBienestar({ detalle }: { detalle: DetalleColegio }) {
               ))}
             </section>
           );
-        })
+        })}
+        </div>
       )}
     </ModuloBase>
   );

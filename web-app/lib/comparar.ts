@@ -3,10 +3,12 @@
 import { useCallback, useEffect, useState } from "react";
 
 /**
- * Selección para comparar (D32): hasta 3 colegios, guardada en este navegador
- * (localStorage) para poder agregarlos desde distintas fichas.
+ * Selección para comparar (D32): hasta 3 colegios en móvil y 4 en escritorio
+ * (decisión de ago-2026), guardada en este navegador (localStorage) para poder
+ * agregarlos desde distintas fichas.
  */
-export const MAX_COMPARAR = 3;
+export const MAX_COMPARAR_MOVIL = 3;
+export const MAX_COMPARAR = 4;
 const KEY = "edubig_comparar";
 const EVENTO = "edubig-comparar";
 
@@ -41,10 +43,10 @@ export function useComparar() {
     };
   }, []);
 
-  const alternar = useCallback((rbd: number) => {
+  const alternar = useCallback((rbd: number, maximo: number = MAX_COMPARAR) => {
     const actual = leer();
     if (actual.includes(rbd)) escribir(actual.filter((x) => x !== rbd));
-    else if (actual.length < MAX_COMPARAR) escribir([...actual, rbd]);
+    else if (actual.length < maximo) escribir([...actual, rbd]);
   }, []);
 
   const quitar = useCallback((rbd: number) => escribir(leer().filter((x) => x !== rbd)), []);
