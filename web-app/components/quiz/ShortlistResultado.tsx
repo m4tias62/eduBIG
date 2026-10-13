@@ -103,7 +103,7 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
     <>
       {lista && !ubicacion && <ModalUbicacion />}
 
-      <header className="bg-superficie-base px-l pt-xl pb-l flex flex-col gap-m max-w-md mx-auto lg:max-w-6xl lg:px-xl">
+      <header className="bg-superficie-base px-l pt-xl pb-l flex flex-col gap-m max-w-[31rem] lg:mx-auto lg:max-w-6xl lg:px-xl">
         {/* Textos a 8 columnas de la retícula (~80 caracteres por línea) */}
         {/* En escritorio, logo e inicio están en la barra de navegación */}
         <div className="flex flex-col gap-m lg:hidden">
@@ -148,7 +148,7 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
       </header>
 
       <section className="bg-superficie-elevada px-l py-l lg:px-0 lg:py-xl">
-        <div className="flex flex-col gap-m max-w-md mx-auto lg:max-w-6xl lg:px-xl lg:gap-xl">
+        <div className="flex flex-col gap-m max-w-md lg:mx-auto lg:max-w-6xl lg:px-xl lg:gap-xl">
           {error && (
             <p role="alert" className="text-xs text-error-fuerte">
               No pudimos cargar los datos de los colegios. Revisa tu conexión y recarga la página.
@@ -215,7 +215,7 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
           {shortlist.length >= 2 && (
             <Link
               href={`/comparar?rbd=${rbdsComparar.join(",")}`}
-              className="min-h-[44px] inline-flex items-center justify-center gap-xs rounded-m border-2 border-interaccion-enlace bg-superficie-base px-l py-s text-sm font-bold text-interaccion-enlace hover:bg-info-suave lg:self-center lg:px-xxl"
+              className="min-h-[44px] inline-flex items-center justify-center gap-xs rounded-m border-2 border-interaccion-enlace bg-superficie-base px-l py-s text-sm font-bold text-interaccion-enlace hover:bg-info-suave lg:self-start lg:px-xxl"
             >
               <Icon nombre="compare_arrows" size={20} />
               Comparar {shortlist.length === 3 ? "estos 3" : "estos 2"}
@@ -226,7 +226,7 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
             <button
               type="button"
               onClick={compartir}
-              className="min-h-[44px] inline-flex items-center justify-center gap-xs text-xs font-bold text-interaccion-enlace hover:text-interaccion-enlace-hover lg:self-center"
+              className="min-h-[44px] inline-flex items-center justify-center gap-xs text-xs font-bold text-interaccion-enlace hover:text-interaccion-enlace-hover lg:self-start"
             >
               <Icon nombre="share" size={18} />
               {copiado ? "Enlace copiado" : "Compartir esta lista"}
@@ -238,7 +238,7 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
       {/* D24 — colegios que pasan los filtros pero no tienen comparación */}
       {r && refDist && r.sinDatos.length > 0 && (
         <section className="bg-superficie-base px-l py-l lg:px-0 lg:py-xl" aria-labelledby="sin-datos-titulo">
-          <div className="flex flex-col gap-m max-w-md mx-auto lg:max-w-6xl lg:px-xl">
+          <div className="flex flex-col gap-m max-w-md lg:mx-auto lg:max-w-6xl lg:px-xl">
             <div className="flex flex-col gap-xs ancho-8-col">
               <h2 id="sin-datos-titulo" className="text-md font-bold text-texto-primario">
                 Cerca de ti, sin datos para comparar

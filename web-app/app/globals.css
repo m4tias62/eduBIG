@@ -73,6 +73,13 @@
     Escrit. ≥ 1024 px  12 columnas · margen 32 px · medianil 32 px
                         contenedor máximo 1152 px (72rem)
 
+  Alineación: todo el contenido parte en la columna 1 (borde izquierdo de la
+  retícula), igual que el logo de la barra de navegación. No se centran
+  bloques en la página. Bloques de una columna (selector de lugar, lista de
+  la exploración, tarjeta del Test): columnas 1–6; textos largos:
+  hasta 8 columnas (.ancho-8-col). En móvil y tablet, la columna de 28rem
+  parte en el margen de 24 px. Excepción: diálogos modales.
+
   .contenedor  ancho y márgenes de la retícula (nav, secciones, footer).
   .grilla      columnas y medianiles; los hijos usan col-span-* de Tailwind.
   RETICULA_LG  (components/platform/reticula.ts) contenedor + 12 columnas solo
@@ -86,10 +93,15 @@
     @apply grid grid-cols-4 gap-x-m md:grid-cols-8 md:gap-x-l lg:grid-cols-12 lg:gap-x-xl;
   }
 
-  /* Ancho de 8 de las 12 columnas, dentro del contenedor (solo escritorio).
-     Para textos largos: ~80 caracteres por línea como máximo. */
+  /* Ancho de lectura para textos largos (~80 caracteres por línea como máximo).
+     Móvil y tablet: el mismo ancho de columna que el resto del sitio (28rem).
+     Escritorio: 8 de las 12 columnas del contenedor. */
+  .ancho-8-col {
+    max-width: 28rem;
+  }
   @media (min-width: 1024px) {
     .ancho-8-col {
+      max-width: none;
       width: calc((100% - 22rem) / 12 * 8 + 14rem);
     }
   }

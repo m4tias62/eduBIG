@@ -16,7 +16,7 @@ export default function Home() {
       </div>
       <section className="bg-superficie-elevada px-l py-xl lg:px-0 lg:py-xxl">
         {/* Retícula: tres promesas de 4 columnas cada una */}
-        <ul className="max-w-md mx-auto flex flex-col gap-m lg:max-w-6xl lg:px-xl lg:grid lg:grid-cols-12 lg:gap-x-xl">
+        <ul className="max-w-md flex flex-col gap-m lg:mx-auto lg:max-w-6xl lg:px-xl lg:grid lg:grid-cols-12 lg:gap-x-xl">
           {[
             {
               icono: "quiz",

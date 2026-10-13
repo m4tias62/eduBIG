@@ -4,6 +4,7 @@ import { Suspense, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Icon } from "@/components/ui/Icon";
 import { cargarDatosNacionales } from "@/lib/data/cliente";
+import { RETICULA_LG } from "@/components/platform/reticula";
 
 /**
  * "Traduciendo tus respuestas" — pantalla intermedia antes de la shortlist.
@@ -27,13 +28,19 @@ function LoadingInner() {
   }, [router, searchParams]);
 
   return (
-    <div className="mx-auto w-full max-w-md min-h-screen flex flex-col items-center justify-center gap-l p-[36px] text-center bg-superficie-base">
-      <Icon nombre="progress_activity" size={48} className="animate-spin text-interaccion-enlace" />
-      <div className="flex flex-col gap-xs" role="status">
-        <h1 className="text-lg font-bold text-texto-primario">Traduciendo tus respuestas…</h1>
-        <p className="text-sm text-texto-secundario">
-          Estamos comparando tus prioridades con los colegios de tu zona.
-        </p>
+    // Misma tarjeta y posición que las preguntas del Test (columnas 1–6 en
+    // escritorio), alineada a la izquierda: la transición no mueve el contenido.
+    <div className="min-h-screen bg-superficie-base lg:bg-superficie-elevada lg:py-xxl">
+      <div className={RETICULA_LG}>
+        <div className="w-full max-w-md min-h-screen flex flex-col justify-center gap-l p-[36px] bg-superficie-base lg:col-span-6 lg:min-h-[24rem] lg:max-w-none lg:rounded-l lg:border lg:border-borde-sutil lg:shadow-sm">
+          <Icon nombre="progress_activity" size={48} className="animate-spin text-interaccion-enlace" />
+          <div className="flex flex-col gap-xs" role="status">
+            <h1 className="text-lg font-bold text-texto-primario">Traduciendo tus respuestas…</h1>
+            <p className="text-sm text-texto-secundario">
+              Estamos comparando tus prioridades con los colegios de tu zona.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

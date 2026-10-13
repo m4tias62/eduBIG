@@ -23,7 +23,7 @@ export function CompartirEnlace({ texto = "Compartir esta comparación" }: { tex
     <button
       type="button"
       onClick={compartir}
-      className="mt-m min-h-[44px] self-center inline-flex items-center gap-xs text-xs font-bold text-interaccion-enlace hover:text-interaccion-enlace-hover"
+      className="mt-m min-h-[44px] self-start inline-flex items-center gap-xs text-xs font-bold text-interaccion-enlace hover:text-interaccion-enlace-hover"
     >
       <Icon nombre="share" size={18} />
       {copiado ? "Enlace copiado" : texto}

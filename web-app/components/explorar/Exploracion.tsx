@@ -132,7 +132,8 @@ export function Exploracion({ filtros }: { filtros: FiltrosExploracion }) {
     // Escritorio con lugar elegido: lista a la izquierda y mapa fijo a la derecha.
     // Retícula (globals.css): con lugar elegido, la lista ocupa las columnas
     // 1–6 y el mapa sangra desde la 7 hasta el borde; sin lugar, el selector
-    // va centrado en las columnas 4–9 (mismo ancho que la tarjeta del Test).
+    // ocupa las mismas columnas 1–6, alineado a la izquierda como el resto del
+    // sitio (así no salta de lugar al elegir una comuna).
     <div className={cn("flex flex-col", modo && "explorar-dividido lg:grid")}>
       <div className="flex flex-col min-w-0">
       <section
@@ -145,8 +146,8 @@ export function Exploracion({ filtros }: { filtros: FiltrosExploracion }) {
         <div className={cn(!modo && RETICULA_LG)}>
         <div
           className={cn(
-            "max-w-md w-full mx-auto flex flex-col gap-m lg:max-w-none",
-            !modo && "lg:col-span-6 lg:col-start-4"
+            "max-w-md w-full flex flex-col gap-m lg:max-w-none",
+            !modo && "lg:col-span-6"
           )}
         >
           <BotonVolver href="/" />
@@ -209,20 +210,20 @@ export function Exploracion({ filtros }: { filtros: FiltrosExploracion }) {
       </section>
 
       {error && (
-        <p role="alert" className="px-l py-l text-xs text-error-fuerte max-w-md mx-auto">
+        <p role="alert" className={cn("py-l text-xs text-error-fuerte", modo ? "px-l explorar-columna" : "contenedor")}>
           No pudimos cargar los datos de los colegios. Revisa tu conexión y recarga la página.
         </p>
       )}
 
       {modo && !datos && !error && (
-        <p role="status" className="px-l py-l text-xs text-texto-secundario max-w-md mx-auto w-full">
+        <p role="status" className="px-l py-l text-xs text-texto-secundario explorar-columna">
           Cargando colegios…
         </p>
       )}
 
       {modo && datos && (
         <section className="bg-superficie-elevada px-l py-l flex-1 explorar-columna">
-          <div className="max-w-md w-full mx-auto flex flex-col gap-m lg:max-w-none">
+          <div className="max-w-md w-full flex flex-col gap-m lg:max-w-none">
             {sugerenciasComuna.length > 0 && (
               <div className="flex flex-wrap gap-xs">
                 {sugerenciasComuna.map((c) => (
@@ -263,7 +264,8 @@ export function Exploracion({ filtros }: { filtros: FiltrosExploracion }) {
                     El mapa muestra los {MAX_PINES} primeros. Usa los filtros para acotar.
                   </p>
                 )}
-                <div className="-mx-l">
+                {/* Móvil: el mapa sangra a los bordes; tablet: mismo ancho que la columna */}
+                <div className="-mx-l md:mx-0">
                   <MapaLeaflet items={items.slice(0, MAX_PINES)} referencia={refMapa} />
                 </div>
               </>

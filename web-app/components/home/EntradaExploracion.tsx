@@ -26,7 +26,7 @@ export function EntradaExploracion({ tarjeta = false }: { tarjeta?: boolean }) {
       )}
       aria-labelledby={idTitulo}
     >
-      <div className={cn("flex flex-col gap-l", !tarjeta && "max-w-md mx-auto")}>
+      <div className={cn("flex flex-col gap-l", !tarjeta && "max-w-md")}>
         <div className="flex flex-col gap-xs">
           <p className="text-2xs font-bold uppercase tracking-wide text-texto-secundario">
             O explora por tu cuenta

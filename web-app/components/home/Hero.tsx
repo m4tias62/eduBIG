@@ -28,8 +28,8 @@ export function Hero({ aside }: { aside?: ReactNode }) {
       />
       {/* Retícula: mensaje en columnas 1–6, exploración en 7–12 */}
       <div className="contenedor relative z-10 pt-xl pb-l lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-xl lg:py-xxl">
-        {/* Tablet: mismo ancho de columna que el resto de la Home */}
-        <div className="flex flex-col gap-l md:mx-auto md:max-w-md lg:col-span-6 lg:mx-0 lg:max-w-none lg:pr-xl">
+        {/* Tablet: mismo ancho de columna que el resto de la Home, alineada a la izquierda */}
+        <div className="flex flex-col gap-l md:max-w-md lg:col-span-6 lg:max-w-none lg:pr-xl">
           <div className="lg:hidden">
             <Isologo width={66} priority />
           </div>

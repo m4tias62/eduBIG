@@ -32,12 +32,13 @@ export function PreguntaLayout({
   children: ReactNode;
 }) {
   return (
-    // Escritorio: la pregunta va en una tarjeta centrada sobre fondo gris,
-    // sin barra de navegación (pantalla inmersiva).
-    // Retícula: la tarjeta ocupa las columnas 4–9 (6 de 12), centrada.
+    // Escritorio: la pregunta va en una tarjeta sobre fondo gris, sin barra de
+    // navegación (pantalla inmersiva).
+    // Retícula: la tarjeta ocupa las columnas 1–6, alineada a la izquierda como
+    // el resto del sitio. En móvil y tablet la columna parte en el margen.
     <div className="min-h-screen bg-superficie-base lg:bg-superficie-elevada lg:py-xxl">
     <div className={RETICULA_LG}>
-    <div className="mx-auto w-full max-w-md min-h-screen flex flex-col gap-[36px] p-[36px] bg-superficie-base lg:col-span-6 lg:col-start-4 lg:min-h-0 lg:max-w-none lg:rounded-l lg:border lg:border-borde-sutil lg:shadow-sm">
+    <div className="w-full max-w-md min-h-screen flex flex-col gap-[36px] p-[36px] bg-superficie-base lg:col-span-6 lg:min-h-0 lg:max-w-none lg:rounded-l lg:border lg:border-borde-sutil lg:shadow-sm">
       <QuizHeader paso={paso} esPaso2={esPaso2} volverHref={volverHref} />
       <div className="flex flex-col gap-m">
         {contexto && <ChipContexto>{contexto}</ChipContexto>}

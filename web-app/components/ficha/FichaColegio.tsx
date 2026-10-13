@@ -20,8 +20,10 @@ import { RETICULA_LG } from "@/components/platform/reticula";
 export function FichaColegio({ detalle }: { detalle: DetalleColegio }) {
   return (
     <>
-      {/* Retícula: identidad y "Lo esencial" en columnas 1–4; módulos en 5–12 */}
-      <article className={`flex flex-col gap-l p-l max-w-md mx-auto lg:items-start lg:py-xl ${RETICULA_LG}`}>
+      {/* Retícula: identidad y "Lo esencial" en columnas 1–4; módulos en 5–12.
+          Móvil y tablet: columna de 28rem de contenido (31rem con el padding),
+          alineada al margen izquierdo como el resto del sitio. */}
+      <article className={`flex flex-col gap-l p-l max-w-[31rem] lg:items-start lg:py-xl ${RETICULA_LG}`}>
         <div className="flex flex-col gap-l lg:col-span-4 lg:sticky lg:top-[88px] lg:max-h-[calc(100vh-112px)] lg:overflow-y-auto lg:pr-xs">
           <BotonVolver href="/explorar" />
           <Cabecera detalle={detalle} />
