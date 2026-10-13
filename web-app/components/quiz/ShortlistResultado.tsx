@@ -23,7 +23,6 @@ import { TarjetaColegio } from "./TarjetaColegio";
 import { ModalUbicacion } from "./ModalUbicacion";
 import { NotaLegitimacion } from "./NotaLegitimacion";
 import { IndicadorUbicacion } from "@/components/ubicacion/IndicadorUbicacion";
-import { Footer } from "@/components/platform/Footer";
 import Isologo from "@/components/platform/Isologo";
 import { Icon } from "@/components/ui/Icon";
 
@@ -105,6 +104,7 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
       {lista && !ubicacion && <ModalUbicacion />}
 
       <header className="bg-superficie-base px-l pt-xl pb-l flex flex-col gap-m max-w-md mx-auto lg:max-w-6xl lg:px-xl">
+        {/* Textos a 8 columnas de la retícula (~80 caracteres por línea) */}
         {/* En escritorio, logo e inicio están en la barra de navegación */}
         <div className="flex flex-col gap-m lg:hidden">
           <Isologo width={88} priority />
@@ -116,7 +116,7 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
             <Icon nombre="home" size={18} />
           </Link>
         </div>
-        <div className="flex flex-col gap-xs lg:max-w-3xl">
+        <div className="flex flex-col gap-xs ancho-8-col">
           <h1 className="text-lg font-bold text-texto-primario">
             Estos son los colegios que calzan con tu familia
           </h1>
@@ -129,7 +129,7 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
           )}
         </div>
 
-        <div className="lg:max-w-3xl">
+        <div className="ancho-8-col">
         <NotaLegitimacion>
           Armamos tu lista con lo que nos dijiste: {resumen.join(" · ")}. No hay una combinación
           correcta: es la de tu familia.{" "}
@@ -143,12 +143,12 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
         </div>
 
         {ubicacion && (
-          <IndicadorUbicacion className="rounded-m border border-borde-sutil bg-superficie-elevada px-m py-xs lg:max-w-3xl" />
+          <IndicadorUbicacion className="rounded-m border border-borde-sutil bg-superficie-elevada px-m py-xs ancho-8-col" />
         )}
       </header>
 
       <section className="bg-superficie-elevada px-l py-l lg:px-0 lg:py-xl">
-        <div className="flex flex-col gap-m max-w-md mx-auto lg:max-w-6xl lg:px-xl lg:gap-l">
+        <div className="flex flex-col gap-m max-w-md mx-auto lg:max-w-6xl lg:px-xl lg:gap-xl">
           {error && (
             <p role="alert" className="text-xs text-error-fuerte">
               No pudimos cargar los datos de los colegios. Revisa tu conexión y recarga la página.
@@ -159,7 +159,7 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
           )}
 
           {r && refDist && shortlist.length > 0 && (
-            <div className="flex flex-col gap-m lg:grid lg:grid-cols-3 lg:gap-l">
+            <div className="flex flex-col gap-m lg:grid lg:grid-cols-3 lg:gap-xl">
             {shortlist.map((sc, i) => (
               <TarjetaColegio
                 key={sc.colegio.rbd}
@@ -175,7 +175,7 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
 
           {/* D26 — pocos colegios: solo se ofrece ampliar la distancia */}
           {r && shortlist.length < 3 && (
-            <div className="rounded-m border border-borde-sutil bg-superficie-base p-l flex flex-col gap-s lg:max-w-3xl">
+            <div className="rounded-m border border-borde-sutil bg-superficie-base p-l flex flex-col gap-s ancho-8-col">
               <p className="text-sm font-bold text-texto-primario">
                 {shortlist.length === 0
                   ? "No encontramos colegios con datos para comparar que cumplan tus respuestas."
@@ -239,7 +239,7 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
       {r && refDist && r.sinDatos.length > 0 && (
         <section className="bg-superficie-base px-l py-l lg:px-0 lg:py-xl" aria-labelledby="sin-datos-titulo">
           <div className="flex flex-col gap-m max-w-md mx-auto lg:max-w-6xl lg:px-xl">
-            <div className="flex flex-col gap-xs lg:max-w-3xl">
+            <div className="flex flex-col gap-xs ancho-8-col">
               <h2 id="sin-datos-titulo" className="text-md font-bold text-texto-primario">
                 Cerca de ti, sin datos para comparar
               </h2>
@@ -249,7 +249,7 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
                 mostramos por cercanía: también pueden ser una buena opción.
               </p>
             </div>
-            <div className="flex flex-col gap-m lg:grid lg:grid-cols-3 lg:gap-l">
+            <div className="flex flex-col gap-m lg:grid lg:grid-cols-3 lg:gap-xl">
               {r.sinDatos.map((sc) => (
                 <TarjetaColegio
                   key={sc.colegio.rbd}
@@ -263,8 +263,6 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
           </div>
         </section>
       )}
-
-      <Footer />
     </>
   );
 }

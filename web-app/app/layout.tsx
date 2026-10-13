@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { UbicacionProvider } from "@/lib/ubicacion";
 import { BarraNavegacion } from "@/components/platform/BarraNavegacion";
+import { Footer } from "@/components/platform/Footer";
+import { PieCondicional } from "@/components/platform/PieCondicional";
 
 /**
  * metadataBase resuelve URLs relativas de OG/Twitter a absolutas.
@@ -47,9 +49,11 @@ export const metadata: Metadata = {
 };
 
 /**
- * Root layout — <html>/<body> + proveedor de ubicación (vive en sessionStorage
- * y se comparte entre Test, exploración y shortlist). El Footer se importa en
- * las páginas que lo requieren; las pantallas del Test no lo llevan.
+ * Root layout — estructura común de todas las páginas:
+ *   enlace "Saltar al contenido" (WCAG 2.4.1) → barra de navegación
+ *   (escritorio) → <main id="contenido"> → footer (salvo en el Test).
+ * El proveedor de ubicación (sessionStorage) se comparte entre Test,
+ * exploración y shortlist.
  */
 export default function RootLayout({
   children,
@@ -60,8 +64,16 @@ export default function RootLayout({
     <html lang="es-CL">
       <body className="min-h-screen bg-superficie-base">
         <UbicacionProvider>
+          <a href="#contenido" className="salto-contenido">
+            Saltar al contenido
+          </a>
           <BarraNavegacion />
-          {children}
+          <main id="contenido" tabIndex={-1} className="focus:outline-none">
+            {children}
+          </main>
+          <PieCondicional>
+            <Footer />
+          </PieCondicional>
         </UbicacionProvider>
       </body>
     </html>

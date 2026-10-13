@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Exploracion } from "@/components/explorar/Exploracion";
-import { Footer } from "@/components/platform/Footer";
 import { parseFiltros } from "@/lib/home/filtros";
 import { getComunas } from "@/lib/data/servidor";
 
@@ -27,10 +26,9 @@ export default function Explorar({
 }) {
   return (
     <>
-      <main className="min-h-[70vh]">
+      <div className="min-h-[70vh]">
         <Exploracion filtros={parseFiltros(searchParams)} />
-      </main>
-      <Footer />
+      </div>
     </>
   );
 }

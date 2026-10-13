@@ -23,6 +23,7 @@ import { cn } from "@/lib/utils";
 import { useEscritorio } from "@/lib/useEscritorio";
 import { BarraFiltros } from "./BarraFiltros";
 import { TarjetaColegioBrowse } from "./TarjetaColegioBrowse";
+import { RETICULA_LG } from "@/components/platform/reticula";
 
 const MapaLeaflet = dynamic(() => import("./MapaLeaflet").then((m) => m.MapaLeaflet), {
   ssr: false,
@@ -129,10 +130,24 @@ export function Exploracion({ filtros }: { filtros: FiltrosExploracion }) {
 
   return (
     // Escritorio con lugar elegido: lista a la izquierda y mapa fijo a la derecha.
-    <div className={cn("flex flex-col", modo && "lg:grid lg:grid-cols-[minmax(0,560px)_minmax(0,1fr)]")}>
+    // Retícula (globals.css): con lugar elegido, la lista ocupa las columnas
+    // 1–6 y el mapa sangra desde la 7 hasta el borde; sin lugar, el selector
+    // va centrado en las columnas 4–9 (mismo ancho que la tarjeta del Test).
+    <div className={cn("flex flex-col", modo && "explorar-dividido lg:grid")}>
       <div className="flex flex-col min-w-0">
-      <section className="bg-superficie-base px-l pt-l pb-m flex flex-col gap-m border-b border-borde-sutil lg:px-xl">
-        <div className={cn("max-w-md w-full mx-auto flex flex-col gap-m", modo && "lg:max-w-none")}>
+      <section
+        className={cn(
+          "bg-superficie-base px-l pt-l pb-m",
+          modo ? "explorar-columna border-b border-borde-sutil" : "lg:px-0 lg:pb-xxl"
+        )}
+      >
+        <div className={cn(!modo && RETICULA_LG)}>
+        <div
+          className={cn(
+            "max-w-md w-full mx-auto flex flex-col gap-m lg:max-w-none",
+            !modo && "lg:col-span-6 lg:col-start-4"
+          )}
+        >
           <BotonVolver href="/" />
           <h1 className="text-lg font-bold text-texto-primario">{titulo}</h1>
 
@@ -189,6 +204,7 @@ export function Exploracion({ filtros }: { filtros: FiltrosExploracion }) {
             </>
           )}
         </div>
+        </div>
       </section>
 
       {error && (
@@ -204,7 +220,7 @@ export function Exploracion({ filtros }: { filtros: FiltrosExploracion }) {
       )}
 
       {modo && datos && (
-        <section className="bg-superficie-elevada px-l py-l flex-1 lg:px-xl">
+        <section className="bg-superficie-elevada px-l py-l flex-1 explorar-columna">
           <div className="max-w-md w-full mx-auto flex flex-col gap-m lg:max-w-none">
             {sugerenciasComuna.length > 0 && (
               <div className="flex flex-wrap gap-xs">

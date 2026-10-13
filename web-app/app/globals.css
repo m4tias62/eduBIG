@@ -19,6 +19,18 @@
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Reserva el espacio de la barra de scroll: el contenido no salta de
+       lugar entre páginas con y sin scroll vertical. */
+    scrollbar-gutter: stable;
+  }
+
+  /* WCAG 2.4.11 (Foco no oculto): en escritorio la barra de navegación es
+     fija (64 px). Al navegar con teclado, el elemento enfocado queda bajo ella
+     y no tapado. */
+  @media (min-width: 1024px) {
+    html {
+      scroll-padding-top: 5rem;
+    }
   }
 
   body {
@@ -53,7 +65,65 @@
   }
 }
 
+/*
+  Retícula de Edubig — una sola para todo el sitio (la de la Home).
+
+    Móvil   < 768 px    4 columnas · margen 24 px · medianil 16 px
+    Tablet  768–1023    8 columnas · margen 24 px · medianil 24 px
+    Escrit. ≥ 1024 px  12 columnas · margen 32 px · medianil 32 px
+                        contenedor máximo 1152 px (72rem)
+
+  .contenedor  ancho y márgenes de la retícula (nav, secciones, footer).
+  .grilla      columnas y medianiles; los hijos usan col-span-* de Tailwind.
+  RETICULA_LG  (components/platform/reticula.ts) contenedor + 12 columnas solo
+               en escritorio, para elementos que en móvil tienen otro ancho.
+*/
+@layer components {
+  .contenedor {
+    @apply mx-auto w-full max-w-6xl px-l lg:px-xl;
+  }
+  .grilla {
+    @apply grid grid-cols-4 gap-x-m md:grid-cols-8 md:gap-x-l lg:grid-cols-12 lg:gap-x-xl;
+  }
+
+  /* Ancho de 8 de las 12 columnas, dentro del contenedor (solo escritorio).
+     Para textos largos: ~80 caracteres por línea como máximo. */
+  @media (min-width: 1024px) {
+    .ancho-8-col {
+      width: calc((100% - 22rem) / 12 * 8 + 14rem);
+    }
+  }
+
+  /*
+    Exploración en escritorio: la lista ocupa las columnas 1–6 de la retícula
+    y el mapa va de la columna 7 hasta el borde derecho de la ventana. Las
+    cuentas reproducen .contenedor (máx. 72rem, margen 2rem, medianil 2rem).
+  */
+  @media (min-width: 1024px) {
+    /* display: grid lo pone la utilidad lg:grid en el elemento (las utilidades
+       de Tailwind pisan a los componentes). */
+    .explorar-dividido {
+      container-type: inline-size;
+      grid-template-columns:
+        calc(max(2rem, (100% - 72rem) / 2 + 2rem) + (min(100%, 72rem) - 4rem) / 2 + 1rem)
+        minmax(0, 1fr);
+    }
+    .explorar-dividido .explorar-columna {
+      padding-left: max(2rem, calc((100cqw - 72rem) / 2 + 2rem));
+      padding-right: 2rem;
+    }
+  }
+}
+
 @layer utilities {
+  /* Enlace "Saltar al contenido" (WCAG 2.4.1): invisible hasta recibir foco. */
+  .salto-contenido {
+    @apply sr-only;
+  }
+  .salto-contenido:focus {
+    @apply not-sr-only fixed left-m top-m z-50 rounded-m bg-interaccion-enlace px-l py-s text-sm font-bold text-texto-sobre-oscuro;
+  }
+
   /* Oculta la scrollbar en la fila de chips de filtro (scroll horizontal,
      una sola línea) manteniendo el desplazamiento táctil. */
   .no-scrollbar::-webkit-scrollbar {

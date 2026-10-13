@@ -7,7 +7,7 @@ import { ModuloBienestar } from "./ModuloBienestar";
 import { ModuloAcademico } from "./ModuloAcademico";
 import { ModuloTrayectoria } from "./ModuloTrayectoria";
 import { ModuloCosto } from "./ModuloCosto";
-import { Footer } from "@/components/platform/Footer";
+import { RETICULA_LG } from "@/components/platform/reticula";
 
 /**
  * Ficha del colegio — orden fijo de módulos (D07), contenido dinámico:
@@ -20,13 +20,14 @@ import { Footer } from "@/components/platform/Footer";
 export function FichaColegio({ detalle }: { detalle: DetalleColegio }) {
   return (
     <>
-      <article className="flex flex-col gap-l p-l max-w-md mx-auto lg:grid lg:max-w-6xl lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)] lg:items-start lg:gap-xxl lg:px-xl lg:py-xl">
-        <div className="flex flex-col gap-l lg:sticky lg:top-[88px] lg:max-h-[calc(100vh-112px)] lg:overflow-y-auto lg:pr-xs">
+      {/* Retícula: identidad y "Lo esencial" en columnas 1–4; módulos en 5–12 */}
+      <article className={`flex flex-col gap-l p-l max-w-md mx-auto lg:items-start lg:py-xl ${RETICULA_LG}`}>
+        <div className="flex flex-col gap-l lg:col-span-4 lg:sticky lg:top-[88px] lg:max-h-[calc(100vh-112px)] lg:overflow-y-auto lg:pr-xs">
           <BotonVolver href="/explorar" />
           <Cabecera detalle={detalle} />
           <LoEsencial detalle={detalle} />
         </div>
-        <div className="flex flex-col gap-l">
+        <div className="flex flex-col gap-l lg:col-span-8">
           <ModuloSeguridad detalle={detalle} />
           <ModuloBienestar detalle={detalle} />
           <ModuloAcademico detalle={detalle} />
@@ -34,7 +35,6 @@ export function FichaColegio({ detalle }: { detalle: DetalleColegio }) {
           <ModuloCosto detalle={detalle} />
         </div>
       </article>
-      <Footer />
     </>
   );
 }

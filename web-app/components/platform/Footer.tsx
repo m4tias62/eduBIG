@@ -16,10 +16,11 @@ import Isologo from "./Isologo";
 export function Footer() {
   return (
     <footer className="w-full bg-superficie-inversa pt-xl pb-l text-texto-sobre-oscuro">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-l px-l lg:px-xl">
-        <div className="flex flex-col gap-l lg:flex-row lg:items-start lg:justify-between lg:gap-xxl">
+      <div className="contenedor flex flex-col gap-l">
+        {/* Retícula: identidad en columnas 1–4; fuentes y equipo en 9–12 */}
+        <div className="flex flex-col gap-l lg:grid lg:grid-cols-12 lg:gap-x-xl lg:gap-y-0">
           {/* Identidad */}
-          <div className="flex flex-col gap-m lg:max-w-xs">
+          <div className="flex flex-col gap-m lg:col-span-4">
             <Isologo />
             <p className="text-xs text-texto-sobre-oscuro-secundario">
               Traducimos datos oficiales en decisiones familiares informadas.
@@ -27,7 +28,7 @@ export function Footer() {
           </div>
 
           {/* Columnas */}
-          <div className="flex gap-l lg:gap-xxl">
+          <div className="flex gap-l lg:col-span-4 lg:col-start-9 lg:gap-xl">
             <div className="flex flex-col gap-xs flex-1">
               <p className="text-2xs font-bold text-texto-sobre-oscuro-secundario">Fuentes de datos</p>
               <p className="text-xs">Mineduc</p>

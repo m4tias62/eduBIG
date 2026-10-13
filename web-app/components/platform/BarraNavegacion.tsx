@@ -38,14 +38,9 @@ export function BarraNavegacion() {
 
   return (
     <header className="hidden lg:block sticky top-0 z-40 bg-superficie-base border-b border-borde-sutil">
-      {/* En la exploración la página usa todo el ancho (lista + mapa): la barra también */}
-      <nav
-        aria-label="Principal"
-        className={cn(
-          "mx-auto flex h-16 items-center justify-between px-xl",
-          ruta.startsWith("/explorar") ? "max-w-none" : "max-w-6xl"
-        )}
-      >
+      {/* Misma retícula que el resto del sitio (.contenedor), en todas las páginas.
+          min-h y no h fija: el texto puede crecer sin cortarse (WCAG 1.4.12). */}
+      <nav aria-label="Principal" className="contenedor flex min-h-16 items-center justify-between">
         <Link href="/" aria-label="Edubig, inicio" className="inline-flex items-center">
           <Isologo width={72} priority />
         </Link>

@@ -6,7 +6,6 @@ import { FILAS_ESENCIAL } from "@/components/ficha/LoEsencial";
 import { BotonVolver } from "@/components/ficha/BotonVolver";
 import { SincronizarComparacion } from "@/components/comparar/SincronizarComparacion";
 import { CompartirEnlace } from "@/components/comparar/CompartirEnlace";
-import { Footer } from "@/components/platform/Footer";
 import { Icon } from "@/components/ui/Icon";
 import type { DetalleColegio } from "@/lib/types";
 
@@ -46,9 +45,9 @@ export default function Comparar({
   return (
     <>
       <SincronizarComparacion rbds={colegios.map((c) => c.rbd)} />
-      <main className="flex flex-col gap-l p-l max-w-3xl mx-auto lg:max-w-6xl lg:px-xl lg:py-xl">
+      <div className="contenedor flex flex-col gap-l py-l lg:py-xl">
         <BotonVolver href="/" />
-        <div className="flex flex-col gap-xs">
+        <div className="flex flex-col gap-xs ancho-8-col">
           <h1 className="text-lg font-bold text-texto-primario">Comparar colegios</h1>
           <p className="text-xs text-texto-secundario">
             Cada frase compara al colegio con colegios similares (mismo grupo socioeconómico), no con
@@ -57,7 +56,7 @@ export default function Comparar({
         </div>
 
         {colegios.length < 2 ? (
-          <div className="rounded-m border border-borde-sutil bg-superficie-elevada p-l flex flex-col gap-s">
+          <div className="rounded-m border border-borde-sutil bg-superficie-elevada p-l flex flex-col gap-s ancho-8-col">
             <p className="text-sm font-bold text-texto-primario">
               {colegios.length === 0 ? "Aún no eliges colegios para comparar." : "Elige al menos un colegio más."}
             </p>
@@ -80,10 +79,10 @@ export default function Comparar({
               </p>
             )}
             {/* Encabezado fijo con los nombres (bajo la barra de navegación en escritorio) */}
-            <div className={`sticky top-0 lg:top-16 z-10 grid ${cols} gap-xs lg:gap-l bg-superficie-base py-s border-b-2 border-texto-primario`}>
+            <div className={`sticky top-0 lg:top-16 z-10 grid ${cols} gap-xs lg:gap-xl bg-superficie-base py-s border-b-2 border-texto-primario`}>
               {colegios.map((c, i) => (
                 <div key={c.rbd} className={`flex flex-col gap-xxs ${celda(i, "flex")}`}>
-                  <Link href={`/colegio/${c.rbd}`} className="text-xs font-bold text-interaccion-enlace underline hover:text-interaccion-enlace-hover lg:text-sm">
+                  <Link href={`/colegio/${c.rbd}`} className="text-xs font-bold text-interaccion-enlace underline hover:text-interaccion-enlace-hover lg:text-sm [overflow-wrap:anywhere]">
                     {c.nombre}
                   </Link>
                   <Link
@@ -100,7 +99,7 @@ export default function Comparar({
 
             <Fila titulo="Identidad" icono="badge" cols={cols}>
               {colegios.map((c, i) => (
-                <p key={c.rbd} className={`text-2xs text-texto-primario lg:text-xs ${celda(i)}`}>
+                <p key={c.rbd} className={`text-2xs text-texto-primario lg:text-xs [overflow-wrap:anywhere] ${celda(i)}`}>
                   {dependenciaGlosa(c.dependencia_cod)} · {nivelesGlosa(c.ofrece_basica, c.ofrece_media, c.ofrece_especial)} · {c.comuna}
                 </p>
               ))}
@@ -109,7 +108,7 @@ export default function Comparar({
             {filas.map((f) => (
               <Fila key={f.clave} titulo={f.label} icono={f.icono} cols={cols}>
                 {colegios.map((c, i) => (
-                  <p key={c.rbd} className={`text-2xs text-texto-primario lg:text-xs ${celda(i)}`}>
+                  <p key={c.rbd} className={`text-2xs text-texto-primario lg:text-xs [overflow-wrap:anywhere] ${celda(i)}`}>
                     {c.traduccion.lo_esencial[f.clave] ?? <span className="italic text-texto-secundario">No aplica (sin educación media)</span>}
                   </p>
                 ))}
@@ -119,8 +118,7 @@ export default function Comparar({
             <CompartirEnlace />
           </div>
         )}
-      </main>
-      <Footer />
+      </div>
     </>
   );
 }
@@ -142,7 +140,7 @@ function Fila({
         <Icon nombre={icono} size={18} />
         {titulo}
       </h2>
-      <div className={`grid ${cols} gap-xs lg:gap-l`}>{children}</div>
+      <div className={`grid ${cols} gap-xs lg:gap-xl`}>{children}</div>
     </section>
   );
 }

@@ -1,6 +1,5 @@
 import { Hero } from "@/components/home/Hero";
 import { EntradaExploracion } from "@/components/home/EntradaExploracion";
-import { Footer } from "@/components/platform/Footer";
 
 /**
  * Home (D31): tres promesas al mismo nivel —comparar, recomendar y explorar—,
@@ -16,7 +15,8 @@ export default function Home() {
         <EntradaExploracion />
       </div>
       <section className="bg-superficie-elevada px-l py-xl lg:px-0 lg:py-xxl">
-        <ul className="max-w-md mx-auto flex flex-col gap-m lg:max-w-6xl lg:px-xl lg:grid lg:grid-cols-3 lg:gap-xl">
+        {/* Retícula: tres promesas de 4 columnas cada una */}
+        <ul className="max-w-md mx-auto flex flex-col gap-m lg:max-w-6xl lg:px-xl lg:grid lg:grid-cols-12 lg:gap-x-xl">
           {[
             {
               icono: "quiz",
@@ -34,7 +34,7 @@ export default function Home() {
               texto: "Pon colegios lado a lado (3 en el celular, 4 en el computador). Cada dato se lee contra colegios similares, nunca como ranking.",
             },
           ].map((p) => (
-            <li key={p.titulo} className="flex gap-s">
+            <li key={p.titulo} className="flex gap-s lg:col-span-4">
               <span className="material-symbols-outlined text-texto-primario" aria-hidden style={{ fontSize: 24 }}>
                 {p.icono}
               </span>
@@ -46,7 +46,6 @@ export default function Home() {
           ))}
         </ul>
       </section>
-      <Footer />
     </>
   );
 }
