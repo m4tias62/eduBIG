@@ -25,7 +25,10 @@ const config: Config = {
 
         // Texto sobre superficies claras
         "texto-primario": "#1F1F1F",
-        "texto-secundario": "rgba(0, 0, 0, 0.54)",
+        // 2026-10-14: 0,54 → 0,60. Con 0,54 no llegaba a 4,5:1 sobre los grises
+        // del sitio (4,49:1 sobre superficie-elevada, 4,39:1 sobre
+        // superficie-hundida). Con 0,60: 5,7:1 en blanco, 5,6:1 en F5 y 5,4:1 en EA.
+        "texto-secundario": "rgba(0, 0, 0, 0.6)",
         "texto-terciario": "#767676",       // auditoría WCAG 2.2 sep-2026: 1,8 → 4,5:1
         "texto-sutil": "rgba(0, 0, 0, 0.12)",
 

@@ -1,5 +1,6 @@
 import { Hero } from "@/components/home/Hero";
 import { EntradaExploracion } from "@/components/home/EntradaExploracion";
+import { Ilustracion, type NombreIlustracion } from "@/components/ui/Ilustracion";
 
 /**
  * Home (D31): tres promesas al mismo nivel —comparar, recomendar y explorar—,
@@ -15,30 +16,38 @@ export default function Home() {
         <EntradaExploracion />
       </div>
       <section className="bg-superficie-elevada px-l py-xl lg:px-0 lg:py-xxl">
-        {/* Retícula: tres promesas de 4 columnas cada una */}
-        <ul className="max-w-md flex flex-col gap-m lg:mx-auto lg:max-w-6xl lg:px-xl lg:grid lg:grid-cols-12 lg:gap-x-xl">
-          {[
-            {
-              icono: "quiz",
-              titulo: "Recomendar",
-              texto: "El Test de Calce arma una lista de 3 colegios según lo que tu familia necesita y prioriza.",
-            },
-            {
-              icono: "travel_explore",
-              titulo: "Explorar",
-              texto: "Más de 8.000 colegios de todo Chile, con sus datos oficiales traducidos.",
-            },
-            {
-              icono: "compare_arrows",
-              titulo: "Comparar",
-              texto: "Pon colegios lado a lado (3 en el celular, 4 en el computador). Cada dato se lee contra colegios similares, nunca como ranking.",
-            },
-          ].map((p) => (
-            <li key={p.titulo} className="flex gap-s lg:col-span-4">
-              <span className="material-symbols-outlined text-texto-primario" aria-hidden style={{ fontSize: 24 }}>
-                {p.icono}
-              </span>
-              <div className="flex flex-col gap-xxs">
+        {/* Escritorio: tres columnas iguales que van de borde a borde de la
+            retícula (Recomendar parte en el borde izquierdo y Comparar termina
+            en el derecho), separadas por 48 px. La ilustración va sobre el
+            texto, centrada respecto de él; el texto sigue alineado a la
+            izquierda. Móvil: ilustración a la izquierda del texto. */}
+        <ul className="max-w-md flex flex-col gap-l lg:mx-auto lg:max-w-6xl lg:px-xl lg:grid lg:grid-cols-3 lg:gap-x-xxl">
+          {(
+            [
+              {
+                ilustracion: "recomendar",
+                titulo: "Recomendar",
+                texto: "El Test de Calce arma una lista de 3 colegios según lo que tu familia necesita y prioriza.",
+              },
+              {
+                ilustracion: "explorar",
+                titulo: "Explorar",
+                texto: "Más de 8.000 colegios de todo Chile, con sus datos oficiales traducidos.",
+              },
+              {
+                ilustracion: "comparar",
+                titulo: "Comparar",
+                texto: "Pon colegios lado a lado (3 en el celular, 4 en el computador). Cada dato se lee contra colegios similares, nunca como ranking.",
+              },
+            ] satisfies Array<{ ilustracion: NombreIlustracion; titulo: string; texto: string }>
+          ).map((p) => (
+            <li key={p.titulo} className="flex items-center gap-m lg:flex-col lg:items-start lg:gap-l">
+              <Ilustracion
+                nombre={p.ilustracion}
+                sizes="(min-width: 1024px) 144px, 96px"
+                className="w-24 lg:w-36 lg:self-center"
+              />
+              <div className="flex flex-col gap-xxs lg:self-stretch">
                 <p className="text-sm font-bold text-texto-primario">{p.titulo}</p>
                 <p className="text-xs text-texto-secundario">{p.texto}</p>
               </div>

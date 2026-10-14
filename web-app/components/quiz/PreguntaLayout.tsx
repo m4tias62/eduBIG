@@ -32,13 +32,15 @@ export function PreguntaLayout({
   children: ReactNode;
 }) {
   return (
-    // Escritorio: la pregunta va en una tarjeta sobre fondo gris, sin barra de
-    // navegación (pantalla inmersiva).
+    // Escritorio: la pregunta va en una tarjeta gris sobre fondo blanco, igual
+    // que las tarjetas del resto del sitio (Comparar), con la barra de
+    // navegación y el footer de todas las páginas y el mismo margen superior
+    // (32 px) e inferior (48 px).
     // Retícula: la tarjeta ocupa las columnas 1–6, alineada a la izquierda como
     // el resto del sitio. En móvil y tablet la columna parte en el margen.
-    <div className="min-h-screen bg-superficie-base lg:bg-superficie-elevada lg:py-xxl">
+    <div className="bg-superficie-base lg:pt-xl lg:pb-xxl">
     <div className={RETICULA_LG}>
-    <div className="w-full max-w-md min-h-screen flex flex-col gap-[36px] p-[36px] bg-superficie-base lg:col-span-6 lg:min-h-0 lg:max-w-none lg:rounded-l lg:border lg:border-borde-sutil lg:shadow-sm">
+    <div className="w-full max-w-md flex flex-col gap-[36px] p-[36px] bg-superficie-base lg:col-span-6 lg:max-w-none lg:rounded-m lg:border lg:border-borde-sutil lg:bg-superficie-elevada">
       <QuizHeader paso={paso} esPaso2={esPaso2} volverHref={volverHref} />
       <div className="flex flex-col gap-m">
         {contexto && <ChipContexto>{contexto}</ChipContexto>}
@@ -47,7 +49,7 @@ export function PreguntaLayout({
           <p className="text-xs text-texto-secundario">{subtitulo}</p>
         )}
       </div>
-      {nota && <NotaLegitimacion>{nota}</NotaLegitimacion>}
+      {nota && <NotaLegitimacion className="lg:bg-superficie-base">{nota}</NotaLegitimacion>}
       <div className="flex flex-col gap-m">{children}</div>
     </div>
     </div>

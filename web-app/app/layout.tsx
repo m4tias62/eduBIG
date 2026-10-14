@@ -3,7 +3,6 @@ import "./globals.css";
 import { UbicacionProvider } from "@/lib/ubicacion";
 import { BarraNavegacion } from "@/components/platform/BarraNavegacion";
 import { Footer } from "@/components/platform/Footer";
-import { PieCondicional } from "@/components/platform/PieCondicional";
 
 /**
  * metadataBase resuelve URLs relativas de OG/Twitter a absolutas.
@@ -51,7 +50,8 @@ export const metadata: Metadata = {
 /**
  * Root layout — estructura común de todas las páginas:
  *   enlace "Saltar al contenido" (WCAG 2.4.1) → barra de navegación
- *   (escritorio) → <main id="contenido"> → footer (salvo en el Test).
+ *   (escritorio) → <main id="contenido"> → footer. Todas las páginas los
+ *   llevan, incluido el Test de Calce.
  * El body es una columna de alto mínimo igual a la ventana y <main> crece:
  * en páginas cortas el footer queda al fondo de la pantalla, sin franja
  * blanca debajo.
@@ -74,9 +74,7 @@ export default function RootLayout({
           <main id="contenido" tabIndex={-1} className="flex-1 focus:outline-none">
             {children}
           </main>
-          <PieCondicional>
-            <Footer />
-          </PieCondicional>
+          <Footer />
         </UbicacionProvider>
       </body>
     </html>

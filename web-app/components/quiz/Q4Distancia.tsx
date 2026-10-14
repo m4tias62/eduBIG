@@ -59,7 +59,7 @@ export function Q4Distancia({ previas }: { previas: RespuestasParciales }) {
 
   return (
     <PreguntaLayout paso={4} volverHref={volver} titulo="¿Qué tan lejos puede estar el colegio?">
-      <IndicadorUbicacion className="rounded-m border border-borde-sutil bg-superficie-elevada px-m py-xs" />
+      <IndicadorUbicacion className="rounded-m border border-borde-sutil bg-superficie-elevada px-m py-xs lg:bg-superficie-base" />
       {opciones.map((o) => (
         <OpcionPregunta
           key={o.valor}

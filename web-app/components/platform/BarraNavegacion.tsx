@@ -8,18 +8,17 @@ import { cn } from "@/lib/utils";
 
 /**
  * Navegación superior de ESCRITORIO (≥ 1024 px): hace visibles las tres
- * promesas (D31) desde cualquier página. El Test de Calce mantiene el lugar
- * de CTA principal. En móvil no se muestra: ahí la navegación sigue siendo
- * el botón Volver y los enlaces de cada pantalla.
- *
- * Se oculta durante las preguntas del Test (pantallas inmersivas).
+ * promesas (D31) desde cualquier página, incluido el Test de Calce (decisión
+ * de Matías, 2026-10-14: el Test es parte del sitio, no una página aparte).
+ * El Test mantiene el lugar de CTA principal. En móvil no se muestra: ahí la
+ * navegación sigue siendo el botón Volver y los enlaces de cada pantalla.
  */
 export const ALTO_NAV = 64;
 
 export function BarraNavegacion() {
   const ruta = usePathname() ?? "/";
   const { rbds } = useComparar();
-  if (ruta.startsWith("/test/") && !ruta.startsWith("/test/resultado")) return null;
+  const enTest = ruta.startsWith("/test");
 
   const enlace = (href: string, label: string, activo: boolean) => (
     <Link
@@ -53,6 +52,7 @@ export function BarraNavegacion() {
           )}
           <Link
             href="/test"
+            aria-current={enTest ? "page" : undefined}
             className="ml-s min-h-[44px] inline-flex items-center rounded-m bg-interaccion-enlace px-l text-xs font-bold text-texto-sobre-oscuro hover:bg-interaccion-enlace-hover"
           >
             Hacer el Test de Calce
