@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { Icon } from "@/components/ui/Icon";
+import { ChipFiltro } from "@/components/ui/ChipFiltro";
 import { cn } from "@/lib/utils";
 import { urlExplorar, type FiltrosExploracion } from "@/lib/home/filtros";
 import { TIPO_GLOSA, type TipoColegio } from "@/lib/data/formatters";
@@ -189,31 +190,8 @@ export function BarraFiltros({
 
 /* ---------- Sub-componentes ---------- */
 
-function ChipToggle({
-  label,
-  activo,
-  onClick,
-}: {
-  label: string;
-  activo: boolean;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-pressed={activo}
-      className={cn(
-        "min-h-[44px] inline-flex items-center gap-xxs rounded-s px-m py-xs text-xs whitespace-nowrap shrink-0 border-2 transition-colors",
-        activo
-          ? "bg-temp-calido-acento text-texto-sobre-oscuro border-temp-calido-acento"
-          : "bg-superficie-base text-texto-primario border-temp-frio-profundo hover:bg-temp-frio-suave"
-      )}
-    >
-      {label}
-    </button>
-  );
-}
+/** Chip de alternar: el chip de filtro único del sitio (components/ui/ChipFiltro). */
+const ChipToggle = ChipFiltro;
 
 function ChipDesplegable({
   label,
@@ -298,19 +276,19 @@ function OpcionCheck({
       role="checkbox"
       aria-checked={checked}
       onClick={onClick}
-      className="min-h-[44px] flex items-center gap-xs py-xs text-left"
+      className="group min-h-[44px] flex items-center gap-xs py-xs text-left"
     >
       <span
         className={cn(
           "inline-flex h-5 w-5 items-center justify-center rounded-s border transition-colors",
           checked
             ? "bg-temp-calido-profundo border-temp-calido-profundo"
-            : "bg-superficie-base border-borde-definido"
+            : "bg-superficie-base border-borde-definido group-hover:border-texto-primario"
         )}
       >
         {checked && <Icon nombre="check" size={16} className="text-texto-sobre-oscuro" />}
       </span>
-      <span className="text-xs text-texto-primario">{label}</span>
+      <span className="text-xs text-texto-primario group-hover:underline">{label}</span>
     </button>
   );
 }
@@ -330,17 +308,17 @@ function OpcionRadio({
       role="radio"
       aria-checked={checked}
       onClick={onClick}
-      className="min-h-[44px] flex items-center gap-xs py-xs text-left"
+      className="group min-h-[44px] flex items-center gap-xs py-xs text-left"
     >
       <span
         className={cn(
           "inline-flex h-5 w-5 items-center justify-center rounded-full border transition-colors",
-          checked ? "border-temp-calido-profundo" : "border-borde-definido"
+          checked ? "border-temp-calido-profundo" : "border-borde-definido group-hover:border-texto-primario"
         )}
       >
         {checked && <span className="h-2.5 w-2.5 rounded-full bg-temp-calido-profundo" />}
       </span>
-      <span className="text-xs text-texto-primario">{label}</span>
+      <span className="text-xs text-texto-primario group-hover:underline">{label}</span>
     </button>
   );
 }

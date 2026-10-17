@@ -29,7 +29,7 @@ export type Ubicacion =
   | { tipo: "gps"; lat: number; lon: number }
   | { tipo: "comuna"; cod: number };
 
-export type EstadoGps = "idle" | "cargando" | "denegado" | "error" | "no_soportado";
+export type EstadoGps = "idle" | "cargando" | "denegado" | "error" | "no_soportado" | "inseguro";
 
 interface UbicacionCtx {
   ubicacion: Ubicacion | null;
@@ -79,16 +79,36 @@ export function UbicacionProvider({ children }: { children: ReactNode }) {
       setEstadoGps("no_soportado");
       return;
     }
+    // Los navegadores (Chrome en celular incluido) solo entregan la ubicación en
+    // conexiones seguras (https o localhost). Abriendo el sitio por la IP del
+    // computador (http://192.168…) la piden y la rechazan sin preguntar.
+    if (typeof window !== "undefined" && !window.isSecureContext) {
+      setEstadoGps("inseguro");
+      return;
+    }
     setEstadoGps("cargando");
+    const ok = (pos: GeolocationPosition) => {
+      const u: Ubicacion = { tipo: "gps", lat: pos.coords.latitude, lon: pos.coords.longitude };
+      setUbicacion(u);
+      guardar(u);
+      setEstadoGps("idle");
+    };
+    const fallo = (err: GeolocationPositionError) =>
+      setEstadoGps(err.code === err.PERMISSION_DENIED ? "denegado" : "error");
+    // 1.er intento: ubicación aproximada (rápida, por red). En Chrome para
+    // Android suele fallar si el teléfono solo tiene GPS disponible: en ese
+    // caso se reintenta con alta precisión antes de rendirse.
     navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        const u: Ubicacion = { tipo: "gps", lat: pos.coords.latitude, lon: pos.coords.longitude };
-        setUbicacion(u);
-        guardar(u);
-        setEstadoGps("idle");
+      ok,
+      (err) => {
+        if (err.code === err.PERMISSION_DENIED) return fallo(err);
+        navigator.geolocation.getCurrentPosition(ok, fallo, {
+          enableHighAccuracy: true,
+          timeout: 20000,
+          maximumAge: 0,
+        });
       },
-      (err) => setEstadoGps(err.code === err.PERMISSION_DENIED ? "denegado" : "error"),
-      { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 }
+      { enableHighAccuracy: false, timeout: 8000, maximumAge: 300000 }
     );
   }, []);
 

@@ -25,8 +25,11 @@ export function FichaColegio({ detalle }: { detalle: DetalleColegio }) {
           alineada al margen izquierdo como el resto del sitio. */}
       <article className={`flex flex-col gap-l p-l max-w-[31rem] lg:items-start lg:py-xl ${RETICULA_LG}`}>
         <div className="flex flex-col gap-l lg:col-span-4 lg:sticky lg:top-[88px] lg:max-h-[calc(100vh-112px)] lg:overflow-y-auto lg:pr-xs">
-          <BotonVolver href="/explorar" />
-          <Cabecera detalle={detalle} />
+          {/* Volver → encabezado: 16 px, igual que el resto del sitio */}
+          <div className="flex flex-col gap-m">
+            <BotonVolver href="/explorar" />
+            <Cabecera detalle={detalle} />
+          </div>
           <LoEsencial detalle={detalle} />
         </div>
         <div className="flex flex-col gap-l lg:col-span-8">

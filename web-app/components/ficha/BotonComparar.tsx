@@ -7,7 +7,7 @@ import { useEscritorio } from "@/lib/useEscritorio";
 
 /** Agregar / quitar el colegio de la comparación (D32): 3 en móvil, 4 en escritorio. */
 export function BotonComparar({ rbd, nombre }: { rbd: number; nombre: string }) {
-  const { rbds, alternar } = useComparar();
+  const { rbds, url, alternar } = useComparar();
   const maximo = useEscritorio() ? MAX_COMPARAR : MAX_COMPARAR_MOVIL;
   const esta = rbds.includes(rbd);
   const lleno = !esta && rbds.length >= maximo;
@@ -32,7 +32,7 @@ export function BotonComparar({ rbd, nombre }: { rbd: number; nombre: string }) 
       )}
       {rbds.length >= 2 && (
         <Link
-          href={`/comparar?rbd=${rbds.join(",")}`}
+          href={url}
           className="min-h-[44px] inline-flex items-center justify-center gap-xxs text-xs font-bold text-interaccion-enlace hover:text-interaccion-enlace-hover"
         >
           Ver comparación ({rbds.length} de {maximo})

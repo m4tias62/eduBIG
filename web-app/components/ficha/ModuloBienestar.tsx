@@ -3,13 +3,16 @@
 import type { Curso, DetalleColegio, DimensionIdps } from "@/lib/types";
 import { CURSOS, CURSO_GLOSA, DIMENSIONES, grupoComparacion, num } from "@/lib/data/detalle";
 import { ModuloBase } from "./ModuloBase";
-import { BarraAbsolutaIdps } from "./charts/BarraAbsolutaIdps";
+import { BarraAbsoluta100 } from "@/components/viz/graficos";
+import { significancia } from "@/lib/viz";
 import { InfoGrupo } from "./InfoGrupo";
 
 /**
  * Bienestar — 4 dimensiones IDPS (Agencia de Calidad), por curso evaluado
- * (4° y 8° básico, 2° medio). Barras absolutas 0–100: este colegio y
- * colegios similares (valor − diferencia con el grupo).
+ * (4° y 8° básico, 2° medio). Barras absolutas 0–100: una barra por curso
+ * para este colegio (viz-colegio-1) y una marca neutra en el valor de sus
+ * similares (valor − diferencia con el grupo). El chip de estado depende solo
+ * de la significancia de la Agencia (oct-2026, mismas reglas que Comparar).
  * Las dimensiones se muestran por separado, nunca promediadas (D04).
  */
 const DIM_META: Record<DimensionIdps, { titulo: string; tituloDetalle: string; descripcion: string }> = {
@@ -39,7 +42,11 @@ function valores(d: DetalleColegio, dim: DimensionIdps, curso: Curso) {
   const este = num(d, `idps_${dim}_${curso}_2025`);
   if (este === undefined) return null;
   const difgru = num(d, `idps_${dim}_${curso}_2025_difgru`);
-  return { este, similares: difgru !== undefined ? este - difgru : null };
+  return {
+    este,
+    similares: difgru !== undefined ? este - difgru : null,
+    sig: difgru !== undefined ? significancia(d[`idps_${dim}_${curso}_2025_sigdifgru`]) : null,
+  };
 }
 
 export function ModuloBienestar({ detalle }: { detalle: DetalleColegio }) {
@@ -74,16 +81,16 @@ export function ModuloBienestar({ detalle }: { detalle: DetalleColegio }) {
               </div>
               {filas.map(({ curso, v }) => (
                 <div key={curso} className="flex flex-col gap-xxs">
-                  <div className="flex items-center justify-between gap-xs">
+                  <div className="flex items-center gap-xs">
                     <p className="text-xs font-bold text-texto-primario">{CURSO_GLOSA[curso]}</p>
                     <InfoGrupo curso={CURSO_GLOSA[curso]} grupo={grupoComparacion(detalle, curso)} />
                   </div>
-                  <BarraAbsolutaIdps
-                    este={v!.este}
+                  <BarraAbsoluta100
+                    valor={v!.este}
                     similares={v!.similares}
-                    descripcion={`${meta.titulo}, ${CURSO_GLOSA[curso]}: este colegio ${Math.round(v!.este)}${
-                      v!.similares !== null ? `, colegios similares ${Math.round(v!.similares)}` : ", sin comparación publicada"
-                    }.`}
+                    sig={v!.sig}
+                    posicion={1}
+                    similaresConValor
                   />
                 </div>
               ))}

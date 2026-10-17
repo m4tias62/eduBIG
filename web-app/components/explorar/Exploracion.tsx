@@ -353,7 +353,7 @@ function BuscadorNombre({
   }, [valor]);
 
   return (
-    <div className="min-h-[44px] flex items-center gap-xs rounded-s bg-superficie-elevada border border-borde-definido px-m py-xs focus-within:border-texto-primario transition-colors">
+    <div className="campo campo-envoltura min-h-[44px] flex items-center gap-xs !rounded-s !bg-superficie-elevada px-m py-xs">
       <Icon nombre="search" size={20} className="text-texto-secundario" />
       <input
         type="search"
@@ -375,7 +375,7 @@ function ToggleVista({ vista, onCambiar }: { vista: "lista" | "mapa"; onCambiar:
       aria-pressed={vista === v}
       className={cn(
         "min-h-[40px] inline-flex items-center gap-xs rounded-s px-l py-xs text-xs font-bold",
-        vista === v ? "bg-superficie-base text-texto-primario" : "text-texto-secundario"
+        vista === v ? "bg-superficie-base text-texto-primario" : "text-texto-secundario hover:bg-superficie-base/60 hover:text-texto-primario"
       )}
     >
       <Icon nombre={icono} size={18} />
@@ -401,17 +401,35 @@ function SelectorOrden({
   conIngresoU: boolean;
   onCambiar: (o: Orden) => void;
 }) {
+  // Opciones según el modo: con GPS, cercanía o nombre; con media, también ingreso a la U.
+  // El valor actual siempre está entre las opciones (antes, con GPS y orden "nombre"
+  // en la URL, el select mostraba "Cercanía" aunque la lista estuviera por nombre).
+  const opciones: Array<{ valor: Orden; label: string }> = [
+    ...(conCercania ? [{ valor: "cercania" as Orden, label: "Cercanía" }] : []),
+    { valor: "nombre", label: "Nombre" },
+    ...(conIngresoU ? [{ valor: "ingreso_u" as Orden, label: "Ingreso a la U (vs. similares)" }] : []),
+  ];
   return (
-    <label className="inline-flex items-center gap-xs text-2xs text-texto-secundario">
+    <label className="inline-flex items-center gap-xs text-xs text-texto-secundario">
       Ordenar por
-      <select
-        value={orden}
-        onChange={(e) => onCambiar(e.target.value as Orden)}
-        className="min-h-[40px] rounded-s border border-borde-definido bg-superficie-base px-xs text-xs text-texto-primario"
-      >
-        {conCercania ? <option value="cercania">Cercanía</option> : <option value="nombre">Nombre</option>}
-        {conIngresoU && <option value="ingreso_u">Ingreso a la U (vs. similares)</option>}
-      </select>
+      <span className="relative inline-flex">
+        <select
+          value={orden}
+          onChange={(e) => onCambiar(e.target.value as Orden)}
+          className="min-h-objetivo-tactil appearance-none rounded-s border-2 border-temp-frio-profundo bg-superficie-base py-xs pl-m pr-xl text-xs text-texto-primario cursor-pointer hover:bg-temp-frio-suave"
+        >
+          {opciones.map((o) => (
+            <option key={o.valor} value={o.valor}>
+              {o.label}
+            </option>
+          ))}
+        </select>
+        <Icon
+          nombre="arrow_drop_down"
+          size={20}
+          className="pointer-events-none absolute right-xs top-1/2 -translate-y-1/2 text-temp-frio-profundo"
+        />
+      </span>
     </label>
   );
 }

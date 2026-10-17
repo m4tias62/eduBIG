@@ -1,33 +1,30 @@
 "use client";
 
-import type { Curso, DetalleColegio } from "@/lib/types";
-import { CURSOS, CURSO_GLOSA, grupoComparacion, num } from "@/lib/data/detalle";
+import type { DetalleColegio } from "@/lib/types";
+import { CURSOS, CURSO_GLOSA, grupoComparacion } from "@/lib/data/detalle";
+import { construirColegio, MATERIAS, MATERIA_GLOSA, textoReferenciaGse } from "@/lib/data/comparacion";
+import { conSigno } from "@/lib/viz";
+import { ChipEstadoSimilares, LeyendaSimilares } from "@/components/viz/basicos";
+import { TiraBrechas } from "@/components/viz/graficos";
 import { ModuloBase } from "./ModuloBase";
-import { BarraBrechaSimce } from "./charts/BarraBrechaSimce";
 import { InfoGrupo } from "./InfoGrupo";
 
 /**
  * Académico — SIMCE 2025: diferencia con colegios similares (mismo grupo
  * socioeconómico de cada prueba, D18), por materia y curso. Escala fija ±56.
+ *
+ * Oct-2026 (mismas reglas que Comparar): el color depende solo de la
+ * significancia de la Agencia (verde ↑ / mostaza ↓ con ±1; gris "a la par"
+ * con 0, aunque la cifra no sea cero). La línea cero es "sus similares".
  * Estados sin comparación: sin SIMCE publicado (D19) o puntaje sin
- * comparación publicada por la Agencia.
+ * comparación publicada por la Agencia (s/d con trama).
  */
-type Materia = "lect" | "mate";
-const MATERIA_GLOSA: Record<Materia, string> = { lect: "Lectura", mate: "Matemática" };
-const CURSO_CORTO: Record<Curso, string> = { "4b": "4° b", "8b": "8° b", "2m": "2° m" };
-
 export function ModuloAcademico({ detalle }: { detalle: DetalleColegio }) {
-  const celdas = CURSOS.flatMap((curso) =>
-    (["lect", "mate"] as Materia[]).map((m) => ({
-      curso,
-      m,
-      puntaje: num(detalle, `simce_${m}_${curso}_2025`),
-      dif: num(detalle, `simce_${m}_${curso}_2025_difgru`),
-    }))
-  );
-  const conPuntaje = celdas.filter((c) => c.puntaje !== undefined);
-  const cursosConDato = CURSOS.filter((c) => conPuntaje.some((x) => x.curso === c));
-  const hayComparacion = celdas.some((c) => c.dif !== undefined);
+  const modelo = construirColegio(detalle, 1);
+  const { materias, hayAlguno } = modelo.simce;
+  const cursosConDato = CURSOS.filter((_, i) => MATERIAS.some((m) => materias[m][i].puntaje !== undefined));
+  const hayComparacion = MATERIAS.some((m) => materias[m].some((c) => c.estado === "dato"));
+  const referencia = textoReferenciaGse(modelo);
 
   return (
     <ModuloBase
@@ -36,7 +33,7 @@ export function ModuloAcademico({ detalle }: { detalle: DetalleColegio }) {
       conclusion={detalle.traduccion.lo_esencial.Académico}
       fuente="Fuente: Agencia de Calidad de la Educación · SIMCE 2025 (4° y 8° básico, 2° medio)."
     >
-      {conPuntaje.length === 0 ? (
+      {!hayAlguno ? (
         <p className="text-xs text-texto-secundario">
           {detalle.tiene_gse
             ? "La Agencia de Calidad no publicó resultados SIMCE 2025 para este colegio."
@@ -45,54 +42,72 @@ export function ModuloAcademico({ detalle }: { detalle: DetalleColegio }) {
       ) : (
         <>
           {hayComparacion && (
-            <>
-              <p className="text-xs text-texto-secundario">
-                Cada barra es la diferencia con colegios similares: sube = por sobre ellos, baja = por
-                debajo. Escala común a todos los colegios (±56 puntos).
-              </p>
-              <div className="flex flex-col gap-xl lg:grid lg:grid-cols-2 lg:gap-x-xl">
-              {(["lect", "mate"] as Materia[]).map((m) => (
-                <BarraBrechaSimce
-                  key={m}
-                  titulo={MATERIA_GLOSA[m]}
-                  brechas={cursosConDato.map((curso) => ({
-                    curso: CURSO_CORTO[curso],
-                    valor: celdas.find((c) => c.curso === curso && c.m === m)?.dif ?? null,
-                  }))}
-                />
-              ))}
+            <div className="flex flex-col gap-m">
+              <div className="flex flex-col gap-xs">
+                <p className="text-xs text-texto-secundario">
+                  Cada barra es la diferencia con colegios similares: sube = por sobre ellos, baja = por debajo.
+                  Escala común a todos los colegios (±56 puntos).
+                </p>
+                {referencia && <p className="text-2xs text-texto-secundario">{referencia}</p>}
+                <div aria-hidden className="flex flex-wrap gap-x-m gap-y-xxs text-2xs text-texto-secundario">
+                  <LeyendaSimilares texto="sus similares (diferencia 0)" />
+                  <span className="inline-flex items-center gap-xxs">
+                    <span className="size-s bg-viz-sobre" />↑ sobre sus similares
+                  </span>
+                  <span className="inline-flex items-center gap-xxs">
+                    <span className="size-s bg-viz-a-la-par" />= a la par
+                  </span>
+                  <span className="inline-flex items-center gap-xxs">
+                    <span className="size-s bg-viz-bajo" />↓ bajo sus similares
+                  </span>
+                </div>
               </div>
-            </>
+              <div className="flex flex-col gap-xl lg:grid lg:grid-cols-2 lg:gap-x-xl">
+                {MATERIAS.map((m) => (
+                  <TiraBrechas
+                    key={m}
+                    tamano="ficha"
+                    titulo={MATERIA_GLOSA[m]}
+                    celdas={materias[m].filter((c) => cursosConDato.includes(c.curso))}
+                  />
+                ))}
+              </div>
+            </div>
           )}
 
-          <div className="flex flex-col gap-s lg:max-w-xl">
+          <div className="flex flex-col gap-s">
             <h4 className="text-sm font-bold text-texto-primario">Puntajes 2025</h4>
-            {cursosConDato.map((curso) => (
-              <div key={curso} className="flex flex-col gap-xxs border-t border-borde-sutil pt-xs">
-                <div className="flex items-center justify-between gap-xs">
-                  <p className="text-xs font-bold text-texto-primario">{CURSO_GLOSA[curso]}</p>
-                  <InfoGrupo curso={CURSO_GLOSA[curso]} grupo={grupoComparacion(detalle, curso)} />
+            {cursosConDato.map((curso) => {
+              const i = CURSOS.indexOf(curso);
+              return (
+                <div key={curso} className="flex flex-col gap-xxs border-t border-borde-sutil pt-xs">
+                  <div className="flex items-center gap-xs">
+                    <p className="text-xs font-bold text-texto-primario">{CURSO_GLOSA[curso]}</p>
+                    <InfoGrupo curso={CURSO_GLOSA[curso]} grupo={grupoComparacion(detalle, curso)} />
+                  </div>
+                  <ul className="flex flex-col gap-xs text-xs text-texto-primario">
+                    {MATERIAS.map((m) => {
+                      const c = materias[m][i];
+                      if (c.puntaje === undefined) return null;
+                      return (
+                        <li key={m} className="grid grid-cols-[7rem_6rem_1fr] items-center gap-s">
+                          <span>{MATERIA_GLOSA[m]}</span>
+                          <span className="tabular-nums">
+                            <strong>{c.puntaje}</strong> puntos
+                          </span>
+                          <span className="flex flex-wrap items-center gap-xs">
+                            {c.dif !== undefined && (
+                              <span className="tabular-nums text-texto-secundario">{conSigno(c.dif)} vs. similares</span>
+                            )}
+                            <ChipEstadoSimilares sig={c.estado === "dato" ? c.sig : null} />
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
                 </div>
-                <ul className="flex flex-col gap-xxs text-xs text-texto-primario">
-                  {(["lect", "mate"] as Materia[]).map((m) => {
-                    const c = celdas.find((x) => x.curso === curso && x.m === m)!;
-                    if (c.puntaje === undefined) return null;
-                    return (
-                      <li key={m} className="flex justify-between gap-s">
-                        <span>
-                          {MATERIA_GLOSA[m]}: <strong>{c.puntaje}</strong> puntos
-                        </span>
-                        <span className="text-texto-secundario">
-                          {c.dif === undefined
-                            ? "sin comparación publicada"
-                            : `${c.dif > 0 ? "+" : c.dif < 0 ? "−" : ""}${Math.abs(c.dif)} vs. similares`}
-                        </span>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </>
       )}

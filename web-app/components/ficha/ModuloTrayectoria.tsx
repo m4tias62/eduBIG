@@ -4,12 +4,14 @@ import type { DetalleColegio } from "@/lib/types";
 import { num } from "@/lib/data/detalle";
 import { pct, puntosPct } from "@/lib/data/formatters";
 import { ModuloBase } from "./ModuloBase";
+import { BarraProporcion } from "@/components/viz/graficos";
 
 /**
  * Trayectoria — ingreso a la universidad (D28): tasa bruta y relativa a
  * colegios similares (mismo grupo socioeconómico de 2° medio, D30).
  * La relativa la calcula Edubig con el GSE oficial; no tiene prueba de
- * significancia, por eso no se afirma "sobre" ni "bajo".
+ * significancia, por eso no se afirma "sobre" ni "bajo" (sin color semántico).
+ * Oct-2026: barra 0–100 % de este colegio + marca neutra de sus similares.
  */
 export function ModuloTrayectoria({ detalle }: { detalle: DetalleColegio }) {
   const tasa = num(detalle, "tasa_ingreso_u_2025");
@@ -33,11 +35,8 @@ export function ModuloTrayectoria({ detalle }: { detalle: DetalleColegio }) {
         </p>
       ) : (
         <>
-          <div className="flex flex-col gap-s lg:max-w-xl">
-            <BarraTasa label="Este colegio" valor={tasa} clase="bg-viz-serie-este" />
-            {similares !== undefined && (
-              <BarraTasa label="Colegios similares" valor={similares} clase="bg-viz-serie-similares" />
-            )}
+          <div className="flex flex-col gap-s">
+            <BarraProporcion tasa={tasa} similares={similares} posicion={1} />
             {relativa !== undefined && (
               <p className="text-xs text-texto-primario">
                 Diferencia con colegios similares: <strong>{puntosPct(relativa)}</strong>
@@ -69,17 +68,5 @@ export function ModuloTrayectoria({ detalle }: { detalle: DetalleColegio }) {
         </>
       )}
     </ModuloBase>
-  );
-}
-
-function BarraTasa({ label, valor, clase }: { label: string; valor: number; clase: string }) {
-  return (
-    <div className="flex items-center gap-s">
-      <span className="w-[124px] shrink-0 text-[11px] text-texto-primario">{label}</span>
-      <div className="relative h-3 flex-1 rounded-s bg-superficie-hundida" aria-hidden>
-        <div className={`absolute inset-y-0 left-0 rounded-s ${clase}`} style={{ width: `${Math.min(100, valor * 100)}%` }} />
-      </div>
-      <span className="w-10 text-right text-[11px] font-bold text-texto-primario">{pct(valor)}</span>
-    </div>
   );
 }

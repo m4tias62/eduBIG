@@ -13,7 +13,7 @@ import type { Config } from "tailwindcss";
  * - Espaciado, radios y tipografía siguen la escala semántica de Figma.
  */
 const config: Config = {
-  content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
+  content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./lib/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
@@ -82,13 +82,21 @@ const config: Config = {
         "temp-calido-profundo": "#d6604d",
         "temp-calido-acento": "#b2181f",    // auditoría WCAG 2.2 sep-2026
 
-        // Series de dataviz cualitativa (color = identidad de serie, no
-        // valoración). Espejo semántico de VisualizaciónData/Cualitativa/*
-        // en Figma. Cuando se formalice el design system se puede renombrar
-        // a viz-cualitativa-01..16 si se quiere calzar 1:1 con Figma.
-        "viz-serie-este": "#009d9a",       // Graph-04  — colegio en foco (antes Graph-03, excluido el 2026-09-09; D-13, por confirmar)
-        "viz-serie-similares": "#4a62d1",  // Graph-11  — referencia primaria
-        "viz-serie-nacional": "#a56eff",   // Graph-12  — referencia secundaria
+        // Visualización de datos (Comparar colegios, oct-2026; diseño en Claude Design).
+        // Color por POSICIÓN del colegio en la comparación (1–4). viz-colegio-1 es
+        // también «este colegio» en la ficha. Color = de quién es el dato, nunca juicio.
+        "viz-colegio-1": "#007d79", // reemplaza a viz-serie-este (#009d9a): 4,99:1 sobre blanco
+        "viz-colegio-2": "#6929c4",
+        "viz-colegio-3": "#d3354f",
+        "viz-colegio-4": "#012749",
+        "viz-colegio-numero": "#FFFFFF",
+        // Referencia y estado frente a colegios similares
+        "viz-similares-marca": "#1F1F1F", // reemplaza a viz-serie-similares (#4a62d1)
+        "viz-similares-halo": "#FFFFFF",
+        "viz-sobre": "#1E6A2E",    // = exito-fuerte · solo significancia 1
+        "viz-bajo": "#8A6D00",     // = advertencia-fuerte · solo significancia −1
+        "viz-a-la-par": "#767676", // = texto-terciario · significancia 0
+        "viz-pista": "#EAEAEA",    // = superficie-hundida
       },
 
       fontFamily: {
@@ -122,7 +130,39 @@ const config: Config = {
         l: "24px",
         xl: "32px",
         xxl: "48px",
+        // Medidas de visualización y componentes (Comparar colegios, oct-2026)
+        "viz-trazado-alto": "48px",
+        "viz-trazado-alto-ficha": "168px",
+        "viz-marca-alto": "12px",
+        "viz-columna-ancho": "28px",
+        "viz-columna-ancho-ficha": "40px",
+        "viz-eje-ancho": "36px",
+        "viz-similares-ancho": "2px",
+        "viz-similares-sobresale": "4px",
+        "viz-separacion": "2px",
+        "viz-punto": "6px",
+        "viz-punto-separacion": "3px",
+        "viz-puntos-columna": "36px",
+        marcador: "28px",
+        "chip-alto": "24px",
+        "interruptor-ancho": "40px",
+        "interruptor-alto": "24px",
+        "interruptor-perilla": "16px",
+        "icono-s": "16px",
+        "icono-m": "20px",
+        "icono-l": "24px",
+        "objetivo-tactil": "44px",
+        "nav-alto": "64px",
+        "encabezado-compacto-alto": "64px",
+        "barra-colegios-alto": "112px",
       },
+
+      backgroundImage: {
+        "viz-faltante-trama":
+          "repeating-linear-gradient(135deg, rgba(0,0,0,0.06) 0 2px, transparent 2px 6px)",
+      },
+
+      borderWidth: { colegio: "4px" },
 
       borderRadius: {
         none: "0",

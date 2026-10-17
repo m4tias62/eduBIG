@@ -17,7 +17,7 @@ export const ALTO_NAV = 64;
 
 export function BarraNavegacion() {
   const ruta = usePathname() ?? "/";
-  const { rbds } = useComparar();
+  const { rbds, url } = useComparar();
   const enTest = ruta.startsWith("/test");
 
   const enlace = (href: string, label: string, activo: boolean) => (
@@ -40,13 +40,13 @@ export function BarraNavegacion() {
       {/* Misma retícula que el resto del sitio (.contenedor), en todas las páginas.
           min-h y no h fija: el texto puede crecer sin cortarse (WCAG 1.4.12). */}
       <nav aria-label="Principal" className="contenedor flex min-h-16 items-center justify-between">
-        <Link href="/" aria-label="Edubig, inicio" className="inline-flex items-center">
+        <Link href="/" aria-label="Edubig, inicio" className="inline-flex items-center rounded-m transition-opacity hover:opacity-80">
           <Isologo width={72} priority />
         </Link>
         <div className="flex items-center gap-m">
           {enlace("/explorar", "Explorar colegios", ruta.startsWith("/explorar") || ruta.startsWith("/colegio"))}
           {enlace(
-            rbds.length ? `/comparar?rbd=${rbds.join(",")}` : "/comparar",
+            url,
             rbds.length ? `Comparar colegios (${rbds.length})` : "Comparar colegios",
             ruta.startsWith("/comparar")
           )}

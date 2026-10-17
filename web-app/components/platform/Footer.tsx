@@ -44,7 +44,7 @@ export function Footer() {
                   href="https://www.linkedin.com/in/joseisraelrubilar/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-2xs text-texto-sobre-oscuro-secundario underline"
+                  className="text-2xs text-texto-sobre-oscuro-secundario underline hover:text-texto-sobre-oscuro"
                 >
                   LinkedIn
                 </a>
@@ -55,7 +55,7 @@ export function Footer() {
                   href="https://www.linkedin.com/in/matias-caceres-maureira-9b6051259/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-2xs text-texto-sobre-oscuro-secundario underline"
+                  className="text-2xs text-texto-sobre-oscuro-secundario underline hover:text-texto-sobre-oscuro"
                 >
                   LinkedIn
                 </a>

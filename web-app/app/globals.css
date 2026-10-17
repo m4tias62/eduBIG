@@ -106,6 +106,20 @@
     }
   }
 
+  /* Columnas 1–6 (oct-2026). Regla de alineación (Gestalt, continuidad): un
+     texto termina en el mismo borde que el bloque con el que se relaciona
+     (la bajada de Comparar = la tarjeta de abajo = la columna de Explorar = la
+     tarjeta del Test). Nunca un texto con un ancho propio "suelto". */
+  .ancho-6-col {
+    max-width: 28rem;
+  }
+  @media (min-width: 1024px) {
+    .ancho-6-col {
+      max-width: none;
+      width: calc((100% - 22rem) / 12 * 6 + 10rem);
+    }
+  }
+
   /*
     Exploración en escritorio: la lista ocupa las columnas 1–6 de la retícula
     y el mapa va de la columna 7 hasta el borde derecho de la ventana. Las
@@ -123,6 +137,69 @@
     .explorar-dividido .explorar-columna {
       padding-left: max(2rem, calc((100cqw - 72rem) / 2 + 2rem));
       padding-right: 2rem;
+    }
+  }
+}
+
+/*
+  Estados de interacción (oct-2026) — todo elemento interactivo del sitio tiene
+  los 5 estados: reposo, hover, foco (contorno azul de 2 px, global), activo
+  (presionado) y deshabilitado.
+
+  .campo            campos de texto y selectores (input, select).
+                    hover: borde oscuro · foco: contorno global · deshabilitado:
+                    fondo hundido, texto secundario, cursor prohibido.
+  .campo-envoltura  contenedor de un campo con ícono (lupa): el contorno de foco
+                    lo dibuja el contenedor (el input interno no lo muestra).
+*/
+@layer components {
+  .campo {
+    @apply rounded-m border border-borde-definido bg-superficie-base text-texto-primario transition-colors;
+  }
+  .campo:hover:not(:disabled):not(:has(:disabled)) {
+    @apply border-texto-primario;
+  }
+  .campo:disabled,
+  .campo:has(:disabled) {
+    @apply cursor-not-allowed border-borde-sutil bg-superficie-hundida text-texto-secundario;
+  }
+  select.campo:not(:disabled) {
+    @apply cursor-pointer;
+  }
+  .campo-envoltura:focus-within {
+    @apply border-interaccion-foco outline outline-2 outline-offset-2 outline-interaccion-foco;
+  }
+}
+
+@layer base {
+  /* Activo (presionado): leve oscurecimiento en botones y disparadores. */
+  button:not(:disabled):active,
+  summary:active,
+  a[class*="rounded"]:active {
+    filter: brightness(0.94);
+  }
+}
+
+/*
+  Comparar colegios — Lectura y Matemática lado a lado cuando la celda mide
+  320 px o más; si no, una sobre otra. (El diseño proponía 340 px; con 320 px
+  también quedan lado a lado en celulares de 375 px, donde la celda mide
+  ~327 px, y cada tira sigue teniendo espacio para sus 3 barras.) Consulta de
+  contenedor nativa: no requiere el plugin de Tailwind.
+*/
+@layer components {
+  .brechas {
+    container-type: inline-size;
+  }
+  .brechas-filas {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  @container (min-width: 320px) {
+    .brechas-filas {
+      flex-direction: row;
+      gap: 1.5rem;
     }
   }
 }
