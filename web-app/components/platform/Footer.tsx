@@ -17,10 +17,12 @@ export function Footer() {
   return (
     <footer className="w-full bg-superficie-inversa pt-xl pb-l text-texto-sobre-oscuro">
       <div className="contenedor flex flex-col gap-l">
-        {/* Retícula: identidad en columnas 1–4; fuentes y equipo en 9–12 */}
+        {/* Retícula: identidad en columnas 1–6 (la frase cabe en una línea en
+            escritorio, igual que los textos de 6 columnas del sitio); fuentes y
+            equipo en 9–12 */}
         <div className="flex flex-col gap-l lg:grid lg:grid-cols-12 lg:gap-x-xl lg:gap-y-0">
           {/* Identidad */}
-          <div className="flex flex-col gap-m lg:col-span-4">
+          <div className="flex flex-col gap-m lg:col-span-6">
             <Isologo />
             <p className="text-xs text-texto-sobre-oscuro-secundario">
               Traducimos datos oficiales en decisiones familiares informadas.
@@ -38,28 +40,32 @@ export function Footer() {
 
             <div className="flex flex-col gap-xs flex-1">
               <p className="text-2xs font-bold text-texto-sobre-oscuro-secundario">Equipo</p>
-              <div className="flex items-center gap-xs flex-wrap">
-                <span className="text-xs">Israel Rubilar</span>
-                <a
-                  href="https://www.linkedin.com/in/joseisraelrubilar/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-2xs text-texto-sobre-oscuro-secundario underline hover:text-texto-sobre-oscuro"
-                >
-                  LinkedIn
-                </a>
-              </div>
-              <div className="flex items-center gap-xs flex-wrap">
-                <span className="text-xs">Matías Cáceres</span>
-                <a
-                  href="https://www.linkedin.com/in/matias-caceres-maureira-9b6051259/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-2xs text-texto-sobre-oscuro-secundario underline hover:text-texto-sobre-oscuro"
-                >
-                  LinkedIn
-                </a>
-              </div>
+              <ul className="flex flex-col gap-s">
+                {[
+                  { nombre: "Israel Rubilar", rol: "Analista de datos", url: "https://www.linkedin.com/in/joseisraelrubilar/" },
+                  {
+                    nombre: "Matías Cáceres",
+                    rol: "Diseñador",
+                    url: "https://www.linkedin.com/in/matias-caceres-maureira-9b6051259/",
+                  },
+                ].map((p) => (
+                  <li key={p.nombre} className="flex flex-col">
+                    <div className="flex items-center gap-xs flex-wrap">
+                      <span className="text-xs">{p.nombre}</span>
+                      <a
+                        href={p.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`LinkedIn de ${p.nombre} (se abre en otra pestaña)`}
+                        className="text-2xs text-texto-sobre-oscuro-secundario underline hover:text-texto-sobre-oscuro"
+                      >
+                        LinkedIn
+                      </a>
+                    </div>
+                    <span className="text-2xs text-texto-sobre-oscuro-secundario">{p.rol}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
