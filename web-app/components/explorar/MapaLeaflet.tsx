@@ -91,7 +91,7 @@ export function MapaLeaflet({
             icon={c.rbd === resaltado ? pinResaltado : pinIcon}
             zIndexOffset={c.rbd === resaltado ? 1000 : 0}
           >
-            <Popup className="edubig-popup" minWidth={240} maxWidth={240}>
+            <Popup className="edubig-popup" minWidth={240} maxWidth={240} autoPanPaddingTopLeft={[56, 16]}>
               <div className="w-[240px] font-body">
                 <p className="m-0 py-s pl-l pr-xl font-heading text-sm font-bold uppercase leading-tight tracking-[0.015em] text-rdbu-01">
                   {c.n}

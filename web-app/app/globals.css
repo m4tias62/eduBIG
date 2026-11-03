@@ -253,3 +253,10 @@
   outline: 2px solid #005fcc;
   outline-offset: 2px;
 }
+
+/* Foco visible en los pines del mapa (WCAG 2.4.7). */
+.leaflet-marker-icon:focus-visible {
+  outline: 2px solid #005fcc;
+  outline-offset: 2px;
+  border-radius: 50%;
+}
