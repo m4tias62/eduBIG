@@ -6,6 +6,8 @@ import L from "leaflet";
 import Link from "next/link";
 import "leaflet/dist/leaflet.css";
 import type { ItemExploracion } from "@/lib/home/filtros";
+import { atributosDestacados } from "@/lib/home/atributos";
+import { Icon } from "@/components/ui/Icon";
 
 /**
  * Vista Mapa de la exploración — Leaflet + OpenStreetMap. Muestra la misma
@@ -89,16 +91,31 @@ export function MapaLeaflet({
             icon={c.rbd === resaltado ? pinResaltado : pinIcon}
             zIndexOffset={c.rbd === resaltado ? 1000 : 0}
           >
-            <Popup>
-              <div className="flex flex-col gap-xs min-w-[200px]">
-                <p className="text-xs font-bold text-texto-primario m-0">{c.n}</p>
-                <p className="text-2xs text-texto-secundario m-0">RBD {c.rbd}</p>
-                <Link
-                  href={`/colegio/${c.rbd}`}
-                  className="text-xs font-bold text-interaccion-enlace hover:text-interaccion-enlace-hover mt-xxs"
-                >
-                  Ver ficha →
-                </Link>
+            <Popup className="edubig-popup" minWidth={240} maxWidth={240}>
+              <div className="w-[240px] font-body">
+                <p className="m-0 py-s pl-l pr-xl font-heading text-sm font-bold uppercase leading-tight tracking-[0.015em] text-rdbu-01">
+                  {c.n}
+                </p>
+                <hr className="mx-l my-0 border-0 border-t border-borde-definido" />
+                <ul className="m-0 flex list-none flex-col items-start gap-xs px-l py-m" aria-label="Características del colegio">
+                  {atributosDestacados(c).map((a) => (
+                    <li
+                      key={a.texto}
+                      className="inline-flex items-center gap-xxs border border-borde-enfatico bg-superficie-base px-xs py-xxs text-2xs leading-none text-texto-primario"
+                    >
+                      <Icon nombre={a.icono} size={12} />
+                      {a.texto}
+                    </li>
+                  ))}
+                </ul>
+                <div className="px-l pb-s">
+                  <Link
+                    href={`/colegio/${c.rbd}`}
+                    className="flex min-h-[48px] w-full items-center justify-center whitespace-nowrap rounded-s bg-interaccion-enlace px-m text-sm font-bold !text-texto-sobre-oscuro hover:bg-interaccion-enlace-hover active:bg-interaccion-enlace-activo focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-interaccion-foco"
+                  >
+                    Ver ficha del colegio
+                  </Link>
+                </div>
               </div>
             </Popup>
           </Marker>

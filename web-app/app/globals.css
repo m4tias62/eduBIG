@@ -223,3 +223,33 @@
     scrollbar-width: none;
   }
 }
+
+/* Globo del mapa de Explorar (rediseño 2026-11-03, Figma 828:5878).
+   Anula el relleno y los márgenes por defecto de Leaflet. */
+.edubig-popup .leaflet-popup-content-wrapper {
+  padding: 0;
+  border-radius: 12px;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4);
+}
+.edubig-popup .leaflet-popup-content {
+  margin: 0;
+  width: 240px !important;
+  font-size: inherit;
+  line-height: normal;
+}
+.edubig-popup .leaflet-popup-content p {
+  margin: 0;
+}
+.edubig-popup .leaflet-popup-close-button {
+  top: 8px !important;
+  right: 8px !important;
+  width: 24px !important;
+  height: 24px !important;
+  font-size: 20px !important;
+  line-height: 24px !important;
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+.edubig-popup .leaflet-popup-close-button:focus-visible {
+  outline: 2px solid #005fcc;
+  outline-offset: 2px;
+}
