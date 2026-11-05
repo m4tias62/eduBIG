@@ -3,9 +3,11 @@ import type { ComponentProps } from "react";
 import { cn } from "@/lib/utils";
 
 /**
- * Botón con forma de enlace (v3, rediseño nov-2026). Un solo patrón para
- * todo el sitio (D47), con sus cuatro estados: reposo, hover, presionado
- * (active) y foco.
+ * Botones (v3, rediseño nov-2026). Un solo patrón para todo el sitio (D47),
+ * con sus cuatro estados: reposo, hover, presionado (active) y foco.
+ *
+ * - `BotonEnlace`: navega a otra página (Next Link).
+ * - `Boton`: ejecuta una acción en la misma página (<button>).
  *
  * Variantes:
  * - `primario`: la acción principal. Azul de interacción.
@@ -28,21 +30,25 @@ const VARIANTES: Record<Variante, string> = {
     "border-2 border-texto-sobre-oscuro bg-transparent text-texto-sobre-oscuro hover:bg-white/15 active:bg-white/25",
 };
 
+function clases(variante: Variante, sobreOscuro: boolean, className?: string) {
+  return cn(BASE, VARIANTES[variante], sobreOscuro && "focus-visible:outline-texto-sobre-oscuro", className);
+}
+
 export function BotonEnlace({
   variante = "primario",
   sobreOscuro = false,
   className,
   ...props
 }: ComponentProps<typeof Link> & { variante?: Variante; sobreOscuro?: boolean }) {
-  return (
-    <Link
-      {...props}
-      className={cn(
-        BASE,
-        VARIANTES[variante],
-        sobreOscuro && "focus-visible:outline-texto-sobre-oscuro",
-        className
-      )}
-    />
-  );
+  return <Link {...props} className={clases(variante, sobreOscuro, className)} />;
+}
+
+export function Boton({
+  variante = "primario",
+  sobreOscuro = false,
+  className,
+  type = "button",
+  ...props
+}: ComponentProps<"button"> & { variante?: Variante; sobreOscuro?: boolean }) {
+  return <button type={type} {...props} className={clases(variante, sobreOscuro, className)} />;
 }

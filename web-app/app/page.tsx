@@ -23,7 +23,11 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <section className="bg-superficie-elevada px-l py-xl lg:px-0 lg:py-xxl">
+      {/* «¿Qué hacemos?» de la barra de navegación baja hasta aquí. */}
+      <section id="que-hacemos" aria-labelledby="que-hacemos-titulo" className="bg-superficie-elevada px-l py-xl lg:px-0 lg:py-xxl">
+        <h2 id="que-hacemos-titulo" className="sr-only">
+          ¿Qué hacemos?
+        </h2>
         {/* Escritorio: tres columnas iguales que van de borde a borde de la
             retícula (Recomendar parte en el borde izquierdo y Comparar termina
             en el derecho), separadas por 48 px. La ilustración va sobre el

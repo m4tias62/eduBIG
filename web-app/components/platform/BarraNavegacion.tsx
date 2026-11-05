@@ -3,15 +3,25 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Isologo from "./Isologo";
+import { AvisoEnConstruccion } from "./AvisoEnConstruccion";
+import { BotonEnlace } from "@/components/ui/Boton";
+import { EnlaceTexto } from "@/components/ui/EnlaceTexto";
 import { useComparar } from "@/lib/comparar";
-import { cn } from "@/lib/utils";
 
 /**
- * Navegación superior de ESCRITORIO (≥ 1024 px): hace visibles las tres
- * promesas (D31) desde cualquier página, incluido el Test de Calce (decisión
- * de Matías, 2026-10-14: el Test es parte del sitio, no una página aparte).
- * El Test mantiene el lugar de CTA principal. En móvil no se muestra: ahí la
- * navegación sigue siendo el botón Volver y los enlaces de cada pantalla.
+ * Navegación superior de ESCRITORIO (≥ 1024 px). En móvil no se muestra: ahí
+ * la navegación sigue siendo el botón Volver, los enlaces de cada pantalla y
+ * el footer (decisión de Matías, 2026-10-14).
+ *
+ * v3 (Figma «Explorar mapa + lista → Soluciones», nodo 837:897):
+ * - Fondo gris (superficie-hundida).
+ * - «¿Qué hacemos?» baja a las tarjetas de la Home que explican lo que hace
+ *   Edubig (#que-hacemos).
+ * - «Explorar colegios» sale de la barra: la exploración vive en la Home.
+ * - «Comparar colegios» conserva el contador de colegios elegidos: dice en
+ *   todo momento cuántos hay (Nielsen #1, visibilidad del estado).
+ * - «Más datos sobre educación» abre un aviso de «en construcción».
+ * - «Hacer el Test de Calce» sigue siendo la acción principal.
  */
 export const ALTO_NAV = 64;
 
@@ -20,23 +30,8 @@ export function BarraNavegacion() {
   const { rbds, url } = useComparar();
   const enTest = ruta.startsWith("/test");
 
-  const enlace = (href: string, label: string, activo: boolean) => (
-    <Link
-      href={href}
-      aria-current={activo ? "page" : undefined}
-      className={cn(
-        "min-h-[44px] inline-flex items-center px-s text-xs font-bold border-b-2",
-        activo
-          ? "border-texto-primario text-texto-primario"
-          : "border-transparent text-texto-secundario hover:text-texto-primario"
-      )}
-    >
-      {label}
-    </Link>
-  );
-
   return (
-    <header className="hidden lg:block sticky top-0 z-40 bg-superficie-base border-b border-borde-sutil">
+    <header className="hidden lg:block sticky top-0 z-40 bg-superficie-hundida border-b border-borde-sutil">
       {/* Misma retícula que el resto del sitio (.contenedor), en todas las páginas.
           min-h y no h fija: el texto puede crecer sin cortarse (WCAG 1.4.12). */}
       <nav aria-label="Principal" className="contenedor flex min-h-16 items-center justify-between">
@@ -44,19 +39,14 @@ export function BarraNavegacion() {
           <Isologo width={72} priority />
         </Link>
         <div className="flex items-center gap-m">
-          {enlace("/explorar", "Explorar colegios", ruta.startsWith("/explorar") || ruta.startsWith("/colegio"))}
-          {enlace(
-            url,
-            rbds.length ? `Comparar colegios (${rbds.length})` : "Comparar colegios",
-            ruta.startsWith("/comparar")
-          )}
-          <Link
-            href="/test"
-            aria-current={enTest ? "page" : undefined}
-            className="ml-s min-h-[44px] inline-flex items-center rounded-m bg-interaccion-enlace px-l text-xs font-bold text-texto-sobre-oscuro hover:bg-interaccion-enlace-hover"
-          >
+          <EnlaceTexto href="/#que-hacemos">¿Qué hacemos?</EnlaceTexto>
+          <EnlaceTexto href={url} aria-current={ruta.startsWith("/comparar") ? "page" : undefined}>
+            {rbds.length ? `Comparar colegios (${rbds.length})` : "Comparar colegios"}
+          </EnlaceTexto>
+          <AvisoEnConstruccion etiqueta="Más datos sobre educación" />
+          <BotonEnlace href="/test" aria-current={enTest ? "page" : undefined} className="ml-s">
             Hacer el Test de Calce
-          </Link>
+          </BotonEnlace>
         </div>
       </nav>
     </header>
