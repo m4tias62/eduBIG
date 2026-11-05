@@ -10,10 +10,18 @@ import { Ilustracion, type NombreIlustracion } from "@/components/ui/Ilustracion
 export default function Home() {
   return (
     <>
-      <Hero aside={<EntradaExploracion tarjeta />} />
-      {/* En móvil la exploración va bajo el hero; en escritorio, dentro de él. */}
+      <Hero colorBorde="text-superficie-base lg:text-superficie-hundida" />
+      {/* Provisorio (v3, paso del hero): la exploración queda bajo el hero en
+          todos los anchos hasta que entre el panel «Filtra tu búsqueda». */}
       <div className="lg:hidden">
         <EntradaExploracion />
+      </div>
+      <div className="hidden bg-superficie-hundida lg:block">
+        <div className="contenedor py-xxl">
+          <div className="max-w-md">
+            <EntradaExploracion tarjeta />
+          </div>
+        </div>
       </div>
       <section className="bg-superficie-elevada px-l py-xl lg:px-0 lg:py-xxl">
         {/* Escritorio: tres columnas iguales que van de borde a borde de la

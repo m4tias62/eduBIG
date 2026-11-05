@@ -6,9 +6,13 @@ import { cn } from "@/lib/utils";
  * comparar. Por ahora solo se usan en la Home (decisión de Matías,
  * 2026-10-14), hasta tener ilustraciones propias para cada sección.
  *
- * - Paleta: la escala RdBu del sistema (rdbu-01, 02, 05, 06, 08, 09) más la
- *   tinta gris de los trazos. Son identidad, no codifican datos.
- * - Archivos: public/ilustraciones/<nombre>.png, 480 × 470 con fondo
+ * - v3 (2026-11-04): pixel art, generadas con IA (Nano Banana) bajo la
+ *   dirección de Matías, para seguir el detalle pixelado del isologo. Las
+ *   anteriores (dibujadas por Matías, 2026-10-14) quedan en la etiqueta
+ *   nacional-v2.
+ * - Paleta: la escala RdBu del sistema más la tinta gris de los trazos. Son
+ *   identidad, no codifican datos.
+ * - Archivos: public/ilustraciones/<nombre>.png, 538 × 509 con fondo
  *   transparente, todas con el mismo encuadre para que se vean del mismo
  *   tamaño. next/image las sirve en WebP/AVIF al ancho que se necesita.
  * - Accesibilidad: son decorativas; el texto que las acompaña dice lo mismo,
@@ -35,8 +39,8 @@ export function Ilustracion({
     <Image
       src={`/ilustraciones/${nombre}.png`}
       alt=""
-      width={480}
-      height={470}
+      width={538}
+      height={509}
       sizes={sizes}
       priority={priority}
       className={cn("h-auto shrink-0 select-none", className)}
