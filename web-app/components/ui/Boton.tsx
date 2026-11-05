@@ -31,7 +31,7 @@ const VARIANTES: Record<Variante, string> = {
   secundario:
     "border-2 border-texto-sobre-oscuro bg-transparent text-texto-sobre-oscuro hover:bg-white/15 active:bg-white/25",
   contorno:
-    "border border-interaccion-enlace bg-superficie-base text-interaccion-enlace hover:bg-info-suave active:bg-rdbu-05",
+    "border border-interaccion-enlace bg-superficie-base text-interaccion-enlace hover:bg-interaccion-tinte active:bg-rdbu-05",
 };
 
 function clases(variante: Variante, sobreOscuro: boolean, className?: string) {

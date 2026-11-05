@@ -59,8 +59,8 @@ export function BotonEspacioLibre({
       onClick={onClick}
       aria-expanded={abierto}
       className={clsx(
-        "group inline-flex min-h-objetivo-tactil items-center gap-xs rounded-s pr-s text-sm font-medium text-interaccion-enlace transition-colors hover:bg-info-suave hover:text-interaccion-enlace-hover active:bg-info-suave",
-        abierto && "bg-info-suave"
+        "group inline-flex min-h-objetivo-tactil items-center gap-xs rounded-s pr-s text-sm font-medium text-interaccion-enlace transition-colors hover:bg-interaccion-tinte hover:text-interaccion-enlace-hover active:bg-interaccion-tinte",
+        abierto && "bg-interaccion-tinte"
       )}
     >
       <MarcadorColegio posicion={posicion} libre />
@@ -197,7 +197,7 @@ export function BuscadorAgregar({
               className={clsx(
                 "flex min-h-objetivo-tactil cursor-pointer flex-col justify-center px-m py-xs",
                 i > 0 && "border-t border-borde-sutil",
-                i === activo ? "bg-info-suave" : "hover:bg-info-suave"
+                i === activo ? "bg-interaccion-tinte" : "hover:bg-interaccion-tinte"
               )}
             >
               <span className="text-sm font-medium text-texto-primario">{c.n}</span>

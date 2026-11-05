@@ -46,17 +46,23 @@ const config: Config = {
         "borde-definido": "#8C8C8C",        // auditoría WCAG 2.2 sep-2026: 2,0 → 3,4:1
         "borde-enfatico": "#757575",
 
-        // Estados
+        // Estados. Los «-suave» de éxito, advertencia e info toman los valores
+        // del sistema de Matías en Figma (2026-11-05): fondos de las fichas
+        // informativas (aviso, alerta, informativo).
         "exito-fuerte": "#1E6A2E",
-        "exito-suave": "#E8F5EA",
+        "exito-suave": "#C8E6C9",
         "error-fuerte": "#B3261E",
         "error-suave": "#FDECEA",
         "advertencia-fuerte": "#8A6D00",
-        "advertencia-suave": "#FFF6DE",
+        "advertencia-suave": "#FFCCBC",
         "info-fuerte": "#1A5FB4",
-        "info-suave": "#E8F0FE",
+        "info-suave": "#BBDEFB",
 
         // Interacción
+        // Tinte de fondo para hover y elementos elegidos con texto azul (antes
+        // se usaba info-suave). Se separa porque el enlace #0958D9 sobre el
+        // info-suave nuevo da 4,39:1, bajo el mínimo de 4,5:1; sobre este, 5,38:1.
+        "interaccion-tinte": "#E8F0FE",
         "interaccion-foco": "#005FCC",
         "interaccion-foco-texto": "#FFFFFF",
         "interaccion-enlace": "#0958D9",

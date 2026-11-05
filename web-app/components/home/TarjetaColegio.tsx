@@ -122,7 +122,7 @@ export function TarjetaColegio({
             }}
             className={cn(
               "relative z-10 flex-1 gap-xs px-m",
-              enComparacion && "bg-info-suave hover:bg-rdbu-05",
+              enComparacion && "bg-interaccion-tinte hover:bg-rdbu-05",
               bloqueado && "cursor-not-allowed border-borde-definido text-texto-secundario hover:bg-superficie-base"
             )}
           >

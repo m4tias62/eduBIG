@@ -215,7 +215,7 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
           {shortlist.length >= 2 && (
             <Link
               href={`/comparar?rbd=${rbdsComparar.join(",")}`}
-              className="min-h-[44px] inline-flex items-center justify-center gap-xs rounded-m border-2 border-interaccion-enlace bg-superficie-base px-l py-s text-sm font-bold text-interaccion-enlace hover:bg-info-suave lg:self-start lg:px-xxl"
+              className="min-h-[44px] inline-flex items-center justify-center gap-xs rounded-m border-2 border-interaccion-enlace bg-superficie-base px-l py-s text-sm font-bold text-interaccion-enlace hover:bg-interaccion-tinte lg:self-start lg:px-xxl"
             >
               <Icon nombre="compare_arrows" size={20} />
               Comparar {shortlist.length === 3 ? "estos 3" : "estos 2"}

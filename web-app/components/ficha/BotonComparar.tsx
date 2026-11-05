@@ -19,7 +19,7 @@ export function BotonComparar({ rbd, nombre }: { rbd: number; nombre: string }) 
         onClick={() => alternar(rbd, maximo)}
         disabled={lleno}
         aria-pressed={esta}
-        className="min-h-[44px] inline-flex items-center justify-center gap-xs rounded-m border-2 border-interaccion-enlace bg-superficie-base px-l py-s text-xs font-bold text-interaccion-enlace hover:bg-info-suave disabled:border-borde-definido disabled:text-texto-secundario"
+        className="min-h-[44px] inline-flex items-center justify-center gap-xs rounded-m border-2 border-interaccion-enlace bg-superficie-base px-l py-s text-xs font-bold text-interaccion-enlace hover:bg-interaccion-tinte disabled:border-borde-definido disabled:text-texto-secundario"
       >
         <Icon nombre={esta ? "check" : "add"} size={18} />
         {esta ? "En tu comparación" : "Agregar a comparar"}

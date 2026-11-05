@@ -133,7 +133,7 @@ export function SelectorUbicacion({
             "min-h-[44px] w-full inline-flex items-center justify-center gap-xs rounded-m px-l py-s text-sm font-bold disabled:opacity-70",
             variante === "primaria"
               ? "bg-interaccion-enlace text-texto-sobre-oscuro hover:bg-interaccion-enlace-hover"
-              : "border-2 border-interaccion-enlace bg-superficie-base text-interaccion-enlace hover:bg-info-suave"
+              : "border-2 border-interaccion-enlace bg-superficie-base text-interaccion-enlace hover:bg-interaccion-tinte"
           )}
         >
           <Icon nombre="my_location" size={20} />

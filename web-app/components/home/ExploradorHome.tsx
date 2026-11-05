@@ -21,13 +21,14 @@ import { Buscador } from "@/components/ui/Buscador";
 import { ToggleVista } from "@/components/ui/ToggleVista";
 import { TarjetaColegio } from "@/components/home/TarjetaColegio";
 import { EnlaceTexto } from "@/components/ui/EnlaceTexto";
+import { FichaInformativa } from "@/components/ui/FichaInformativa";
 import { MAX_COMPARAR, MAX_COMPARAR_MOVIL, urlComparar, useComparar, type Posiciones } from "@/lib/comparar";
 import { useEscritorio } from "@/lib/useEscritorio";
 
 const MapaLeaflet = dynamic(() => import("@/components/explorar/MapaLeaflet").then((m) => m.MapaLeaflet), {
   ssr: false,
   loading: () => (
-    <div className="flex h-full min-h-[480px] w-full items-center justify-center bg-superficie-hundida text-xs text-texto-secundario">
+    <div className="flex h-full min-h-[480px] w-full items-center justify-center bg-superficie-base text-xs text-texto-secundario">
       Cargando mapa…
     </div>
   ),
@@ -188,16 +189,21 @@ export function ExploradorHome({
           : "en todo Chile";
 
   return (
-    <section id="explorar" aria-labelledby="explorar-titulo" className="bg-superficie-hundida py-xl lg:py-xxl">
+    // v3 (Matías, 2026-11-05): fondos invertidos, en la Home y en Comparar: la
+    // sección en blanco y la tarjeta que contiene los filtros en gris hundido.
+    <section id="explorar" aria-labelledby="explorar-titulo" className="bg-superficie-base py-xl lg:py-xxl">
       <div className="contenedor">
-        <div className="flex flex-col gap-l bg-rdbu-06 px-m py-xl md:px-l lg:px-xxl lg:py-[80px]">
+        <div className="flex flex-col gap-l bg-superficie-hundida px-m py-xl md:px-l lg:px-xxl lg:py-[80px]">
           <h2 id="explorar-titulo" className="text-xl font-bold tracking-[0.015em] text-rdbu-01">
             {titulo}
           </h2>
 
-          {/* Panel de filtros (Figma 837:3847): 24 px a los lados, 32 arriba y
-              abajo, 16 px entre la fila de lugar, «Más filtros» y los chips. */}
-          <div className="flex flex-col gap-m rounded-s border border-rdbu-10 bg-rdbu-06 px-m py-l md:px-l md:py-xl">
+          {/* Panel de filtros (Figma 927:26930): 24 px a los lados, 32 arriba y
+              abajo, 16 px entre la fila de lugar, «Más filtros» y los chips.
+              Borde con la estética de las tarjetas (Matías, 2026-11-05): rdbu-10
+              de 2 px arriba e izquierda y 4 px a la derecha y abajo, con sombra.
+              Sin overflow oculto, para que las listas desplegables no se corten. */}
+          <div className="flex flex-col gap-m rounded-s border-b-4 border-l-2 border-r-4 border-t-2 border-rdbu-10 bg-superficie-elevada px-m py-l shadow-[0_3px_4px_rgba(0,0,0,0.25)] md:px-l md:py-xl">
             <div className="flex flex-col gap-l lg:flex-row lg:items-end lg:justify-between">
               <Grupo id="filtro-region" etiqueta="Región">
                 <SelectorFiltro
@@ -307,10 +313,16 @@ export function ExploradorHome({
           </div>
 
           {/* Resultados */}
+          {/* Ficha de ayuda (Matías, 2026-11-05): desaparece cuando aparecen la
+              lista o el mapa. Menciona «Usar mi ubicación», que no está en el
+              diseño pero sí en el panel. */}
           {!modo && !conGps && (
-            <p className="text-sm text-texto-secundario">
-              Elige una región o comuna, busca un colegio por su nombre o usa tu ubicación para ver los colegios.
-            </p>
+            <FichaInformativa>
+              <p>
+                Elige una región o comuna, busca un colegio por su nombre o usa el botón «Usar mi ubicación» para ver
+                los colegios que están cerca de ti.
+              </p>
+            </FichaInformativa>
           )}
 
           {error && (

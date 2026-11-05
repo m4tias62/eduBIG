@@ -11,13 +11,15 @@ import { TarjetasServicios } from "@/components/home/TarjetasServicios";
 export default function Home() {
   return (
     <>
-      <Hero colorBorde="text-superficie-hundida" />
+      {/* El borde pixelado del hero toma el color de la sección siguiente
+          (blanco desde 2026-11-05, con los fondos invertidos del explorador). */}
+      <Hero colorBorde="text-superficie-base" />
       {/* v3: la exploración vive en la Home (lista y mapa en una misma sección). */}
       <Suspense
         fallback={
-          <section className="bg-superficie-hundida py-xl lg:py-xxl">
+          <section className="bg-superficie-base py-xl lg:py-xxl">
             <div className="contenedor">
-              <div className="min-h-[480px] bg-rdbu-06" />
+              <div className="min-h-[480px] bg-superficie-hundida" />
             </div>
           </section>
         }

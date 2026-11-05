@@ -62,8 +62,8 @@ export function EncabezadoConEspacios({
                     aria-expanded={abierta === p}
                     onClick={() => setAbierta(abierta === p ? null : p)}
                     className={clsx(
-                      "inline-flex min-h-objetivo-tactil items-center gap-xs self-start rounded-s pr-s text-sm font-medium text-interaccion-enlace underline underline-offset-2 transition-colors hover:bg-info-suave hover:text-interaccion-enlace-hover",
-                      abierta === p && "bg-info-suave"
+                      "inline-flex min-h-objetivo-tactil items-center gap-xs self-start rounded-s pr-s text-sm font-medium text-interaccion-enlace underline underline-offset-2 transition-colors hover:bg-interaccion-tinte hover:text-interaccion-enlace-hover",
+                      abierta === p && "bg-interaccion-tinte"
                     )}
                   >
                     <span aria-hidden className="material-symbols-outlined text-[20px] no-underline">
