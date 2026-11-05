@@ -1,28 +1,29 @@
 import { Hero } from "@/components/home/Hero";
-import { EntradaExploracion } from "@/components/home/EntradaExploracion";
+import { Suspense } from "react";
+import { ExploradorHome } from "@/components/home/ExploradorHome";
 import { Ilustracion, type NombreIlustracion } from "@/components/ui/Ilustracion";
 
 /**
  * Home (D31): tres promesas al mismo nivel —comparar, recomendar y explorar—,
- * con el Test de Calce como CTA principal. La exploración parte preguntando
- * "¿Dónde buscas colegio?" (D34); no hay ubicación por defecto (D22).
+ * con el Test de Calce como CTA principal. v3: la exploración vive aquí, en
+ * «Filtra tu búsqueda», con lista y mapa; no hay ubicación por defecto (D22).
  */
 export default function Home() {
   return (
     <>
-      <Hero colorBorde="text-superficie-base lg:text-superficie-hundida" />
-      {/* Provisorio (v3, paso del hero): la exploración queda bajo el hero en
-          todos los anchos hasta que entre el panel «Filtra tu búsqueda». */}
-      <div className="lg:hidden">
-        <EntradaExploracion />
-      </div>
-      <div className="hidden bg-superficie-hundida lg:block">
-        <div className="contenedor py-xxl">
-          <div className="max-w-md">
-            <EntradaExploracion tarjeta />
-          </div>
-        </div>
-      </div>
+      <Hero colorBorde="text-superficie-hundida" />
+      {/* v3: la exploración vive en la Home (lista y mapa en una misma sección). */}
+      <Suspense
+        fallback={
+          <section className="bg-superficie-hundida py-xl lg:py-xxl">
+            <div className="contenedor">
+              <div className="min-h-[480px] bg-rdbu-06" />
+            </div>
+          </section>
+        }
+      >
+        <ExploradorHome />
+      </Suspense>
       {/* «¿Qué hacemos?» de la barra de navegación baja hasta aquí. */}
       <section id="que-hacemos" aria-labelledby="que-hacemos-titulo" className="bg-superficie-elevada px-l py-xl lg:px-0 lg:py-xxl">
         <h2 id="que-hacemos-titulo" className="sr-only">

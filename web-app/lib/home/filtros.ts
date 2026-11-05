@@ -1,6 +1,7 @@
 import type { ColegioIndice, Comuna } from "@/lib/types";
 import { distanciaKm } from "@/lib/motor/haversine";
 import { tipoColegio, type TipoColegio } from "@/lib/data/formatters";
+import { REGIONES } from "@/lib/data/regiones";
 
 /**
  * Exploración nacional (D33, D34) — filtros y orden, como funciones puras.
@@ -18,14 +19,19 @@ import { tipoColegio, type TipoColegio } from "@/lib/data/formatters";
 
 export type Vista = "lista" | "mapa";
 export type Orden = "cercania" | "nombre" | "ingreso_u";
-export type NivelFiltro = "basica" | "media" | "basica_y_media";
+/** "especial" = imparte educación especial (v3, filtro «Nivel (Curso)» de la Home). */
+export type NivelFiltro = "basica" | "media" | "basica_y_media" | "especial";
 
 export interface FiltrosExploracion {
+  /** Código de región (REGIONES). v3: el panel de la Home filtra por región o comuna. */
+  region?: string;
   comuna?: number;
   cercanas?: boolean;
   desdeGps?: boolean;
   q?: string;
   gratuito?: boolean;
+  /** Solo colegios con Programa de Integración Escolar (v3). */
+  pie?: boolean;
   nivel?: NivelFiltro;
   tipos?: TipoColegio[];
   /** Radio máximo en km (solo con GPS). */
@@ -47,6 +53,8 @@ function lector(sp: Params) {
 export function parseFiltros(sp: Params): FiltrosExploracion {
   const get = lector(sp);
   const f: FiltrosExploracion = { vista: get("vista") === "mapa" ? "mapa" : "lista" };
+  const region = get("region");
+  if (region && REGIONES.some((r) => r.cod === region)) f.region = region;
   const comuna = Number(get("comuna"));
   if (Number.isInteger(comuna) && comuna > 0) f.comuna = comuna;
   if (get("cercanas") === "1") f.cercanas = true;
@@ -54,8 +62,9 @@ export function parseFiltros(sp: Params): FiltrosExploracion {
   const q = get("q")?.trim();
   if (q) f.q = q.slice(0, 80);
   if (get("gratuito") === "1") f.gratuito = true;
+  if (get("pie") === "1") f.pie = true;
   const n = get("nivel");
-  if (n === "basica" || n === "media" || n === "basica_y_media") f.nivel = n;
+  if (n === "basica" || n === "media" || n === "basica_y_media" || n === "especial") f.nivel = n;
   const tipos = (get("tipo") ?? "")
     .split(",")
     .filter((t): t is TipoColegio => t === "publica" || t === "part_subvencionado" || t === "part_pagado");
@@ -69,11 +78,13 @@ export function parseFiltros(sp: Params): FiltrosExploracion {
 
 export function serializeFiltros(f: FiltrosExploracion): string {
   const p = new URLSearchParams();
+  if (f.region) p.set("region", f.region);
   if (f.comuna) p.set("comuna", String(f.comuna));
   if (f.cercanas) p.set("cercanas", "1");
   if (f.desdeGps) p.set("desde", "gps");
   if (f.q) p.set("q", f.q);
   if (f.gratuito) p.set("gratuito", "1");
+  if (f.pie) p.set("pie", "1");
   if (f.nivel) p.set("nivel", f.nivel);
   if (f.tipos?.length) p.set("tipo", f.tipos.join(","));
   if (f.distanciaMaxKm !== undefined) p.set("dist", String(f.distanciaMaxKm));
@@ -85,6 +96,12 @@ export function serializeFiltros(f: FiltrosExploracion): string {
 export function urlExplorar(f: FiltrosExploracion): string {
   const qs = serializeFiltros(f);
   return qs ? `/explorar?${qs}` : "/explorar";
+}
+
+/** v3: la exploración vive en la Home; los filtros van en la URL de «/». */
+export function urlInicio(f: FiltrosExploracion): string {
+  const qs = serializeFiltros(f);
+  return qs ? `/?${qs}` : "/";
 }
 
 /** Minúsculas y sin tildes, para buscar "concepcion" y encontrar "Concepción". */
@@ -122,6 +139,8 @@ export function pasaFiltros(c: ColegioIndice, f: FiltrosExploracion, qNorm?: str
   if (f.nivel === "basica" && !c.b) return false;
   if (f.nivel === "media" && !c.m) return false;
   if (f.nivel === "basica_y_media" && !(c.b && c.m)) return false;
+  if (f.nivel === "especial" && !c.e) return false;
+  if (f.pie && c.p !== 1) return false;
   if (f.tipos?.length && !f.tipos.includes(tipoColegio(c.d))) return false;
   if (qNorm && !normalizar(c.n).includes(qNorm) && String(c.rbd) !== qNorm) return false;
   return true;

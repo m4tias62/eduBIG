@@ -50,3 +50,27 @@ describe("explorar", () => {
     expect(tr).toEqual([...tr].sort((a, b) => b - a));
   });
 });
+
+describe("Filtros de la Home (v3)", () => {
+  it("región, PIE y educación especial viajan en la URL", () => {
+    const qs = "region=RM&gratuito=1&pie=1&nivel=especial";
+    const f = parseFiltros(new URLSearchParams(qs));
+    expect(f.region).toBe("RM");
+    expect(f.pie).toBe(true);
+    expect(f.nivel).toBe("especial");
+    expect(serializeFiltros(f)).toBe(qs);
+  });
+
+  it("una región que no existe se ignora", () => {
+    expect(parseFiltros(new URLSearchParams("region=XX")).region).toBeUndefined();
+  });
+
+  it("PIE deja solo colegios con convenio PIE y Educación especial solo los que la imparten", () => {
+    const conPie = explorar(indice, parseFiltros(new URLSearchParams("pie=1")), { modo: "nombre" });
+    expect(conPie.length).toBeGreaterThan(0);
+    expect(conPie.every((x) => x.c.p === 1)).toBe(true);
+    const especial = explorar(indice, parseFiltros(new URLSearchParams("nivel=especial")), { modo: "nombre" });
+    expect(especial.length).toBeGreaterThan(0);
+    expect(especial.every((x) => x.c.e === 1)).toBe(true);
+  });
+});

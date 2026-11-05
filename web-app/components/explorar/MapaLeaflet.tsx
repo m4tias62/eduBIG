@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from "react-leaflet";
 import L from "leaflet";
 import Link from "next/link";
 import "leaflet/dist/leaflet.css";
@@ -14,12 +14,14 @@ import { Icon } from "@/components/ui/Icon";
  * lista filtrada como pines y se encuadra sobre ellos.
  */
 
+// Cada pin ocupa un área de toque de 24 × 24 px (WCAG 2.5.8) con el punto
+// visible centrado: se ve igual que antes, pero es más fácil de tocar.
 const pinIcon = L.divIcon({
   className: "edubig-pin",
-  html: '<div style="width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid #2166ac;box-shadow:0 2px 6px rgba(0,0,0,0.25);"></div>',
-  iconSize: [20, 20],
-  iconAnchor: [10, 10],
-  popupAnchor: [0, -12],
+  html: '<div style="width:20px;height:20px;margin:2px;border-radius:50%;background:#fff;border:3px solid #2166ac;box-shadow:0 2px 6px rgba(0,0,0,0.25);"></div>',
+  iconSize: [24, 24],
+  iconAnchor: [12, 12],
+  popupAnchor: [0, -14],
 });
 
 // Pin resaltado al pasar por su tarjeta en la lista (escritorio): cálido,
@@ -34,11 +36,48 @@ const pinResaltado = L.divIcon({
 
 const refIcon = L.divIcon({
   className: "edubig-user-pin",
-  html: '<div style="width:18px;height:18px;border-radius:50%;background:#0958D9;border:3px solid #fff;box-shadow:0 0 0 2px rgba(9,88,217,0.4),0 2px 6px rgba(0,0,0,0.3);"></div>',
-  iconSize: [18, 18],
-  iconAnchor: [9, 9],
-  popupAnchor: [0, -12],
+  html: '<div style="width:18px;height:18px;margin:3px;border-radius:50%;background:#0958D9;border:3px solid #fff;box-shadow:0 0 0 2px rgba(9,88,217,0.4),0 2px 6px rgba(0,0,0,0.3);"></div>',
+  iconSize: [24, 24],
+  iconAnchor: [12, 12],
+  popupAnchor: [0, -14],
 });
+
+/**
+ * Foco con teclado en el globo (WCAG 2.1.1 y 2.4.3): al abrirse, el foco pasa
+ * al botón «Ver ficha del colegio»; Escape lo cierra; al cerrarse, el foco
+ * vuelve al pin que lo abrió. El botón de cerrar de Leaflet viene en inglés.
+ */
+function FocoGlobo() {
+  const map = useMapEvents({
+    popupopen(e) {
+      const globo = e.popup.getElement();
+      if (!globo) return;
+      const cerrar = globo.querySelector<HTMLElement>(".leaflet-popup-close-button");
+      cerrar?.setAttribute("aria-label", "Cerrar");
+      cerrar?.setAttribute("title", "Cerrar");
+      // react-leaflet pinta el contenido un instante después de abrir el globo.
+      requestAnimationFrame(() => {
+        const destino = globo.querySelector<HTMLElement>(".leaflet-popup-content a[href]") ?? cerrar;
+        destino?.focus({ preventScroll: true });
+      });
+      globo.addEventListener("keydown", (ev) => {
+        if (ev.key === "Escape") {
+          ev.stopPropagation();
+          map.closePopup(e.popup);
+        }
+      });
+    },
+    popupclose(e) {
+      const globo = e.popup.getElement();
+      const activo = document.activeElement;
+      const focoAdentro = !activo || activo === document.body || (globo?.contains(activo) ?? false);
+      // @ts-expect-error _source es interno de Leaflet: la capa que abrió el globo
+      const origen: L.Layer | undefined = e.popup._source;
+      if (focoAdentro && origen instanceof L.Marker) origen.getElement()?.focus({ preventScroll: true });
+    },
+  });
+  return null;
+}
 
 function Encuadrar({ puntos }: { puntos: Array<[number, number]> }) {
   const map = useMap();
@@ -73,12 +112,13 @@ export function MapaLeaflet({
     <div className={className ?? "w-full h-[calc(100vh-300px)] min-h-[360px] relative"}>
       <MapContainer center={centro} zoom={13} scrollWheelZoom className="w-full h-full">
         <Encuadrar puntos={puntos} />
+        <FocoGlobo />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {referencia && (
-          <Marker position={[referencia.lat, referencia.lon]} icon={refIcon}>
+          <Marker position={[referencia.lat, referencia.lon]} icon={refIcon} title={referencia.etiqueta}>
             <Popup>
               <p className="text-xs font-bold text-texto-primario m-0">{referencia.etiqueta}</p>
             </Popup>
@@ -90,6 +130,9 @@ export function MapaLeaflet({
             position={[c.lat, c.lon]}
             icon={c.rbd === resaltado ? pinResaltado : pinIcon}
             zIndexOffset={c.rbd === resaltado ? 1000 : 0}
+            // Nombre accesible del pin (WCAG 4.1.2). Va en `title` porque Leaflet
+            // lo vuelve a poner cuando el pin cambia de ícono (resaltado).
+            title={c.n}
           >
             <Popup className="edubig-popup" minWidth={240} maxWidth={240} autoPanPaddingTopLeft={[56, 16]}>
               <div className="w-[240px] font-body">
