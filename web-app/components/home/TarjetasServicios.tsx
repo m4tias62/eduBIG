@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useComparar } from "@/lib/comparar";
 import { cn } from "@/lib/utils";
-import { Ilustracion, type NombreIlustracion } from "@/components/ui/Ilustracion";
+import { ALTO_ILUSTRACION, Ilustracion, type NombreIlustracion } from "@/components/ui/Ilustracion";
 
 /**
  * «¿Qué hacemos?» (v3, Figma «Cards servicios», nodo 841:1165): las tres
@@ -17,10 +17,11 @@ import { Ilustracion, type NombreIlustracion } from "@/components/ui/Ilustracion
  * - Foco: borde de 1 px en rdbu-10, contorno exterior de 2 px en rdbu-11 a
  *   3 px de distancia, sombra y título subrayado.
  *
- * Ilustraciones (Matías, 2026-11-05): primero se agrandaron (a 144 px no se
- * notaba el pixel art); luego, con sus versiones rediseñadas, quedaron a
- * 208 px de alto y con 16 px entre tarjetas, para que el borde de un estado
- * no toque la ilustración ni la tarjeta vecina.
+ * Ilustraciones (Matías, 2026-11-05): pixel art real, cada píxel del dibujo
+ * a 2 × 2 px de pantalla (unos 240 px de alto); la tarjeta mantiene su ancho
+ * y 16 px entre tarjetas, para que el borde de un estado no toque a la vecina.
+ * Entre la ilustración y el texto, 16 px (antes 24), para que la tarjeta casi
+ * no crezca en alto.
  *
  * Nombre accesible: el título; la descripción va como descripción, para que
  * la lista de enlaces del lector de pantalla no lea el párrafo completo.
@@ -70,13 +71,17 @@ export function TarjetasServicios() {
             aria-describedby={`servicio-${s.id}-texto`}
             // Clases escritas completas: Tailwind no detecta clases armadas con variables.
             className={cn(
-              "group flex w-full flex-col items-center gap-l border border-transparent px-xs pb-xs pt-m transition-shadow",
+              "group flex w-full flex-col items-center gap-m border border-transparent px-xs pb-xs pt-m transition-shadow",
               "hover:border-rdbu-10 hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]",
               "active:border-rdbu-10 active:shadow-[inset_0_0_0_1px_#b2181f,0_4px_4px_rgba(0,0,0,0.25)]",
               "focus-visible:border-rdbu-10 focus-visible:shadow-[0_4px_4px_rgba(0,0,0,0.25)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-rdbu-11"
             )}
           >
-            <Ilustracion nombre={s.ilustracion} />
+            {/* Caja del alto de la ilustración más alta, con el dibujo apoyado
+                abajo: así los títulos de las tres tarjetas quedan alineados. */}
+            <span className="flex items-end justify-center" style={{ height: ALTO_ILUSTRACION }}>
+              <Ilustracion nombre={s.ilustracion} />
+            </span>
             <span className="flex w-full flex-col gap-xxs">
               <span
                 id={`servicio-${s.id}`}

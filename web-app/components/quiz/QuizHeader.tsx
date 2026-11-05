@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { EnlaceTexto } from "@/components/ui/EnlaceTexto";
+import { Icon } from "@/components/ui/Icon";
 import { BarraProgreso } from "./BarraProgreso";
 
 /**
@@ -22,12 +23,13 @@ export function QuizHeader({
 }) {
   return (
     <header className="flex flex-col gap-m">
-      <Link
-        href={volverHref}
-        className="inline-flex items-center justify-center self-start rounded-s bg-interaccion-enlace px-m py-xs text-xs font-bold text-texto-sobre-oscuro hover:bg-interaccion-enlace-hover"
-      >
+      {/* v3: enlace de texto con sus estados (hover, presionado y foco en
+          rdbu-10), como la navegación; el botón azul lleno competía con las
+          respuestas, que son la acción de la pantalla. */}
+      <EnlaceTexto href={volverHref} className="-ml-xxs gap-xxs self-start">
+        <Icon nombre="arrow_back" size={20} />
         Volver
-      </Link>
+      </EnlaceTexto>
       <p className="text-2xs text-texto-secundario">
         Pregunta {paso} de {total}
         {esPaso2 && <span> · Paso 2</span>}

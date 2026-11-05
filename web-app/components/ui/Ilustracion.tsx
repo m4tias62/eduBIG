@@ -13,14 +13,15 @@ import { cn } from "@/lib/utils";
  *   identidad, no codifican datos.
  * - v3.1 (Matías, 2026-11-05): versión «oficial» rediseñada por Matías
  *   (Figma «Imagenes», 915:19168). Venían a 1.657–1.764 × 1.632 px con fondo
- *   blanco; el fondo se volvió transparente (relleno desde los bordes y en los
- *   huecos de fondo encerrados de Comparar) para que funcionen sobre el gris
- *   de la sección.
- * - Tamaño: todas a 208 px de alto, así los títulos de las tarjetas quedan a
- *   la misma altura (el ancho varía entre 211 y 225 px según el dibujo).
- * - Nitidez: cada archivo viene ya reducido al tamaño exacto en pantalla
- *   para 1x, 2x y 3x (<nombre>-208/416/624.png) y el navegador elige con
- *   srcset. Así no hay un segundo reescalado que difumine el pixel art.
+ *   blanco; el fondo se volvió transparente.
+ * - Pixel art real (2026-11-05): a pedido de Matías («quiero que se vean
+ *   como pixel art que son»). Cada píxel del dibujo medía unos 12 px del
+ *   archivo; al achicarlo a unos 200 px quedaba en 1,5 px de pantalla y se
+ *   veía como una imagen de baja calidad. Se reconstruyó la grilla del dibujo
+ *   (un color por celda, recortado al contenido): cada archivo queda a su
+ *   tamaño real, unos 120 × 120 píxeles (4–6 KB), y se muestra al doble
+ *   exacto con `image-rendering: pixelated`: cada píxel del dibujo ocupa 2 × 2
+ *   px de pantalla (4 × 4 en pantallas retina), con bordes nítidos.
  * - Accesibilidad: son decorativas; el texto que las acompaña dice lo mismo,
  *   por eso van con alt="" (WCAG 1.1.1).
  * - Regla para cuando vuelvan a las secciones (Matías, 2026-10-14): van AL
@@ -29,31 +30,41 @@ import { cn } from "@/lib/utils";
  */
 export type NombreIlustracion = "recomendar" | "explorar" | "comparar";
 
-const ANCHO_208: Record<NombreIlustracion, number> = { recomendar: 225, explorar: 221, comparar: 211 };
+/** Tamaño real de cada dibujo, en píxeles del dibujo. */
+const TAMANO: Record<NombreIlustracion, [number, number]> = {
+  recomendar: [120, 121],
+  explorar: [121, 119],
+  comparar: [127, 113],
+};
+
+/** Alto máximo con la escala por defecto: sirve para alinear varias ilustraciones. */
+export const ALTO_ILUSTRACION = 121 * 2;
 
 export function Ilustracion({
   nombre,
+  escala = 2,
   priority = false,
   className,
 }: {
   nombre: NombreIlustracion;
+  /** Píxeles de pantalla por píxel del dibujo; siempre entero, para que se vea nítido. */
+  escala?: 2 | 3 | 4;
   priority?: boolean;
   className?: string;
 }) {
-  const base = `/ilustraciones/${nombre}`;
+  const [ancho, alto] = TAMANO[nombre];
   return (
-    // <img> y no next/image: los archivos ya vienen al tamaño exacto para cada
-    // densidad de pantalla, y next/image los volvería a reescalar.
+    // <img> y no next/image: next/image reescalaría el archivo y suavizaría
+    // los bordes del pixel art.
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src={`${base}-208.png`}
-      srcSet={`${base}-208.png 1x, ${base}-416.png 2x, ${base}-624.png 3x`}
+      src={`/ilustraciones/${nombre}.png`}
       alt=""
-      width={ANCHO_208[nombre]}
-      height={208}
+      width={ancho * escala}
+      height={alto * escala}
       loading={priority ? "eager" : "lazy"}
       decoding="async"
-      className={cn("h-[208px] w-auto max-w-none shrink-0 select-none", className)}
+      className={cn("max-w-none shrink-0 select-none [image-rendering:pixelated]", className)}
     />
   );
 }

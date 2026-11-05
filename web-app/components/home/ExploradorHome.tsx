@@ -21,7 +21,9 @@ import { Buscador } from "@/components/ui/Buscador";
 import { ToggleVista } from "@/components/ui/ToggleVista";
 import { TarjetaColegio } from "@/components/home/TarjetaColegio";
 import { EnlaceTexto } from "@/components/ui/EnlaceTexto";
+import { cn } from "@/lib/utils";
 import { FichaInformativa } from "@/components/ui/FichaInformativa";
+import { PANEL_V3 } from "@/components/ui/Panel";
 import { MAX_COMPARAR, MAX_COMPARAR_MOVIL, urlComparar, useComparar, type Posiciones } from "@/lib/comparar";
 import { useEscritorio } from "@/lib/useEscritorio";
 
@@ -203,7 +205,7 @@ export function ExploradorHome({
               Borde con la estética de las tarjetas (Matías, 2026-11-05): rdbu-10
               de 2 px arriba e izquierda y 4 px a la derecha y abajo, con sombra.
               Sin overflow oculto, para que las listas desplegables no se corten. */}
-          <div className="flex flex-col gap-m rounded-s border-b-4 border-l-2 border-r-4 border-t-2 border-rdbu-10 bg-superficie-elevada px-m py-l shadow-[0_3px_4px_rgba(0,0,0,0.25)] md:px-l md:py-xl">
+          <div className={cn("flex flex-col gap-m px-m py-l md:px-l md:py-xl", PANEL_V3)}>
             <div className="flex flex-col gap-l lg:flex-row lg:items-end lg:justify-between">
               <Grupo id="filtro-region" etiqueta="Región">
                 <SelectorFiltro

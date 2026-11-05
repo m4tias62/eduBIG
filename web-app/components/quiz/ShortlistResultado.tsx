@@ -25,6 +25,8 @@ import { NotaLegitimacion } from "./NotaLegitimacion";
 import { IndicadorUbicacion } from "@/components/ubicacion/IndicadorUbicacion";
 import Isologo from "@/components/platform/Isologo";
 import { Icon } from "@/components/ui/Icon";
+import { BotonEnlace } from "@/components/ui/Boton";
+import { FichaInformativa } from "@/components/ui/FichaInformativa";
 
 /**
  * Shortlist del Test de Calce (versión nacional).
@@ -117,7 +119,7 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
           </Link>
         </div>
         <div className="flex flex-col gap-xs ancho-8-col">
-          <h1 className="text-lg font-bold text-texto-primario">
+          <h1 className="font-heading text-lg font-bold tracking-[0.015em] text-rdbu-01">
             Estos son los colegios que calzan con tu familia
           </h1>
           {r && (
@@ -173,17 +175,20 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
             </div>
           )}
 
-          {/* D26 — pocos colegios: solo se ofrece ampliar la distancia */}
+          {/* D26 — pocos colegios: solo se ofrece ampliar la distancia. v3: ficha
+              informativa de Matías, «alerta» si no hay ninguno y «aviso» si hay
+              menos de 3. */}
           {r && shortlist.length < 3 && (
-            <div className="rounded-m border border-borde-sutil bg-superficie-base p-l flex flex-col gap-s ancho-8-col">
-              <p className="text-sm font-bold text-texto-primario">
+            <FichaInformativa uso={shortlist.length === 0 ? "alerta" : "aviso"} className="ancho-8-col">
+              <div className="flex flex-col gap-s">
+              <p className="font-bold text-texto-primario">
                 {shortlist.length === 0
                   ? "No encontramos colegios con datos para comparar que cumplan tus respuestas."
                   : `Solo ${shortlist.length === 1 ? "un colegio cumple" : `${shortlist.length} colegios cumplen`} tus respuestas.`}
               </p>
               {r.ampliaciones.some((a) => a.suma > 0) ? (
                 <>
-                  <p className="text-xs text-texto-secundario">Si amplías la distancia:</p>
+                  <p className="text-xs text-texto-primario">Si amplías la distancia:</p>
                   <div className="flex flex-col gap-xs">
                     {r.ampliaciones
                       .filter((a) => a.suma > 0)
@@ -192,10 +197,10 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
                           key={a.alcance}
                           type="button"
                           onClick={() => ampliar(a.alcance)}
-                          className="min-h-[44px] flex items-center justify-between gap-s rounded-m border border-borde-definido px-m py-s text-left text-xs text-texto-primario hover:border-texto-primario"
+                          className="min-h-12 flex items-center justify-between gap-s rounded-s border-2 border-rdbu-02 bg-superficie-base px-m py-s text-left text-xs text-texto-primario transition-colors hover:bg-rdbu-05 active:bg-rdbu-04 active:!filter-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rdbu-10"
                         >
                           <span className="font-bold">{ALCANCE_GLOSA[a.alcance]}</span>
-                          <span className="text-texto-secundario">
+                          <span className="text-texto-primario">
                             +{a.suma.toLocaleString("es-CL")} {a.suma === 1 ? "colegio" : "colegios"}
                           </span>
                         </button>
@@ -203,23 +208,25 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
                   </div>
                 </>
               ) : (
-                <p className="text-xs text-texto-secundario">
+                <p className="text-xs text-texto-primario">
                   Ni ampliando la distancia hay más colegios que cumplan tus respuestas en tu región.
                   Si quieres, puedes ajustarlas.
                 </p>
               )}
-            </div>
+              </div>
+            </FichaInformativa>
           )}
 
           {/* D32 — comparación mínima */}
           {shortlist.length >= 2 && (
-            <Link
+            <BotonEnlace
               href={`/comparar?rbd=${rbdsComparar.join(",")}`}
-              className="min-h-[44px] inline-flex items-center justify-center gap-xs rounded-m border-2 border-interaccion-enlace bg-superficie-base px-l py-s text-sm font-bold text-interaccion-enlace hover:bg-interaccion-tinte lg:self-start lg:px-xxl"
+              variante="contorno"
+              className="gap-xs lg:self-start lg:px-xxl"
             >
               <Icon nombre="compare_arrows" size={20} />
               Comparar {shortlist.length === 3 ? "estos 3" : "estos 2"}
-            </Link>
+            </BotonEnlace>
           )}
 
           {r && (
@@ -240,7 +247,7 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
         <section className="bg-superficie-base px-l py-l lg:px-0 lg:py-xl" aria-labelledby="sin-datos-titulo">
           <div className="flex flex-col gap-m max-w-md lg:mx-auto lg:max-w-6xl lg:px-xl">
             <div className="flex flex-col gap-xs ancho-8-col">
-              <h2 id="sin-datos-titulo" className="text-md font-bold text-texto-primario">
+              <h2 id="sin-datos-titulo" className="font-heading text-md font-bold tracking-[0.015em] text-rdbu-01">
                 Cerca de ti, sin datos para comparar
               </h2>
               <p className="text-xs text-texto-secundario">

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { BotonEnlace } from "@/components/ui/Boton";
 import { Icon } from "@/components/ui/Icon";
 import type { ColegioIndice } from "@/lib/types";
 import {
@@ -12,6 +12,9 @@ import {
 /**
  * Tarjeta de la shortlist. Nace CÁLIDA (D08): el sistema la trajo para la
  * familia, y recién ahí aparecen las razones del calce.
+ *
+ * v3 (2026-11-05): tipografía, insignias y botón como la tarjeta de colegio
+ * de la Home; conserva el borde cálido con volumen (D08).
  *
  * Variante `sinDatos` (D24): misma información de identidad, sin razones ni
  * puntaje, en tono neutro: el colegio pasa los filtros pero no tiene
@@ -51,7 +54,7 @@ export function TarjetaColegio({
             {posicion}
           </span>
         )}
-        <h3 className="text-sm font-bold text-texto-primario">{colegio.n}</h3>
+        <h3 className="font-heading text-sm font-semibold leading-snug tracking-[0.015em] text-texto-primario">{colegio.n}</h3>
       </div>
 
       <ul className="flex flex-col gap-xs text-xs text-texto-secundario">
@@ -78,7 +81,7 @@ export function TarjetaColegio({
           {razones.map((b) => (
             <li
               key={b}
-              className="rounded-s border border-borde-enfatico bg-superficie-base px-s py-xxs text-2xs text-texto-primario"
+              className="inline-flex items-center border border-borde-enfatico bg-superficie-base px-xs py-xxs text-2xs leading-none text-texto-primario"
             >
               {b}
             </li>
@@ -86,12 +89,9 @@ export function TarjetaColegio({
         </ul>
       )}
 
-      <Link
-        href={`/colegio/${colegio.rbd}`}
-        className="mt-auto min-h-[44px] inline-flex items-center justify-center rounded-s bg-interaccion-enlace px-m py-xs text-center text-xs font-bold text-texto-sobre-oscuro hover:bg-interaccion-enlace-hover"
-      >
-        Ver ficha
-      </Link>
+      <BotonEnlace href={`/colegio/${colegio.rbd}`} className="mt-auto">
+        Ver ficha<span className="sr-only"> de {colegio.n}</span>
+      </BotonEnlace>
     </article>
   );
 }

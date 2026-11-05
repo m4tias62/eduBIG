@@ -20,7 +20,8 @@ import { Icon } from "@/components/ui/Icon";
  * Forma: ícono y línea vertical de 1 px en rdbu-01 a la izquierda (25 px
  * entre ambos) y 32 px hasta el texto; título opcional en Work Sans Bold 32
  * y párrafos en Roboto 16/24, separados por una línea en blanco (24 px).
- * Contraste del texto (#1F1F1F) sobre los tres fondos: 11,5:1 o más.
+ * Contraste del texto (#1F1F1F) sobre los tres fondos: 11,5:1 o más; de los
+ * enlaces (#003EB3), 6,3:1 o más.
  */
 export type UsoFicha = "informativo" | "alerta" | "aviso";
 
@@ -63,7 +64,9 @@ export function FichaInformativa({
             {titulo}
           </Titulo>
         )}
-        <div className="[&_p+p]:mt-l">
+        {/* Enlaces dentro de la ficha en #003EB3 (6,3:1 o más sobre los tres
+            fondos; el azul de enlace habitual da 4,39:1 sobre el celeste). */}
+        <div className="[&_a:hover]:text-interaccion-enlace-activo [&_a]:text-interaccion-enlace-hover [&_a]:underline [&>p+p]:mt-l">
           {tipo && <span className="sr-only">{tipo}: </span>}
           {children}
         </div>

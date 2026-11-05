@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { BotonEnlace } from "@/components/ui/Boton";
 import { useEffect, useRef } from "react";
 import { SelectorUbicacion } from "@/components/ubicacion/SelectorUbicacion";
 
@@ -26,7 +26,7 @@ export function ModalUbicacion() {
     >
       <div className="flex flex-col gap-l p-l">
         <div className="flex flex-col gap-xs">
-          <h2 id="modal-ubicacion-titulo" className="text-md font-bold text-texto-primario">
+          <h2 id="modal-ubicacion-titulo" className="font-heading text-md font-bold tracking-[0.015em] text-rdbu-01">
             ¿Desde dónde buscas colegio?
           </h2>
           <p className="text-xs text-texto-secundario">
@@ -36,12 +36,10 @@ export function ModalUbicacion() {
           </p>
         </div>
         <SelectorUbicacion onListo={() => ref.current?.close()} />
-        <Link
-          href="/explorar"
-          className="min-h-[44px] inline-flex items-center justify-center rounded-m border border-borde-definido px-l py-s text-xs font-bold text-texto-primario hover:border-texto-primario"
-        >
+        {/* v3: el explorador vive en la Home («Filtra tu búsqueda»). */}
+        <BotonEnlace href="/#explorar" variante="contorno">
           Prefiero explorar por mi cuenta
-        </Link>
+        </BotonEnlace>
       </div>
     </dialog>
   );
