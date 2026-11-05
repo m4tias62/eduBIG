@@ -32,9 +32,11 @@ export function BarraNavegacion() {
 
   return (
     <header className="hidden lg:block sticky top-0 z-40 bg-superficie-hundida border-b border-borde-sutil">
-      {/* Misma retícula que el resto del sitio (.contenedor), en todas las páginas.
-          min-h y no h fija: el texto puede crecer sin cortarse (WCAG 1.4.12). */}
-      <nav aria-label="Principal" className="contenedor flex min-h-16 items-center justify-between">
+      {/* v3 (2026-11-05): la barra ocupa todo el ancho con 48 px a cada lado,
+          como en el diseño (nodo 837:897), y el logo queda alineado con el
+          título del hero. min-h y no h fija: el texto puede crecer sin
+          cortarse (WCAG 1.4.12). */}
+      <nav aria-label="Principal" className="flex min-h-16 w-full items-center justify-between px-xxl">
         <Link href="/" aria-label="Edubig, inicio" className="inline-flex items-center rounded-m transition-opacity hover:opacity-80">
           <Isologo width={72} priority />
         </Link>

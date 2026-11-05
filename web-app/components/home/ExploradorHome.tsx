@@ -12,7 +12,10 @@ import { ChipFiltro } from "@/components/ui/ChipFiltro";
 import { SelectorFiltro, type OpcionFiltro } from "@/components/ui/SelectorFiltro";
 import { Buscador } from "@/components/ui/Buscador";
 import { ToggleVista } from "@/components/ui/ToggleVista";
-import { TarjetaColegioBrowse } from "@/components/explorar/TarjetaColegioBrowse";
+import { TarjetaColegio } from "@/components/home/TarjetaColegio";
+import { EnlaceTexto } from "@/components/ui/EnlaceTexto";
+import { MAX_COMPARAR, MAX_COMPARAR_MOVIL, useComparar } from "@/lib/comparar";
+import { useEscritorio } from "@/lib/useEscritorio";
 
 const MapaLeaflet = dynamic(() => import("@/components/explorar/MapaLeaflet").then((m) => m.MapaLeaflet), {
   ssr: false,
@@ -71,6 +74,8 @@ export function ExploradorHome() {
   const { datos, error } = useDatosNacionales();
   const { ubicacion, estadoGps, pedirGps } = useUbicacion();
   const [pagina, setPagina] = useState(1);
+  const comparar = useComparar();
+  const maximoComparar = useEscritorio() ? MAX_COMPARAR : MAX_COMPARAR_MOVIL;
 
   const conGps = !!filtros.desdeGps;
   const gpsListo = conGps && ubicacion?.tipo === "gps";
@@ -275,12 +280,20 @@ export function ExploradorHome() {
             <>
               <div className="flex flex-col gap-s sm:flex-row sm:items-center sm:justify-between">
                 <ToggleVista vista={filtros.vista} onCambiar={(v) => irA({ ...filtros, vista: v })} />
-                <p role="status" className="text-xs text-texto-secundario">
-                  {items.length === 0
-                    ? "No hay colegios que coincidan con tus filtros."
-                    : `${items.length.toLocaleString("es-CL")} ${items.length === 1 ? "colegio" : "colegios"} ${lugar}`}
-                  {filtros.q ? ` · «${filtros.q}»` : ""}
-                </p>
+                <div className="flex flex-col gap-xxs sm:items-end">
+                  <p role="status" className="text-xs text-texto-secundario">
+                    {items.length === 0
+                      ? "No hay colegios que coincidan con tus filtros."
+                      : `${items.length.toLocaleString("es-CL")} ${items.length === 1 ? "colegio" : "colegios"} ${lugar}`}
+                    {filtros.q ? ` · «${filtros.q}»` : ""}
+                  </p>
+                  {/* Igual que en la ficha: con dos o más colegios elegidos, el atajo a la comparación. */}
+                  {comparar.rbds.length >= 2 && (
+                    <EnlaceTexto href={comparar.url}>
+                      Ver comparación ({comparar.rbds.length} de {maximoComparar})
+                    </EnlaceTexto>
+                  )}
+                </div>
               </div>
 
               {filtros.vista === "mapa" ? (
@@ -300,12 +313,16 @@ export function ExploradorHome() {
                 <>
                   <ul className="grid grid-cols-1 gap-l md:grid-cols-2 lg:grid-cols-3 lg:gap-xl">
                     {visibles.map(({ c, d }) => (
-                      <li key={c.rbd} className="flex flex-col [&>a]:h-full">
-                        <TarjetaColegioBrowse
+                      <li key={c.rbd} className="flex flex-col">
+                        <TarjetaColegio
                           colegio={c}
                           distanciaKm={modo === "gps" ? d : undefined}
                           referencia={referencia}
                           nombreComuna={datos.comunaPorCod.get(c.c)?.nombre}
+                          enComparacion={comparar.rbds.includes(c.rbd)}
+                          comparacionLlena={comparar.rbds.length >= maximoComparar}
+                          maximoComparar={maximoComparar}
+                          onComparar={() => comparar.alternar(c.rbd, maximoComparar)}
                         />
                       </li>
                     ))}

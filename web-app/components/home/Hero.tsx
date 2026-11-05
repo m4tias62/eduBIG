@@ -8,7 +8,8 @@ import { VideoFondo } from "@/components/home/VideoFondo";
  *
  * Capas, de atrás hacia adelante:
  *   1. Degradado vertical rdbu-01 (frío) → rdbu-10 (cálido extremo).
- *   2. Animación en pixel art de una sala de clases, en bucle, al 16 %.
+ *   2. Animación en pixel art de una sala de clases, en bucle, al 24 %
+ *      (Matías la subió desde 16 % el 2026-11-05).
  *   3. Mensaje, bajada y las dos acciones.
  *   4. Borde inferior pixelado que se deshace hacia la sección siguiente.
  *
@@ -16,7 +17,8 @@ import { VideoFondo } from "@/components/home/VideoFondo";
  * - El pixel art sigue el detalle pixelado del isologo y se asocia con el
  *   dato. El logo se mantiene como estaba.
  * - En escritorio el contenido parte a 48 px del borde, fuera de la
- *   retícula, a propósito. Las demás páginas mantienen la retícula (D38).
+ *   retícula, a propósito. Desde el 2026-11-05 la barra de navegación usa
+ *   el mismo margen, para que el logo y el título queden alineados.
  * - El Test es la acción principal y «Comparar colegios» la secundaria.
  *
  * `colorBorde`: clase de color de texto con el fondo de la sección que sigue,
@@ -28,7 +30,7 @@ export function Hero({ colorBorde = "text-superficie-base" }: { colorBorde?: str
       <VideoFondo
         src="/hero/aula-pixel.mp4"
         imagenFija="/hero/aula-pixel.webp"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.16] [image-rendering:pixelated]"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.24] [image-rendering:pixelated]"
       />
 
       <div className="relative z-10 px-l pb-[80px] pt-xl lg:min-h-[649px] lg:px-xxl lg:pb-[88px] lg:pt-[93px]">
