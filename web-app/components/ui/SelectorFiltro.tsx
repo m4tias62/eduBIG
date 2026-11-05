@@ -193,7 +193,8 @@ export function SelectorFiltro({
       >
         <Icon nombre={icono} size={24} />
         <span className="truncate">{texto}</span>
-        <Icon nombre={abierto ? "expand_less" : "expand_more"} size={24} className="ml-auto" />
+        {/* Flecha en rdbu-01 con la lista cerrada, como en el diseño; abierta toma el color del texto. */}
+        <Icon nombre={abierto ? "expand_less" : "expand_more"} size={24} className={cn("ml-auto", !abierto && "text-rdbu-01")} />
       </button>
 
       {abierto && (

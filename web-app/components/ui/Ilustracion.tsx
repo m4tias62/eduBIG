@@ -14,7 +14,12 @@ import { cn } from "@/lib/utils";
  *   identidad, no codifican datos.
  * - Archivos: public/ilustraciones/<nombre>.png, 538 × 509 con fondo
  *   transparente, todas con el mismo encuadre para que se vean del mismo
- *   tamaño. next/image las sirve en WebP/AVIF al ancho que se necesita.
+ *   tamaño. Cada «píxel» del dibujo mide unos 6 px del archivo.
+ * - Nitidez (2026-11-05): a 144 px de ancho el píxel del dibujo quedaba en
+ *   1,6 px de pantalla y se veía como una imagen borrosa. Ahora se muestran
+ *   más grandes y sin recomprimir (`unoptimized`: next/image las suavizaba al
+ *   achicarlas), con `image-rendering: pixelated` para que el navegador no
+ *   difumine los bordes al escalar. Pesan 40–46 KB cada una.
  * - Accesibilidad: son decorativas; el texto que las acompaña dice lo mismo,
  *   por eso van con alt="" (WCAG 1.1.1).
  * - Regla para cuando vuelvan a las secciones (Matías, 2026-10-14): van AL
@@ -30,7 +35,7 @@ export function Ilustracion({
   className,
 }: {
   nombre: NombreIlustracion;
-  /** Ancho con que se muestra, para que next/image elija el archivo justo. */
+  /** Ancho con que se muestra (informativo: el archivo se sirve tal cual). */
   sizes: string;
   priority?: boolean;
   className?: string;
@@ -43,7 +48,8 @@ export function Ilustracion({
       height={509}
       sizes={sizes}
       priority={priority}
-      className={cn("h-auto shrink-0 select-none", className)}
+      unoptimized
+      className={cn("h-auto shrink-0 select-none [image-rendering:pixelated]", className)}
     />
   );
 }

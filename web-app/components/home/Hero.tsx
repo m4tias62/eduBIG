@@ -17,8 +17,9 @@ import { VideoFondo } from "@/components/home/VideoFondo";
  * - El pixel art sigue el detalle pixelado del isologo y se asocia con el
  *   dato. El logo se mantiene como estaba.
  * - En escritorio el contenido parte a 48 px del borde, fuera de la
- *   retícula, a propósito. Desde el 2026-11-05 la barra de navegación usa
- *   el mismo margen, para que el logo y el título queden alineados.
+ *   retícula, a propósito. En la Home la barra de navegación usa el mismo
+ *   margen (2026-11-05), para que el logo y el título queden alineados; en
+ *   las demás páginas la barra sigue la retícula.
  * - El Test es la acción principal y «Comparar colegios» la secundaria.
  *
  * `colorBorde`: clase de color de texto con el fondo de la sección que sigue,

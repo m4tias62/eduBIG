@@ -12,7 +12,8 @@ import { Icon } from "@/components/ui/Icon";
  * - Inactivo: fondo blanco y borde rdbu-02; hover en rdbu-05.
  * - Activo: fondo rdbu-10, borde rdbu-11 y texto rdbu-06 (lo elegido «se
  *   calienta»); hover en rdbu-07 con texto rdbu-11.
- * - Presionado: vuelve al color de reposo de su estado.
+ * - Presionado: igual al reposo de su estado, como en el diseño. Por eso se
+ *   anula el oscurecimiento global de los botones al presionar (`filter`).
  * - Foco: contorno de 2 px en rdbu-10, como los demás componentes v3.
  *
  * Contraste: texto rdbu-06 sobre rdbu-10, 6,5:1; borde rdbu-02 sobre blanco,
@@ -20,7 +21,7 @@ import { Icon } from "@/components/ui/Icon";
  */
 export const CHIP_BASE =
   "inline-flex min-h-12 max-w-full items-center gap-xs rounded-s border-2 px-[18px] py-xs text-left text-xs sm:whitespace-nowrap shrink-0 transition-colors " +
-  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rdbu-10";
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rdbu-10 active:!filter-none";
 
 export const CHIP_INACTIVO =
   "border-rdbu-02 bg-superficie-base text-texto-primario hover:bg-rdbu-05 active:bg-superficie-base";

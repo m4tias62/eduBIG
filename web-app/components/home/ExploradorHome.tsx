@@ -152,8 +152,9 @@ export function ExploradorHome() {
             Filtra tu búsqueda
           </h2>
 
-          {/* Panel de filtros */}
-          <div className="flex flex-col gap-xl rounded-s border border-rdbu-10 bg-rdbu-06 px-m py-l md:px-l md:py-xl lg:gap-xxl">
+          {/* Panel de filtros (Figma 837:3847): 24 px a los lados, 32 arriba y
+              abajo, 16 px entre la fila de lugar, «Más filtros» y los chips. */}
+          <div className="flex flex-col gap-m rounded-s border border-rdbu-10 bg-rdbu-06 px-m py-l md:px-l md:py-xl">
             <div className="flex flex-col gap-l lg:flex-row lg:items-end lg:justify-between">
               <Grupo id="filtro-region" etiqueta="Región">
                 <SelectorFiltro
@@ -199,7 +200,12 @@ export function ExploradorHome() {
               </Grupo>
             </div>
 
-            <div className="flex flex-wrap gap-m">
+            {/* «Más filtros» (Matías, 2026-11-05): nombra el grupo de chips y
+                desplegables; el grupo lo usa como nombre accesible. */}
+            <p id="mas-filtros" className="font-heading text-md font-medium tracking-[0.015em] text-rdbu-01">
+              Más filtros
+            </p>
+            <div role="group" aria-labelledby="mas-filtros" className="flex flex-wrap gap-m">
               <ChipFiltro
                 icono="my_location"
                 label={conGps && estadoGps === "cargando" ? "Buscando tu ubicación…" : "Usar mi ubicación"}

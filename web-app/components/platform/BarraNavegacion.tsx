@@ -7,6 +7,7 @@ import { AvisoEnConstruccion } from "./AvisoEnConstruccion";
 import { BotonEnlace } from "@/components/ui/Boton";
 import { EnlaceTexto } from "@/components/ui/EnlaceTexto";
 import { useComparar } from "@/lib/comparar";
+import { cn } from "@/lib/utils";
 
 /**
  * Navegación superior de ESCRITORIO (≥ 1024 px). En móvil no se muestra: ahí
@@ -32,11 +33,15 @@ export function BarraNavegacion() {
 
   return (
     <header className="hidden lg:block sticky top-0 z-40 bg-superficie-hundida border-b border-borde-sutil">
-      {/* v3 (2026-11-05): la barra ocupa todo el ancho con 48 px a cada lado,
-          como en el diseño (nodo 837:897), y el logo queda alineado con el
-          título del hero. min-h y no h fija: el texto puede crecer sin
-          cortarse (WCAG 1.4.12). */}
-      <nav aria-label="Principal" className="flex min-h-16 w-full items-center justify-between px-xxl">
+      {/* v3 (Matías, 2026-11-05): en la Home la barra va de borde a borde con
+          48 px a cada lado, porque está unida al hero y el logo se alinea con
+          su título (nodo 837:897). En las demás páginas sigue la retícula
+          (.contenedor), alineada con el contenido. min-h y no h fija: el
+          texto puede crecer sin cortarse (WCAG 1.4.12). */}
+      <nav
+        aria-label="Principal"
+        className={cn("flex min-h-16 items-center justify-between", ruta === "/" ? "w-full px-xxl" : "contenedor")}
+      >
         <Link href="/" aria-label="Edubig, inicio" className="inline-flex items-center rounded-m transition-opacity hover:opacity-80">
           <Isologo width={72} priority />
         </Link>
