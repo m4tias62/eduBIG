@@ -31,7 +31,7 @@ export function Hero({ colorBorde = "text-superficie-base" }: { colorBorde?: str
         className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.16] [image-rendering:pixelated]"
       />
 
-      <div className="relative z-10 px-l pb-[96px] pt-xl lg:min-h-[649px] lg:px-xxl lg:pb-[108px] lg:pt-[93px]">
+      <div className="relative z-10 px-l pb-[80px] pt-xl lg:min-h-[649px] lg:px-xxl lg:pb-[88px] lg:pt-[93px]">
         <div className="flex flex-col gap-m lg:w-[459px]">
           <div className="lg:hidden">
             <Isologo width={66} priority />
@@ -56,21 +56,47 @@ export function Hero({ colorBorde = "text-superficie-base" }: { colorBorde?: str
         </div>
       </div>
 
+      <CreditoAnimacion />
       <BordePixelado className={colorBorde} />
     </section>
   );
 }
 
 /**
- * Borde inferior pixelado: cinco filas de cuadrados de 12 px que se van
- * llenando hacia abajo (10 %, 30 %, 55 %, 80 % y 100 %), como el tramado
- * (dithering) del pixel art. El patrón es fijo —cada cuadro se decide con
- * un hash de su posición— y se repite cada 384 px. Usa `currentColor`, así
- * toma el color de `className`.
+ * Crédito de la animación de fondo (obra de KiraPixels, publicada en r/Art,
+ * 2022). Pequeño, en la esquina inferior derecha, sobre el borde pixelado.
+ * El enlace abre la publicación original en otra pestaña.
  */
-const LADO = 12;
-const COLUMNAS = 32;
-const DENSIDAD = [0.1, 0.3, 0.55, 0.8, 1];
+function CreditoAnimacion() {
+  return (
+    <p className="absolute bottom-[40px] right-l z-10 text-2xs text-texto-sobre-oscuro lg:right-xxl">
+      Animación:{" "}
+      <a
+        href="https://www.reddit.com/r/Art/comments/u5mste/no_school_today_me_pixel_art_2022/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex min-h-[24px] items-center underline underline-offset-2 hover:no-underline focus-visible:outline-texto-sobre-oscuro"
+      >
+        «No school today», KiraPixels (2022)
+        <span className="sr-only"> (se abre en otra pestaña)</span>
+      </a>
+    </p>
+  );
+}
+
+/**
+ * Borde inferior pixelado: un detalle, no un protagonista. Ajustes de Matías
+ * (2026-11-04): la primera versión (12 px, cinco filas) era demasiado
+ * llamativa y la segunda (6 px, tres filas al 5-15-35 %) demasiado sutil.
+ * Queda en el medio: cuatro filas de cuadrados de 8 px, cada vez más llenas
+ * hacia abajo (8 %, 20 %, 42 % y 70 %), como un tramado (dithering). El patrón es
+ * fijo —cada cuadro se decide con un hash de su posición— y se repite cada
+ * 1.536 px, más que el ancho del diseño, para que no se note la repetición.
+ * Usa `currentColor`, así toma el color de `className`.
+ */
+const LADO = 8;
+const COLUMNAS = 192;
+const DENSIDAD = [0.08, 0.2, 0.42, 0.7];
 
 function ruido(col: number, fila: number) {
   const s = Math.sin(col * 12.9898 + fila * 78.233) * 43758.5453;
