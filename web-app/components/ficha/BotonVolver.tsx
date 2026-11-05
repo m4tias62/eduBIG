@@ -1,11 +1,18 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { BotonTexto } from "@/components/ui/EnlaceTexto";
+import { Icon } from "@/components/ui/Icon";
 
 /**
- * Botón "Volver" estándar del design system — botón azul relleno, idéntico
- * al del quiz (Figma 468:1655). Vuelve a la página anterior si hay historial;
- * si no, navega al href dado (fallback).
+ * «Volver» de la ficha y de Explorar (v3). Igual al del Test de Calce: enlace
+ * de texto con flecha y los estados de la navegación (hover, presionado y
+ * foco en rdbu-10). Desde el 2026-11-05 ya no usa el botón azul lleno: ese
+ * estilo es el del botón principal, y volver no es la acción principal de la
+ * página.
+ *
+ * Vuelve a la página anterior si hay historial; si no, navega al href dado.
+ * Es un <button> porque la acción normal no es ir a una URL fija.
  */
 export function BotonVolver({
   href = "/",
@@ -25,12 +32,9 @@ export function BotonVolver({
   }
 
   return (
-    <button
-      type="button"
-      onClick={volver}
-      className="inline-flex items-center justify-center self-start rounded-s bg-interaccion-enlace px-m py-xs text-xs font-bold text-texto-sobre-oscuro hover:bg-interaccion-enlace-hover"
-    >
+    <BotonTexto onClick={volver} className="-ml-xxs gap-xxs self-start">
+      <Icon nombre="arrow_back" size={20} />
       {label}
-    </button>
+    </BotonTexto>
   );
 }

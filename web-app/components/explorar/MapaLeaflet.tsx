@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from "react-leaflet";
 import L from "leaflet";
-import Link from "next/link";
+import { BotonEnlace } from "@/components/ui/Boton";
 import "leaflet/dist/leaflet.css";
 import type { ItemExploracion } from "@/lib/home/filtros";
 import { atributosDestacados } from "@/lib/home/atributos";
@@ -37,7 +37,7 @@ const pinResaltado = L.divIcon({
 
 const refIcon = L.divIcon({
   className: "edubig-user-pin",
-  html: '<div style="width:18px;height:18px;margin:3px;border-radius:50%;background:#0958D9;border:3px solid #fff;box-shadow:0 0 0 2px rgba(9,88,217,0.4),0 2px 6px rgba(0,0,0,0.3);"></div>',
+  html: '<div style="width:18px;height:18px;margin:3px;border-radius:50%;background:#1D70B8;border:3px solid #fff;box-shadow:0 0 0 2px rgba(29,112,184,0.4),0 2px 6px rgba(0,0,0,0.3);"></div>',
   iconSize: [24, 24],
   iconAnchor: [12, 12],
   popupAnchor: [0, -14],
@@ -155,12 +155,10 @@ export function MapaLeaflet({
                   ))}
                 </ul>
                 <div className="px-l pb-s">
-                  <Link
-                    href={`/colegio/${c.rbd}`}
-                    className="flex min-h-[48px] w-full items-center justify-center whitespace-nowrap rounded-s bg-interaccion-enlace px-m text-sm font-bold !text-texto-sobre-oscuro hover:bg-interaccion-enlace-hover active:bg-interaccion-enlace-activo focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-interaccion-foco"
-                  >
+                  {/* !text: Leaflet pinta los enlaces del globo de otro azul. */}
+                  <BotonEnlace href={`/colegio/${c.rbd}`} className="w-full whitespace-nowrap !text-texto-sobre-oscuro">
                     Ver ficha del colegio
-                  </Link>
+                  </BotonEnlace>
                 </div>
               </div>
             </Popup>

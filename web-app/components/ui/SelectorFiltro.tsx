@@ -5,9 +5,11 @@ import { cn } from "@/lib/utils";
 import { Icon } from "@/components/ui/Icon";
 import { CHIP_BASE } from "@/components/ui/ChipFiltro";
 
-const PLEGADO =
+/** Estados del botón de un desplegable; también los usan los encabezados
+ *  plegables de la comparación (2026-11-05). */
+export const PLEGADO =
   "border-rdbu-02 bg-superficie-base text-texto-primario hover:bg-rdbu-05 active:bg-rdbu-04 active:font-bold";
-const DESPLEGADO =
+export const DESPLEGADO =
   "border-rdbu-11 bg-rdbu-10 text-rdbu-06 hover:bg-rdbu-07 hover:text-rdbu-11 active:bg-rdbu-10 active:text-rdbu-06 active:font-bold";
 import { normalizar } from "@/lib/home/filtros";
 

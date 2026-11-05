@@ -19,7 +19,8 @@ import { Icon } from "@/components/ui/Icon";
 import { MarcadorColegio } from "@/components/viz/basicos";
 import { Globo } from "@/components/ui/Globo";
 import { Interruptor } from "@/components/ui/Interruptor";
-import { ChipFiltro } from "@/components/ui/ChipFiltro";
+import { CHIP_BASE, ChipFiltro } from "@/components/ui/ChipFiltro";
+import { DESPLEGADO, PLEGADO } from "@/components/ui/SelectorFiltro";
 import {
   CeldaAcademico,
   CeldaBienestar,
@@ -451,16 +452,26 @@ function TituloGrupo({
 }) {
   return (
     <h2 className="text-md">
+      {/* v3 (Matías, 2026-11-05: «los dropdowns de la pantalla donde ya se
+          están comparando también deben estar alineados al sistema»): los
+          estados del botón de un desplegable (SelectorFiltro). Plegado:
+          blanco con borde rdbu-02 y flecha rdbu-01; hover rdbu-05;
+          presionado rdbu-04. Desplegado: rdbu-10 con texto rdbu-06; hover
+          rdbu-07 con texto rdbu-11. Foco: contorno de 2 px en rdbu-10. */}
       <button
         type="button"
         aria-expanded={abierto}
         aria-controls={idControl}
         onClick={alternar}
-        className="-ml-xs inline-flex min-h-objetivo-tactil items-center gap-xs rounded-s px-xs font-heading text-md font-bold text-texto-primario transition-colors hover:bg-superficie-elevada"
+        className={clsx(
+          CHIP_BASE,
+          abierto ? DESPLEGADO : PLEGADO,
+          "w-full justify-start font-heading text-md font-bold lg:w-auto"
+        )}
       >
         <Icon nombre={grupo.icono} size={24} />
         {grupo.titulo}
-        <Icon nombre={abierto ? "expand_less" : "expand_more"} size={20} />
+        <Icon nombre={abierto ? "expand_less" : "expand_more"} size={24} className={clsx("ml-auto", !abierto && "text-rdbu-01")} />
       </button>
     </h2>
   );
@@ -566,7 +577,7 @@ function TablaComparar({
           return (
             <tbody key={g.id} id={`cuerpo-${g.id}`}>
               <tr>
-                <th id={idG} colSpan={n} scope="rowgroup" className={clsx(celda, "border-t border-borde-sutil pb-xs pt-l")}>
+                <th id={idG} colSpan={n} scope="rowgroup" className={clsx(celda, "border-t border-borde-sutil pb-s pt-l")}>
                   <TituloGrupo grupo={g} abierto={abierto} alternar={() => alternar(g.id)} idControl={`cuerpo-${g.id}`} />
                 </th>
               </tr>

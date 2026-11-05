@@ -110,13 +110,9 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
         {/* En escritorio, logo e inicio están en la barra de navegación */}
         <div className="flex flex-col gap-m lg:hidden">
           <Isologo width={88} priority />
-          <Link
-            href="/"
-            className="min-h-[44px] inline-flex items-center gap-xs self-start rounded-s bg-interaccion-enlace px-l py-xs text-xs font-bold text-texto-sobre-oscuro hover:bg-interaccion-enlace-hover"
-          >
+          <BotonEnlace href="/" className="self-start">
             Ir al inicio del sitio
-            <Icon nombre="home" size={18} />
-          </Link>
+          </BotonEnlace>
         </div>
         <div className="flex flex-col gap-xs ancho-8-col">
           <h1 className="font-heading text-lg font-bold tracking-[0.015em] text-rdbu-01">

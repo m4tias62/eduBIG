@@ -21,7 +21,7 @@ import { Icon } from "@/components/ui/Icon";
  * entre ambos) y 32 px hasta el texto; título opcional en Work Sans Bold 32
  * y párrafos en Roboto 16/24, separados por una línea en blanco (24 px).
  * Contraste del texto (#1F1F1F) sobre los tres fondos: 11,5:1 o más; de los
- * enlaces (#003EB3), 6,3:1 o más.
+ * enlaces (interaccion/enlace-hover, #003078), 8,6:1 o más.
  */
 export type UsoFicha = "informativo" | "alerta" | "aviso";
 
@@ -64,9 +64,11 @@ export function FichaInformativa({
             {titulo}
           </Titulo>
         )}
-        {/* Enlaces dentro de la ficha en #003EB3 (6,3:1 o más sobre los tres
-            fondos; el azul de enlace habitual da 4,39:1 sobre el celeste). */}
-        <div className="[&_a:hover]:text-interaccion-enlace-activo [&_a]:text-interaccion-enlace-hover [&_a]:underline [&>p+p]:mt-l">
+        {/* Enlaces dentro de la ficha en #003078 (8,6:1 o más sobre los tres
+            fondos; el azul de enlace habitual no llega a 4,5:1 sobre el
+            celeste). En hover, el subrayado se engruesa: el color de
+            «activo» ahora es gris (#373737) y no se lee como enlace. */}
+        <div className="[&_a:hover]:decoration-2 [&_a]:text-interaccion-enlace-hover [&_a]:underline [&>p+p]:mt-l">
           {tipo && <span className="sr-only">{tipo}: </span>}
           {children}
         </div>

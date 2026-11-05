@@ -8,8 +8,8 @@ import { VideoFondo } from "@/components/home/VideoFondo";
  *
  * Capas, de atrás hacia adelante:
  *   1. Degradado vertical rdbu-01 (frío) → rdbu-10 (cálido extremo).
- *   2. Animación en pixel art de una sala de clases, en bucle, al 24 %
- *      (Matías la subió desde 16 % el 2026-11-05).
+ *   2. Animación en pixel art de una sala de clases, en bucle, al 8 %
+ *      (Matías, 2026-11-05; antes 16 % y luego 24 %).
  *   3. Mensaje, bajada y las dos acciones.
  *   4. Borde inferior pixelado que se deshace hacia la sección siguiente.
  *
@@ -22,6 +22,14 @@ import { VideoFondo } from "@/components/home/VideoFondo";
  *   las demás páginas la barra sigue la retícula.
  * - El Test es la acción principal y «Comparar colegios» la secundaria.
  *
+ * Ajustes de Matías (2026-11-05, Figma «Hero section», 898:9906):
+ * - Bajada en Roboto 18 y blanco puro (antes 16 px y blanco al 78 %), por
+ *   contraste.
+ * - El Test usa el botón principal nuevo («Outline Square + arrow»). En el
+ *   diseño mide 240 × 44: ocupa lo que deja el enlace de Comparar en los
+ *   459 px del bloque.
+ * - «Comparar colegios» pasa a enlace de texto blanco en negrita, sin borde.
+ *
  * `colorBorde`: clase de color de texto con el fondo de la sección que sigue,
  * para que el borde pixelado se funda con ella.
  */
@@ -31,7 +39,7 @@ export function Hero({ colorBorde = "text-superficie-base" }: { colorBorde?: str
       <VideoFondo
         src="/hero/aula-pixel.mp4"
         imagenFija="/hero/aula-pixel.webp"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.24] [image-rendering:pixelated]"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.08] [image-rendering:pixelated]"
       />
 
       <div className="relative z-10 px-l pb-[80px] pt-xl lg:min-h-[649px] lg:px-xxl lg:pb-[88px] lg:pt-[93px]">
@@ -43,13 +51,13 @@ export function Hero({ colorBorde = "text-superficie-base" }: { colorBorde?: str
             Encuentra el colegio que calza con tu familia
           </h1>
           {/* Borrador (2026-11-04): texto por confirmar con Matías. */}
-          <p className="text-sm text-texto-sobre-oscuro-secundario">
+          <p className="text-md text-texto-sobre-oscuro">
             Edubig reúne los datos oficiales de más de 8.000 colegios de Chile —resultados SIMCE, bienestar de
             los estudiantes, denuncias y costos— y los traduce a un lenguaje claro. Cada colegio se compara con
             otros parecidos, nunca en un ranking.
           </p>
           <div className="flex flex-col gap-s sm:flex-row lg:justify-between lg:gap-0">
-            <BotonEnlace href="/test" sobreOscuro className="sm:w-[219px]">
+            <BotonEnlace href="/test" sobreOscuro className="sm:w-[240px]">
               Hacer el Test de Calce
             </BotonEnlace>
             <BotonEnlace href="/comparar" variante="secundario" sobreOscuro className="sm:w-[219px]">

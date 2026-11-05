@@ -88,6 +88,10 @@ export function BuscadorAgregar({
   const { reemplazar } = useComparar();
   const [q, setQ] = useState("");
   const [activo, setActivo] = useState(0);
+  // Como en SelectorFiltro: el marco de la opción activa se dibuja solo si se
+  // mueve con el teclado; `presionada` es la fila bajo el puntero presionado.
+  const [teclado, setTeclado] = useState(false);
+  const [presionada, setPresionada] = useState<number | null>(null);
   const input = useRef<HTMLInputElement>(null);
   const id = useId();
   const idLista = `${id}-lista`;
@@ -157,9 +161,11 @@ export function BuscadorAgregar({
           onKeyDown={(e) => {
             if (e.key === "ArrowDown") {
               e.preventDefault();
+              setTeclado(true);
               setActivo((a) => Math.min(a + 1, resultados.length - 1));
             } else if (e.key === "ArrowUp") {
               e.preventDefault();
+              setTeclado(true);
               setActivo((a) => Math.max(a - 1, 0));
             } else if (e.key === "Enter" && mostrarLista) {
               e.preventDefault();
@@ -183,8 +189,18 @@ export function BuscadorAgregar({
                 ? "No encontramos colegios con ese nombre o comuna."
                 : `${resultados.length === 8 ? "Primeros 8 resultados" : `${resultados.length} resultados`}. Usa las flechas y Enter, o haz clic.`}
       </p>
+      {/* Lista con el estilo de la lista de un desplegable (SelectorFiltro,
+          2026-11-05): fondo blanco con elevación 4, filas de 48 px sin
+          separadores; hover rdbu-05; presionada rdbu-04 con negrita; activa
+          con el teclado: rdbu-05 y marco interior de 2 px en rdbu-11. */}
       {mostrarLista && (
-        <ul id={idLista} role="listbox" aria-label="Colegios encontrados" className="flex flex-col rounded-s border border-borde-sutil bg-superficie-base">
+        <ul
+          id={idLista}
+          role="listbox"
+          aria-label="Colegios encontrados"
+          onMouseMove={() => teclado && setTeclado(false)}
+          className="flex flex-col bg-superficie-base shadow-[0_0.94px_1.41px_rgba(0,0,0,0.3),0_2.83px_4.72px_1.89px_rgba(0,0,0,0.15)]"
+        >
           {resultados.map((c, i) => (
             <li
               key={c.rbd}
@@ -193,14 +209,22 @@ export function BuscadorAgregar({
               aria-selected={i === activo}
               onMouseEnter={() => setActivo(i)}
               onMouseDown={(e) => e.preventDefault()}
+              onPointerDown={() => setPresionada(i)}
+              onPointerUp={() => setPresionada(null)}
+              onPointerLeave={() => setPresionada((p) => (p === i ? null : p))}
               onClick={() => elegir(c.rbd)}
               className={clsx(
-                "flex min-h-objetivo-tactil cursor-pointer flex-col justify-center px-m py-xs",
-                i > 0 && "border-t border-borde-sutil",
-                i === activo ? "bg-interaccion-tinte" : "hover:bg-interaccion-tinte"
+                "flex min-h-12 cursor-pointer flex-col justify-center px-s py-xs",
+                presionada === i
+                  ? "bg-rdbu-04"
+                  : teclado && i === activo
+                    ? "bg-rdbu-05 shadow-[inset_0_0_0_2px_#67001f]"
+                    : "bg-superficie-base hover:bg-rdbu-05"
               )}
             >
-              <span className="text-sm font-medium text-texto-primario">{c.n}</span>
+              <span className={clsx("text-sm text-texto-primario", presionada === i ? "font-bold" : "font-medium")}>
+                {c.n}
+              </span>
               <span className="text-2xs text-texto-secundario">
                 {datos?.comunaPorCod.get(c.c)?.nombre} · {dependenciaGlosa(c.d)}
               </span>

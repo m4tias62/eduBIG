@@ -60,14 +60,18 @@ const config: Config = {
 
         // Interacción
         // Tinte de fondo para hover y elementos elegidos con texto azul (antes
-        // se usaba info-suave). Se separa porque el enlace #0958D9 sobre el
-        // info-suave nuevo da 4,39:1, bajo el mínimo de 4,5:1; sobre este, 5,38:1.
+        // se usaba info-suave). Se separa porque el enlace sobre info-suave no
+        // alcanza 4,5:1; sobre este tinte, el enlace #1D70B8 da 4,51:1.
         "interaccion-tinte": "#E8F0FE",
         "interaccion-foco": "#005FCC",
         "interaccion-foco-texto": "#FFFFFF",
-        "interaccion-enlace": "#0958D9",
-        "interaccion-enlace-hover": "#003EB3",
-        "interaccion-enlace-activo": "#001D66",
+        // Valores del sistema de Matías en Figma (variables interaccion/enlace,
+        // 2026-11-05), los del botón principal nuevo. Antes: #0958D9, #003EB3
+        // y #001D66. Enlace sobre blanco 5,2:1; texto blanco sobre los tres
+        // fondos 5,2:1, 12,4:1 y 11,9:1.
+        "interaccion-enlace": "#1D70B8",
+        "interaccion-enlace-hover": "#003078",
+        "interaccion-enlace-activo": "#373737",
 
         // Paleta primitiva RdBu (SOLO para eje temperatura)
         "rdbu-01": "#053061",

@@ -104,7 +104,7 @@ export function TarjetaColegio({
             // active:!filter-none: el oscurecimiento global de «presionado» usa
             // `filter`, que encerraría el área extendida dentro del botón y el
             // clic sobre la tarjeta no abriría la ficha.
-            className="px-m after:absolute after:inset-0 after:rounded-m after:content-[''] focus-visible:outline-none active:!filter-none"
+            className="after:absolute after:inset-0 after:rounded-m after:content-[''] focus-visible:outline-none active:!filter-none"
           >
             Ver ficha<span className="sr-only"> de {colegio.n}</span>
           </BotonEnlace>
@@ -123,7 +123,8 @@ export function TarjetaColegio({
             className={cn(
               "relative z-10 flex-1 gap-xs px-m",
               enComparacion && "bg-interaccion-tinte hover:bg-rdbu-05",
-              bloqueado && "cursor-not-allowed border-borde-definido text-texto-secundario hover:bg-superficie-base"
+              bloqueado &&
+                "cursor-not-allowed border-borde-definido text-texto-secundario hover:bg-superficie-base hover:text-texto-secundario active:bg-superficie-base active:text-texto-secundario"
             )}
           >
             Comparar<span className="sr-only"> {colegio.n}</span>
