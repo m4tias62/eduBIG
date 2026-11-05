@@ -17,11 +17,10 @@ import { ALTO_ILUSTRACION, Ilustracion, type NombreIlustracion } from "@/compone
  * - Foco: borde de 1 px en rdbu-10, contorno exterior de 2 px en rdbu-11 a
  *   3 px de distancia, sombra y título subrayado.
  *
- * Ilustraciones (Matías, 2026-11-05): pixel art real, cada píxel del dibujo
- * a 2 × 2 px de pantalla (unos 240 px de alto); la tarjeta mantiene su ancho
- * y 16 px entre tarjetas, para que el borde de un estado no toque a la vecina.
- * Entre la ilustración y el texto, 16 px (antes 24), para que la tarjeta casi
- * no crezca en alto.
+ * Ilustraciones (Matías, 2026-11-05): versión en alta resolución, a unos
+ * 240 px de alto (tamaño aprobado por Matías). La tarjeta mantiene su ancho y
+ * 16 px entre tarjetas, para que el borde de un estado no toque a la vecina;
+ * entre la ilustración y el texto, 16 px.
  *
  * Nombre accesible: el título; la descripción va como descripción, para que
  * la lista de enlaces del lector de pantalla no lea el párrafo completo.

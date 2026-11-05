@@ -1,9 +1,12 @@
 "use client";
 
-import { useEffect, useId, useRef } from "react";
+import { useEffect, useId, useMemo, useRef } from "react";
 import { Icon } from "@/components/ui/Icon";
 import { useComunas } from "@/lib/data/cliente";
-import { REGIONES } from "@/lib/data/regiones";
+import { REGION_NOMBRE } from "@/lib/data/regiones";
+import { SelectorFiltro, type OpcionFiltro } from "@/components/ui/SelectorFiltro";
+import { Boton } from "@/components/ui/Boton";
+import { FichaInformativa } from "@/components/ui/FichaInformativa";
 import { useUbicacion, type Ubicacion } from "@/lib/ubicacion";
 import { cn } from "@/lib/utils";
 
@@ -34,7 +37,7 @@ export function SelectorUbicacion({
 }) {
   const { ubicacion, estadoGps, pedirGps, elegirComuna } = useUbicacion();
   const comunas = useComunas();
-  const idSelect = useId();
+  const idEtiqueta = useId();
 
   // Avisar cuando la ubicación queda lista, solo si cambió DESPUÉS de que el
   // usuario actuó (una ubicación previa de la sesión no cuenta).
@@ -69,47 +72,38 @@ export function SelectorUbicacion({
       "No pudimos obtener tu ubicación. Revisa que la ubicación de tu dispositivo esté activada, o elige tu comuna.",
   };
 
+  // v3 (Matías, 2026-11-05): el mismo desplegable de los filtros («Comuna»),
+  // con sus estados, teclado y búsqueda por letras, en vez del <select> nativo.
+  const opciones: OpcionFiltro[] = useMemo(
+    () =>
+      (comunas ?? [])
+        .slice()
+        .sort((a, b) => a.nombre.localeCompare(b.nombre, "es"))
+        .map((c) => ({ valor: String(c.cod), etiqueta: `${c.nombre} (${REGION_NOMBRE[c.region]})` })),
+    [comunas]
+  );
+
   return (
     <div className={cn("flex flex-col gap-m", className)}>
       <div className="flex flex-col gap-xs">
-        <label htmlFor={idSelect} className="text-xs font-bold text-texto-primario">
+        <span id={idEtiqueta} className="font-heading text-md font-medium tracking-[0.015em] text-rdbu-01">
           Elegir comuna
-        </label>
-        <div className="relative">
-          <select
-            id={idSelect}
-            // Siempre vuelve al placeholder: así se puede elegir de nuevo la misma comuna.
-            value=""
-            disabled={!comunas}
-            onChange={(e) => {
-              const cod = Number(e.target.value);
-              if (cod) {
-                marcar();
-                elegirComuna(cod);
-              }
-            }}
-            className="campo min-h-[44px] w-full appearance-none px-m py-s pr-xl text-sm"
-          >
-            <option value="">{comunas ? "Selecciona tu comuna" : "Cargando comunas…"}</option>
-            {comunas &&
-              REGIONES.map((r) => (
-                <optgroup key={r.cod} label={`Región ${r.nombre}`}>
-                  {comunas
-                    .filter((c) => c.region === r.cod)
-                    .map((c) => (
-                      <option key={c.cod} value={c.cod}>
-                        {c.nombre}
-                      </option>
-                    ))}
-                </optgroup>
-              ))}
-          </select>
-          <Icon
-            nombre="arrow_drop_down"
-            size={24}
-            className="pointer-events-none absolute right-s top-1/2 -translate-y-1/2 text-texto-secundario"
-          />
-        </div>
+        </span>
+        <SelectorFiltro
+          idEtiqueta={idEtiqueta}
+          icono="location_city"
+          placeholder={comunas ? "Escoge tu comuna" : "Cargando comunas…"}
+          opciones={opciones}
+          valores={ubicacion?.tipo === "comuna" ? [String(ubicacion.cod)] : []}
+          onCambiar={([v]) => {
+            const cod = Number(v);
+            if (cod) {
+              marcar();
+              elegirComuna(cod);
+            }
+          }}
+          className="lg:[&>button]:w-full"
+        />
       </div>
 
       {entre && (
@@ -122,28 +116,28 @@ export function SelectorUbicacion({
       {separador}
 
       <div className="flex flex-col gap-xs">
-        <button
-          type="button"
+        {/* Acción (no filtro): botón v3, primario o con contorno. */}
+        <Boton
+          variante={variante === "primaria" ? "primario" : "contorno"}
           onClick={() => {
             marcar();
             pedirGps();
           }}
           disabled={estadoGps === "cargando"}
-          className={cn(
-            "min-h-[44px] w-full inline-flex items-center justify-center gap-xs rounded-m px-l py-s text-sm font-bold disabled:opacity-70",
-            variante === "primaria"
-              ? "bg-interaccion-enlace text-texto-sobre-oscuro hover:bg-interaccion-enlace-hover"
-              : "border-2 border-interaccion-enlace bg-superficie-base text-interaccion-enlace hover:bg-interaccion-tinte"
-          )}
+          className="w-full gap-xs disabled:opacity-70"
         >
           <Icon nombre="my_location" size={20} />
           {estadoGps === "cargando" ? "Buscando tu ubicación…" : "Usar mi ubicación"}
-        </button>
-        {mensajeGps[estadoGps] && (
-          <p role="status" className="text-2xs text-texto-primario">
-            {mensajeGps[estadoGps]}
-          </p>
-        )}
+        </Boton>
+        {/* Los avisos del GPS usan la ficha informativa («alerta»). La región de
+            estado existe siempre, para que el lector de pantalla los anuncie. */}
+        <div role="status">
+          {mensajeGps[estadoGps] && (
+            <FichaInformativa uso="alerta">
+              <p>{mensajeGps[estadoGps]}</p>
+            </FichaInformativa>
+          )}
+        </div>
         <p className="text-2xs text-texto-secundario">
           Tu ubicación se usa solo en este navegador para medir distancias. No la guardamos ni viaja en los
           enlaces que compartas.
