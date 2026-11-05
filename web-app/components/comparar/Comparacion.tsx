@@ -163,16 +163,44 @@ function Referencia({ colegio }: { colegio: ColegioComparado }) {
  */
 function EncabezadoColegios({ colegios }: { colegios: ColegioComparado[] }) {
   const centinela = useRef<HTMLDivElement>(null);
-  const [compacto, setCompacto] = useState(false);
+  const [pasoEncabezado, setPasoEncabezado] = useState(false);
+  // v3: debajo de la comparación está el explorador. Al llegar a él, la barra
+  // fija se retira para no tapar los filtros (centinela #fin-comparacion).
+  const [pasoTabla, setPasoTabla] = useState(false);
+  const compacto = pasoEncabezado && !pasoTabla;
   useEffect(() => {
     const el = centinela.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([e]) => setCompacto(!e.isIntersecting && e.boundingClientRect.top < 64),
+      ([e]) => setPasoEncabezado(!e.isIntersecting && e.boundingClientRect.top < 64),
       { rootMargin: "-64px 0px 0px 0px" }
     );
     obs.observe(el);
     return () => obs.disconnect();
+  }, []);
+  // La barra se retira apenas el explorador llega a la mitad superior de la
+  // pantalla, antes de que alcance a tapar su título. Con un listener de scroll
+  // (y no IntersectionObserver): un salto largo de scroll puede pasar de arriba
+  // a abajo del umbral sin que el observador avise.
+  useEffect(() => {
+    const fin = document.getElementById("fin-comparacion");
+    if (!fin) return;
+    let cuadro = 0;
+    const medir = () => {
+      cuadro = 0;
+      setPasoTabla(fin.getBoundingClientRect().top < window.innerHeight / 2);
+    };
+    const pedir = () => {
+      if (!cuadro) cuadro = requestAnimationFrame(medir);
+    };
+    medir();
+    window.addEventListener("scroll", pedir, { passive: true });
+    window.addEventListener("resize", pedir);
+    return () => {
+      window.removeEventListener("scroll", pedir);
+      window.removeEventListener("resize", pedir);
+      if (cuadro) cancelAnimationFrame(cuadro);
+    };
   }, []);
   // WCAG 2.4.11: con la barra fija visible, el foco de teclado no debe quedar tapado.
   useEffect(() => {

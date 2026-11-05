@@ -3,16 +3,35 @@
 import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
 import { cn } from "@/lib/utils";
 import { Icon } from "@/components/ui/Icon";
-import { CHIP_ACTIVO, CHIP_BASE, CHIP_INACTIVO } from "@/components/ui/ChipFiltro";
+import { CHIP_BASE } from "@/components/ui/ChipFiltro";
+
+const PLEGADO =
+  "border-rdbu-02 bg-superficie-base text-texto-primario hover:bg-rdbu-05 active:bg-rdbu-04 active:font-bold";
+const DESPLEGADO =
+  "border-rdbu-11 bg-rdbu-10 text-rdbu-06 hover:bg-rdbu-07 hover:text-rdbu-11 active:bg-rdbu-10 active:text-rdbu-06 active:font-bold";
 import { normalizar } from "@/lib/home/filtros";
 
 /**
- * Filtro desplegable (v3, Figma «Filter chips» 833:9272 y «Drop downs»
- * 834:487). Misma forma que el chip de filtro, con flecha:
- * - Plegado: como el chip inactivo (hover en rdbu-05).
- * - Desplegado: como el chip activo (rdbu-10), con la lista abierta debajo.
- * - Lista: filas de 48 px en Roboto 16 sobre blanco; la opción elegida en
- *   rdbu-10 con texto rdbu-06; hover en rdbu-05.
+ * Filtro desplegable (v3, estados rediseñados por Matías el 2026-11-05:
+ * «Filter chips» 833:9272, «Select» 903:9949 y «Select / Dropdown» 903:9921).
+ *
+ * Botón:
+ * - Plegado: blanco con borde rdbu-02 y flecha rdbu-01; hover en rdbu-05;
+ *   presionado en rdbu-04 con el texto en negrita.
+ * - Desplegado: rdbu-10 con borde rdbu-11 y texto rdbu-06; hover en rdbu-07
+ *   con texto rdbu-11; presionado en rdbu-10 con el texto en negrita.
+ * - La negrita no mueve nada: el ancho del texto en negrita queda reservado.
+ *
+ * Opciones (filas de 48 px, Roboto 16):
+ * - Sin elegir: blanco; hover en rdbu-05; presionada en rdbu-04 y negrita.
+ * - Elegida: rdbu-10 con texto blanco; hover en rdbu-08 con texto rdbu-11;
+ *   presionada en rdbu-10 y negrita.
+ * - Con el teclado, la opción activa toma el color de hover y un marco
+ *   interior de 2 px en rdbu-11 (con el mouse no se dibuja el marco).
+ *
+ * La lista abierta queda por encima de todo lo que tiene debajo (también del
+ * mapa, que se aísla en su propio contexto de apilamiento) y lleva la
+ * elevación 4 del diseño para separarse de lo que cubre.
  *
  * Accesibilidad (patrón «listbox» de la WAI-ARIA APG):
  * - El botón anuncia su etiqueta y el valor elegido (aria-labelledby) y si la
@@ -57,6 +76,10 @@ export function SelectorFiltro({
   const idValor = `${id}-valor`;
   const [abierto, setAbierto] = useState(false);
   const [activo, setActivo] = useState(0);
+  // Si la opción activa se mueve con el teclado (se dibuja su marco) o con el mouse.
+  const [teclado, setTeclado] = useState(false);
+  // Opción presionada con el puntero (el clic sobre la lista no le da foco a la fila).
+  const [presionada, setPresionada] = useState<number | null>(null);
   const raiz = useRef<HTMLDivElement>(null);
   const boton = useRef<HTMLButtonElement>(null);
   const lista = useRef<HTMLUListElement>(null);
@@ -138,6 +161,7 @@ export function SelectorFiltro({
 
   function alTeclearLista(e: KeyboardEvent<HTMLUListElement>) {
     const ultimo = todas.length - 1;
+    setTeclado(true);
     if (e.key === "ArrowDown") {
       e.preventDefault();
       setActivo((a) => Math.min(a + 1, ultimo));
@@ -182,17 +206,29 @@ export function SelectorFiltro({
         aria-expanded={abierto}
         aria-controls={idLista}
         aria-labelledby={idEtiqueta ? `${idEtiqueta} ${idValor}` : idValor}
-        onClick={() => (abierto ? cerrar(false) : abrir())}
+        onClick={(e) => {
+          if (abierto) return cerrar(false);
+          // detail 0 = abierto con Enter o Espacio: se muestra el marco de teclado.
+          setTeclado(e.detail === 0);
+          abrir();
+        }}
         onKeyDown={(e) => {
           if (!abierto && (e.key === "ArrowDown" || e.key === "ArrowUp")) {
             e.preventDefault();
+            setTeclado(true);
             abrir();
           }
         }}
-        className={cn(CHIP_BASE, abierto ? CHIP_ACTIVO : CHIP_INACTIVO, "w-full justify-start lg:w-auto")}
+        className={cn(CHIP_BASE, abierto ? DESPLEGADO : PLEGADO, "w-full justify-start lg:w-auto")}
       >
         <Icon nombre={icono} size={24} />
-        <span className="truncate">{texto}</span>
+        {/* Ancho reservado para la negrita del estado presionado. */}
+        <span className="grid min-w-0">
+          <span aria-hidden className="invisible col-start-1 row-start-1 truncate font-bold">
+            {texto}
+          </span>
+          <span className="col-start-1 row-start-1 truncate">{texto}</span>
+        </span>
         {/* Flecha en rdbu-01 con la lista cerrada, como en el diseño; abierta toma el color del texto. */}
         <Icon nombre={abierto ? "expand_less" : "expand_more"} size={24} className={cn("ml-auto", !abierto && "text-rdbu-01")} />
       </button>
@@ -208,6 +244,7 @@ export function SelectorFiltro({
           aria-multiselectable={multiple || undefined}
           aria-activedescendant={`${id}-op-${activo}`}
           onKeyDown={alTeclearLista}
+          onMouseMove={() => teclado && setTeclado(false)}
           className="absolute left-0 top-full z-30 mt-xxs max-h-[288px] min-w-full w-max max-w-[min(90vw,360px)] overflow-auto bg-superficie-base py-0 shadow-[0_0.94px_1.41px_rgba(0,0,0,0.3),0_2.83px_4.72px_1.89px_rgba(0,0,0,0.15)] outline-none"
         >
           {todas.map((o, i) => {
@@ -220,15 +257,29 @@ export function SelectorFiltro({
                 data-i={i}
                 role="option"
                 aria-selected={elegida}
+                // Sin foco en la fila: el foco se queda en la lista (aria-activedescendant).
                 onMouseDown={(e) => e.preventDefault()}
+                onPointerDown={() => setPresionada(i)}
+                onPointerUp={() => setPresionada(null)}
+                onPointerLeave={() => setPresionada((p) => (p === i ? null : p))}
                 onClick={() => elegir(i)}
                 onMouseEnter={() => setActivo(i)}
                 className={cn(
                   "flex min-h-12 cursor-pointer items-center gap-xs px-s text-sm",
-                  elegida ? "bg-rdbu-10 text-rdbu-06" : "text-texto-primario",
-                  !elegida && i === activo && "bg-rdbu-05",
-                  // Opción activa con el teclado: marco interior rojo, o blanco si ya está elegida.
-                  i === activo && (elegida ? "shadow-[inset_0_0_0_2px_#ffffff]" : "shadow-[inset_0_0_0_2px_#b2181f]")
+                  elegida
+                    ? presionada === i
+                      ? "bg-rdbu-10 font-bold text-texto-sobre-oscuro"
+                      : "bg-rdbu-10 text-texto-sobre-oscuro hover:bg-rdbu-08 hover:text-rdbu-11"
+                    : presionada === i
+                      ? "bg-rdbu-04 font-bold text-texto-primario"
+                      : "bg-superficie-base text-texto-primario hover:bg-rdbu-05",
+                  // Opción activa con el teclado: color de hover y marco interior rdbu-11.
+                  teclado &&
+                    i === activo &&
+                    presionada === null &&
+                    (elegida
+                      ? "bg-rdbu-08 text-rdbu-11 shadow-[inset_0_0_0_2px_#67001f]"
+                      : "bg-rdbu-05 shadow-[inset_0_0_0_2px_#67001f]")
                 )}
               >
                 {multiple && o.valor !== "" && (

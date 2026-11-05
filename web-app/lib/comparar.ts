@@ -16,7 +16,7 @@ export const MAX_COMPARAR = 4;
 const KEY = "edubig_comparar";
 const EVENTO = "edubig-comparar";
 
-type Posiciones = Array<number | null>;
+export type Posiciones = Array<number | null>;
 
 function normalizar(v: unknown): Posiciones {
   if (!Array.isArray(v)) return [];
@@ -77,18 +77,21 @@ export function useComparar() {
     };
   }, []);
 
-  const alternar = useCallback((rbd: number, maximo: number = MAX_COMPARAR) => {
+  /** Agrega o quita un colegio. Devuelve la selección resultante (para armar la URL al tiro). */
+  const alternar = useCallback((rbd: number, maximo: number = MAX_COMPARAR): Posiciones => {
     const actual = leer();
     if (actual.includes(rbd)) {
-      escribir(actual.map((x) => (x === rbd ? null : x)));
-      return;
+      const sin = actual.map((x) => (x === rbd ? null : x));
+      escribir(sin);
+      return sin;
     }
-    if (ocupados(actual).length >= maximo) return;
+    if (ocupados(actual).length >= maximo) return actual;
     const libre = actual.indexOf(null);
     const nuevo = [...actual];
     if (libre >= 0) nuevo[libre] = rbd;
     else nuevo.push(rbd);
     escribir(nuevo);
+    return nuevo;
   }, []);
 
   const quitar = useCallback((rbd: number) => escribir(leer().map((x) => (x === rbd ? null : x))), []);

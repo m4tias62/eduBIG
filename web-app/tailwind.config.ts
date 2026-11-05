@@ -14,6 +14,10 @@ import type { Config } from "tailwindcss";
  */
 const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./lib/**/*.{ts,tsx}"],
+  // v3 (2026-11-05): los estados hover solo se aplican con mouse o trackpad.
+  // En pantallas táctiles el hover quedaba «pegado» después de tocar (por
+  // ejemplo, un desplegable abierto se veía en durazno y no en rojo).
+  future: { hoverOnlyWhenSupported: true },
   theme: {
     extend: {
       colors: {

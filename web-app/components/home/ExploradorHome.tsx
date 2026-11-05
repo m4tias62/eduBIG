@@ -6,7 +6,14 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useDatosNacionales } from "@/lib/data/cliente";
 import { REGIONES, REGION_NOMBRE } from "@/lib/data/regiones";
 import { useUbicacion } from "@/lib/ubicacion";
-import { explorar, parseFiltros, urlInicio, type FiltrosExploracion, type NivelFiltro } from "@/lib/home/filtros";
+import {
+  explorar,
+  parseFiltros,
+  serializeFiltros,
+  urlInicio,
+  type FiltrosExploracion,
+  type NivelFiltro,
+} from "@/lib/home/filtros";
 import type { ReferenciaDistancia, TipoColegio } from "@/lib/data/formatters";
 import { ChipFiltro } from "@/components/ui/ChipFiltro";
 import { SelectorFiltro, type OpcionFiltro } from "@/components/ui/SelectorFiltro";
@@ -14,7 +21,7 @@ import { Buscador } from "@/components/ui/Buscador";
 import { ToggleVista } from "@/components/ui/ToggleVista";
 import { TarjetaColegio } from "@/components/home/TarjetaColegio";
 import { EnlaceTexto } from "@/components/ui/EnlaceTexto";
-import { MAX_COMPARAR, MAX_COMPARAR_MOVIL, useComparar } from "@/lib/comparar";
+import { MAX_COMPARAR, MAX_COMPARAR_MOVIL, urlComparar, useComparar, type Posiciones } from "@/lib/comparar";
 import { useEscritorio } from "@/lib/useEscritorio";
 
 const MapaLeaflet = dynamic(() => import("@/components/explorar/MapaLeaflet").then((m) => m.MapaLeaflet), {
@@ -64,10 +71,23 @@ const MENSAJE_GPS: Record<string, string> = {
  * - Sin «Ordenar por» ni «Sumar comunas cercanas»: el ingreso a la U se ve
  *   en la ficha y en Comparar.
  *
- * Los filtros viajan en la URL de «/» (compartible); la ubicación no: vive
- * solo en el navegador (D22).
+ * Los filtros viajan en la URL (compartible); la ubicación no: vive solo en
+ * el navegador (D22).
+ *
+ * Se usa en dos lugares con el mismo aspecto (Matías, 2026-11-05):
+ * - En la Home («/»).
+ * - En Comparar («/comparar»), para sumar colegios sin volver a la Home. Ahí
+ *   la URL guarda también la comparación (rbd y pos) y cada «Comparar» de una
+ *   tarjeta actualiza la tabla de arriba en el acto.
  */
-export function ExploradorHome() {
+export function ExploradorHome({
+  rutaBase = "/",
+  titulo = "Filtra tu búsqueda",
+}: {
+  rutaBase?: "/" | "/comparar";
+  titulo?: string;
+}) {
+  const enComparar = rutaBase === "/comparar";
   const router = useRouter();
   const sp = useSearchParams();
   const filtros = useMemo(() => parseFiltros(new URLSearchParams(sp.toString())), [sp]);
@@ -116,8 +136,31 @@ export function ExploradorHome() {
   const clave = urlInicio({ ...filtros, vista: "lista" });
   useEffect(() => setPagina(1), [clave]);
 
+  // URL de esta página con los filtros dados. En Comparar se conservan rbd y
+  // pos (o se toman de la selección nueva, si cambió).
+  // Se arma como texto (no con URLSearchParams) para que las comas queden
+  // legibles en la URL compartible: rbd=1,2 y no rbd=1%2C2.
+  function urlCon(next: FiltrosExploracion, seleccion?: Posiciones): string {
+    if (!enComparar) return urlInicio(next);
+    const origen = seleccion
+      ? new URL(urlComparar(seleccion), "https://edubig.local").searchParams
+      : new URLSearchParams(sp.toString());
+    const partes = (["rbd", "pos"] as const).flatMap((k) => {
+      const v = origen.get(k);
+      return v ? [`${k}=${v}`] : [];
+    });
+    const filtrosQs = serializeFiltros(next);
+    if (filtrosQs) partes.push(filtrosQs);
+    return partes.length ? `${rutaBase}?${partes.join("&")}` : rutaBase;
+  }
+
   function irA(next: FiltrosExploracion) {
-    router.replace(urlInicio(next), { scroll: false });
+    router.replace(urlCon(next), { scroll: false });
+  }
+
+  function alternarComparacion(rbd: number) {
+    const seleccion = comparar.alternar(rbd, maximoComparar);
+    if (enComparar) router.replace(urlCon(filtros, seleccion), { scroll: false });
   }
 
   const opcionesComuna: OpcionFiltro[] = useMemo(() => {
@@ -149,7 +192,7 @@ export function ExploradorHome() {
       <div className="contenedor">
         <div className="flex flex-col gap-l bg-rdbu-06 px-m py-xl md:px-l lg:px-xxl lg:py-[80px]">
           <h2 id="explorar-titulo" className="text-xl font-bold tracking-[0.015em] text-rdbu-01">
-            Filtra tu búsqueda
+            {titulo}
           </h2>
 
           {/* Panel de filtros (Figma 837:3847): 24 px a los lados, 32 arriba y
@@ -295,8 +338,9 @@ export function ExploradorHome() {
                   </p>
                   {/* Igual que en la ficha: con dos o más colegios elegidos, el atajo a la comparación. */}
                   {comparar.rbds.length >= 2 && (
-                    <EnlaceTexto href={comparar.url}>
-                      Ver comparación ({comparar.rbds.length} de {maximoComparar})
+                    <EnlaceTexto href={enComparar ? "#comparacion" : comparar.url}>
+                      {enComparar ? "Subir a la comparación" : "Ver comparación"} ({comparar.rbds.length} de{" "}
+                      {maximoComparar})
                     </EnlaceTexto>
                   )}
                 </div>
@@ -328,7 +372,7 @@ export function ExploradorHome() {
                           enComparacion={comparar.rbds.includes(c.rbd)}
                           comparacionLlena={comparar.rbds.length >= maximoComparar}
                           maximoComparar={maximoComparar}
-                          onComparar={() => comparar.alternar(c.rbd, maximoComparar)}
+                          onComparar={() => alternarComparacion(c.rbd)}
                         />
                       </li>
                     ))}

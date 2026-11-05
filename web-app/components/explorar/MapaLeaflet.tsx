@@ -8,6 +8,7 @@ import "leaflet/dist/leaflet.css";
 import type { ItemExploracion } from "@/lib/home/filtros";
 import { atributosDestacados } from "@/lib/home/atributos";
 import { Icon } from "@/components/ui/Icon";
+import { cn } from "@/lib/utils";
 
 /**
  * Vista Mapa de la exploración — Leaflet + OpenStreetMap. Muestra la misma
@@ -109,7 +110,9 @@ export function MapaLeaflet({
   const centro: [number, number] = puntos[0] ?? [-33.45, -70.66];
 
   return (
-    <div className={className ?? "w-full h-[calc(100vh-300px)] min-h-[360px] relative"}>
+    // `isolate`: las capas de Leaflet (z-index 400 a 1000) quedan dentro del
+    // mapa, así los desplegables y la barra fija pasan por encima de él.
+    <div className={cn("relative isolate", className ?? "w-full h-[calc(100vh-300px)] min-h-[360px]")}>
       <MapContainer center={centro} zoom={13} scrollWheelZoom className="w-full h-full">
         <Encuadrar puntos={puntos} />
         <FocoGlobo />
