@@ -42,9 +42,16 @@ export function PreguntaLayout({
     // esquinas de 4 px, sombra y fondo gris claro (PANEL_V3).
     // Retícula: la tarjeta ocupa las columnas 1–6, alineada a la izquierda como
     // el resto del sitio. En móvil y tablet la columna parte en el margen.
+    // Escritorio sin scroll (pedido de Matías, 2026-11-05: «que no se tenga que
+    // scrolear para ver el contenido completo»): relleno y separaciones de
+    // 24 px en vez de 36, opciones de 48 px separadas por 8 px y «Pregunta
+    // X de 5» en la fila de «Volver». La pantalla más larga (pregunta 5 con
+    // enseñanza media: cinco opciones y una ficha) baja de 971 a menos de
+    // 800 px de alto en una ventana de 1512 px de ancho. Móvil conserva las
+    // medidas de Figma (36 px).
     <div className="bg-superficie-base lg:pt-xl lg:pb-xxl">
     <div className={RETICULA_LG}>
-    <div className={cn("w-full max-w-md flex flex-col gap-[36px] p-[36px] bg-superficie-base lg:col-span-6 lg:max-w-none", PANEL_V3_LG)}>
+    <div className={cn("w-full max-w-md flex flex-col gap-[36px] p-[36px] bg-superficie-base lg:col-span-6 lg:max-w-none lg:gap-l lg:p-l", PANEL_V3_LG)}>
       <QuizHeader paso={paso} esPaso2={esPaso2} volverHref={volverHref} />
       <div className="flex flex-col gap-m">
         {contexto && <ChipContexto>{contexto}</ChipContexto>}
@@ -54,7 +61,7 @@ export function PreguntaLayout({
         )}
       </div>
       {nota && <NotaLegitimacion>{nota}</NotaLegitimacion>}
-      <div className="flex flex-col gap-m">{children}</div>
+      <div className="flex flex-col gap-m lg:gap-xs">{children}</div>
     </div>
     </div>
     </div>

@@ -28,7 +28,9 @@ export function OpcionPregunta({
         // v3 (2026-11-05): mismos estados que las opciones de los filtros:
         // borde rdbu-02, hover en rdbu-05, presionada en rdbu-04 con negrita y
         // foco con contorno rdbu-10. Sin el oscurecimiento global al presionar.
-        "flex min-h-12 w-full flex-col gap-xxs rounded-s border-2 border-rdbu-02 px-l py-m text-left transition-colors",
+        // Escritorio: 48 px de alto (como las filas de la lista de un
+        // desplegable), para que la pregunta quepa sin scroll.
+        "flex min-h-12 w-full flex-col justify-center gap-xxs rounded-s border-2 border-rdbu-02 px-l py-m text-left transition-colors lg:py-xs",
         "hover:bg-rdbu-05 active:bg-rdbu-04 active:font-bold active:!filter-none",
         "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rdbu-10",
         secundaria ? "border-dashed bg-transparent text-texto-secundario" : "bg-superficie-base text-texto-primario"

@@ -26,14 +26,18 @@ export function QuizHeader({
       {/* v3: enlace de texto con sus estados (hover, presionado y foco en
           rdbu-10), como la navegación; el botón azul lleno competía con las
           respuestas, que son la acción de la pantalla. */}
-      <EnlaceTexto href={volverHref} className="-ml-xxs gap-xxs self-start">
-        <Icon nombre="arrow_back" size={20} />
-        Volver
-      </EnlaceTexto>
-      <p className="text-2xs text-texto-secundario">
-        Pregunta {paso} de {total}
-        {esPaso2 && <span> · Paso 2</span>}
-      </p>
+      {/* Escritorio: «Pregunta X de 5» va en la misma fila que «Volver», a la
+          derecha, para que la pregunta quepa sin scroll (2026-11-05). */}
+      <div className="flex flex-col gap-m lg:flex-row lg:items-center lg:justify-between">
+        <EnlaceTexto href={volverHref} className="-ml-xxs gap-xxs self-start lg:self-auto">
+          <Icon nombre="arrow_back" size={20} />
+          Volver
+        </EnlaceTexto>
+        <p className="text-2xs text-texto-secundario">
+          Pregunta {paso} de {total}
+          {esPaso2 && <span> · Paso 2</span>}
+        </p>
+      </div>
       <BarraProgreso paso={paso} total={total} />
     </header>
   );
