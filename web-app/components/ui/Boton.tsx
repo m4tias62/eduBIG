@@ -26,17 +26,16 @@ import { Icon } from "@/components/ui/Icon";
  *   · La flecha va en `BotonEnlace` (lleva a otra página); en `Boton` (una
  *     acción en la misma página) solo si se pide con `flecha`.
  *   Texto blanco sobre los tres fondos: 5,2:1, 12,4:1 y 11,9:1.
- * - `secundario`: acción alternativa sobre fondo oscuro (hero). Desde el
- *   2026-11-05, como en el diseño del hero: solo texto blanco en negrita, sin
- *   borde. Hover: subrayado. Presionado: subrayado y un velo blanco al 15 %
- *   (sin relleno en hover, para no dibujar una caja redondeada junto al
- *   botón principal, que es recto).
- * - `contorno`: acción alternativa sobre fondo claro (tarjeta de colegio).
+ * - `contorno`: el botón secundario del sitio, el único (tarjeta de colegio,
+ *   resultado del Test, «Usar mi ubicación» y, desde el 2026-11-05, el hero).
  *   Borde y texto azules sobre blanco; hover y presionado en celestes, con el
  *   texto en el azul de hover (con el azul nuevo, sobre rdbu-05 el de reposo
- *   bajaría de 4,5:1).
+ *   bajaría de 4,5:1). Sobre un fondo oscuro, con `sobreOscuro`, el foco va
+ *   en blanco.
+ *   La variante `secundario` (texto blanco sobre fondo oscuro, solo en el
+ *   hero) se retiró el 2026-11-05: Matías pidió un solo botón secundario.
  */
-type Variante = "primario" | "secundario" | "contorno";
+type Variante = "primario" | "contorno";
 
 const BASE = "inline-flex items-center justify-center gap-xs transition-colors";
 
@@ -45,8 +44,6 @@ const VARIANTES: Record<Variante, string> = {
     "min-h-objetivo-tactil border border-rdbu-01 bg-interaccion-enlace p-[9px] text-sm font-normal tracking-[0.015em] text-texto-sobre-oscuro " +
     "hover:bg-interaccion-enlace-hover active:border-[#111111] active:bg-interaccion-enlace-activo active:!filter-none " +
     "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-rdbu-01",
-  secundario:
-    "min-h-objetivo-tactil rounded-m px-l text-xs font-bold text-texto-sobre-oscuro underline-offset-4 hover:underline active:bg-white/15 active:underline",
   contorno:
     "min-h-objetivo-tactil rounded-m border border-interaccion-enlace bg-superficie-base px-l text-xs font-bold text-interaccion-enlace " +
     "hover:bg-interaccion-tinte hover:text-interaccion-enlace-hover active:bg-rdbu-05 active:text-interaccion-enlace-hover",

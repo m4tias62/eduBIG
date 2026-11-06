@@ -28,7 +28,9 @@ import { VideoFondo } from "@/components/home/VideoFondo";
  * - El Test usa el botón principal nuevo («Outline Square + arrow»). En el
  *   diseño mide 240 × 44: ocupa lo que deja el enlace de Comparar en los
  *   459 px del bloque.
- * - «Comparar colegios» pasa a enlace de texto blanco en negrita, sin borde.
+ * - «Comparar colegios» usa el botón secundario del sitio (el mismo
+ *   «Comparar» de la tarjeta de colegio). En Figma era un enlace de texto
+ *   blanco; Matías pidió unificarlo (2026-11-05).
  *
  * `colorBorde`: clase de color de texto con el fondo de la sección que sigue,
  * para que el borde pixelado se funda con ella.
@@ -56,11 +58,14 @@ export function Hero({ colorBorde = "text-superficie-base" }: { colorBorde?: str
             los estudiantes, denuncias y costos— y los traduce a un lenguaje claro. Cada colegio se compara con
             otros parecidos, nunca en un ranking.
           </p>
-          <div className="flex flex-col gap-s sm:flex-row lg:justify-between lg:gap-0">
+          {/* Con borde, el secundario ya no puede ir pegado al principal: 16 px
+              entre ambos en escritorio; el secundario ocupa el resto de los
+              459 px del bloque. */}
+          <div className="flex flex-col gap-s sm:flex-row lg:gap-m">
             <BotonEnlace href="/test" sobreOscuro className="sm:w-[240px]">
               Hacer el Test de Calce
             </BotonEnlace>
-            <BotonEnlace href="/comparar" variante="secundario" sobreOscuro className="sm:w-[219px]">
+            <BotonEnlace href="/comparar" variante="contorno" sobreOscuro className="sm:w-[219px] lg:w-auto lg:flex-1">
               Comparar colegios
             </BotonEnlace>
           </div>
