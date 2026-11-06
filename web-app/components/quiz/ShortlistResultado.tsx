@@ -218,7 +218,7 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
             <BotonEnlace
               href={`/comparar?rbd=${rbdsComparar.join(",")}`}
               variante="contorno"
-              className="gap-xs lg:self-start lg:px-xxl"
+              className="lg:self-start lg:px-xxl"
             >
               <Icon nombre="compare_arrows" size={20} />
               Comparar {shortlist.length === 3 ? "estos 3" : "estos 2"}

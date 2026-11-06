@@ -121,8 +121,10 @@ export function TarjetaColegio({
               onComparar();
             }}
             className={cn(
-              "relative z-10 flex-1 gap-xs px-m",
-              enComparacion && "bg-interaccion-tinte hover:bg-rdbu-05",
+              "relative z-10 flex-1",
+              // Elegido: texto #003078 (10,8:1 sobre el tinte; el azul de
+              // reposo daría 4,51:1, justo en el límite).
+              enComparacion && "bg-interaccion-tinte text-interaccion-enlace-hover hover:bg-rdbu-05",
               bloqueado &&
                 "cursor-not-allowed border-borde-definido text-texto-secundario hover:bg-superficie-base hover:text-texto-secundario active:bg-superficie-base active:text-texto-secundario"
             )}

@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
+import { Boton } from "@/components/ui/Boton";
+import { cn } from "@/lib/utils";
 import { MAX_COMPARAR, MAX_COMPARAR_MOVIL, useComparar } from "@/lib/comparar";
 import { useEscritorio } from "@/lib/useEscritorio";
 
@@ -14,17 +16,21 @@ export function BotonComparar({ rbd, nombre }: { rbd: number; nombre: string }) 
 
   return (
     <div className="flex flex-col gap-xs">
-      <button
-        type="button"
+      {/* v3: el botón secundario del sitio (antes, uno escrito a mano). */}
+      <Boton
+        variante="contorno"
         onClick={() => alternar(rbd, maximo)}
         disabled={lleno}
         aria-pressed={esta}
-        className="min-h-[44px] inline-flex items-center justify-center gap-xs rounded-m border-2 border-interaccion-enlace bg-superficie-base px-l py-s text-xs font-bold text-interaccion-enlace hover:bg-interaccion-tinte disabled:border-borde-definido disabled:text-texto-secundario"
+        className={cn(
+          esta && "bg-interaccion-tinte text-interaccion-enlace-hover hover:bg-rdbu-05",
+          "disabled:cursor-not-allowed disabled:border-borde-definido disabled:bg-superficie-base disabled:text-texto-secundario"
+        )}
       >
-        <Icon nombre={esta ? "check" : "add"} size={18} />
+        <Icon nombre={esta ? "check" : "add"} size={24} />
         {esta ? "En tu comparación" : "Agregar a comparar"}
         <span className="sr-only"> {nombre}</span>
-      </button>
+      </Boton>
       {lleno && (
         <p className="text-2xs text-texto-secundario">
           Ya tienes {maximo} colegios para comparar. Quita uno para agregar este.

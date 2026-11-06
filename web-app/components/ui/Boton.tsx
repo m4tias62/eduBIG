@@ -26,12 +26,16 @@ import { Icon } from "@/components/ui/Icon";
  *   · La flecha va en `BotonEnlace` (lleva a otra página); en `Boton` (una
  *     acción en la misma página) solo si se pide con `flecha`.
  *   Texto blanco sobre los tres fondos: 5,2:1, 12,4:1 y 11,9:1.
- * - `contorno`: el botón secundario del sitio, el único (tarjeta de colegio,
- *   resultado del Test, «Usar mi ubicación» y, desde el 2026-11-05, el hero).
- *   Borde y texto azules sobre blanco; hover y presionado en celestes, con el
- *   texto en el azul de hover (con el azul nuevo, sobre rdbu-05 el de reposo
- *   bajaría de 4,5:1). Sobre un fondo oscuro, con `sobreOscuro`, el foco va
- *   en blanco.
+ * - `contorno`: el botón secundario del sitio, el único (hero, tarjeta de
+ *   colegio, ficha, resultado del Test, «Usar mi ubicación» y el modal de
+ *   ubicación). Desde el 2026-11-05 (decisión de Matías) tiene la forma y la
+ *   tipografía del principal: esquinas rectas, borde de 1 px en rdbu-01,
+ *   9 px de relleno, 44 px de alto, Roboto 16 regular.
+ *   · Reposo: fondo blanco y texto interaccion/enlace (#1D70B8): 5,2:1.
+ *   · Hover: fondo interaccion-tinte y texto enlace-hover (#003078): 10,8:1.
+ *   · Presionado: fondo rdbu-05 y texto #003078: 9,5:1. (El azul de reposo
+ *     sobre rdbu-05 daría 3,98:1, bajo el mínimo; por eso cambia el texto.)
+ *   · Foco: el mismo contorno del principal.
  *   La variante `secundario` (texto blanco sobre fondo oscuro, solo en el
  *   hero) se retiró el 2026-11-05: Matías pidió un solo botón secundario.
  */
@@ -39,14 +43,18 @@ type Variante = "primario" | "contorno";
 
 const BASE = "inline-flex items-center justify-center gap-xs transition-colors";
 
+/** Forma, tipografía y foco comunes al principal y al secundario. */
+const FORMA =
+  "min-h-objetivo-tactil border border-rdbu-01 p-[9px] text-sm font-normal tracking-[0.015em] active:!filter-none " +
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-rdbu-01";
+
 const VARIANTES: Record<Variante, string> = {
   primario:
-    "min-h-objetivo-tactil border border-rdbu-01 bg-interaccion-enlace p-[9px] text-sm font-normal tracking-[0.015em] text-texto-sobre-oscuro " +
-    "hover:bg-interaccion-enlace-hover active:border-[#111111] active:bg-interaccion-enlace-activo active:!filter-none " +
-    "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-rdbu-01",
+    FORMA +
+    " bg-interaccion-enlace text-texto-sobre-oscuro hover:bg-interaccion-enlace-hover active:border-[#111111] active:bg-interaccion-enlace-activo",
   contorno:
-    "min-h-objetivo-tactil rounded-m border border-interaccion-enlace bg-superficie-base px-l text-xs font-bold text-interaccion-enlace " +
-    "hover:bg-interaccion-tinte hover:text-interaccion-enlace-hover active:bg-rdbu-05 active:text-interaccion-enlace-hover",
+    FORMA +
+    " bg-superficie-base text-interaccion-enlace hover:bg-interaccion-tinte hover:text-interaccion-enlace-hover active:bg-rdbu-05 active:text-interaccion-enlace-hover",
 };
 
 function clases(variante: Variante, sobreOscuro: boolean, className?: string) {
