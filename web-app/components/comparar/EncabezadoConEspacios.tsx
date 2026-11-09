@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import clsx from "clsx";
 import { COLOR_COLEGIO, type Posicion } from "@/lib/viz";
 import { MarcadorColegio } from "@/components/viz/basicos";
 import { BotonQuitar } from "./BotonQuitar";
+import { EnlaceTexto } from "@/components/ui/EnlaceTexto";
 import { BuscadorAgregar, EspaciosLibres, type Actual } from "./AgregarColegio";
 
 /**
@@ -40,13 +40,13 @@ export function EncabezadoConEspacios({
                 <div className="flex min-h-[48px] items-center gap-xs">
                   <MarcadorColegio posicion={p} libre={!c} />
                   {c ? (
-                    <Link
-                      href={`/colegio/${c.rbd}`}
-                      className="text-sm font-medium text-interaccion-enlace underline hover:text-interaccion-enlace-hover"
-                    >
-                      <span className="sr-only">Colegio {p}: </span>
-                      {c.nombre}
-                    </Link>
+                    // Enlace de texto del sitio (anotación de Matías, 2026-11-09).
+                    <EnlaceTexto href={`/colegio/${c.rbd}`} className="text-left">
+                      <span>
+                        <span className="sr-only">Colegio {p}: </span>
+                        {c.nombre}
+                      </span>
+                    </EnlaceTexto>
                   ) : (
                     <span className="text-sm text-texto-secundario">Espacio libre</span>
                   )}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useMemo, useRef, useState } from "react";
-import Link from "next/link";
+import { EnlaceTexto } from "@/components/ui/EnlaceTexto";
 import { useRouter } from "next/navigation";
 import clsx from "clsx";
 import { useDatosNacionales } from "@/lib/data/cliente";
@@ -232,13 +232,14 @@ export function BuscadorAgregar({
           ))}
         </ul>
       )}
-      <Link
-        href="/explorar"
-        className="inline-flex min-h-objetivo-tactil items-center gap-xxs self-start text-xs font-medium text-interaccion-enlace underline hover:text-interaccion-enlace-hover"
-      >
-        O búscalo en Explorar, con mapa y filtros
-        <Icon nombre="arrow_forward" size={16} />
-      </Link>
+      {/* 2026-11-09 (Matías: «cuando uno agrega un colegio desde aquí debería
+          llevarme a Comparar colegios»): baja al explorador de esta misma
+          página, en vez de la página /explorar antigua. Enlace de texto del
+          sitio. */}
+      <EnlaceTexto href="#explorar" className="-ml-xxs gap-xxs self-start">
+        O búscalo más abajo, con mapa y filtros
+        <Icon nombre="arrow_downward" size={20} />
+      </EnlaceTexto>
     </div>
   );
 }

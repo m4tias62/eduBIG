@@ -13,7 +13,11 @@ import { COLOR_COLEGIO, estadoSig, type Posicion, type Significancia } from "@/l
  * Se usan en la comparación y en la ficha.
  */
 
-/** Círculo de color con el número de posición 1–4. El número es el apoyo no cromático. */
+/**
+ * Cuadrado de color con el número de posición 1–4. El número es el apoyo no
+ * cromático. Cuadrado desde el 2026-11-09 (Matías: «dejemos estos elementos
+ * cuadrados, van ad hoc con la visualidad del sitio»); antes, círculo.
+ */
 export function MarcadorColegio({
   posicion,
   libre = false,
@@ -27,7 +31,7 @@ export function MarcadorColegio({
     <span
       aria-hidden
       className={clsx(
-        "inline-flex size-marcador flex-none items-center justify-center rounded-full text-xs font-bold leading-none",
+        "inline-flex size-marcador flex-none items-center justify-center text-xs font-bold leading-none",
         libre
           ? "border-2 border-dashed border-borde-definido text-texto-secundario"
           : [COLOR_COLEGIO[posicion].bg, "text-viz-colegio-numero"],

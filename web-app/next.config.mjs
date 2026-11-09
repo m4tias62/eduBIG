@@ -7,7 +7,6 @@ const nextConfig = {
     outputFileTracingIncludes: {
       "/colegio/[rbd]": ["./public/data/nacional/indice.json", "./public/data/nacional/fichas/**"],
       "/comparar": ["./public/data/nacional/indice.json", "./public/data/nacional/fichas/**"],
-      "/explorar": ["./public/data/nacional/comunas.json"],
     },
   },
 };

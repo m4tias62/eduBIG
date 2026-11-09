@@ -19,7 +19,8 @@ import { Icon } from "@/components/ui/Icon";
  *
  * Forma: ícono y línea vertical de 1 px en rdbu-01 a la izquierda (25 px
  * entre ambos) y 32 px hasta el texto; título opcional en Work Sans Bold 32
- * y párrafos en Roboto 16/24, separados por una línea en blanco (24 px).
+ * cuando es el título de la página (h1) y 18 cuando es una sección (h2, h3);
+ * párrafos en Roboto 16/24, separados por una línea en blanco (24 px).
  * Contraste del texto (#1F1F1F) sobre los tres fondos: 11,5:1 o más; de los
  * enlaces (interaccion/enlace-hover, #003078), 8,6:1 o más.
  */
@@ -60,7 +61,15 @@ export function FichaInformativa({
       </div>
       <div className="flex min-w-0 max-w-[851px] flex-col gap-[20px] text-sm leading-[24px] text-texto-primario">
         {titulo && (
-          <Titulo id={idTitulo} className="font-heading text-lg font-bold leading-[1.2] tracking-[0.015em] sm:text-xl">
+          // Título de página (h1) en 32 px, como en Figma; dentro de una
+          // página (h2, h3), 18 px, para no competir con el título de la página.
+          <Titulo
+            id={idTitulo}
+            className={cn(
+              "font-heading font-bold leading-[1.2] tracking-[0.015em]",
+              nivelTitulo === "h1" ? "text-lg sm:text-xl" : "text-md"
+            )}
+          >
             {titulo}
           </Titulo>
         )}

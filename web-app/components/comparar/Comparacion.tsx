@@ -1,7 +1,6 @@
 "use client";
 
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
-import Link from "next/link";
 import clsx from "clsx";
 import type { Curso } from "@/lib/types";
 import {
@@ -18,6 +17,8 @@ import { COLOR_COLEGIO } from "@/lib/viz";
 import { Icon } from "@/components/ui/Icon";
 import { MarcadorColegio } from "@/components/viz/basicos";
 import { Globo } from "@/components/ui/Globo";
+import { EnlaceTexto } from "@/components/ui/EnlaceTexto";
+import { FichaInformativa } from "@/components/ui/FichaInformativa";
 import { Interruptor } from "@/components/ui/Interruptor";
 import { CHIP_BASE, ChipFiltro } from "@/components/ui/ChipFiltro";
 import { DESPLEGADO, PLEGADO } from "@/components/ui/SelectorFiltro";
@@ -223,15 +224,14 @@ function EncabezadoColegios({ colegios }: { colegios: ColegioComparado[] }) {
             <li key={c.rbd} className={clsx("flex flex-col gap-xxs border-t-colegio pb-xs pt-s", COLOR_COLEGIO[c.posicion].borde)}>
               <div className="flex min-h-[48px] items-center gap-xs">
                 <MarcadorColegio posicion={c.posicion} />
-                <Link
-                  href={`/colegio/${c.rbd}`}
-                  className="inline-flex min-h-objetivo-tactil min-w-0 items-center text-sm font-medium text-interaccion-enlace underline hover:text-interaccion-enlace-hover"
-                >
+                {/* Enlace de texto del sitio (anotación de Matías, 2026-11-09:
+                    «ya tenemos nuestro componente para los text links»). */}
+                <EnlaceTexto href={`/colegio/${c.rbd}`} className="min-w-0 text-left">
                   <span>
                     <span className="sr-only">Colegio {c.posicion}: </span>
                     {c.nombre}
                   </span>
-                </Link>
+                </EnlaceTexto>
               </div>
               <div className="min-h-[66px]">
                 <Referencia colegio={c} />
@@ -250,13 +250,9 @@ function EncabezadoColegios({ colegios }: { colegios: ColegioComparado[] }) {
               {colegios.map((c) => (
                 <li key={c.rbd} className={clsx("flex min-w-0 items-center gap-xs border-t-colegio py-xxs", COLOR_COLEGIO[c.posicion].borde)}>
                   <MarcadorColegio posicion={c.posicion} />
-                  <Link
-                    href={`/colegio/${c.rbd}`}
-                    tabIndex={-1}
-                    className="min-w-0 flex-1 truncate text-sm font-medium text-interaccion-enlace underline hover:text-interaccion-enlace-hover"
-                  >
-                    {c.nombre}
-                  </Link>
+                  <EnlaceTexto href={`/colegio/${c.rbd}`} tabIndex={-1} className="min-w-0 flex-1">
+                    <span className="truncate">{c.nombre}</span>
+                  </EnlaceTexto>
                   <BotonQuitar colegios={colegios} colegio={c} soloIcono />
                 </li>
               ))}
@@ -292,13 +288,12 @@ function BarraColegios({ colegios, todos }: { colegios: ColegioComparado[]; todo
           <li key={c.rbd} className="flex min-w-0 flex-col">
             <div className="flex items-start gap-xs">
               <MarcadorColegio posicion={c.posicion} className="mt-xxs" />
-              <Link
-                href={`/colegio/${c.rbd}`}
-                className="line-clamp-2 min-w-0 text-xs font-medium text-interaccion-enlace underline hover:text-interaccion-enlace-hover"
-              >
-                <span className="sr-only">Colegio {c.posicion}: </span>
-                {c.nombre}
-              </Link>
+              <EnlaceTexto href={`/colegio/${c.rbd}`} className="min-w-0 text-left">
+                <span className="line-clamp-2">
+                  <span className="sr-only">Colegio {c.posicion}: </span>
+                  {c.nombre}
+                </span>
+              </EnlaceTexto>
             </div>
             <BotonQuitar colegios={todos} colegio={c} />
           </li>
@@ -314,21 +309,20 @@ function BarraColegios({ colegios, todos }: { colegios: ColegioComparado[]; todo
 function Resumen({ colegios }: { colegios: ColegioComparado[] }) {
   const hechos = useMemo(() => resumenDiferencias(colegios), [colegios]);
   return (
-    <section aria-labelledby={`resumen-${colegios.length}`} className="mt-l rounded-m bg-superficie-elevada p-l">
-      <h2 id={`resumen-${colegios.length}`} className="text-md font-bold">
-        Lo que más cambia entre estos colegios
-      </h2>
-      {hechos.length ? (
-        <ul className="mt-s flex list-disc flex-col gap-xs pl-l text-sm">
-          {hechos.map((h) => (
-            <li key={h}>{h}</li>
-          ))}
-        </ul>
-      ) : (
-        <p className="mt-s text-sm">
-          Coinciden en grupo de comparación, costo y niveles: las diferencias están en los datos de cada grupo.
-        </p>
-      )}
+    // Ficha informativa (anotación de Matías: «"Lo que más cambia entre estos
+    // colegios" debería ser una ficha informativa»).
+    <section aria-labelledby={`resumen-${colegios.length}`} className="mt-l">
+      <FichaInformativa titulo="Lo que más cambia entre estos colegios" idTitulo={`resumen-${colegios.length}`} nivelTitulo="h2">
+        {hechos.length ? (
+          <ul className="flex list-disc flex-col gap-xs pl-l">
+            {hechos.map((h) => (
+              <li key={h}>{h}</li>
+            ))}
+          </ul>
+        ) : (
+          <p>Coinciden en grupo de comparación, costo y niveles: las diferencias están en los datos de cada grupo.</p>
+        )}
+      </FichaInformativa>
     </section>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { FichaInformativa } from "@/components/ui/FichaInformativa";
 import type { Curso } from "@/lib/types";
 import {
   MATERIA_GLOSA,
@@ -170,7 +171,13 @@ export function CeldaSeguridad({ colegio }: { colegio: ColegioComparado }) {
         )}
         {s.matricula > 0 && ` · matrícula ${s.matricula.toLocaleString("es-CL")}`}
       </p>
-      {s.pocosCasos && <EstadoDato tipo="pocos_casos" />}
+      {/* Ficha de alerta (anotación de Matías: «esas alertas "pocos casos"
+          deberían ser fichas de alerta»). */}
+      {s.pocosCasos && (
+        <FichaInformativa uso="alerta">
+          <p>Pocos casos: la tasa cambia mucho con una sola denuncia.</p>
+        </FichaInformativa>
+      )}
     </div>
   );
 }

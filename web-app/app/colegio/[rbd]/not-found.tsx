@@ -14,7 +14,7 @@ export default function NotFound() {
           Edubig no cubre.
         </p>
         <Link
-          href="/explorar"
+          href="/#explorar"
           className="min-h-[44px] self-start inline-flex items-center text-sm font-medium text-interaccion-enlace hover:text-interaccion-enlace-hover"
         >
           ← Buscar otro colegio

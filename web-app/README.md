@@ -42,7 +42,7 @@ La ubicación de la familia (GPS o comuna) vive solo en el navegador (`sessionSt
 /                       Home: Test de Calce (CTA) + "¿Dónde buscas colegio?"
 /test/q1 … q5c          Test de Calce v2 (Q4 pide la ubicación)
 /test/resultado         Shortlist de 3 + bloque sin datos + ampliar distancia
-/explorar               Exploración por comuna, GPS o nombre (lista y mapa)
+/explorar               Redirige al explorador de la Home (/#explorar), con los mismos filtros
 /colegio/[rbd]          Ficha (se renderiza a pedido en el servidor)
 /comparar?rbd=a,b,c     Comparación mínima de hasta 3 colegios
 ```
@@ -53,10 +53,10 @@ La ubicación de la familia (GPS o comuna) vive solo en el navegador (`sessionSt
 web-app/
 ├── app/                      Rutas (App Router)
 ├── components/
-│   ├── home/                 Hero, entrada a la exploración
-│   ├── explorar/             Exploración: filtros, tarjetas, mapa
+│   ├── home/                 Hero, explorador (filtros, lista y mapa)
+│   ├── explorar/             Mapa (Leaflet) del explorador
 │   ├── quiz/                 Test, shortlist, modal de ubicación
-│   ├── ficha/                Cabecera, Lo esencial, módulos, gráficos
+│   ├── ficha/                Cabecera, módulos, gráficos
 │   ├── comparar/             Comparación
 │   ├── ubicacion/            Selector GPS / comuna
 │   └── platform/ · ui/       Footer, Isologo, Icon

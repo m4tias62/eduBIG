@@ -93,11 +93,6 @@ export function serializeFiltros(f: FiltrosExploracion): string {
   return p.toString();
 }
 
-export function urlExplorar(f: FiltrosExploracion): string {
-  const qs = serializeFiltros(f);
-  return qs ? `/explorar?${qs}` : "/explorar";
-}
-
 /** v3: la exploración vive en la Home; los filtros van en la URL de «/». */
 export function urlInicio(f: FiltrosExploracion): string {
   const qs = serializeFiltros(f);
