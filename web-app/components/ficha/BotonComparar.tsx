@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Enlace } from "@/components/ui/Enlace";
 import { Icon } from "@/components/ui/Icon";
 import { Boton } from "@/components/ui/Boton";
 import { cn } from "@/lib/utils";
@@ -37,13 +37,9 @@ export function BotonComparar({ rbd, nombre }: { rbd: number; nombre: string }) 
         </p>
       )}
       {rbds.length >= 2 && (
-        <Link
-          href={url}
-          className="min-h-[44px] inline-flex items-center justify-center gap-xxs text-xs font-bold text-interaccion-enlace hover:text-interaccion-enlace-hover"
-        >
+        <Enlace href={url} iconoDerecha="arrow_forward" className="justify-center">
           Ver comparación ({rbds.length} de {maximo})
-          <Icon nombre="arrow_forward" size={16} />
-        </Link>
+        </Enlace>
       )}
     </div>
   );

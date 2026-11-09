@@ -18,10 +18,11 @@ import { Icon } from "@/components/ui/Icon";
 import { MarcadorColegio } from "@/components/viz/basicos";
 import { Globo } from "@/components/ui/Globo";
 import { EnlaceTexto } from "@/components/ui/EnlaceTexto";
+import { AccionEnlace } from "@/components/ui/Enlace";
 import { FichaInformativa } from "@/components/ui/FichaInformativa";
 import { Interruptor } from "@/components/ui/Interruptor";
-import { CHIP_BASE, ChipFiltro } from "@/components/ui/ChipFiltro";
-import { DESPLEGADO, PLEGADO } from "@/components/ui/SelectorFiltro";
+import { ChipFiltro } from "@/components/ui/ChipFiltro";
+import { EncabezadoPlegable } from "@/components/ui/Plegable";
 import {
   CeldaAcademico,
   CeldaBienestar,
@@ -352,14 +353,9 @@ function Controles({
         <Interruptor activo={soloCambia} onCambiar={setSoloCambia}>
           Mostrar solo lo que cambia
         </Interruptor>
-        <button
-          type="button"
-          onClick={verTabla}
-          className="inline-flex min-h-objetivo-tactil items-center gap-xs text-sm font-medium text-interaccion-enlace underline hover:text-interaccion-enlace-hover"
-        >
-          <Icon nombre="table_view" size={20} />
+        <AccionEnlace icono="table_view" onClick={verTabla}>
           Ver como tabla de datos
-        </button>
+        </AccionEnlace>
       </div>
       {soloCambia && (
         <p role="status" className="mt-xxs text-xs text-texto-secundario">
@@ -445,29 +441,16 @@ function TituloGrupo({
   idControl: string;
 }) {
   return (
-    <h2 className="text-md">
-      {/* v3 (Matías, 2026-11-05: «los dropdowns de la pantalla donde ya se
-          están comparando también deben estar alineados al sistema»): los
-          estados del botón de un desplegable (SelectorFiltro). Plegado:
-          blanco con borde rdbu-02 y flecha rdbu-01; hover rdbu-05;
-          presionado rdbu-04. Desplegado: rdbu-10 con texto rdbu-06; hover
-          rdbu-07 con texto rdbu-11. Foco: contorno de 2 px en rdbu-10. */}
-      <button
-        type="button"
-        aria-expanded={abierto}
-        aria-controls={idControl}
-        onClick={alternar}
-        className={clsx(
-          CHIP_BASE,
-          abierto ? DESPLEGADO : PLEGADO,
-          "w-full justify-start font-heading text-md font-bold lg:w-auto"
-        )}
-      >
-        <Icon nombre={grupo.icono} size={24} />
-        {grupo.titulo}
-        <Icon nombre={abierto ? "expand_less" : "expand_more"} size={24} className={clsx("ml-auto", !abierto && "text-rdbu-01")} />
-      </button>
-    </h2>
+    // Plegable unificado del sitio (2026-11-09): forma de la ficha con los
+    // estados del desplegable. En Comparar lleva solo ícono, título y flecha;
+    // la conclusión de cada colegio sigue debajo, en su columna.
+    <EncabezadoPlegable
+      icono={grupo.icono}
+      titulo={grupo.titulo}
+      abierto={abierto}
+      onAlternar={alternar}
+      idControl={idControl}
+    />
   );
 }
 

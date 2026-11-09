@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Icon } from "@/components/ui/Icon";
+import { AccionEnlace } from "@/components/ui/Enlace";
 
 export function CompartirEnlace({ texto = "Compartir esta comparación" }: { texto?: string }) {
   const [copiado, setCopiado] = useState(false);
@@ -20,13 +20,8 @@ export function CompartirEnlace({ texto = "Compartir esta comparación" }: { tex
     }
   }
   return (
-    <button
-      type="button"
-      onClick={compartir}
-      className="mt-m min-h-[44px] self-start inline-flex items-center gap-xs text-xs font-bold text-interaccion-enlace hover:text-interaccion-enlace-hover"
-    >
-      <Icon nombre="share" size={18} />
+    <AccionEnlace icono="share" onClick={compartir} className="-ml-xxs mt-m self-start">
       {copiado ? "Enlace copiado" : texto}
-    </button>
+    </AccionEnlace>
   );
 }

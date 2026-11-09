@@ -174,7 +174,7 @@ export function CeldaSeguridad({ colegio }: { colegio: ColegioComparado }) {
       {/* Ficha de alerta (anotación de Matías: «esas alertas "pocos casos"
           deberían ser fichas de alerta»). */}
       {s.pocosCasos && (
-        <FichaInformativa uso="alerta">
+        <FichaInformativa uso="alerta" compacta>
           <p>Pocos casos: la tasa cambia mucho con una sola denuncia.</p>
         </FichaInformativa>
       )}
@@ -198,11 +198,10 @@ export function CeldaBienestar({
         tipo="no_imparte"
         texto={`No imparte ${CURSO_GLOSA[curso]}`}
         explicacion={`Este colegio no tiene ${CURSO_GLOSA[curso]}. Elige otro curso para ver sus datos.`}
-        className="min-h-[120px]"
       />
     );
   if (b.estado === "sin_dato")
-    return <EstadoDato tipo="sin_dato" texto={`Sin datos publicados de ${CURSO_GLOSA[curso]}`} className="min-h-[120px]" />;
+    return <EstadoDato tipo="sin_dato" texto={`Sin datos publicados de ${CURSO_GLOSA[curso]}`} />;
   return (
     <div className="flex flex-col gap-s">
       {b.dims.map((d, i) => (
@@ -253,10 +252,9 @@ export function CeldaUniversidad({ colegio }: { colegio: ColegioComparado }) {
         tipo="no_imparte"
         texto="No imparte enseñanza media"
         explicacion="Este colegio no tiene enseñanza media, por eso no tiene egresados que ingresen a la universidad."
-        className="min-h-[88px]"
       />
     );
-  if (u.estado === "sin_dato") return <EstadoDato tipo="sin_dato" className="min-h-[88px]" />;
+  if (u.estado === "sin_dato") return <EstadoDato tipo="sin_dato" />;
   return (
     <div className="flex flex-col gap-xs">
       <BarraProporcion tasa={u.tasa!} similares={u.similares} posicion={colegio.posicion} />
@@ -284,7 +282,7 @@ export function CeldaCosto({ colegio }: { colegio: ColegioComparado }) {
       {tramo !== null ? (
         <PistaTramos tramo={tramo} posicion={colegio.posicion} />
       ) : (
-        <EstadoDato tipo="sin_informacion" className="py-xxs" />
+        <EstadoDato tipo="sin_informacion" />
       )}
     </div>
   );

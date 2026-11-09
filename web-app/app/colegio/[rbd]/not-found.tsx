@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Enlace } from "@/components/ui/Enlace";
 
 export default function NotFound() {
   return (
@@ -13,12 +13,9 @@ export default function NotFound() {
           en 2025 o que solo imparta educación de adultos o parvularia, que
           Edubig no cubre.
         </p>
-        <Link
-          href="/#explorar"
-          className="min-h-[44px] self-start inline-flex items-center text-sm font-medium text-interaccion-enlace hover:text-interaccion-enlace-hover"
-        >
-          ← Buscar otro colegio
-        </Link>
+        <Enlace href="/#explorar" icono="arrow_back" className="-ml-xxs self-start">
+          Buscar otro colegio
+        </Enlace>
       </div>
     </div>
   );

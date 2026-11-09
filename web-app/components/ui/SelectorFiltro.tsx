@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils";
 import { Icon } from "@/components/ui/Icon";
 import { CHIP_BASE } from "@/components/ui/ChipFiltro";
 
-/** Estados del botón de un desplegable; también los usan los encabezados
- *  plegables de la comparación (2026-11-05). */
+/** Estados del botón de un desplegable. Los encabezados plegables del sitio
+ *  (ui/Plegable) usan los mismos colores, sin la negrita al presionar. */
 export const PLEGADO =
   "border-rdbu-02 bg-superficie-base text-texto-primario hover:bg-rdbu-05 active:bg-rdbu-04 active:font-bold";
 export const DESPLEGADO =

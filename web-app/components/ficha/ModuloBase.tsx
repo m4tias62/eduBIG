@@ -1,11 +1,14 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
-import { Icon } from "@/components/ui/Icon";
-import { cn } from "@/lib/utils";
+import { useId, useState, type ReactNode } from "react";
+import { EncabezadoPlegable } from "@/components/ui/Plegable";
 
 /**
  * Wrapper colapsable de módulo de ficha.
+ *
+ * v3 (2026-11-09): el encabezado es el plegable unificado del sitio
+ * (EncabezadoPlegable: forma de la ficha con los estados del desplegable).
+ * Abierto, el contenido sigue en una tarjeta blanca bajo el encabezado.
  *
  * Espejo del component set `Módulo <X>` de Figma con variantes
  * Estado=Cerrado / Estado=Abierto. En web usamos useState + rotación
@@ -31,42 +34,30 @@ export function ModuloBase({
   children: ReactNode;
 }) {
   const [open, setOpen] = useState(defaultOpen);
+  const id = useId();
 
   return (
-    <section className="bg-superficie-base border border-borde-sutil rounded-m overflow-hidden">
-      <button
-        type="button"
-        onClick={() => setOpen((o) => !o)}
-        aria-expanded={open}
-        className="w-full flex items-start gap-m p-l text-left hover:bg-superficie-elevada transition-colors"
-      >
-        <Icon nombre={icono} size={20} className="text-texto-primario mt-xxs" />
-        <div className="flex-1 flex flex-col gap-xxs">
-          <h3 className="text-sm font-bold text-texto-primario">{titulo}</h3>
-          <p className="text-xs text-texto-secundario">{conclusion}</p>
-        </div>
-        <Icon
-          nombre="arrow_drop_down"
-          size={24}
-          className={cn(
-            "text-texto-secundario transition-transform",
-            open ? "rotate-0" : "-rotate-90"
-          )}
-        />
-      </button>
+    <section className="flex flex-col">
+      <EncabezadoPlegable
+        nivel="h3"
+        icono={icono}
+        titulo={titulo}
+        conclusion={conclusion}
+        abierto={open}
+        onAlternar={() => setOpen((o) => !o)}
+        idControl={id}
+        className={open ? "[&>button]:rounded-b-none" : undefined}
+      />
 
       {open && (
-        <>
-          <div className="h-px w-full bg-borde-sutil" />
-          <div className="p-l pt-m flex flex-col gap-xl">
-            {children}
-            {fuente && (
-              <div className="flex flex-col gap-xxs pt-m border-t border-borde-sutil">
-                <p className="text-2xs text-texto-terciario">{fuente}</p>
-              </div>
-            )}
-          </div>
-        </>
+        <div id={id} className="flex flex-col gap-xl rounded-b-s border-x border-b border-borde-sutil bg-superficie-base p-l pt-m">
+          {children}
+          {fuente && (
+            <div className="flex flex-col gap-xxs pt-m border-t border-borde-sutil">
+              <p className="text-2xs text-texto-terciario">{fuente}</p>
+            </div>
+          )}
+        </div>
       )}
     </section>
   );

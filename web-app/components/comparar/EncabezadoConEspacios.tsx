@@ -6,6 +6,7 @@ import { COLOR_COLEGIO, type Posicion } from "@/lib/viz";
 import { MarcadorColegio } from "@/components/viz/basicos";
 import { BotonQuitar } from "./BotonQuitar";
 import { EnlaceTexto } from "@/components/ui/EnlaceTexto";
+import { AccionEnlace } from "@/components/ui/Enlace";
 import { BuscadorAgregar, EspaciosLibres, type Actual } from "./AgregarColegio";
 
 /**
@@ -57,20 +58,15 @@ export function EncabezadoConEspacios({
                     <BotonQuitar rbd={c.rbd} nombre={c.nombre} href="/comparar" />
                   </>
                 ) : (
-                  <button
-                    type="button"
+                  <AccionEnlace
+                    icono="add"
                     aria-expanded={abierta === p}
                     onClick={() => setAbierta(abierta === p ? null : p)}
-                    className={clsx(
-                      "inline-flex min-h-objetivo-tactil items-center gap-xs self-start rounded-s pr-s text-sm font-medium text-interaccion-enlace underline underline-offset-2 transition-colors hover:bg-interaccion-tinte hover:text-interaccion-enlace-hover",
-                      abierta === p && "bg-interaccion-tinte"
-                    )}
+                    className={clsx("-ml-xxs self-start", abierta === p && "bg-interaccion-tinte text-interaccion-enlace-hover")}
                   >
-                    <span aria-hidden className="material-symbols-outlined text-[20px] no-underline">
-                      add
-                    </span>
                     Agregar un colegio
-                  </button>
+                    <span className="sr-only"> en el espacio {p}</span>
+                  </AccionEnlace>
                 )}
               </li>
             );

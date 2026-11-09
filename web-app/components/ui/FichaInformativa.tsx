@@ -39,6 +39,7 @@ export function FichaInformativa({
   titulo,
   nivelTitulo = "h2",
   idTitulo,
+  compacta = false,
   children,
   className,
 }: {
@@ -47,15 +48,18 @@ export function FichaInformativa({
   /** Nivel del título en la página (en Comparar es el h1). */
   nivelTitulo?: "h1" | "h2" | "h3";
   idTitulo?: string;
+  /** Para columnas angostas (celdas de Comparar): separaciones de 12–16 px
+   *  en vez de 25–32, para que el texto no quede en una columna mínima. */
+  compacta?: boolean;
   children: ReactNode;
   className?: string;
 }) {
   const Titulo = nivelTitulo;
   const tipo = TIPO[uso];
   return (
-    <div className={cn("flex gap-m px-m pb-[11px] pt-s sm:gap-xl sm:px-l", FONDO[uso], className)}>
+    <div className={cn("flex gap-m px-m pb-[11px] pt-s", !compacta && "sm:gap-xl sm:px-l", FONDO[uso], className)}>
       {/* Ícono y línea: decorativos. */}
-      <div aria-hidden className="flex shrink-0 items-start gap-s sm:gap-[25px]">
+      <div aria-hidden className={cn("flex shrink-0 items-start gap-s", !compacta && "sm:gap-[25px]")}>
         <Icon nombre={ICONO[uso]} size={24} className="text-rdbu-01" />
         <span className="w-px self-stretch bg-rdbu-01" />
       </div>
@@ -73,11 +77,11 @@ export function FichaInformativa({
             {titulo}
           </Titulo>
         )}
-        {/* Enlaces dentro de la ficha en #003078 (8,6:1 o más sobre los tres
-            fondos; el azul de enlace habitual no llega a 4,5:1 sobre el
-            celeste). En hover, el subrayado se engruesa: el color de
-            «activo» ahora es gris (#373737) y no se lee como enlace. */}
-        <div className="[&_a:hover]:decoration-2 [&_a]:text-interaccion-enlace-hover [&_a]:underline [&>p+p]:mt-l">
+        {/* Enlaces escritos dentro de la ficha: los estados del enlace del
+            sitio (Enlace, sobre color): #003078 (8,6:1 o más sobre los tres
+            fondos), subrayado de 1 px que pasa a 2 px en hover y presionado,
+            fondo celeste claro al presionar y foco en rdbu-01. */}
+        <div className="[&>p+p]:mt-l [&_a:active]:bg-interaccion-tinte [&_a:focus-visible]:outline [&_a:focus-visible]:outline-2 [&_a:focus-visible]:outline-offset-2 [&_a:focus-visible]:outline-rdbu-01 [&_a:hover]:decoration-2 [&_a]:text-interaccion-enlace-hover [&_a]:underline [&_a]:decoration-1 [&_a]:underline-offset-[3px]">
           {tipo && <span className="sr-only">{tipo}: </span>}
           {children}
         </div>

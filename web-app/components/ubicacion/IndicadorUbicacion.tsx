@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Icon } from "@/components/ui/Icon";
+import { AccionEnlace } from "@/components/ui/Enlace";
 import { useComunas } from "@/lib/data/cliente";
 import { useUbicacion } from "@/lib/ubicacion";
 import { cn } from "@/lib/utils";
@@ -30,14 +31,10 @@ export function IndicadorUbicacion({ className }: { className?: string }) {
           <Icon nombre={ubicacion?.tipo === "gps" ? "my_location" : "location_city"} size={16} />
           {texto}
         </span>
-        <button
-          type="button"
-          onClick={() => setAbierto((a) => !a)}
-          aria-expanded={abierto}
-          className="min-h-[44px] px-xs text-2xs font-bold text-interaccion-enlace hover:text-interaccion-enlace-hover"
-        >
+        {/* Sobre el gris del indicador: reposo en #003078 (sobreColor). */}
+        <AccionEnlace sobreColor onClick={() => setAbierto((a) => !a)} aria-expanded={abierto} className="flex-none">
           {abierto ? "Cerrar" : "Cambiar"}
-        </button>
+        </AccionEnlace>
       </div>
       {abierto && <SelectorUbicacion onListo={() => setAbierto(false)} />}
     </div>

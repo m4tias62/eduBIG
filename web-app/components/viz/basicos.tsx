@@ -4,6 +4,8 @@ import type { ReactNode } from "react";
 import clsx from "clsx";
 import { Icon } from "@/components/ui/Icon";
 import { Globo } from "@/components/ui/Globo";
+import { FichaInformativa } from "@/components/ui/FichaInformativa";
+import { claseEnlace } from "@/components/ui/Enlace";
 
 export { Globo };
 import { COLOR_COLEGIO, estadoSig, type Posicion, type Significancia } from "@/lib/viz";
@@ -82,9 +84,15 @@ const POR_QUE_SIN_DATO =
   "La fuente oficial no publicó este dato para este colegio. Edubig no estima datos que la fuente no publica.";
 
 /**
- * Datos faltantes, con el mismo alto que el gráfico que reemplazan. Nunca una
- * celda vacía, un guion solo ni un cero en lugar de "sin dato".
- * "No imparte" va sin trama: no es un faltante, es una característica.
+ * Datos faltantes en lugar de un gráfico. Nunca una celda vacía, un guion
+ * solo ni un cero en lugar de "sin dato".
+ *
+ * v3 (2026-11-09, anotación de Matías: «debería tener aplicadas las que
+ * diseñamos»): usa la ficha informativa en su versión compacta.
+ * - Sin datos publicados, Sin información y Pocos casos: ficha de alerta.
+ * - No imparte: ficha informativa (no es un faltante ni una advertencia, es
+ *   una característica del colegio).
+ * «¿Por qué?» abre el globo con la explicación y usa el enlace del sitio.
  */
 export function EstadoDato({
   tipo,
@@ -100,28 +108,19 @@ export function EstadoDato({
   const e = ESTADO_DATO[tipo];
   const porQue = explicacion ?? (tipo === "sin_dato" ? POR_QUE_SIN_DATO : undefined);
   return (
-    <div
-      className={clsx(
-        "relative flex flex-wrap items-center gap-x-xs rounded-s px-s py-xs text-xs text-texto-secundario",
-        e.trama ? "bg-viz-pista bg-viz-faltante-trama" : "bg-viz-pista",
-        className
-      )}
-    >
-      <Icon nombre={e.icono} size={16} className="text-texto-secundario" />
-      <span className="py-xxs">{texto ?? e.texto}</span>
-      {porQue &&
-        (tipo === "sin_dato" ? (
-          <Globo
-            texto={porQue}
-            sinIcono
-            claseDisparador="text-interaccion-enlace underline hover:text-interaccion-enlace-hover"
-          >
-            ¿Por qué?
-          </Globo>
-        ) : (
-          <Globo texto={porQue} etiqueta={`Por qué: ${texto ?? e.texto}`} />
-        ))}
-    </div>
+    <FichaInformativa uso={tipo === "no_imparte" ? "informativo" : "alerta"} compacta className={className}>
+      <p>
+        {texto ?? e.texto}
+        {porQue && (
+          <>
+            {" "}
+            <Globo texto={porQue} sinIcono claseDisparador={claseEnlace({ enLinea: true, sobreColor: true })}>
+              ¿Por qué?
+            </Globo>
+          </>
+        )}
+      </p>
+    </FichaInformativa>
   );
 }
 

@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { runMotor, type Alcance, type ResultadoMotor } from "@/lib/motor";
@@ -26,6 +25,7 @@ import { IndicadorUbicacion } from "@/components/ubicacion/IndicadorUbicacion";
 import Isologo from "@/components/platform/Isologo";
 import { Icon } from "@/components/ui/Icon";
 import { BotonEnlace } from "@/components/ui/Boton";
+import { AccionEnlace, Enlace } from "@/components/ui/Enlace";
 import { FichaInformativa } from "@/components/ui/FichaInformativa";
 
 /**
@@ -131,12 +131,9 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
         <NotaLegitimacion>
           Armamos tu lista con lo que nos dijiste: {resumen.join(" · ")}. No hay una combinación
           correcta: es la de tu familia.{" "}
-          <Link
-            href={nextUrl("/test/q1", previas, {})}
-            className="font-bold text-interaccion-enlace underline hover:text-interaccion-enlace-hover"
-          >
+          <Enlace href={nextUrl("/test/q1", previas, {})} enLinea sobreColor>
             Ajustar respuestas
-          </Link>
+          </Enlace>
         </NotaLegitimacion>
         </div>
 
@@ -226,14 +223,9 @@ export function ShortlistResultado({ previas }: { previas: RespuestasParciales }
           )}
 
           {r && (
-            <button
-              type="button"
-              onClick={compartir}
-              className="min-h-[44px] inline-flex items-center justify-center gap-xs text-xs font-bold text-interaccion-enlace hover:text-interaccion-enlace-hover lg:self-start"
-            >
-              <Icon nombre="share" size={18} />
+            <AccionEnlace icono="share" onClick={compartir} className="justify-center lg:-ml-xxs lg:self-start">
               {copiado ? "Enlace copiado" : "Compartir esta lista"}
-            </button>
+            </AccionEnlace>
           )}
         </div>
       </section>

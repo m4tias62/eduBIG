@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useMemo, useRef, useState } from "react";
-import { EnlaceTexto } from "@/components/ui/EnlaceTexto";
+import { AccionEnlace, Enlace } from "@/components/ui/Enlace";
 import { useRouter } from "next/navigation";
 import clsx from "clsx";
 import { useDatosNacionales } from "@/lib/data/cliente";
@@ -53,20 +53,23 @@ export function BotonEspacioLibre({
   onClick: () => void;
   conTexto?: boolean;
 }) {
+  // v3 (2026-11-09): el enlace del sitio (AccionEnlace). El marcador queda
+  // fuera, como apoyo visual; el número va en el nombre accesible.
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-expanded={abierto}
-      className={clsx(
-        "group inline-flex min-h-objetivo-tactil items-center gap-xs rounded-s pr-s text-sm font-medium text-interaccion-enlace transition-colors hover:bg-interaccion-tinte hover:text-interaccion-enlace-hover active:bg-interaccion-tinte",
-        abierto && "bg-interaccion-tinte"
-      )}
-    >
-      <MarcadorColegio posicion={posicion} libre />
-      <Icon nombre="add" size={20} />
-      <span className="underline underline-offset-2">{conTexto ? "Agregar un colegio" : "Agregar"}</span>
-    </button>
+    <span className="inline-flex items-center gap-xs">
+      <span aria-hidden>
+        <MarcadorColegio posicion={posicion} libre />
+      </span>
+      <AccionEnlace
+        icono="add"
+        onClick={onClick}
+        aria-expanded={abierto}
+        className={clsx(abierto && "bg-interaccion-tinte text-interaccion-enlace-hover")}
+      >
+        {conTexto ? "Agregar un colegio" : "Agregar"}
+        <span className="sr-only"> en el espacio {posicion}</span>
+      </AccionEnlace>
+    </span>
   );
 }
 
@@ -234,12 +237,10 @@ export function BuscadorAgregar({
       )}
       {/* 2026-11-09 (Matías: «cuando uno agrega un colegio desde aquí debería
           llevarme a Comparar colegios»): baja al explorador de esta misma
-          página, en vez de la página /explorar antigua. Enlace de texto del
-          sitio. */}
-      <EnlaceTexto href="#explorar" className="-ml-xxs gap-xxs self-start">
+          página, en vez de la página /explorar antigua. */}
+      <Enlace href="#explorar" iconoDerecha="arrow_downward" className="-ml-xxs self-start">
         O búscalo más abajo, con mapa y filtros
-        <Icon nombre="arrow_downward" size={20} />
-      </EnlaceTexto>
+      </Enlace>
     </div>
   );
 }

@@ -5,8 +5,7 @@ import { CURSOS, CURSO_GLOSA } from "@/lib/data/detalle";
 import { DIMS_COMPARAR, MATERIAS, MATERIA_GLOSA, type CeldaSimce, type ColegioComparado } from "@/lib/data/comparacion";
 import { pct } from "@/lib/data/formatters";
 import { conSigno, estadoSig } from "@/lib/viz";
-import { Icon } from "@/components/ui/Icon";
-import { CHIP_BASE } from "@/components/ui/ChipFiltro";
+import { ContenidoPlegable, PLEGABLE_BASE } from "@/components/ui/Plegable";
 
 /**
  * "Ver como tabla de datos": todos los valores por curso en tablas simples,
@@ -115,22 +114,18 @@ export const TablaDatos = forwardRef<HTMLDetailsElement, { colegios: ColegioComp
 
   return (
     <details ref={ref} id="tabla-datos" className="group mt-xl border-t border-borde-sutil pt-l">
-      {/* Estados del botón de un desplegable (SelectorFiltro), como los
-          encabezados de cada grupo; abierto = estilo «desplegado». Clases
+      {/* Plegable unificado del sitio (2026-11-09), como los encabezados de
+          cada grupo; abierto = estilo «desplegado» (group-open). Clases
           escritas completas: Tailwind no detecta clases armadas. */}
       <summary
         className={
-          CHIP_BASE +
-          " w-full cursor-pointer list-none justify-start font-heading text-md font-bold lg:w-auto [&::-webkit-details-marker]:hidden " +
+          PLEGABLE_BASE +
+          " cursor-pointer list-none [&::-webkit-details-marker]:hidden " +
           "border-rdbu-02 bg-superficie-base text-texto-primario hover:bg-rdbu-05 active:bg-rdbu-04 " +
           "group-open:border-rdbu-11 group-open:bg-rdbu-10 group-open:text-rdbu-06 group-open:hover:bg-rdbu-07 group-open:hover:text-rdbu-11 group-open:active:bg-rdbu-10 group-open:active:text-rdbu-06"
         }
       >
-        <Icon nombre="table_view" size={24} />
-        Tabla de datos
-        {/* «!»: la hoja de Material Symbols también fija el display del ícono. */}
-        <Icon nombre="expand_more" size={24} className="ml-auto text-rdbu-01 group-open:!hidden" />
-        <Icon nombre="expand_less" size={24} className="ml-auto !hidden group-open:!inline-block" />
+        <ContenidoPlegable icono="table_view" titulo="Tabla de datos" />
       </summary>
       <div className="mt-l flex flex-col gap-xxl">
         <Tabla titulo="Seguridad" colegios={colegios} filas={seguridad} />
